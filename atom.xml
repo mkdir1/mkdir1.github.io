@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-09T15:13:31+08:00</updated>
+  <updated>2014-07-09T15:44:10+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -905,6 +905,40 @@ _   底线
 </code></pre>
 
 <p>(The first Blog, just for testing&hellip;)</p>
+
+<hr />
+
+<h5>Octopress的搭建</h5>
+
+<p>经过一整天的学习与尝试，这个小站总算初入法眼．添加了一系列的功能与插件，包括：</p>
+
+<ol>
+<li><p>duoshuo评论</p></li>
+<li><p>微博展示</p></li>
+<li><p>分享</p></li>
+<li><p>访客地图</p></li>
+<li><p>推荐</p></li>
+<li><p>Recent Post</p></li>
+<li><p>Categories(There are something wrong)</p></li>
+<li><p>Footer和Header的编辑</p></li>
+<li><p>404页面</p></li>
+</ol>
+
+
+<p>算是初具规模吧，而且还可以插图哦，先来张美女图，哈哈</p>
+
+<p><img src="" title="/images/cat_flying.jpg" alt="哈哈" /></p>
+
+<h5>TODO List</h5>
+
+<p>还有完善的地方，暂居于此</p>
+
+<ol>
+<li><p>标签和页面分类</p></li>
+<li><p>Tabs页面不知道如何定位了</p></li>
+<li><p>Music</p></li>
+</ol>
+
 
 <hr />
 ]]></content>
