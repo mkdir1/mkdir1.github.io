@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Linux | Vintion's blog]]></title>
+  <link href="http://mkdir1.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://mkdir1.github.io/"/>
+  <updated>2014-07-09T21:13:48+08:00</updated>
+  <id>http://mkdir1.github.io/</id>
+  <author>
+    <name><![CDATA[Vintion]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux下常用的软件汇集]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji/"/>
+    <updated>2014-07-09T20:29:04+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji</id>
+    <content type="html"><![CDATA[<h3>Linux下常用的软件合集</h3>
+
+<p>自己所用的环境一直是Linux,版本是最新的Ubuntu14.04.</p>
+
+<p>其它版本的linux未尝试，实属遗憾，先把自己所用的环境整理一番</p>
+
+<hr />
+
+<h4>工作必备</h4>
+
+<ul>
+<li>Chrome/Firefox.(Vimium)</li>
+<li>Thunderbird</li>
+<li>为知笔记(Evernote也很不错，不过在linux下只有这个支持得不错，且用户量也大)</li>
+<li>搜狗五笔(支持linux真心不错，业界良心，其它的什么一直使用不便)</li>
+<li>Samba</li>
+<li>QQ，（这个需要自己想办法，不过至今有一个完全支持的版本，总是bug不断)</li>
+<li>Ffmpeg&amp;VLC</li>
+<li>rdesktop</li>
+<li>syspeek</li>
+<li>deeping-Music-play</li>
+<li>wps&amp;liboffice(有些要自己安装)</li>
+<li>星际译王</li>
+<li>synergy</li>
+<li>skype</li>
+<li>variety(这个软件使得Linux有了windows上aero的效果)</li>
+<li>Dropbox</li>
+<li>OpenFetion</li>
+<li>Filezilla
+&ndash;. Freemind</li>
+<li>Wine</li>
+<li>豆瓣fm</li>
+<li>Tweak</li>
+<li>Gimp</li>
+<li>SMplayer</li>
+<li>Adobe Flash</li>
+<li>福昕PDF</li>
+<li>Cairo-Dock(这个搞得像Mac)</li>
+<li>抓虾(git上的zx)</li>
+</ul>
+
+
+<hr />
+
+<h4>程序员必备</h4>
+
+<p>这个应该没什么是必备的，程序员的世界无法看遍．下面是老夫用的，bin下面一大堆，只列几个正在用的
+-1 Vim(推荐k-vim)
+-2 QT
+-3 retext
+-4 eclipse
+-5 mysql
+-6 python
+-7 git&amp;svn
+-8 ssh
+-9 Wireshark
+-10 codeblocks
+-11 Texmaker
+-12 VirtualBox
+-13 JAVA
+-14 g++</p>
+
+<hr />
+
+<h5>原则</h5>
+
+<ul>
+<li>不折腾不舒服，不尝试无发言权</li>
+<li>数学和音乐让我又度过了无聊的一天</li>
+<li>一天不学，落后</li>
+<li>记在纸上的，永远记不住</li>
+<li>用不上的，最好不要学，除非是装13</li>
+<li>永远不要看电视剧，看下情节概要就行</li>
+<li>人生如戏，就看演技　</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
