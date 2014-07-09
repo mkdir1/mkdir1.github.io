@@ -11,7 +11,7 @@
   
   <meta name="description" content="Blog Archive 2014 Markdown
 Jul 08 2014 posted in tools Hello Octopress
-Jul 08 2014 Recent Posts Markdown Hello Octopress 推荐 伯乐在线 About Me A little &hellip;">
+Jul 08 2014 Categories {% category_list %} Recent Posts Markdown Hello &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -116,6 +116,12 @@ Jul 08 2014 Recent Posts Markdown Hello Octopress 推荐 伯乐在线 About Me A
 <aside class="sidebar">
   
     <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    {% category_list %} 
+  </ul>
+</section>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -153,12 +159,6 @@ Jul 08 2014 Recent Posts Markdown Hello Octopress 推荐 伯乐在线 About Me A
     <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2704830175&verifier=af8051c9&dpc=1"></iframe>
       </li>
     </ul>
-</section>
-<section>
-  <h1>Categories</h1>
-  <ul id="categories">
-    {% category_list %} 
-  </ul>
 </section>
 
   

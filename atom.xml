@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-09T15:44:10+08:00</updated>
+  <updated>2014-07-09T16:00:45+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -927,7 +927,7 @@ _   底线
 
 <p>算是初具规模吧，而且还可以插图哦，先来张美女图，哈哈</p>
 
-<p><img src="" title="/images/cat_flying.jpg" alt="哈哈" /></p>
+<p><img src="http://mkdir1.github.io/images/cat_flying.jpg"></p>
 
 <h5>TODO List</h5>
 
