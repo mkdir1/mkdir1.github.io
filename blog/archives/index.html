@@ -11,7 +11,7 @@
   
   <meta name="description" content="Blog Archive 2014 Markdown
 Jul 08 2014 posted in tools Hello Octopress
-Jul 08 2014 Included file 'asides/categorylist.html' not found in _includes &hellip;">
+Jul 08 2014 Categories {% category_list %} Recent Posts Markdown Hello &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,7 +115,13 @@ Jul 08 2014 Included file 'asides/categorylist.html' not found in _includes &hel
 
 <aside class="sidebar">
   
-    Included file 'asides/categorylist.html' not found in _includes directory<section>
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    {% category_list %} 
+  </ul>
+</section>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
