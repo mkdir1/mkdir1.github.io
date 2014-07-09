@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Vintion's blog 有点文化的小流氓]]></title>
-  <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Tools | Vintion's blog 有点文化的小流氓]]></title>
+  <link href="http://mkdir1.github.io/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
   <updated>2014-07-09T10:21:49+08:00</updated>
   <id>http://mkdir1.github.io/</id>
@@ -20,7 +20,7 @@
     <id>http://mkdir1.github.io/blog/2014/07/08/markdown</id>
     <content type="html"><![CDATA[<p><strong>NOTE:</strong> This is Simplelified  Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a>.</p>
 
-<p><strong>注：</strong> 本项目托管于 [GitCafe][]上，请通过&#8221;派生&#8221;和&#8221;合并请求&#8221;来帮忙改进本项目。</p>
+<p><strong>注：</strong> 本项目托管于 [GitCafe][]上，请通过"派生"和"合并请求"来帮忙改进本项目。</p>
 
 <h1>Markdown 语法说明 (简体中文版) </h1>
 
@@ -889,22 +889,6 @@ _   底线
 
 
 <p>*** 如有更好的 Markdown 免费编辑器推荐，请到<a href="https://gitcafe.com/riku/Markdown-Syntax-CN/tickets/1">这里反馈</a>，谢谢！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello Octopress]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/08/hello-octopress/"/>
-    <updated>2014-07-08T21:30:04+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/08/hello-octopress</id>
-    <content type="html"><![CDATA[<h4>First Blog</h4>
-
-<pre><code>Hello World!
-</code></pre>
-
-<p>(The first Blog, just for testing&hellip;)</p>
-
-<hr />
 ]]></content>
   </entry>
   

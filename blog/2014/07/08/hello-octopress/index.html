@@ -218,6 +218,25 @@ var duoshuoQuery = {short_name:"vintion"};
     </ul>
 </section>
 
+<section>
+  <h1>Douban Status</h1>
+  <ul id="douban_status">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://www.douban.com/people/your_douban_username">@your_douban_username</a> on Douban
+  <script type="text/javascript">
+    $.domReady(function(){
+        douban.showUser({
+            user: 'your_douban_username',
+            apikey: '',
+            category: '',
+        });
+    });
+  </script>
+  <script src="/javascripts/douban.js" type="text/javascript"> </script>
+</section>
+
+
   
 </aside>
 
@@ -225,7 +244,7 @@ var duoshuoQuery = {short_name:"vintion"};
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - <a href="http://www.lijinma.com" target="_blank">Vintion</a> -
+  Copyright &copy; 2014 - <a href="http://mkdir1.github.io" target="_blank">Vintion</a> -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
