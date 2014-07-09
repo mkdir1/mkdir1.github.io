@@ -1,10 +1,8 @@
-
 ---
-layout: post
-title: "Hello Octopress"
-date: 2014-07-08 21:30:04 +0800
+layout: page
+title: "about"
+date: 2014-07-09 15:00
 comments: true
-categories: 
-
+sharing: true
+footer: true
 ---
-
