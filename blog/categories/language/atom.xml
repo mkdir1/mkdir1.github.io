@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Language | Vintion's blog]]></title>
+  <link href="http://mkdir1.github.io/blog/categories/language/atom.xml" rel="self"/>
+  <link href="http://mkdir1.github.io/"/>
+  <updated>2014-07-09T18:33:05+08:00</updated>
+  <id>http://mkdir1.github.io/</id>
+  <author>
+    <name><![CDATA[Vintion]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Markdonw语法简要]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/09/markdonwyu-fa-jian-yao/"/>
+    <updated>2014-07-09T16:39:07+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/09/markdonwyu-fa-jian-yao</id>
+    <content type="html"><![CDATA[<h3>Markdonw语法简要</h3>
+
+<p>此处权当工具参考之用，可覆盖90%应用</p>
+
+<hr />
+
+<h5>标题和加粗斜体</h5>
+
+<ul>
+<li>用#的个数表示标题大小</li>
+<li>粗体和斜体用星号来括起来</li>
+</ul>
+
+
+<hr />
+
+<h5>图片和链接</h5>
+
+<ul>
+<li><p>链接
+[linkname](url,&ldquo;description&rdquo;)</p></li>
+<li><p>图片 <br/>
+![name](url,&ldquo;title&rdquo;)
+  直接&lt;img>标签可以改变大小，这个可以尝试</p></li>
+<li><p>两者都可以引用表示</p></li>
+</ul>
+
+
+<hr />
+
+<h5>引用</h5>
+
+<ul>
+<li>在行首加上&lt;即可，可嵌套使用</li>
+<li>引用内可支持其它的Markdown语法</li>
+<li>\用来转义</li>
+</ul>
+
+
+<h5>列表</h5>
+
+<ul>
+<li>使用+/-/*俱可</li>
+</ul>
+
+
+<h5>代码块</h5>
+
+<ul>
+<li>代码块用一个tab或四个空格，块内的格式将保留，一直会持续到没有tab或文件完</li>
+<li>可直接加入html标签，但前后要加空行</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
