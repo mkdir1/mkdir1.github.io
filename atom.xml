@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-09T23:35:59+08:00</updated>
+  <updated>2014-07-10T01:02:57+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[C语言中char *a与char A[]的区别]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/"/>
+    <updated>2014-07-09T23:41:57+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie</id>
+    <content type="html"><![CDATA[<h4>C语言char s[] 和 char *s的区别</h4>
+
+<p>看如下的代码，区别立现</p>
+
+<pre><code>char *s = "hello world";
+char s[] = "hello world"
+</code></pre>
+
+<p>区别在于<strong>前者是指针，后者是数组</strong></p>
+
+<pre><code>char *s是一个指向只读区域的指针，只读区域是hello world
+char s[]是一个数组，内容是拷贝了只读区别的数据
+</code></pre>
+
+<p>前者指针指向的内容不能变，后者可变</p>
+
+<hr />
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux启动流程]]></title>
