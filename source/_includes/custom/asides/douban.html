@@ -1,0 +1,19 @@
+{% if site.douban_user %}
+<section>
+  <h1>Douban Status</h1>
+  <ul id="douban_status">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <a href="https://www.douban.com/people/{{site.douban_user}}">@{{site.douban_user}}</a> on Douban
+  <script type="text/javascript">
+    $.domReady(function(){
+        douban.showUser({
+            user: '{{site.douban_user}}',
+            apikey: '{{site.douban_apikey}}',
+            category: '{{site.douban_display_category}}',
+        });
+    });
+  </script>
+  <script src="{{ root_url }}/javascripts/douban.js" type="text/javascript"> </script>
+</section>
+{% endif %}
