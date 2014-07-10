@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-10T18:49:44+08:00</updated>
+  <updated>2014-07-10T20:23:19+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -78,6 +78,7 @@
 <li>deeping-Music-play</li>
 <li>wps&amp;liboffice(有些要自己安装)</li>
 <li>星际译王</li>
+<li>unoconv和pandoc</li>
 <li>synergy</li>
 <li>skype</li>
 <li>variety(这个软件使得Linux有了windows上aero的效果)</li>

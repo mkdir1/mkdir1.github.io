@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-10T18:49:44+08:00</updated>
+  <updated>2014-07-10T20:23:19+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -26,10 +26,10 @@
 
 <h4>之前的解决方案</h4>
 
-<p>可以在这几个网址上完成转换:
-&ndash; 1 <a href="http://maxiang.info/">马克飞象</a>,这个很方便，可以同步evernote，b也有不错的界面，是目前我最看好的一个．但唯一不爽的是保存的pdf中竟然有它的logo这个真是要命</p>
+<p>可以在这几个网址上完成转换:</p>
 
 <ul>
+<li><p>1 <a href="http://maxiang.info/">马克飞象</a>,这个很方便，可以同步evernote，b也有不错的界面，是目前我最看好的一个．但唯一不爽的是保存的pdf中竟然有它的logo这个真是要命</p></li>
 <li><p>2 <a href="https://stackedit.io/">statedit</a>,这个也不错，和前者很像．应该大部分这类网站都是这个风格，在没有搭建好本地的转换的时候，本人一直是在这上面完成pdf转换的，想来真是折腾啊</p></li>
 <li><p>3 再一个就是linux下的retext了，这是个简单的免费工具，文本操作，对于vim程序员确实使用不爽，唯一的用处就是预览和修改用</p></li>
 <li><p>4 还好，linux下面有一个markdown的命令，使用也简单，也<code>sudo apt-get isntall markdwon</code>就行.不过令人不爽的是，html乱码，对中文支持不够，看了官网上的，好像还是2004年的更新，所以一定有我这样的志士仁人受不了</p></li>
@@ -106,6 +106,17 @@ Options:
 
 
 <p>加&mdash;ascii后html不会乱码</p>
+
+<h4>转为pdf</h4>
+
+<p>这个历程真是坑，转为pdf的软件何其多，当初很2的选择了xhtml2pdf.这个软件我至今还没安装好，依赖包好多，PIL, Reporlab．最后安装好了，还是出问题．当时的想法就是换一个软件．终于有一个神器出现了</p>
+
+<pre><code>sudo apt-get install unoconv
+</code></pre>
+
+<p>使用也很方便，<code>unoconv -f pdf demo.html</code></p>
+
+<p>为什么说<strong>unoconv</strong>是神器了，用了才知道它支持好多格式，常用的几乎包含了．</p>
 ]]></content>
   </entry>
   
@@ -365,6 +376,7 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
 <li>deeping-Music-play</li>
 <li>wps&amp;liboffice(有些要自己安装)</li>
 <li>星际译王</li>
+<li>unoconv和pandoc</li>
 <li>synergy</li>
 <li>skype</li>
 <li>variety(这个软件使得Linux有了windows上aero的效果)</li>
