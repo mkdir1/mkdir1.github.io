@@ -1,0 +1,9 @@
+#!/bin/sh
+filelist=`find * -type f -name '*.md'`
+filelists=`find * -type f -name '*.markdown'`
+for file in $filelist $filelists
+do
+    htmlfile=${file%.*}.html
+    pandoc --ascii $file -o $htmlfile
+    unoconv -f pdf $htmlfile
+done

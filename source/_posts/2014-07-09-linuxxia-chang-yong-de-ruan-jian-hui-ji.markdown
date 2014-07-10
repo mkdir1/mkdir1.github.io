@@ -29,6 +29,7 @@ keyword: linux software
 - deeping-Music-play
 - wps&liboffice(有些要自己安装)
 - 星际译王
+- unoconv和pandoc
 - synergy
 - skype
 - variety(这个软件使得Linux有了windows上aero的效果)
