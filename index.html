@@ -106,51 +106,33 @@
 
 <p>Little Bob loves chocolates, and goes to the store with N money in his pocket. The price of each chocolate is C . The store offers a discount: for every M wrappers he gives the store, he&rsquo;ll get one chocolate for free. How many chocolates does Bob get to eat?</p>
 
-<p>Input Format:</p>
+<p><strong>Input Format:</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>The first line contains the number of test cases $T (&lt;=1000)$. 
-</span><span class='line'>T lines follow, each of which contains three integers N, C and M</span></code></pre></td></tr></table></div></figure>
+<blockquote><p>The first line contains the number of test cases $T (&lt;=1000)$.
+T lines follow, each of which contains three integers N, C and M</p></blockquote>
 
+<p><strong>Output Format:</strong></p>
 
-<p>Output Format:</p>
+<blockquote><p>Print the total number of chocolates Bob eats.</p></blockquote>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Print the total number of chocolates Bob eats.</span></code></pre></td></tr></table></div></figure>
+<p><strong>Constraints:</strong></p>
 
+<blockquote><p>$2 \le N \le 10<sup>5</sup>$
+$1 \le C \le N$
+$2 \le M \le N$</p></blockquote>
 
-<p>Constraints:</p>
+<p><strong>Sample input</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$2 \le N \le 10^5$ 
-</span><span class='line'>$1 \le C \le N$ 
-</span><span class='line'>$2 \le M \le N$</span></code></pre></td></tr></table></div></figure>
+<blockquote><p>3
+10 2 5
+12 4 4
+6 2 2</p></blockquote>
 
+<p><strong>Sample Output</strong></p>
 
-<p>Sample input</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>3
-</span><span class='line'>10 2 5
-</span><span class='line'>12 4 4
-</span><span class='line'>6 2 2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Output</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>6
-</span><span class='line'>3
-</span><span class='line'>5</span></code></pre></td></tr></table></div></figure>
-
+<blockquote><p>6
+3
+5</p></blockquote>
 
 <p><strong>Explanation</strong></p>
 
@@ -160,7 +142,7 @@
 
 <p>In the third case, he can buy 3 chocolates for $\$6$. Now he can give 2 of this 3 wrappers and get 1 chocolate. Again, he can use his 1 unused wrapper and 1 wrapper of new chocolate to get one more chocolate. Total is 5.</p>
 
-<p>The Code:</p>
+<p><strong>The Code:</strong></p>
 
 <pre><code>#include &lt;cmath&gt;
 #include &lt;cstdio&gt;
