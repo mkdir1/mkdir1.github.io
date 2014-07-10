@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-10T01:02:57+08:00</updated>
+  <updated>2014-07-10T09:44:46+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,54 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2014中国软件开发者调查报告CSDN]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/"/>
+    <updated>2014-07-10T09:30:33+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn</id>
+    <content type="html"><![CDATA[<h3>2014中国软件开发者调查报告CSDN</h3>
+
+<p>由CSDN发起的一项调查报告，有一定的可信度，值得每个程序员借鉴与思考．里面的数据需要简单分析一下，可对自己职业规划，业界现状，甚至人生都有一定的好处，现摘录加一点分析</p>
+
+<p>可以到这里看全文<a href="http://www.csdn.net/article/2014-07-02/2820493?utm_source=tuicool">调查报告新闻</a></p>
+
+<hr />
+
+<h5>相关数据</h5>
+
+<ul>
+<li><p>开发者男性为主导，特别是年轻男性，21~30岁占82%，硕士15%, 本科64%</p></li>
+<li><p>北上广深成都调查者占近一半</p></li>
+<li><p>30岁以上从事开发者很少</p></li>
+<li><p>创业的比例和想要创业的人的比例</p></li>
+</ul>
+
+
+<p><img src="http://mkdir1.github.io/images/baogao1.jpg" alt="创业" /></p>
+
+<ul>
+<li>操作系统使用比例</li>
+</ul>
+
+
+<p><img src="http://mkdir1.github.io/images/baogao2.jpg" alt="操作系统" /></p>
+
+<ul>
+<li>行业细分</li>
+</ul>
+
+
+<p><img src="http://mkdir1.github.io/images/baogao3.jpg" alt="行业" /></p>
+
+<ul>
+<li>语言分类</li>
+</ul>
+
+
+<p><img src="http://mkdir1.github.io/images/baogao4.jpg" alt="语言" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[C语言中char *a与char A[]的区别]]></title>
