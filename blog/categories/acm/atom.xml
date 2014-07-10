@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Acm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-11T01:13:30+08:00</updated>
+  <updated>2014-07-11T01:20:57+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -30,6 +30,9 @@ T lines follow, each of which contains three integers N, C and M</p></blockquote
 <p><strong>Output Format:</strong></p>
 
 <blockquote><p>Print the total number of chocolates Bob eats.</p></blockquote>
+
+<!--more-->
+
 
 <p><strong>Constraints:</strong></p>
 

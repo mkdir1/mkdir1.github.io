@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Language | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/language/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-11T01:13:30+08:00</updated>
+  <updated>2014-07-11T01:20:57+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<h3>Markdonw语法简要</h3>
 
 <p>此处权当工具参考之用，可覆盖90%应用</p>
+
+<!--more-->
+
 
 <hr />
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-11T01:13:30+08:00</updated>
+  <updated>2014-07-11T01:20:57+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -199,6 +199,9 @@ T lines follow, each of which contains three integers N, C and M</p></blockquote
 
 <blockquote><p>Print the total number of chocolates Bob eats.</p></blockquote>
 
+<!--more-->
+
+
 <p><strong>Constraints:</strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -295,6 +298,9 @@ int main() {
 
 <p>可以到这里看全文<a href="http://www.csdn.net/article/2014-07-02/2820493?utm_source=tuicool">调查报告新闻</a></p>
 
+<!--more-->
+
+
 <hr />
 
 <h5>相关数据</h5>
@@ -383,6 +389,13 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
 <li><p>1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；</p></li>
 <li><p>2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；</p></li>
 <li><p>3 依据bootloader的设置加载kernel，kernel开始检测硬件和加载驱动程序；</p></li>
+</ul>
+
+
+<!--more-->
+
+
+<ul>
 <li><p>4 在硬件驱动成功后，kernel会调用init进程，init进程会取得run-level信息；</p></li>
 <li><p>5 init执行/etc/rc.d/sysinit文件来准备软件执行的操作环境；</p></li>
 <li><p>6 init执行run-level的各个服务；</p></li>
@@ -419,6 +432,9 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
 <p>自己所用的环境一直是Linux,版本是最新的Ubuntu14.04.</p>
 
 <p>其它版本的linux未尝试，实属遗憾，先把自己所用的环境整理一番</p>
+
+<!--more-->
+
 
 <hr />
 
@@ -506,6 +522,9 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
     <content type="html"><![CDATA[<h3>Markdonw语法简要</h3>
 
 <p>此处权当工具参考之用，可覆盖90%应用</p>
+
+<!--more-->
+
 
 <hr />
 
@@ -612,6 +631,11 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
 
 
 <hr />
+
+<!--more-->
+
+
+
 
 <h2 id="overview">概述</h2>
 

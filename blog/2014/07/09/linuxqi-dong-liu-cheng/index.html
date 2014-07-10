@@ -107,6 +107,13 @@
 <li><p>1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；</p></li>
 <li><p>2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；</p></li>
 <li><p>3 依据bootloader的设置加载kernel，kernel开始检测硬件和加载驱动程序；</p></li>
+</ul>
+
+
+<!--more-->
+
+
+<ul>
 <li><p>4 在硬件驱动成功后，kernel会调用init进程，init进程会取得run-level信息；</p></li>
 <li><p>5 init执行/etc/rc.d/sysinit文件来准备软件执行的操作环境；</p></li>
 <li><p>6 init执行run-level的各个服务；</p></li>
