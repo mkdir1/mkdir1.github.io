@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-11T01:20:57+08:00</updated>
+  <updated>2014-07-11T01:55:44+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,16 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Music]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/11/music/"/>
+    <updated>2014-07-11T01:54:54+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/11/music</id>
+    <content type="html"><![CDATA[<pre><code>Just for tesing...
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Markdown转html和pdf]]></title>

@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://mkdir1.github.io/blog/2014/07/11/music/</loc>
+    <lastmod>2014-07-11T01:54:54+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://mkdir1.github.io/blog/2014/07/10/markdownzhuan-htmlhe-pdf/</loc>
     <lastmod>2014-07-10T17:59:21+08:00</lastmod>
     <priority>0.8</priority>
@@ -59,56 +65,56 @@
   
   <url>
     <loc>http://mkdir1.github.io/404.html</loc>
-    <lastmod>2014-07-11T01:20:57+08:00</lastmod>
+    <lastmod>2014-07-11T01:55:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://mkdir1.github.io/blog/archives/</loc>
-    <lastmod>2014-07-11T01:20:57+08:00</lastmod>
+    <lastmod>2014-07-11T01:55:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://mkdir1.github.io/</loc>
-    <lastmod>2014-07-11T01:20:57+08:00</lastmod>
+    <lastmod>2014-07-11T01:55:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://mkdir1.github.io/picture/</loc>
-    <lastmod>2014-07-11T01:20:57+08:00</lastmod>
+    <lastmod>2014-07-11T01:55:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://mkdir1.github.io/download/</loc>
-    <lastmod>2014-07-11T01:20:57+08:00</lastmod>
+    <lastmod>2014-07-11T01:55:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://mkdir1.github.io/artistic/</loc>
-    <lastmod>2014-07-11T01:20:57+08:00</lastmod>
+    <lastmod>2014-07-11T01:55:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://mkdir1.github.io/about/</loc>
-    <lastmod>2014-07-11T01:20:57+08:00</lastmod>
+    <lastmod>2014-07-11T01:55:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://mkdir1.github.io/music/</loc>
-    <lastmod>2014-07-11T01:20:57+08:00</lastmod>
+    <lastmod>2014-07-11T01:55:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
