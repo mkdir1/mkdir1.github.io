@@ -198,6 +198,58 @@ Options:
 <p>使用也很方便，<code>unoconv -f pdf demo.html</code></p>
 
 <p>为什么说<strong>unoconv</strong>是神器了，用了才知道它支持好多格式，常用的几乎包含了．</p>
+
+<h4>写个Makefile就好了</h4>
+
+<pre><code>MD = pandoc
+MDFLAGS = --ascii
+H2P = unoconv
+H2PFLAGS = -f pdf 
+SOURCES := $(wildcard *.md)
+OBJECTS := $(patsubst %.md, %.html, $(wildcard *.md))
+OBJECTS_PDF := $(patsubst %.md, %.pdf, $(wildcard *.md))
+all: build
+build: html pdf
+pdf: $(OBJECTS_PDF)
+html: $(OBJECTS)
+$(OBJECTS_PDF): %.pdf: %.html
+    $(H2P) $(H2PFLAGS) $&lt; 
+$(OBJECTS): %.html: %.md
+    $(MD) $(MDFLAGS) -o $@ $&lt;
+clean:
+    rm -f $(OBJECTS) *.pdf
+</code></pre>
+
+<p>这样再直接用就一切ok</p>
+
+<h4>写个Shell一切安好</h4>
+
+<p>这里整理一下要点</p>
+
+<ul>
+<li><ol>
+<li>查找匹配后缀名<code>find * -type f -name '*.md'</code>，这里如果find后是.则匹配的文件有本目录如，./demo.md，如果用*则如demo.md</li>
+</ol>
+</li>
+<li><p>2.匹配文件名和后缀，如果file=&ldquo;thisfile.md&rdquo;,则${file%.<em>}表示thisfile, ${file##</em>.}表示md</p></li>
+</ul>
+
+
+<p><strong>详细代码，我的shell名为tran.sh</strong></p>
+
+<pre><code>#!/bin/sh                                                          
+filelist=`find * -type f -name '*.md'`
+for file in $filelist
+do   
+    htmlfile=${file%.*}.html
+    pandoc --ascii $file -o $htmlfile
+    unoconv -f pdf $htmlfile
+done 
+</code></pre>
+
+<p>最后就放到bin中就搞定了</p>
+
+<p>Enjoy~</p>
 </div>
 
 
