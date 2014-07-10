@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Acm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-10T15:07:26+08:00</updated>
+  <updated>2014-07-10T15:31:31+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -33,22 +33,30 @@ T lines follow, each of which contains three integers N, C and M</p></blockquote
 
 <p><strong>Constraints:</strong></p>
 
-<blockquote><p>$2 \le N \le 10<sup>5</sup>$
+<p>```
+$2 \le N \le 10<sup>5</sup>$
 $1 \le C \le N$
-$2 \le M \le N$</p></blockquote>
+$2 \le M \le N$</p>
+
+<p>```</p>
 
 <p><strong>Sample input</strong></p>
 
-<blockquote><p>3
+<p>```
+3
 10 2 5
 12 4 4
-6 2 2</p></blockquote>
+6 2 2</p>
 
-<p><strong>Sample Output</strong></p>
+<p>```
+<strong>Sample Output</strong></p>
 
-<blockquote><p>6
+<p>```
+6
 3
-5</p></blockquote>
+5</p>
+
+<p>```</p>
 
 <p><strong>Explanation</strong></p>
 
