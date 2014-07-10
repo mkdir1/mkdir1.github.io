@@ -185,7 +185,7 @@ Options:
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>pandoc -f markdown -t html -o example.html example.md
-</span><span class='line'>pandoc --ascii example.md example.html
+</span><span class='line'>pandoc --ascii example.md -o example.html
 </span><span class='line'>    </span></code></pre></td></tr></table></div></figure>
 
 
@@ -251,6 +251,12 @@ done
 </code></pre>
 
 <p>最后就放到bin中就搞定了</p>
+
+<p>有的后缀很花样，没办法，把shell中两行改为:</p>
+
+<pre><code>filelists=`find * -type f -name '*.markdown'`
+for file in $filelist $filelists
+</code></pre>
 
 <p>Enjoy~</p>
 </div>

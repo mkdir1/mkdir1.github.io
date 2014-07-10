@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tools | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-10T21:18:22+08:00</updated>
+  <updated>2014-07-10T21:41:42+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -99,7 +99,7 @@ Options:
 
 <p>```
 pandoc -f markdown -t html -o example.html example.md
-pandoc &mdash;ascii example.md example.html</p>
+pandoc &mdash;ascii example.md -o example.html</p>
 
 <p>```
 加&mdash;ascii后html不会乱码</p>
@@ -164,6 +164,12 @@ done
 </code></pre>
 
 <p>最后就放到bin中就搞定了</p>
+
+<p>有的后缀很花样，没办法，把shell中两行改为:</p>
+
+<pre><code>filelists=`find * -type f -name '*.markdown'`
+for file in $filelist $filelists
+</code></pre>
 
 <p>Enjoy~</p>
 ]]></content>
