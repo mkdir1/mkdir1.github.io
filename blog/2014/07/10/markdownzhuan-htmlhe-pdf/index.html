@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Chocolate Feast - Vintion's blog</title>
+  <title>Markdown转html和pdf - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Chocolate Feast Little Bob loves chocolates, and goes to the store with N money in his pocket. The price of each chocolate is C . The store offers a &hellip;">
+  <meta name="description" content="Markdown转html和pdf 这个功能很实用，可以在网上完成．但对于本地，则也有几个不错的工具选择 之前的解决方案 可以在这几个网址上完成转换:
+&ndash; 1 马克飞象,这个很方便，可以同步evernote，b也有不错的界面，是目前我最看好的一个． &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/10/chocolate-feast">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/10/markdownzhuan-htmlhe-pdf">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -73,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Chocolate Feast</h1>
+      <h1 class="entry-title">Markdown转html和pdf</h1>
     
     
       <p class="meta">
@@ -89,7 +90,7 @@
   
 
 
-<time datetime="2014-07-10T14:48:43+08:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
+<time datetime="2014-07-10T17:59:21+08:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -99,101 +100,94 @@
   </header>
 
 
-<div class="entry-content"><h3><a href="https://www.hackerrank.com/challenges/chocolate-feast">Chocolate Feast</a></h3>
+<div class="entry-content"><h3>Markdown转html和pdf</h3>
 
-<p>Little Bob loves chocolates, and goes to the store with N money in his pocket. The price of each chocolate is C . The store offers a discount: for every M wrappers he gives the store, he&rsquo;ll get one chocolate for free. How many chocolates does Bob get to eat?</p>
-
-<p><strong>Input Format:</strong></p>
-
-<blockquote><p>The first line contains the number of test cases $T (&lt;=1000)$.
-T lines follow, each of which contains three integers N, C and M</p></blockquote>
-
-<p><strong>Output Format:</strong></p>
-
-<blockquote><p>Print the total number of chocolates Bob eats.</p></blockquote>
-
-<p><strong>Constraints:</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$2 \le N \le 10^5$ 
-</span><span class='line'>$1 \le C \le N$ 
-</span><span class='line'>$2 \le M \le N$
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Sample input</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>3
-</span><span class='line'>10 2 5
-</span><span class='line'>12 4 4
-</span><span class='line'>6 2 2
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Sample Output</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>6
-</span><span class='line'>3
-</span><span class='line'>5
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Explanation</strong></p>
-
-<p>In the first case, he can buy 5 chocolates with $\$10$ and exchange the 5 wrappers to get one more chocolate thus making the total number of chocolates he can eat as 6</p>
-
-<p>In the second case, he can buy 3 chocolates for $\$12$. However, it takes 4 wrappers to get one more chocolate. He can&rsquo;t avail the offer and hence the total number of chocolates remains 3.</p>
-
-<p>In the third case, he can buy 3 chocolates for $\$6$. Now he can give 2 of this 3 wrappers and get 1 chocolate. Again, he can use his 1 unused wrapper and 1 wrapper of new chocolate to get one more chocolate. Total is 5.</p>
-
-<p><strong>The Code:</strong></p>
-
-<pre><code>#include &lt;cmath&gt;
-#include &lt;cstdio&gt;
-#include &lt;vector&gt;
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-
-int main() {
-    int t,n,c,m,tmp;
-    cin&gt;&gt;t;
-    while(t--){
-        cin&gt;&gt;n&gt;&gt;c&gt;&gt;m;
-        int answer  = 0;
-        int wrapper = 0;
-        while(wrapper&gt;=m||n&gt;=c)
-        {
-            if(n&gt;=c)
-            {
-                answer += n/c;
-                wrapper += answer;
-                n %= c; 
-            }
-            if(wrapper&gt;=m)
-            {
-                answer += wrapper/m;
-                tmp     = wrapper/m;
-                wrapper %= m;
-                wrapper += tmp;
-            }
-        }
-        cout&lt;&lt;answer&lt;&lt;endl;
-    }
-    return 0;
-}
-</code></pre>
+<p>这个功能很实用，可以在网上完成．但对于本地，则也有几个不错的工具选择</p>
 
 <hr />
+
+<h4>之前的解决方案</h4>
+
+<p>可以在这几个网址上完成转换:
+&ndash; 1 <a href="http://maxiang.info/">马克飞象</a>,这个很方便，可以同步evernote，b也有不错的界面，是目前我最看好的一个．但唯一不爽的是保存的pdf中竟然有它的logo这个真是要命</p>
+
+<ul>
+<li><p>2 <a href="https://stackedit.io/">statedit</a>,这个也不错，和前者很像．应该大部分这类网站都是这个风格，在没有搭建好本地的转换的时候，本人一直是在这上面完成pdf转换的，想来真是折腾啊</p></li>
+<li><p>3 再一个就是linux下的retext了，这是个简单的免费工具，文本操作，对于vim程序员确实使用不爽，唯一的用处就是预览和修改用</p></li>
+<li><p>4 还好，linux下面有一个markdown的命令，使用也简单，也<code>sudo apt-get isntall markdwon</code>就行.不过令人不爽的是，html乱码，对中文支持不够，看了官网上的，好像还是2004年的更新，所以一定有我这样的志士仁人受不了</p></li>
+</ul>
+
+
+<hr />
+
+<h5>现在的解决方案</h5>
+
+<p>程序员的原则就是大道至简，其实就是方便，通俗点就是懒惰，怎么能忍受如此多的工具换来换去的，那岂不是要疯，最好是一个命令就搞定，生成了pdf, txt, html, md等所有格式，如果要用，就直接里面找．</p>
+
+<p>首先安装<code>sudo apt-get install pandoc</code>，再看下它的方法，使用也很简单</p>
+
+<p><strong>语法如下</strong></p>
+
+<pre><code>pandoc -h
+pandoc [OPTIONS] [FILES]
+Input formats:  native, markdown, markdown+lhs, rst, rst+lhs, html, latex, latex+lhs
+Output formats:  native, html, html+lhs, s5, docbook, opendocument, odt, latex, latex+lhs, context, texinfo, man, markdown, markdown+lhs, plain, rst, rst+lhs, mediawiki, rtf
+Options:
+  -f FORMAT, -r FORMAT  --from=FORMAT, --read=FORMAT                    
+  -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT                     
+  -s                    --standalone                                    
+  -o FILENAME           --output=FILENAME                               
+  -p                    --preserve-tabs                                 
+                        --tab-stop=TABSTOP                              
+                        --strict                                        
+                        --reference-links                               
+  -R                    --parse-raw                                     
+  -S                    --smart                                         
+  -m[URL]               --latexmathml[=URL], --asciimathml[=URL]        
+                        --mathml[=URL]                                  
+                        --mimetex[=URL]                                 
+                        --jsmath[=URL]                                  
+                        --gladtex                                       
+  -i                    --incremental                                   
+                        --xetex                                         
+  -N                    --number-sections                               
+                        --no-wrap                                       
+                        --sanitize-html                                 
+                        --email-obfuscation=none|javascript|references  
+                        --id-prefix=STRING                              
+                        --indented-code-classes=STRING                  
+                        --toc, --table-of-contents                      
+                        --base-header-level=LEVEL                       
+                        --template=FILENAME                             
+  -V FILENAME           --variable=FILENAME                             
+  -c URL                --css=URL                                       
+  -H FILENAME           --include-in-header=FILENAME                    
+  -B FILENAME           --include-before-body=FILENAME                  
+  -A FILENAME           --include-after-body=FILENAME                   
+  -C FILENAME           --custom-header=FILENAME                        
+  -T STRING             --title-prefix=STRING                           
+                        --reference-odt=FILENAME                        
+  -D FORMAT             --print-default-template=FORMAT                 
+                        --data-dir=DIRECTORY                            
+                        --dump-args                                     
+                        --ignore-args                                   
+  -v                    --version                                       
+  -h                    --help
+</code></pre>
+
+<p>支持格式中，比较有用的有**markdown, html, latex, rtf, odt</p>
+
+<h4>使用</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pandoc -f markdown -t html -o example.html example.md
+</span><span class='line'>pandoc --ascii example.md example.html
+</span><span class='line'>    </span></code></pre></td></tr></table></div></figure>
+
+
+<p>加&mdash;ascii后html不会乱码</p>
 </div>
 
 
@@ -216,12 +210,12 @@ int main() {
   
 
 
-<time datetime="2014-07-10T14:48:43+08:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
+<time datetime="2014-07-10T17:59:21+08:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/acm/'>acm</a>
+    <a class='category' href='/blog/categories/tools/'>tools</a>
   
 </span>
 
@@ -253,10 +247,8 @@ int main() {
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/" title="Previous Post: 2014中国软件开发者调查报告CSDN">&laquo; 2014中国软件开发者调查报告CSDN</a>
+        <a class="basic-alignment left" href="/blog/2014/07/10/chocolate-feast/" title="Previous Post: Chocolate Feast">&laquo; Chocolate Feast</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/10/markdownzhuan-htmlhe-pdf/" title="Next Post: Markdown转html和pdf">Markdown转html和pdf &raquo;</a>
       
     </p>
   </footer>

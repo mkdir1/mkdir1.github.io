@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tools | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-10T17:40:39+08:00</updated>
+  <updated>2014-07-10T18:38:21+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,99 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Markdown转html和pdf]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/10/markdownzhuan-htmlhe-pdf/"/>
+    <updated>2014-07-10T17:59:21+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/10/markdownzhuan-htmlhe-pdf</id>
+    <content type="html"><![CDATA[<h3>Markdown转html和pdf</h3>
+
+<p>这个功能很实用，可以在网上完成．但对于本地，则也有几个不错的工具选择</p>
+
+<hr />
+
+<h4>之前的解决方案</h4>
+
+<p>可以在这几个网址上完成转换:
+&ndash; 1 <a href="http://maxiang.info/">马克飞象</a>,这个很方便，可以同步evernote，b也有不错的界面，是目前我最看好的一个．但唯一不爽的是保存的pdf中竟然有它的logo这个真是要命</p>
+
+<ul>
+<li><p>2 <a href="https://stackedit.io/">statedit</a>,这个也不错，和前者很像．应该大部分这类网站都是这个风格，在没有搭建好本地的转换的时候，本人一直是在这上面完成pdf转换的，想来真是折腾啊</p></li>
+<li><p>3 再一个就是linux下的retext了，这是个简单的免费工具，文本操作，对于vim程序员确实使用不爽，唯一的用处就是预览和修改用</p></li>
+<li><p>4 还好，linux下面有一个markdown的命令，使用也简单，也<code>sudo apt-get isntall markdwon</code>就行.不过令人不爽的是，html乱码，对中文支持不够，看了官网上的，好像还是2004年的更新，所以一定有我这样的志士仁人受不了</p></li>
+</ul>
+
+
+<hr />
+
+<h5>现在的解决方案</h5>
+
+<p>程序员的原则就是大道至简，其实就是方便，通俗点就是懒惰，怎么能忍受如此多的工具换来换去的，那岂不是要疯，最好是一个命令就搞定，生成了pdf, txt, html, md等所有格式，如果要用，就直接里面找．</p>
+
+<p>首先安装<code>sudo apt-get install pandoc</code>，再看下它的方法，使用也很简单</p>
+
+<p><strong>语法如下</strong></p>
+
+<pre><code>pandoc -h
+pandoc [OPTIONS] [FILES]
+Input formats:  native, markdown, markdown+lhs, rst, rst+lhs, html, latex, latex+lhs
+Output formats:  native, html, html+lhs, s5, docbook, opendocument, odt, latex, latex+lhs, context, texinfo, man, markdown, markdown+lhs, plain, rst, rst+lhs, mediawiki, rtf
+Options:
+  -f FORMAT, -r FORMAT  --from=FORMAT, --read=FORMAT                    
+  -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT                     
+  -s                    --standalone                                    
+  -o FILENAME           --output=FILENAME                               
+  -p                    --preserve-tabs                                 
+                        --tab-stop=TABSTOP                              
+                        --strict                                        
+                        --reference-links                               
+  -R                    --parse-raw                                     
+  -S                    --smart                                         
+  -m[URL]               --latexmathml[=URL], --asciimathml[=URL]        
+                        --mathml[=URL]                                  
+                        --mimetex[=URL]                                 
+                        --jsmath[=URL]                                  
+                        --gladtex                                       
+  -i                    --incremental                                   
+                        --xetex                                         
+  -N                    --number-sections                               
+                        --no-wrap                                       
+                        --sanitize-html                                 
+                        --email-obfuscation=none|javascript|references  
+                        --id-prefix=STRING                              
+                        --indented-code-classes=STRING                  
+                        --toc, --table-of-contents                      
+                        --base-header-level=LEVEL                       
+                        --template=FILENAME                             
+  -V FILENAME           --variable=FILENAME                             
+  -c URL                --css=URL                                       
+  -H FILENAME           --include-in-header=FILENAME                    
+  -B FILENAME           --include-before-body=FILENAME                  
+  -A FILENAME           --include-after-body=FILENAME                   
+  -C FILENAME           --custom-header=FILENAME                        
+  -T STRING             --title-prefix=STRING                           
+                        --reference-odt=FILENAME                        
+  -D FORMAT             --print-default-template=FORMAT                 
+                        --data-dir=DIRECTORY                            
+                        --dump-args                                     
+                        --ignore-args                                   
+  -v                    --version                                       
+  -h                    --help
+</code></pre>
+
+<p>支持格式中，比较有用的有**markdown, html, latex, rtf, odt</p>
+
+<h4>使用</h4>
+
+<p>```
+pandoc -f markdown -t html -o example.html example.md
+pandoc &mdash;ascii example.md example.html</p>
+
+<p>```
+加&mdash;ascii后html不会乱码</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Markdown]]></title>
