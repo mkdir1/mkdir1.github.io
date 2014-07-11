@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Linux启动流程 - Vintion's blog</title>
+  <title>The Love-Letter Mystery - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Linux的启动顺序 1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；
-2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；
-3 依据bootloader的设置加载kernel， &hellip;">
+  <meta name="description" content="The Love-Letter Mystery James got hold of a love letter that his friend Harry has written for his girlfriend. Being the prankster that James is, he &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/09/linuxqi-dong-liu-cheng">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/11/the-love-letter-mystery">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -75,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">Linux启动流程</h1>
+      <h1 class="entry-title">The Love-Letter Mystery</h1>
     
     
       <p class="meta">
@@ -91,7 +89,7 @@
   
 
 
-<time datetime="2014-07-09T23:14:18+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+<time datetime="2014-07-11T14:55:48+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -101,42 +99,106 @@
   </header>
 
 
-<div class="entry-content"><h4>Linux的启动顺序</h4>
-
-<ul>
-<li><p>1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；</p></li>
-<li><p>2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；</p></li>
-<li><p>3 依据bootloader的设置加载kernel，kernel开始检测硬件和加载驱动程序；</p></li>
-</ul>
-
-
-<!--more-->
-
-
-<ul>
-<li><p>4 在硬件驱动成功后，kernel会调用init进程，init进程会取得run-level信息；</p></li>
-<li><p>5 init执行/etc/rc.d/sysinit文件来准备软件执行的操作环境；</p></li>
-<li><p>6 init执行run-level的各个服务；</p></li>
-<li><p>7 init执行/etc/rc.d/rc.local文件；</p></li>
-<li><p>8 init执行终端机模拟程序mingetty来启动login进程，最后等待用户登录。</p></li>
-</ul>
-
+<div class="entry-content"><h4><a href="https://www.hackerrank.com/challenges/the-love-letter-mystery">The Love-Letter Mystery</a></h4>
 
 <hr />
 
-<h4>用户登录后</h4>
+<p>James got hold of a love letter that his friend Harry has written for his girlfriend. Being the prankster that James is, he decides to meddle with it. He changes all the words in the letter into palindromes.</p>
 
-<ul>
-<li><p>1 /etc/profile：此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 并从/etc/profile.d目录的配置文件中搜集shell的设置。</p></li>
-<li><p>2 /etc/bashrc: 为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取。</p></li>
-<li><p>3 ~/.bash_profile: 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件。</p></li>
-<li><p>4 ~/.bashrc: 该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取。</p></li>
-<li><p>5 ~/.bash_logout:当每次退出系统(退出bash shell)时,执行该文件.  另外,/etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承 /etc/profile中的变量,他们是&#8221;父子&#8221;关系。</p></li>
-<li><p>6 ~/.bash_profile 是交互式、login 方式进入 bash 运行的~/.bashrc 是交互式 non-login 方式进入 bash 运行的通常二者设置大致相同，所以通常前者会调用后者。</p></li>
-</ul>
+<p>While modifying the letters of the word, he follows 2 rules:</p>
 
+<p>(a) He always reduces the value of a letter, e.g. he changes &rsquo;d&#8217; to &lsquo;c&rsquo;, but he does not change &lsquo;c&rsquo; to &rsquo;d&#8217;.
+(b) If he has to repeatedly reduce the value of a letter, he can do it until the letter becomes &lsquo;a&rsquo;. Once a letter has been changed to &lsquo;a&rsquo;, it can no longer be changed.</p>
+
+<p>Each reduction in the value of any letter is counted as a single operation. Find the minimum number of operations he carries out to convert a given string into a palindrome.</p>
+
+<p>Input Format</p>
+
+<p>The first line contains an integer T, i.e., the number of test cases.
+The next T lines will contain a string each.</p>
+
+<p>Output Format</p>
+
+<p>A single line containing the number of minimum operations corresponding to each test case.</p>
+
+<p>Constraints</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ T ≤ 10
+</span><span class='line'>1 ≤ length of string ≤ 104 
+</span><span class='line'>All characters are lower cased english letters.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sample Input #00</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>3
+</span><span class='line'>abc
+</span><span class='line'>abcba
+</span><span class='line'>abcd</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sample Output #00</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2
+</span><span class='line'>0
+</span><span class='line'>4</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explanation</p>
+
+<p>For the first test case, ab<em>c</em> &ndash;> ab<em>b</em> &ndash;> ab<em>a</em>.
+For the second test case, abcba is a palindromic string.
+For the third test case, abc<em>d</em> &ndash;> abc<em>c</em> &ndash;> abc<em>b</em> &ndash;> abc<em>a</em> = ab<em>c</em>a &ndash;> ab<em>b</em>a.</p>
 
 <hr />
+
+<p>**The Code:</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+using namespace std;
+
+int main()
+{
+    int T,sum,j,diff;
+    char str[10000];
+    while(cin&gt;&gt;T)
+        {
+        for(int i=0;i&lt;T;i++)
+            {
+            cin&gt;&gt;str;
+            int len = strlen(str);
+            len -=1;
+            sum = 0;
+            j = 0;
+            while(j&lt;len)
+                {
+                str[j]&gt;str[len]?diff=str[j]-str[len]:diff=str[len]-str[j];
+                sum += diff;
+                j++;
+                len--;
+            }
+            cout&lt;&lt;sum&lt;&lt;endl;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+<p><section>
+<audio controls="controls">
+  <source src="./music/xing.mp3" type="audio/mpeg">
+</audio>
+<section></p>
 </div>
 
 
@@ -159,12 +221,12 @@
   
 
 
-<time datetime="2014-07-09T23:14:18+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+<time datetime="2014-07-11T14:55:48+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/linux/'>linux</a>
+    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
   
 </span>
 
@@ -196,10 +258,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji/" title="Previous Post: Linux下常用的软件汇集">&laquo; Linux下常用的软件汇集</a>
+        <a class="basic-alignment left" href="/blog/2014/07/11/gem-stones/" title="Previous Post: gem-stones">&laquo; gem-stones</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/" title="Next Post: C语言中char *a与char a[]的区别">C语言中char *a与char a[]的区别 &raquo;</a>
       
     </p>
   </footer>

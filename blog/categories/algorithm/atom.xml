@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-11T14:43:47+08:00</updated>
+  <updated>2014-07-11T15:00:42+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,101 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Love-Letter Mystery]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/11/the-love-letter-mystery/"/>
+    <updated>2014-07-11T14:55:48+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/11/the-love-letter-mystery</id>
+    <content type="html"><![CDATA[<h4><a href="https://www.hackerrank.com/challenges/the-love-letter-mystery">The Love-Letter Mystery</a></h4>
+
+<hr />
+
+<p>James got hold of a love letter that his friend Harry has written for his girlfriend. Being the prankster that James is, he decides to meddle with it. He changes all the words in the letter into palindromes.</p>
+
+<p>While modifying the letters of the word, he follows 2 rules:</p>
+
+<p>(a) He always reduces the value of a letter, e.g. he changes &rsquo;d' to &lsquo;c&rsquo;, but he does not change &lsquo;c&rsquo; to &rsquo;d'.
+(b) If he has to repeatedly reduce the value of a letter, he can do it until the letter becomes &lsquo;a&rsquo;. Once a letter has been changed to &lsquo;a&rsquo;, it can no longer be changed.</p>
+
+<p>Each reduction in the value of any letter is counted as a single operation. Find the minimum number of operations he carries out to convert a given string into a palindrome.</p>
+
+<p>Input Format</p>
+
+<p>The first line contains an integer T, i.e., the number of test cases.
+The next T lines will contain a string each.</p>
+
+<p>Output Format</p>
+
+<p>A single line containing the number of minimum operations corresponding to each test case.</p>
+
+<p>Constraints
+<code>
+1 ≤ T ≤ 10
+1 ≤ length of string ≤ 104
+All characters are lower cased english letters.
+</code>
+Sample Input #00
+<code>
+3
+abc
+abcba
+abcd
+</code>
+Sample Output #00
+<code>
+2
+0
+4
+</code>
+Explanation</p>
+
+<p>For the first test case, ab<em>c</em> &ndash;> ab<em>b</em> &ndash;> ab<em>a</em>.
+For the second test case, abcba is a palindromic string.
+For the third test case, abc<em>d</em> &ndash;> abc<em>c</em> &ndash;> abc<em>b</em> &ndash;> abc<em>a</em> = ab<em>c</em>a &ndash;> ab<em>b</em>a.</p>
+
+<hr />
+
+<p>**The Code:</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+using namespace std;
+
+int main()
+{
+    int T,sum,j,diff;
+    char str[10000];
+    while(cin&gt;&gt;T)
+        {
+        for(int i=0;i&lt;T;i++)
+            {
+            cin&gt;&gt;str;
+            int len = strlen(str);
+            len -=1;
+            sum = 0;
+            j = 0;
+            while(j&lt;len)
+                {
+                str[j]&gt;str[len]?diff=str[j]-str[len]:diff=str[len]-str[j];
+                sum += diff;
+                j++;
+                len--;
+            }
+            cout&lt;&lt;sum&lt;&lt;endl;
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+<p><section>
+<audio controls="controls">
+  <source src="./music/xing.mp3" type="audio/mpeg">
+</audio>
+<section></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gem-stones]]></title>
