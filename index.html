@@ -115,93 +115,12 @@
 
 <p>Each reduction in the value of any letter is counted as a single operation. Find the minimum number of operations he carries out to convert a given string into a palindrome.</p>
 
-<p>Input Format</p>
-
-<p>The first line contains an integer T, i.e., the number of test cases.
-The next T lines will contain a string each.</p>
-
-<p>Output Format</p>
-
-<p>A single line containing the number of minimum operations corresponding to each test case.</p>
-
-<p>Constraints</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ T ≤ 10
-</span><span class='line'>1 ≤ length of string ≤ 104 
-</span><span class='line'>All characters are lower cased english letters.</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Input #00</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>3
-</span><span class='line'>abc
-</span><span class='line'>abcba
-</span><span class='line'>abcd</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Output #00</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>2
-</span><span class='line'>0
-</span><span class='line'>4</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Explanation</p>
-
-<p>For the first test case, ab<em>c</em> &ndash;> ab<em>b</em> &ndash;> ab<em>a</em>.
-For the second test case, abcba is a palindromic string.
-For the third test case, abc<em>d</em> &ndash;> abc<em>c</em> &ndash;> abc<em>b</em> &ndash;> abc<em>a</em> = ab<em>c</em>a &ndash;> ab<em>b</em>a.</p>
-
-<hr />
-
-<p>**The Code:</p>
-
-<pre><code>#include &lt;iostream&gt;
-#include &lt;string.h&gt;
-using namespace std;
-
-int main()
-{
-    int T,sum,j,diff;
-    char str[10000];
-    while(cin&gt;&gt;T)
-        {
-        for(int i=0;i&lt;T;i++)
-            {
-            cin&gt;&gt;str;
-            int len = strlen(str);
-            len -=1;
-            sum = 0;
-            j = 0;
-            while(j&lt;len)
-                {
-                str[j]&gt;str[len]?diff=str[j]-str[len]:diff=str[len]-str[j];
-                sum += diff;
-                j++;
-                len--;
-            }
-            cout&lt;&lt;sum&lt;&lt;endl;
-        }
-    }
-    return 0;
-}
-</code></pre>
-
-<p><audio controls="controls">
-  <source src="/music/xing.mp3" type="audio/mpeg">
-</audio></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/11/the-love-letter-mystery/">阅读全文&rarr;</a>
+    </footer>
   
 
 
@@ -244,137 +163,12 @@ int main()
 
 <p>Given the list of rocks with their compositions, display the number of gem-elements that exist in those rocks.</p>
 
-<ul>
-<li>Input Format</li>
-</ul>
-
-
-<p>The first line consists of N, the number of rocks.
-Each of the next N lines contain rocks&#8217; composition. Each composition consists of lowercase letters of English alphabet.</p>
-
-<ul>
-<li>Output Format</li>
-</ul>
-
-
-<p>Print the number gem-elements that exist in those rocks.</p>
-
-<p>Constraints</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ N ≤ 100 
-</span><span class='line'>Each composition consists of only small latin letters ('a'-'z'). 
-</span><span class='line'>1 ≤ Length of each composition ≤ 100</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Input</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>3
-</span><span class='line'>abcdde
-</span><span class='line'>baccd
-</span><span class='line'>eeabg</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Output</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Explanation
-Only &ldquo;a&rdquo;, &ldquo;b&rdquo; are the two kind of gem-elements, since these are the only characters that occur in each of the rocks&#8217; composition.</p>
-
-<hr />
-
-<p><strong>The Code</strong>:</p>
-
-<pre><code>#include &lt;iostream&gt;
-#include &lt;string.h&gt;
-using namespace std;
-
-int main()
-{
-    int N;
-    int ele[26];
-    char str[100];
-    while(cin&gt;&gt;N)
-    {
-        int sum = 0;
-        for(int i=0;i&lt;26;i++)ele[i]=1;
-        for(int i=0;i&lt;N;i++)
-        {
-            cin&gt;&gt;str;
-            int len = strlen(str);
-            for(int j=0;j&lt;len;j++)
-                if(ele[str[j]-'a']!=0)
-                ele[str[j]-'a']++;
-            for(int k=0;k&lt;26;k++)
-            {        
-                if(ele[k]&gt;1)
-                    ele[k]=1;
-                else
-                    ele[k]=0;
-            } 
-        } 
-        for(int j=0;j&lt;26;j++)
-                if(ele[j]==1)sum++;
-
-           printf("%d\n",sum);
-        }
-
-    return 0;    
-}
-
----
-</code></pre>
 </div>
   
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/11/music/">Music</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-11T01:54:54+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
-        
-        
-          | <a href="/blog/2014/07/11/music/#comments">Comments</a>
-         
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code>Just for tesing...
-</code></pre>
-</div>
-  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/11/gem-stones/">阅读全文&rarr;</a>
+    </footer>
   
 
 
@@ -731,6 +525,97 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/08/markdown/">Markdown</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-08T22:32:49+08:00" pubdate data-updated="true">Jul 8<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/08/markdown/#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>NOTE:</strong> This is Simplelified  Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a>.</p>
+
+<p><strong>注：</strong> 本项目托管于 [GitCafe][]上，请通过&#8221;派生&#8221;和&#8221;合并请求&#8221;来帮忙改进本项目。</p>
+
+<h1>Markdown 语法说明 (简体中文版) </h1>
+
+<ul>
+<li><a href="#overview">概述</a>
+
+<ul>
+<li><a href="#philosophy">宗旨</a></li>
+<li><a href="#html">兼容 HTML</a></li>
+<li><a href="#autoescape">特殊字符自动转换</a></li>
+</ul>
+</li>
+<li><a href="#block">区块元素</a>
+
+<ul>
+<li><a href="#p">段落和换行</a></li>
+<li><a href="#header">标题</a></li>
+<li><a href="#blockquote">区块引用</a></li>
+<li><a href="#list">列表</a></li>
+<li><a href="#precode">代码区块</a></li>
+<li><a href="#hr">分隔线</a></li>
+</ul>
+</li>
+<li><a href="#span">区段元素</a>
+
+<ul>
+<li><a href="#link">链接</a></li>
+<li><a href="#em">强调</a></li>
+<li><a href="#code">代码</a></li>
+<li><a href="#img">图片</a></li>
+</ul>
+</li>
+<li><a href="#misc">其它</a>
+
+<ul>
+<li><a href="#backslash">反斜杠</a></li>
+<li><a href="#autolink">自动链接</a></li>
+</ul>
+</li>
+<li><a href="#acknowledgement">感谢</a></li>
+<li><a href="#editor">Markdown 免费编辑器</a></li>
+</ul>
+
+
+<hr />
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/08/markdown/">阅读全文&rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -762,15 +647,15 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
       </li>
     
       <li class="post">
-        <a href="/blog/2014/07/11/music/">Music</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2014/07/10/markdownzhuan-htmlhe-pdf/">Markdown转html和pdf</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/07/10/chocolate-feast/">Chocolate Feast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/">2014中国软件开发者调查报告CSDN</a>
       </li>
     
   </ul>
@@ -782,7 +667,7 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
 <li class='category'><a href='/blog/categories/algorithm/'>algorithm (2)</a></li>
 <li class='category'><a href='/blog/categories/c/'>c (1)</a></li>
 <li class='category'><a href='/blog/categories/language/'>language (1)</a></li>
-<li class='category'><a href='/blog/categories/linux/'>linux (3)</a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (2)</a></li>
 <li class='category'><a href='/blog/categories/others/'>others (1)</a></li>
 <li class='category'><a href='/blog/categories/tools/'>tools (2)</a></li>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-11T15:10:02+08:00</updated>
+  <updated>2014-07-11T15:19:02+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -30,6 +30,9 @@
 (b) If he has to repeatedly reduce the value of a letter, he can do it until the letter becomes &lsquo;a&rsquo;. Once a letter has been changed to &lsquo;a&rsquo;, it can no longer be changed.</p>
 
 <p>Each reduction in the value of any letter is counted as a single operation. Find the minimum number of operations he carries out to convert a given string into a palindrome.</p>
+
+<!--more-->
+
 
 <p>Input Format</p>
 
@@ -130,6 +133,9 @@ int main()
 
 <p>Given the list of rocks with their compositions, display the number of gem-elements that exist in those rocks.</p>
 
+<!--more-->
+
+
 <ul>
 <li>Input Format</li>
 </ul>
@@ -218,16 +224,6 @@ int main()
 }
 
 ---
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Music]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/11/music/"/>
-    <updated>2014-07-11T01:54:54+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/11/music</id>
-    <content type="html"><![CDATA[<pre><code>Just for tesing...
 </code></pre>
 ]]></content>
   </entry>
