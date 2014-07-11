@@ -20,6 +20,8 @@ T lines follow, each of which contains three integers N, C and M
 
 > Print the total number of chocolates Bob eats.
 
+<!--more-->
+
 **Constraints:** 
 
 ```

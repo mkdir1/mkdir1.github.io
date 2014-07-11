@@ -17,6 +17,8 @@ keyword: linux
 
 - 3 依据bootloader的设置加载kernel，kernel开始检测硬件和加载驱动程序；
 
+<!--more-->
+
 - 4 在硬件驱动成功后，kernel会调用init进程，init进程会取得run-level信息；
 
 - 5 init执行/etc/rc.d/sysinit文件来准备软件执行的操作环境；

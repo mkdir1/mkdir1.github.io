@@ -14,6 +14,8 @@ keyword: linux software
 
 其它版本的linux未尝试，实属遗憾，先把自己所用的环境整理一番
 
+<!--more-->
+
 ---
 ####工作必备
 

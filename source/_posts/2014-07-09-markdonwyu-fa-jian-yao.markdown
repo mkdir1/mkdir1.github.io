@@ -13,6 +13,8 @@ keyword: octopress markdown
 
 此处权当工具参考之用，可覆盖90%应用
 
+<!--more-->
+
 ---
 
 #####标题和加粗斜体

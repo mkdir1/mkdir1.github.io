@@ -12,6 +12,8 @@ categories:
 
 可以到这里看全文[调查报告新闻](http://www.csdn.net/article/2014-07-02/2820493?utm_source=tuicool)
 
+<!--more-->
+
 ---
 
 
