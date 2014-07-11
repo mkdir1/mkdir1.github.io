@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-11T15:00:42+08:00</updated>
+  <updated>2014-07-11T15:10:02+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -100,11 +100,9 @@ int main()
 }
 </code></pre>
 
-<p><section>
-<audio controls="controls">
-  <source src="./music/xing.mp3" type="audio/mpeg">
-</audio>
-<section></p>
+<p><audio controls="controls">
+  <source src="http://mkdir1.github.io/music/xing.mp3" type="audio/mpeg">
+</audio></p>
 ]]></content>
   </entry>
   
