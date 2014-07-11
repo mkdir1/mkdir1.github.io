@@ -9,7 +9,7 @@
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Just for tesing... ">
+  <meta name="description" content="Gem-stones John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lowercase latin letter &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +70,139 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/11/gem-stones/">Gem-stones</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-11T14:38:44+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/11/gem-stones/#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3><a href="https://www.hackerrank.com/challenges/gem-stones">Gem-stones</a></h3>
+
+<p>John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lowercase latin letter from &lsquo;a&rsquo; to &lsquo;z&rsquo;. An element can be present multiple times in a rock. An element is called a &lsquo;gem-element&rsquo; if it occurs at least once in each of the rocks.</p>
+
+<p>Given the list of rocks with their compositions, display the number of gem-elements that exist in those rocks.</p>
+
+<ul>
+<li>Input Format</li>
+</ul>
+
+
+<p>The first line consists of N, the number of rocks.
+Each of the next N lines contain rocks&#8217; composition. Each composition consists of lowercase letters of English alphabet.</p>
+
+<ul>
+<li>Output Format</li>
+</ul>
+
+
+<p>Print the number gem-elements that exist in those rocks.</p>
+
+<p>Constraints</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ N ≤ 100 
+</span><span class='line'>Each composition consists of only small latin letters ('a'-'z'). 
+</span><span class='line'>1 ≤ Length of each composition ≤ 100</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sample Input</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>3
+</span><span class='line'>abcdde
+</span><span class='line'>baccd
+</span><span class='line'>eeabg</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sample Output</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explanation
+Only &ldquo;a&rdquo;, &ldquo;b&rdquo; are the two kind of gem-elements, since these are the only characters that occur in each of the rocks&#8217; composition.</p>
+
+<hr />
+
+<p><strong>The Code</strong>:</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+using namespace std;
+
+int main()
+{
+    int N;
+    int ele[26];
+    char str[100];
+    while(cin&gt;&gt;N)
+    {
+        int sum = 0;
+        for(int i=0;i&lt;26;i++)ele[i]=1;
+        for(int i=0;i&lt;N;i++)
+        {
+            cin&gt;&gt;str;
+            int len = strlen(str);
+            for(int j=0;j&lt;len;j++)
+                if(ele[str[j]-'a']!=0)
+                ele[str[j]-'a']++;
+            for(int k=0;k&lt;26;k++)
+            {        
+                if(ele[k]&gt;1)
+                    ele[k]=1;
+                else
+                    ele[k]=0;
+            } 
+        } 
+        for(int j=0;j&lt;26;j++)
+                if(ele[j]==1)sum++;
+
+           printf("%d\n",sum);
+        }
+
+    return 0;    
+}
+
+---
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -553,87 +686,9 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/08/hello-octopress/">Hello Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-08T21:30:04+08:00" pubdate data-updated="true">Jul 8<sup>th</sup>, 2014</time>
-        
-        
-          | <a href="/blog/2014/07/08/hello-octopress/#comments">Comments</a>
-         
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h4>First Blog</h4>
-
-<pre><code>Hello World!
-</code></pre>
-
-<p>(The first Blog, just for testing&hellip;)</p>
-
-<hr />
-
-<h5>Octopress的搭建</h5>
-
-<p>经过一整天的学习与尝试，这个小站总算初入法眼．添加了一系列的功能与插件，包括：</p>
-
-<ol>
-<li><p>duoshuo评论</p></li>
-<li><p>微博展示</p></li>
-<li><p>分享</p></li>
-<li><p>访客地图</p></li>
-<li><p>推荐</p></li>
-<li><p>Recent Post</p></li>
-<li><p>Categories(There are something wrong)</p></li>
-<li><p>Footer和Header的编辑</p></li>
-<li><p>404页面</p></li>
-</ol>
-
-
-<p>算是初具规模吧，而且还可以插图哦，先来张美女图，哈哈</p>
-
-<p><img src="/images/cat_flying.jpg"></p>
-
-<h5>TODO List</h5>
-
-<p>还有完善的地方，暂居于此</p>
-
-<ol>
-<li><p>标签和页面分类</p></li>
-<li><p>Tabs页面不知道如何定位了</p></li>
-<li><p>Music</p></li>
-</ol>
-
-
-<hr />
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="2">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -645,14 +700,14 @@ char s[]是一个数组，内容是拷贝了只读区别的数据
   <h2>ReadMe</h2>
   <a href="http://blog.csdn.net/vintionnee" target="_blank">A Place Nearby </a>
   <p><a href="mailto:niwenxianq@gmail.com?subject=From Github io%20again">niwenxianq@gmail.com</a></p>
-  <audio controls="controls">
-  <source src="./music/xing.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/11/gem-stones/">Gem-stones</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/11/music/">Music</a>
@@ -670,16 +725,13 @@ Your browser does not support the audio element.
         <a href="/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/">2014中国软件开发者调查报告CSDN</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/">C语言中char *a与char A[]的区别</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
     <li class='category'><a href='/blog/categories/acm/'>acm (1)</a></li>
+<li class='category'><a href='/blog/categories/algorithm/'>algorithm (1)</a></li>
 <li class='category'><a href='/blog/categories/c/'>c (1)</a></li>
 <li class='category'><a href='/blog/categories/language/'>language (1)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>linux (3)</a></li>

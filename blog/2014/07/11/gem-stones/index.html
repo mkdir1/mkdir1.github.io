@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Linux启动流程 - Vintion's blog</title>
+  <title>Gem-stones - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Linux的启动顺序 1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；
-2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；
-3 依据bootloader的设置加载kernel， &hellip;">
+  <meta name="description" content="Gem-stones John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lowercase latin letter &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/09/linuxqi-dong-liu-cheng">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/11/gem-stones">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -75,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">Linux启动流程</h1>
+      <h1 class="entry-title">Gem-stones</h1>
     
     
       <p class="meta">
@@ -91,7 +89,7 @@
   
 
 
-<time datetime="2014-07-09T23:14:18+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+<time datetime="2014-07-11T14:38:44+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -101,42 +99,101 @@
   </header>
 
 
-<div class="entry-content"><h4>Linux的启动顺序</h4>
+<div class="entry-content"><h3><a href="https://www.hackerrank.com/challenges/gem-stones">Gem-stones</a></h3>
+
+<p>John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lowercase latin letter from &lsquo;a&rsquo; to &lsquo;z&rsquo;. An element can be present multiple times in a rock. An element is called a &lsquo;gem-element&rsquo; if it occurs at least once in each of the rocks.</p>
+
+<p>Given the list of rocks with their compositions, display the number of gem-elements that exist in those rocks.</p>
 
 <ul>
-<li><p>1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；</p></li>
-<li><p>2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；</p></li>
-<li><p>3 依据bootloader的设置加载kernel，kernel开始检测硬件和加载驱动程序；</p></li>
+<li>Input Format</li>
 </ul>
 
 
-<!--more-->
-
+<p>The first line consists of N, the number of rocks.
+Each of the next N lines contain rocks&#8217; composition. Each composition consists of lowercase letters of English alphabet.</p>
 
 <ul>
-<li><p>4 在硬件驱动成功后，kernel会调用init进程，init进程会取得run-level信息；</p></li>
-<li><p>5 init执行/etc/rc.d/sysinit文件来准备软件执行的操作环境；</p></li>
-<li><p>6 init执行run-level的各个服务；</p></li>
-<li><p>7 init执行/etc/rc.d/rc.local文件；</p></li>
-<li><p>8 init执行终端机模拟程序mingetty来启动login进程，最后等待用户登录。</p></li>
+<li>Output Format</li>
 </ul>
 
+
+<p>Print the number gem-elements that exist in those rocks.</p>
+
+<p>Constraints</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ N ≤ 100 
+</span><span class='line'>Each composition consists of only small latin letters ('a'-'z'). 
+</span><span class='line'>1 ≤ Length of each composition ≤ 100</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sample Input</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>3
+</span><span class='line'>abcdde
+</span><span class='line'>baccd
+</span><span class='line'>eeabg</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sample Output</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explanation
+Only &ldquo;a&rdquo;, &ldquo;b&rdquo; are the two kind of gem-elements, since these are the only characters that occur in each of the rocks&#8217; composition.</p>
 
 <hr />
 
-<h4>用户登录后</h4>
+<p><strong>The Code</strong>:</p>
 
-<ul>
-<li><p>1 /etc/profile：此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 并从/etc/profile.d目录的配置文件中搜集shell的设置。</p></li>
-<li><p>2 /etc/bashrc: 为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取。</p></li>
-<li><p>3 ~/.bash_profile: 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件。</p></li>
-<li><p>4 ~/.bashrc: 该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取。</p></li>
-<li><p>5 ~/.bash_logout:当每次退出系统(退出bash shell)时,执行该文件.  另外,/etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承 /etc/profile中的变量,他们是&#8221;父子&#8221;关系。</p></li>
-<li><p>6 ~/.bash_profile 是交互式、login 方式进入 bash 运行的~/.bashrc 是交互式 non-login 方式进入 bash 运行的通常二者设置大致相同，所以通常前者会调用后者。</p></li>
-</ul>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+using namespace std;
 
+int main()
+{
+    int N;
+    int ele[26];
+    char str[100];
+    while(cin&gt;&gt;N)
+    {
+        int sum = 0;
+        for(int i=0;i&lt;26;i++)ele[i]=1;
+        for(int i=0;i&lt;N;i++)
+        {
+            cin&gt;&gt;str;
+            int len = strlen(str);
+            for(int j=0;j&lt;len;j++)
+                if(ele[str[j]-'a']!=0)
+                ele[str[j]-'a']++;
+            for(int k=0;k&lt;26;k++)
+            {        
+                if(ele[k]&gt;1)
+                    ele[k]=1;
+                else
+                    ele[k]=0;
+            } 
+        } 
+        for(int j=0;j&lt;26;j++)
+                if(ele[j]==1)sum++;
 
-<hr />
+           printf("%d\n",sum);
+        }
+
+    return 0;    
+}
+
+---
+</code></pre>
 </div>
 
 
@@ -159,12 +216,12 @@
   
 
 
-<time datetime="2014-07-09T23:14:18+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+<time datetime="2014-07-11T14:38:44+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/linux/'>linux</a>
+    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
   
 </span>
 
@@ -196,10 +253,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji/" title="Previous Post: Linux下常用的软件汇集">&laquo; Linux下常用的软件汇集</a>
+        <a class="basic-alignment left" href="/blog/2014/07/11/music/" title="Previous Post: Music">&laquo; Music</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/" title="Next Post: C语言中char *a与char a[]的区别">C语言中char *a与char a[]的区别 &raquo;</a>
       
     </p>
   </footer>

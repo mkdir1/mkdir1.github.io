@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-11T10:58:39+08:00</updated>
+  <updated>2014-07-11T14:43:47+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,109 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Gem-stones]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/11/gem-stones/"/>
+    <updated>2014-07-11T14:38:44+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/11/gem-stones</id>
+    <content type="html"><![CDATA[<h3><a href="https://www.hackerrank.com/challenges/gem-stones">Gem-stones</a></h3>
+
+<p>John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lowercase latin letter from &lsquo;a&rsquo; to &lsquo;z&rsquo;. An element can be present multiple times in a rock. An element is called a &lsquo;gem-element&rsquo; if it occurs at least once in each of the rocks.</p>
+
+<p>Given the list of rocks with their compositions, display the number of gem-elements that exist in those rocks.</p>
+
+<ul>
+<li>Input Format</li>
+</ul>
+
+
+<p>The first line consists of N, the number of rocks.
+Each of the next N lines contain rocks&#8217; composition. Each composition consists of lowercase letters of English alphabet.</p>
+
+<ul>
+<li>Output Format</li>
+</ul>
+
+
+<p>Print the number gem-elements that exist in those rocks.</p>
+
+<p>Constraints</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ N ≤ 100 
+</span><span class='line'>Each composition consists of only small latin letters ('a'-'z'). 
+</span><span class='line'>1 ≤ Length of each composition ≤ 100</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sample Input</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>3
+</span><span class='line'>abcdde
+</span><span class='line'>baccd
+</span><span class='line'>eeabg</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sample Output</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explanation
+Only &ldquo;a&rdquo;, &ldquo;b&rdquo; are the two kind of gem-elements, since these are the only characters that occur in each of the rocks&#8217; composition.</p>
+
+<hr />
+
+<p><strong>The Code</strong>:</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+using namespace std;
+
+int main()
+{
+    int N;
+    int ele[26];
+    char str[100];
+    while(cin&gt;&gt;N)
+    {
+        int sum = 0;
+        for(int i=0;i&lt;26;i++)ele[i]=1;
+        for(int i=0;i&lt;N;i++)
+        {
+            cin&gt;&gt;str;
+            int len = strlen(str);
+            for(int j=0;j&lt;len;j++)
+                if(ele[str[j]-'a']!=0)
+                ele[str[j]-'a']++;
+            for(int k=0;k&lt;26;k++)
+            {        
+                if(ele[k]&gt;1)
+                    ele[k]=1;
+                else
+                    ele[k]=0;
+            } 
+        } 
+        for(int j=0;j&lt;26;j++)
+                if(ele[j]==1)sum++;
+
+           printf("%d\n",sum);
+        }
+
+    return 0;    
+}
+
+---
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Music]]></title>
