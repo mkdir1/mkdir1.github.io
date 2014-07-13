@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Agorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/agorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-13T20:32:20+08:00</updated>
+  <updated>2014-07-13T20:44:27+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -179,7 +179,7 @@ int main()
 }
 </code></pre>
 
-<h5 id="6">最长公开子串</h5>
+<h5 id="6">最大子数组和</h5>
 
 
 <p>即一个数组中连续元素和的最大值，如1,2,-4,2 最大是3</p>
