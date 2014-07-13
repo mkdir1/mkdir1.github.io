@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-12T23:13:19+08:00</updated>
+  <updated>2014-07-13T16:48:07+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,69 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[星月神话]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/13/xing-yue-shen-hua/"/>
+    <updated>2014-07-13T16:03:19+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/13/xing-yue-shen-hua</id>
+    <content type="html"><![CDATA[<h4>星月神话</h4>
+
+<!--more-->
+
+
+<p>参加了一出葬礼．按照习俗，势必请法师做法，乐队奏乐．亲朋齐聚，乡里致哀，伤感不已．兰亭有云：死生亦大矣．隆重无比，原本哀事，古人忌讳死，故曰喜．曰白喜事．</p>
+
+<p>葬礼按部就班．唯乐队一曲&#8221;星月神话&#8221;，曲调哀婉，绵延幽长．旋律和缓，略带感伤．虽原词歌诵爱情，流行已久．但于此处尤佳，胜于孝子贤孙捶胸顿足，更胜于亲朋好友欢聚行乐．</p>
+
+<hr />
+
+<p><strong>星月神话，金莎</strong></p>
+
+<p>  <audio controls="controls">
+  <source src="http://mkdir1.github.io/music/xing.mp3" type="audio/mpeg">
+  </audio></p>
+
+<pre><code>作词:金莎 作曲:金莎
+
+我的一生最美好的场景
+就是遇见你
+在人海茫茫中静静凝望着你
+陌生又熟悉
+
+尽管呼吸着同一天空的气息
+却无法拥抱到你
+如果转换了时空身份和姓名
+但愿认得你眼睛
+
+千年之后的你会在哪里
+身边有怎样风景
+我们的故事并不算美丽
+却如此难以忘记
+
+尽管呼吸着同一天空的气息
+却无法拥抱到你
+如果转换了时空身份和姓名
+但愿认得你眼睛
+
+千年之后的你会在哪里
+身边有怎样风景
+我们的故事并不算美丽
+却如此难以忘记
+
+如果当初勇敢的在一起
+会不会不同结局
+你会不会也有千言万语
+埋在沉默的梦里
+</code></pre>
+
+<hr />
+
+<p>感时伤怀之作太多，若不经历生死，不目睹死别，诚不知时光易逝，韶华难再，相聚甚难．俱各为生计，东奔西走，旅途匆匆，准备可好？</p>
+
+<p>珍惜眼前吧!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Software for Blog on Ubuntu]]></title>
