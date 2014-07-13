@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-13T19:03:11+08:00</updated>
+  <updated>2014-07-13T20:22:13+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,272 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[最系列]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/"/>
+    <updated>2014-07-13T19:58:08+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie</id>
+    <content type="html"><![CDATA[<h4>最系列</h4>
+
+<p>常见到最长子序列，最长公共子序列等，网上总结了也很多．但自己实现一次方才了解．发现收获很多的．</p>
+
+<h4>目录</h4>
+
+<ul>
+<li>1.最长公共子序列</li>
+<li>2.最长公共子串</li>
+<li>3.最长重复子串</li>
+<li>4.最长回文子串</li>
+<li>5.最大递增子序列</li>
+<li>6.最大子数组和</li>
+<li>7.最大M子段和</li>
+<li>8.最大子矩阵</li>
+<li>9.字符串编码距离</li>
+</ul>
+
+
+<!--more-->
+
+
+<h5>最长公开子序列</h5>
+
+<p>这个最基础，动态规划；转移方程:</p>
+
+<p>C[i,j] = 0; 初始</p>
+
+<p>C[i,j] = C[i-1,j-1] + 1; Xi = Yi</p>
+
+<p>C[i,j] = max(C[i-1,j], C[i,j-1]); Xi != Yi;</p>
+
+<p>**代码</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int LCS(char *str1, char *str2, int m, int n, int len[][100],int sub[][100])
+{
+        int i,j;
+        for(i=0;i&lt;m;i++)
+            len[i][0] = 0;
+        for(i=0;i&lt;n;i++)
+            len[0][i] = 0;
+        for(i=1;i&lt;=m;i++)
+        for(j=1;j&lt;=n;j++)
+        {
+            if(str1[i-1]==str2[j-1])
+            {
+                len[i][j] = len[i-1][j-1] + 1;
+                sub[i][j] = 0;
+            }
+            else if(len[i-1][j]&gt;=len[i][j-1])
+            {
+                len[i][j] = len[i-1][j];
+                sub[i][j] = 1;
+            }
+            else
+            {
+                len[i][j] = len[i][j-1];
+                sub[i][j] = -1;
+            }
+        }
+        return len[m][n];
+}
+
+void PrintSub(char *x,int i, int j, int b[][100])
+{
+    if(i==0||j==0)
+        return;
+    if(b[i][j] == 0)
+    {
+        PrintSub(x,i-1,j-1,b);
+        printf("%c",x[i-1]);
+    }
+    else if(b[i][j]==1)
+        PrintSub(x,i-1,j,b);
+    else 
+        PrintSub(x,i,j-1,b);
+    return ;
+}
+int main()
+{
+    char str1[100],str2[100];
+    int len1,len2;
+    int subq[100][100],subq_len[100][100]; 
+    while(~scanf("%s %s",str1,str2))
+    {
+        len1 = strlen(str1); 
+        len2 = strlen(str2); 
+        int len = LCS(str1,str2,len1,len2,subq_len,subq);
+        printf("%d\n",len);
+        PrintSub(str1,len1,len2,subq);
+        printf("\n");
+    }
+    return 0;
+}
+</code></pre>
+
+<h5>最长公共子串</h5>
+
+<p>串和序列的区别在于连续与否，两者实现也差不多</p>
+
+<p>**代码</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int LCS(char *str1, char *str2, int m, int n, char *str3, int len[][100])
+{
+        int i,j;
+        int max = -1;
+        int x,y;
+        int k;
+        for(i=0;i&lt;m;i++)
+            len[i][0] = 0;
+        for(i=0;i&lt;n;i++)
+            len[0][i] = 0;
+        for(i=1;i&lt;=m;i++)
+        for(j=1;j&lt;=n;j++)
+        {
+            if(str1[i-1]==str2[j-1])
+                len[i][j] = len[i-1][j-1] + 1;
+            else 
+                len[i][j] = 0;
+            if(len[i][j]&gt;max)
+            {
+                max = len[i][j];
+                x = i;
+                y = j;
+            }
+        }
+        k = max;
+        str3[k] = '\0';
+        while(k&gt;=0)
+            str3[--k] = str1[--x];
+        return max;
+}
+
+int main()
+{
+    char str1[100],str2[100];
+    char str3[100];
+    int len1,len2;
+    int subq_len[100][100]; 
+    while(~scanf("%s %s",str1,str2))
+    {
+        len1 = strlen(str1); 
+        len2 = strlen(str2); 
+        int len = LCS(str1,str2,len1,len2,str3,subq_len);
+        printf("%s\n",str3);
+        printf("%d\n",len);
+    }
+    return 0;
+}
+</code></pre>
+
+<h6>最大子数组</h6>
+
+<p>即一个数组中连续元素和的最大值，如1,2,-4,2 最大是3</p>
+
+<p>**代码:　</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
+
+int main()
+{
+    int n, a[100];
+    int i,sum,tmp;
+    int maxsum ;
+    while(~scanf("%d",&amp;n))
+    {
+        maxsum = INT_MIN;
+        sum = tmp = 0;
+        for(i=0;i&lt;n;i++)
+        {
+            scanf("%d",&amp;a[i]);
+            tmp += a[i];
+            if(tmp&lt;0)
+                tmp = 0;
+            else
+                sum = tmp;
+            if(sum&gt;maxsum)
+                maxsum = sum;
+        }
+        if(maxsum&lt;=0)
+        {
+            maxsum = a[0];
+            for(i=0;i&lt;n;i++)
+                if(a[i]&gt;maxsum)
+                    maxsum = a[i];
+        }
+        printf("%d\n",maxsum);
+    }
+    return 0;
+}
+</code></pre>
+
+<h5>最大递增子序列</h5>
+
+<p>序列可以为数组，也可以为特别的结构体，原理应该是一样的
+**代码：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+//return the length
+int LongIncreaseSubsquence1(int *a, int n, int *b)
+{
+    int i,j;
+    int lenght = 1;
+    if(n&lt;=0)return 0;
+    if(n==1)return 1;
+    b[0] = 1;
+    for(i=1;i&lt;n;i++)
+    {
+        b[i] = 1;
+        for(j=0;j&lt;i;j++)
+        {
+            if(a[j]&lt;a[i]&amp;&amp;b[j]+1&gt;b[i])
+               b[i] = b[j] + 1;
+        }
+    }
+    for(i=1;i&lt;n;i++)
+        lenght = (lenght&gt;=b[i]?lenght:b[i]);
+    return lenght;
+}
+int main()
+{
+    int a[100];
+    int b[100];
+    int n,i;
+    while(~scanf("%d",&amp;n))
+    {
+        for(i=0;i&lt;n;i++)
+            scanf("%d",&amp;a[i]);
+        int len = LongIncreaseSubsquence1(a,n,b);
+        printf("%d\n",len);
+    }
+    return 0;
+}
+</code></pre>
+
+<p>还有两种方法：
+&ndash; 1.基于最长公共子序列，先把原串排序，再求最长公共子序列
+&ndash; 2.再查找b[n]的时候，用二分法，因为b[n]是递增的序列</p>
+
+<hr />
+
+<h5>最大子矩阵</h5>
+
+<h5>最大重复子串</h5>
+
+<h5>最大回文子串</h5>
+
+<h5>最大M子段</h5>
+
+<h5>字符编码距离</h5>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[星月神话]]></title>
