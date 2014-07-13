@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-13T20:22:13+08:00</updated>
+  <updated>2014-07-13T20:32:20+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -25,22 +25,25 @@
 <h4>目录</h4>
 
 <ul>
-<li>1.最长公共子序列</li>
-<li>2.最长公共子串</li>
-<li>3.最长重复子串</li>
-<li>4.最长回文子串</li>
-<li>5.最大递增子序列</li>
-<li>6.最大子数组和</li>
-<li>7.最大M子段和</li>
-<li>8.最大子矩阵</li>
-<li>9.字符串编码距离</li>
+<li>1.<a href="#1">最长公共子序列</a></li>
+<li>2.<a href="#2">最长公共子串</a></li>
+<li>3.<a href="#3">最长重复子串</a></li>
+<li>4.<a href="#4">最长回文子串</a></li>
+<li>5.<a href="#5">最大递增子序列</a></li>
+<li>6.<a href="#6">最大子数组和</a></li>
+<li>7.<a href="#7">最大M子段和</a></li>
+<li>8.<a href="#8">最大子矩阵</a></li>
+<li>9.<a href="#9">字符串编码距离</a></li>
 </ul>
 
 
 <!--more-->
 
 
-<h5>最长公开子序列</h5>
+
+
+<h5 id="1">最长公开子序列</h5>
+
 
 <p>这个最基础，动态规划；转移方程:</p>
 
@@ -117,7 +120,8 @@ int main()
 }
 </code></pre>
 
-<h5>最长公共子串</h5>
+<h5 id="2">最长公开子串</h5>
+
 
 <p>串和序列的区别在于连续与否，两者实现也差不多</p>
 
@@ -175,7 +179,8 @@ int main()
 }
 </code></pre>
 
-<h6>最大子数组</h6>
+<h5 id="6">最长公开子串</h5>
+
 
 <p>即一个数组中连续元素和的最大值，如1,2,-4,2 最大是3</p>
 
@@ -217,7 +222,8 @@ int main()
 }
 </code></pre>
 
-<h5>最大递增子序列</h5>
+<h5 id="5">最大子数组</h5>
+
 
 <p>序列可以为数组，也可以为特别的结构体，原理应该是一样的
 **代码：</p>
