@@ -2,6 +2,12 @@
 // Add styles here to make changes without digging in too much
 
 // Customize table style
+html {
+  background: #555555 url("/images/background.jpg");
+}
+//body > div > div { //文章内容
+//  background: url("/images/background.jpg");
+//}
 * + table {
   border-style:solid;
   border-width:1px;

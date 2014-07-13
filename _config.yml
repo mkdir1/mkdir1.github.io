@@ -6,7 +6,7 @@ url: http://mkdir1.github.io
 title: Vintion's blog
 subtitle: ~夜黑路滑，社会复杂~
 author: Vintion
-simple_search: https://www.baidu.com/search
+simple_search: https://www.google.com/search
 description: A place nearby
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
@@ -51,7 +51,7 @@ titlecase: true       # Converts page and post titles to titlecase
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [custom/asides/about.html,custom/asides/recent_posts.html, asides/category_list.html, asides/github.html, custom/asides/blog_link.html,custom/asides/earth.html,custom/asides/weibo.html]
+default_asides: [custom/asides/about.html,custom/asides/recent_posts.html, asides/category_list.html, asides/github.html, custom/asides/blog_link.html,custom/asides/earth.html,custom/asides/mouse.html,custom/asides/weibo.html,custom/totop.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
