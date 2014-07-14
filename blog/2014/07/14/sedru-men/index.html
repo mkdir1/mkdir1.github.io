@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Gem-stones - Vintion's blog</title>
+  <title>Sed入门 - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Gem-stones John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lowercase latin letter &hellip;">
+  <meta name="description" content="Sed入门 sed &ndash; stream editor for filtering and transforming text sed是非交互式编辑器，很强大．掌握了将得心应手．命令很简单，关键是熟练运用．入门也很简单．估计一个小时内就了解了 特点 1.sed不会修改文件
+2. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/11/gem-stones">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/14/sedru-men">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -73,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Gem-stones</h1>
+      <h1 class="entry-title">Sed入门</h1>
     
     
       <p class="meta">
@@ -89,7 +90,7 @@
   
 
 
-<time datetime="2014-07-11T14:38:44+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
+<time datetime="2014-07-14T21:26:23+08:00" pubdate data-updated="true">Jul 14<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -99,103 +100,167 @@
   </header>
 
 
-<div class="entry-content"><h3><a href="https://www.hackerrank.com/challenges/gem-stones">Gem-stones</a></h3>
+<div class="entry-content"><h4>Sed入门</h4>
 
-<p>John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lowercase latin letter from &lsquo;a&rsquo; to &lsquo;z&rsquo;. An element can be present multiple times in a rock. An element is called a &lsquo;gem-element&rsquo; if it occurs at least once in each of the rocks.</p>
+<p>sed &ndash; stream editor for filtering and transforming text</p>
 
-<p>Given the list of rocks with their compositions, display the number of gem-elements that exist in those rocks.</p>
+<p>sed是非交互式编辑器，很强大．掌握了将得心应手．命令很简单，关键是熟练运用．入门也很简单．估计一个小时内就了解了</p>
 
 <!--more-->
 
 
+<h5>特点</h5>
+
 <ul>
-<li>Input Format</li>
+<li>1.sed不会修改文件</li>
+<li>2.默认所有的输出行都被打印到屏幕上.具体是读入一行到缓冲区，处理这一行，发送到屏幕，删除缓冲区内容，处理下一行</li>
+<li><ol>
+<li>sed [选项]&hellip; {脚本(如果没有其他脚本)} [输入文件]&hellip;</li>
+</ol>
+</li>
+<li><ol>
+<li>sed不管是否找到指定的模式，它的退出状态都是0。只有当命令存在语法错误时，sed的退出状态才不是0</li>
+</ol>
+</li>
+<li><ol>
+<li></li>
+</ol>
+</li>
 </ul>
 
 
-<p>The first line consists of N, the number of rocks.
-Each of the next N lines contain rocks&#8217; composition. Each composition consists of lowercase letters of English alphabet.</p>
+<h5>命令和选项</h5>
 
-<ul>
-<li>Output Format</li>
-</ul>
-
-
-<p>Print the number gem-elements that exist in those rocks.</p>
-
-<p>Constraints</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ N ≤ 100 
-</span><span class='line'>Each composition consists of only small latin letters ('a'-'z'). 
-</span><span class='line'>1 ≤ Length of each composition ≤ 100</span></code></pre></td></tr></table></div></figure>
+<table>
+<thead>
+<tr>
+<th>命令　</th>
+<th> 解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a\  </td>
+<td>在当前行后添加一行或多行。多行时除最后一行外，每行末尾需用“\”续行</td>
+</tr>
+</tbody>
+</table>
 
 
-<p>Sample Input</p>
+<p> c\ | 用此符号后的新文本替换当前行中的文本。多行时除最后一行外，每行末尾需用&#8221;\&ldquo;续行
+ i\ | 在当前行之前插入文本。多行时除最后一行外，每行末尾需用&rdquo;\&ldquo;续行
+ d  | 删除行
+ h  | 把模式空间里的内容复制到暂存缓冲区
+ H  | 把模式空间里的内容追加到暂存缓冲区
+ g  | 把暂存缓冲区里的内容复制到模式空间，覆盖原有的内容
+ G  | 把暂存缓冲区的内容追加到模式空间里，追加在原有内容的后面
+ l  | 列出非打印字符
+ p  | 打印行
+ n  | 读入下一输入行，并从下一条命令而不是第一条命令开始对其的处理
+ q  | 结束或退出sed
+ r  | 从文件中读取输入行
+ !  | 对所选行以外的所有行应用命令
+ s  | 用一个字符串替换另一个
+ g  | 在行内进行全局替换
+ w  | 将所选的行写入文件
+ x  | 交换暂存缓冲区与模式空间的内容
+ y  | 将字符替换为另一字符（不能对正则表达式使用y命令）
+ -e |    进行多项编辑，即对输入行应用多条sed命令时使用
+ -n |   取消默认的输出
+ -f |  指定sed脚本的文件名</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>3
-</span><span class='line'>abcdde
-</span><span class='line'>baccd
-</span><span class='line'>eeabg</span></code></pre></td></tr></table></div></figure>
+<h5>正则表达式</h5>
+
+<p>**正则表达式要括在斜杠线&#8221;/&ldquo;之间.如果要把正则表达式分隔符&rdquo;/&ldquo;改为另一个字符，比如o，则&rdquo;\o..o&#8221;,例如：sed -n &lsquo;\o<sup>Myop</sup>&rsquo; datafile</p>
+
+<table>
+<thead>
+<tr>
+<th>元字符   </th>
+<th> 功能            </th>
+<th>   示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^ </td>
+<td> 行首定位符 </td>
+<td> /^my/  匹配所有以my开头的行</td>
+</tr>
+<tr>
+<td>$  </td>
+<td>   行尾定位符 </td>
+<td> /my$/  匹配所有以my结尾的行</td>
+</tr>
+<tr>
+<td>.  </td>
+<td>  匹配除换行符以外的单个字符 </td>
+<td> /m..y/  匹配包含字母m，后跟两个任意字符，再跟字母y的行</td>
+</tr>
+<tr>
+<td>*  </td>
+<td> 匹配零个或多个前导字符 </td>
+<td> /my*/  匹配包含字母m,后跟零个或多个y字母的行</td>
+</tr>
+<tr>
+<td>[] </td>
+<td>匹配指定字符组内的任一字符 </td>
+<td> /[Mm]y/  匹配包含My或my的行</td>
+</tr>
+<tr>
+<td>[^]</td>
+<td>匹配不在指定字符组内的任一字符</td>
+<td>/[^Mm]y/  匹配包含y，但y之前的那个字符不是M或m的行</td>
+</tr>
+<tr>
+<td> (..)</td>
+<td>   保存已匹配的字符 </td>
+<td>   1,20s/(you)self/\1r/  标记元字符之间的模式，并将其保存为标签1，之后可以使用\1来引用它。最多可以定义9个标签，从左边开始编号，最左边的是第一个。此例中，对第1到第20行进行处理，you被保存为标签1，如果发现youself，则替换为your。</td>
+</tr>
+<tr>
+<td>&amp; </td>
+<td>保存查找串以便在替换串中引用</td>
+<td>s/my/<strong>&amp;</strong>/  符号&amp;代表查找串。my将被替换为<strong>my</strong></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>词首定位符 </td>
+<td> /&lt;my/  匹配包含以my开头的单词的行</td>
+</tr>
+<tr>
+<td>></td>
+<td>词尾定位符</td>
+<td>/my>/|  匹配包含以my结尾的单词的行</td>
+</tr>
+<tr>
+<td>x{m}</td>
+<td>连续m个x</td>
+<td>/9{5}/ 匹配包含连续5个9的行</td>
+</tr>
+<tr>
+<td>x{m,}</td>
+<td>至少m个x</td>
+<td>/9{5,}/  匹配包含至少连续5个9的行</td>
+</tr>
+<tr>
+<td>x{m,n}</td>
+<td>至少m个，但不超过n个x</td>
+<td>/9{5,7}/  匹配包含连续5到7个9的行</td>
+</tr>
+</tbody>
+</table>
 
 
-<p>Sample Output</p>
+<h5>示例</h5>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Explanation
-Only &ldquo;a&rdquo;, &ldquo;b&rdquo; are the two kind of gem-elements, since these are the only characters that occur in each of the rocks&#8217; composition.</p>
-
-<hr />
-
-<p><strong>The Code</strong>:</p>
-
-<pre><code>#include &lt;iostream&gt;
-#include &lt;string.h&gt;
-using namespace std;
-
-int main()
-{
-    int N;
-    int ele[26];
-    char str[100];
-    while(cin&gt;&gt;N)
-    {
-        int sum = 0;
-        for(int i=0;i&lt;26;i++)ele[i]=1;
-        for(int i=0;i&lt;N;i++)
-        {
-            cin&gt;&gt;str;
-            int len = strlen(str);
-            for(int j=0;j&lt;len;j++)
-                if(ele[str[j]-'a']!=0)
-                ele[str[j]-'a']++;
-            for(int k=0;k&lt;26;k++)
-            {        
-                if(ele[k]&gt;1)
-                    ele[k]=1;
-                else
-                    ele[k]=0;
-            } 
-        } 
-        for(int j=0;j&lt;26;j++)
-                if(ele[j]==1)sum++;
-
-           printf("%d\n",sum);
-        }
-
-    return 0;    
-}
-
----
+<pre><code>sed '2,5d' file删除2到5行
+sed '/My/,/You/d' file 删除包含My的和到包含You之间的行
+sed '$d' file删除最后一行，其余的打印
+sed '/my/p' file把所有行打印一次，再把包含my的行打印一次
+sed -n '/my/p' file -n取消了默认打印，只打印匹配项
+sed 's/^my/you/g' file 替换my为you,g表示所有的都替换
+sed -n '2,20s/my$/you/gp' file 替换，并只打印替换的行，上一个会默认全打印
+sed -e '1,100d' -e 's/a/b/g' file多重编辑
 </code></pre>
 </div>
 
@@ -219,12 +284,12 @@ int main()
   
 
 
-<time datetime="2014-07-11T14:38:44+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
+<time datetime="2014-07-14T21:26:23+08:00" pubdate data-updated="true">Jul 14<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
+    <a class='category' href='/blog/categories/language/'>language</a>
   
 </span>
 
@@ -256,10 +321,8 @@ int main()
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/10/markdownzhuan-htmlhe-pdf/" title="Previous Post: Markdown转html和pdf">&laquo; Markdown转html和pdf</a>
+        <a class="basic-alignment left" href="/blog/2014/07/13/zui-xi-lie/" title="Previous Post: 最系列">&laquo; 最系列</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/11/the-love-letter-mystery/" title="Next Post: The Love-Letter Mystery">The Love-Letter Mystery &raquo;</a>
       
     </p>
   </footer>
