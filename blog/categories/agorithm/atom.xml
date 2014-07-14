@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Agorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/agorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-14T09:06:04+08:00</updated>
+  <updated>2014-07-14T09:58:15+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -32,7 +32,7 @@
 <li>5.<a href="#5">最大递增子序列</a></li>
 <li>6.<a href="#6">最大子数组和</a></li>
 <li>7.<a href="#7">最大M子段和</a></li>
-<li>8.<a href="#8">最大子矩阵</a></li>
+<li>8.<a href="#8">最大和子矩阵</a></li>
 <li>9.<a href="#9">字符串编码距离</a></li>
 </ul>
 
@@ -273,15 +273,28 @@ int main()
 
 <hr />
 
-<h5>最大子矩阵</h5>
+<h5>最大各子矩阵</h5>
 
-<h5>最大重复子串</h5>
+<h5>最长重复子串</h5>
 
-<h5>最大回文子串</h5>
+<h5>最长回文子串</h5>
 
 <h5>最大M子段</h5>
 
-<h5>字符编码距离</h5>
+<h5 id="9">字符编码距离</h5>
+
+
+<p>两个字符串，从其中一个变为另外一个需要的操作次数就是编码距离，这个或者还有其它的名词称谓．</p>
+
+<p>操作只有三种最基本的，即增删改，例如abc和bcd的距离就是，abc删除a，再后面添加d，操作就两步</p>
+
+<p>这种有一个很简单的方法，基于最长公共子序列，首先求出最长公共子序列int len = GetLongestCommomSubsquence(str1,str2),然后得到两个字符串长度，len1,len2.则操作的距离是len1+len2-len*2</p>
+
+<p>当这几个系列的操作都了解后，好多字符串的处理都是基于此的</p>
+
+<hr />
+
+<p><strong><em>待续</em></strong></p>
 ]]></content>
   </entry>
   
