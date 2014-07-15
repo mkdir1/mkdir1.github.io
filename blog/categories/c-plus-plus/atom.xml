@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Language, | Vintion's blog]]></title>
-  <link href="http://mkdir1.github.io/blog/categories/language/atom.xml" rel="self"/>
+  <title><![CDATA[Category: C++ | Vintion's blog]]></title>
+  <link href="http://mkdir1.github.io/blog/categories/c-plus-plus/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
   <updated>2014-07-15T08:21:34+08:00</updated>
   <id>http://mkdir1.github.io/</id>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-14T22:14:20+08:00</updated>
+  <updated>2014-07-15T08:21:34+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ssh无密码登录]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/15/sshwu-mi-ma-deng-lu/"/>
+    <updated>2014-07-15T00:30:04+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/15/sshwu-mi-ma-deng-lu</id>
+    <content type="html"><![CDATA[<h4>ssh无密码登录</h4>
+
+<!--more-->
+
+
+<p>ssh应用太广，最常用的就是远程登录和文件传输了，每次输入密码和登录确实很浪费时间，这里就不需要输入密码了</p>
+
+<h5>设置</h5>
+
+<ul>
+<li><ol>
+<li>在客户端．生成密钥<code>ssh-keygen -t rsa</code>，这样在~/.ssh文件夹中就会有一个公钥和一个私钥</li>
+</ol>
+</li>
+<li><ol>
+<li>服务端，在~/.ssh中，将客户端的id_rsa.phb放到这里，<code>scp .ssh/id_rsa.phb ip:.ssh/authorizend_keys</code>，也可以命名其它的</li>
+</ol>
+</li>
+<li><ol>
+<li>再登录时就可以不用输入密码．也可以把登录alias写入bash中，scp时也不用输入密码，但是还是要记住ip</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux启动流程]]></title>
