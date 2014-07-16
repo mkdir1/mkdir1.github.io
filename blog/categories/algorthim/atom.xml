@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Algorthim | Vintion's blog]]></title>
+  <link href="http://mkdir1.github.io/blog/categories/algorthim/atom.xml" rel="self"/>
+  <link href="http://mkdir1.github.io/"/>
+  <updated>2014-07-16T19:39:21+08:00</updated>
+  <id>http://mkdir1.github.io/</id>
+  <author>
+    <name><![CDATA[Vintion]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[编程之美|数字之迷]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/16/bian-cheng-zhi-mei-%7Cshu-zi-zhi-mi/"/>
+    <updated>2014-07-16T10:30:05+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/16/bian-cheng-zhi-mei-|shu-zi-zhi-mi</id>
+    <content type="html"><![CDATA[<h4>编程之美之数学之迷</h4>
+
+<p>此书趣味多多．前者类似题充斥网络，始作者即此书也．可见其影响之广，流传之远．细看年月，已数年之久，可谓经典．求职者奉为圭臬，学生党视若珍宝，今一睹真容．</p>
+
+<!--more-->
+
+
+<p><strong>目录：</strong>
+&ndash;  <a href="#1">2.1 二进制中1的个数</a>
+&ndash;  <a href="#2">2.2 阶乘</a>
+&ndash;  <a href="#3">2.3 发帖水王</a>
+&ndash;  <a href="#4">2.4 1的数目</a>
+&ndash;  <a href="#5">2.5 最大的k个数目</a>
+&ndash;  <a href="#6">2.6 精确表达浮点数</a>
+&ndash;  <a href="#7">2.7 最大公约数</a>
+&ndash;  <a href="#8">2.8 符合条件的整数</a></p>
+
+<h5 id="1">2.1二进制中1的个数</h5>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Language, | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/language/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-15T11:10:46+08:00</updated>
+  <updated>2014-07-16T19:39:21+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -31,7 +31,7 @@
 
 <p><strong>原图（可另存）</strong></p>
 
-<p><img src="/images/google_c++.png"></p>
+<p>{% img /images/google_c++.png %}</p>
 
 <h5>总结一下</h5>
 
