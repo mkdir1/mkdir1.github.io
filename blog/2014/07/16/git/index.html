@@ -5,12 +5,46 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Sed入门 - Vintion's blog</title>
+  <title>Git常用命令 - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Sed入门 sed &ndash; stream editor for filtering and transforming text sed是非交互式编辑器，很强大．掌握了将得心应手．命令很简单，关键是熟练运用．入门也很简单．估计一个小时内就了解了 特点 1.sed不会修改文件
-2. &hellip;">
+  <meta name="description" content="Git常用命令 Git命令很多，大多都可直接用git查询，有些用不上．常用的也就那几条，记录之． 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +53,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/14/sedru-men">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/16/git">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -74,7 +108,7 @@
   
   <header>
     
-      <h1 class="entry-title">Sed入门</h1>
+      <h1 class="entry-title">Git常用命令</h1>
     
     
       <p class="meta">
@@ -90,7 +124,7 @@
   
 
 
-<time datetime="2014-07-14T21:26:23+08:00" pubdate data-updated="true">Jul 14<sup>th</sup>, 2014</time>
+<time datetime="2014-07-16T19:27:13+08:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -100,226 +134,123 @@
   </header>
 
 
-<div class="entry-content"><h4>Sed入门</h4>
+<div class="entry-content"><h4>Git常用命令</h4>
 
-<p>sed &ndash; stream editor for filtering and transforming text</p>
-
-<p>sed是非交互式编辑器，很强大．掌握了将得心应手．命令很简单，关键是熟练运用．入门也很简单．估计一个小时内就了解了</p>
+<p>Git命令很多，大多都可直接用git查询，有些用不上．常用的也就那几条，记录之．</p>
 
 <!--more-->
 
 
-<h5>特点</h5>
-
-<ul>
-<li>1.sed不会修改文件</li>
-<li>2.默认所有的输出行都被打印到屏幕上.具体是读入一行到缓冲区，处理这一行，发送到屏幕，删除缓冲区内容，处理下一行</li>
-<li><ol>
-<li>sed [选项]&hellip; {脚本(如果没有其他脚本)} [输入文件]&hellip;</li>
-</ol>
-</li>
-<li><ol>
-<li>sed不管是否找到指定的模式，它的退出状态都是0。只有当命令存在语法错误时，sed的退出状态才不是0</li>
-</ol>
-</li>
-</ul>
-
-
-<h5>命令和选项</h5>
-
-<table>
-<thead>
-<tr>
-<th>命令　    </th>
-<th> 解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a\        </td>
-<td>在当前行后添加一行或多行。多行时除最后一行外，每行末尾需用“\”续行</td>
-</tr>
-<tr>
-<td> c\ </td>
-<td> 用此符号后的新文本替换当前行中的文本。多行时除最后一行外，每行末尾需用&#8221;\&ldquo;续行</td>
-</tr>
-<tr>
-<td> i\ </td>
-<td> 在当前行之前插入文本。多行时除最后一行外，每行末尾需用&#8221;\&ldquo;续行</td>
-</tr>
-<tr>
-<td> d  </td>
-<td> 删除行</td>
-</tr>
-<tr>
-<td> h  </td>
-<td> 把模式空间里的内容复制到暂存缓冲区</td>
-</tr>
-<tr>
-<td> H  </td>
-<td> 把模式空间里的内容追加到暂存缓冲区</td>
-</tr>
-<tr>
-<td> g  </td>
-<td> 把暂存缓冲区里的内容复制到模式空间，覆盖原有的内容</td>
-</tr>
-<tr>
-<td> G  </td>
-<td> 把暂存缓冲区的内容追加到模式空间里，追加在原有内容的后面</td>
-</tr>
-<tr>
-<td> l  </td>
-<td> 列出非打印字符</td>
-</tr>
-<tr>
-<td> p  </td>
-<td> 打印行</td>
-</tr>
-<tr>
-<td> n  </td>
-<td> 读入下一输入行，并从下一条命令而不是第一条命令开始对其的处理</td>
-</tr>
-<tr>
-<td> q  </td>
-<td> 结束或退出sed</td>
-</tr>
-<tr>
-<td> r  </td>
-<td> 从文件中读取输入行</td>
-</tr>
-<tr>
-<td> !  </td>
-<td> 对所选行以外的所有行应用命令</td>
-</tr>
-<tr>
-<td> s  </td>
-<td> 用一个字符串替换另一个</td>
-</tr>
-<tr>
-<td> g  </td>
-<td> 在行内进行全局替换</td>
-</tr>
-<tr>
-<td> w  </td>
-<td> 将所选的行写入文件</td>
-</tr>
-<tr>
-<td> x  </td>
-<td> 交换暂存缓冲区与模式空间的内容</td>
-</tr>
-<tr>
-<td> y  </td>
-<td> 将字符替换为另一字符（不能对正则表达式使用y命令）</td>
-</tr>
-<tr>
-<td> -e </td>
-<td>    进行多项编辑，即对输入行应用多条sed命令时使用</td>
-</tr>
-<tr>
-<td> -n </td>
-<td>   取消默认的输出</td>
-</tr>
-<tr>
-<td> -f </td>
-<td>  指定sed脚本的文件名</td>
-</tr>
-</tbody>
-</table>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git diff/git diff --cached/git diff HEAD
+</span><span class='line'>git add -u 将本地改动的文件add
+</span><span class='line'>git add -A
+</span><span class='line'>git mv file1 file2
+</span><span class='line'>git add .
+</span><span class='line'>git commit -m'a'
+</span><span class='line'>git push origin source
+</span><span class='line'>git reset --hard HEAD^/HEAD^^/HEAD~100
+</span><span class='line'>git reset -hard ****
+</span><span class='line'>git log / git log --pretty=oneline
+</span><span class='line'>git reflog 
+</span><span class='line'>git status
+</span><span class='line'>
+</span><span class='line'>working directory工作区---&gt;版本库repository{stage/index暂存区, master};
+</span><span class='line'>
+</span><span class='line'>git checkout --　file 丢弃工作区的修改，回到和暂存区一致
+</span><span class='line'>git reset　HEAD filename撤销暂存区中的修改，表示filename是最新的版本
+</span><span class='line'>误删rm文件后，可以git checkout -- file
+</span><span class='line'>git rm file从版本库中删除，再git commit -m''或者rm file后再git rm file 再git commit -m''
+</span><span class='line'>
+</span><span class='line'>本地仓库添加远程库git remote add origin url 远程库名叫origin
+</span><span class='line'>git push -u origin master(第一次推送)
+</span><span class='line'>git push orighin master
+</span><span class='line'>
+</span><span class='line'>主分支master，提倡用分支来完成工作，再合并后删除
+</span><span class='line'>创建分支git checkout -b dev(b表示创建并切换)相当于git branch dev 和git checkout dev
+</span><span class='line'>git branch查看当前分支
+</span><span class='line'>git checkout master切回分支
+</span><span class='line'>git merge dev合并分支到master上
+</span><span class='line'>git branch -d dev 删除分支
+</span><span class='line'>
+</span><span class='line'>git merge --no-ff -m"" dev合并分支时禁用fast forward方式，这样分支的commit信息还会存在
+</span><span class='line'>
+</span><span class='line'>git stash把当前工作现场储存起来
+</span><span class='line'>git stash list查看工作现场
+</span><span class='line'>git stash apply恢复，但stash内容不删除，需要git stash drop删除
+</span><span class='line'>git stash pop恢复并删除stash
+</span><span class='line'>git remote　－v 查看远程信息
+</span><span class='line'>git branch -D branchname强行删除分支
+</span><span class='line'>git push origin master推送分支master到远程
+</span><span class='line'>git pull把远程的提交抓下来，然后本地合并，解决冲突后再推送上去
+</span><span class='line'>一般分支master, dev, bug, featurejjj
+</span><span class='line'>git checkout -b dev origin/dev本地创建dev分支
+</span><span class='line'>git tag v1.0打标签
+</span><span class='line'>git tag查看tags
+</span><span class='line'>git tag name commitid -m'a'
+</span><span class='line'>git tag -d name 删除
+</span><span class='line'>git push origin name 推送某个
+</span><span class='line'>git psuh origin --tags推送所有
+</span><span class='line'>
+</span><span class='line'>github上的pull　request申请后才可以pull上去
+</span><span class='line'>fork也可以pull
+</span><span class='line'>创建.gitignore文件，把要忽略的文件名放进去git会忽略
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h5>正则表达式</h5>
 
-<p>**正则表达式要括在斜杠线&#8221;/&ldquo;之间.如果要把正则表达式分隔符&rdquo;/&ldquo;改为另一个字符，比如o，则&rdquo;\o..o&#8221;,例如：sed -n &lsquo;\o<sup>Myop</sup>&rsquo; datafile</p>
-
-<table>
-<thead>
-<tr>
-<th>元字符   </th>
-<th> 功能            </th>
-<th>   示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>^ </td>
-<td> 行首定位符 </td>
-<td> /^my/  匹配所有以my开头的行</td>
-</tr>
-<tr>
-<td>$  </td>
-<td>   行尾定位符 </td>
-<td> /my$/  匹配所有以my结尾的行</td>
-</tr>
-<tr>
-<td>.  </td>
-<td>  匹配除换行符以外的单个字符 </td>
-<td> /m..y/  匹配包含字母m，后跟两个任意字符，再跟字母y的行</td>
-</tr>
-<tr>
-<td>*  </td>
-<td> 匹配零个或多个前导字符 </td>
-<td> /my*/  匹配包含字母m,后跟零个或多个y字母的行</td>
-</tr>
-<tr>
-<td>[] </td>
-<td>匹配指定字符组内的任一字符 </td>
-<td> /[Mm]y/  匹配包含My或my的行</td>
-</tr>
-<tr>
-<td>[^]</td>
-<td>匹配不在指定字符组内的任一字符</td>
-<td>/[^Mm]y/  匹配包含y，但y之前的那个字符不是M或m的行</td>
-</tr>
-<tr>
-<td> (..)</td>
-<td>   保存已匹配的字符 </td>
-<td>   1,20s/(you)self/\1r/  标记元字符之间的模式，并将其保存为标签1，之后可以使用\1来引用它。最多可以定义9个标签，从左边开始编号，最左边的是第一个。此例中，对第1到第20行进行处理，you被保存为标签1，如果发现youself，则替换为your。</td>
-</tr>
-<tr>
-<td>&amp; </td>
-<td>保存查找串以便在替换串中引用</td>
-<td>s/my/<strong>&amp;</strong>/  符号&amp;代表查找串。my将被替换为<strong>my</strong></td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td>词首定位符 </td>
-<td> /&lt;my/  匹配包含以my开头的单词的行</td>
-</tr>
-<tr>
-<td>></td>
-<td>词尾定位符</td>
-<td>/my>/|  匹配包含以my结尾的单词的行</td>
-</tr>
-<tr>
-<td>x{m}</td>
-<td>连续m个x</td>
-<td>/9{5}/ 匹配包含连续5个9的行</td>
-</tr>
-<tr>
-<td>x{m,}</td>
-<td>至少m个x</td>
-<td>/9{5,}/  匹配包含至少连续5个9的行</td>
-</tr>
-<tr>
-<td>x{m,n}</td>
-<td>至少m个，但不超过n个x</td>
-<td>/9{5,7}/  匹配包含连续5到7个9的行</td>
-</tr>
-</tbody>
-</table>
-
-
-<h5>示例</h5>
-
-<pre><code>sed '2,5d' file删除2到5行
-sed '/My/,/You/d' file 删除包含My的和到包含You之间的行
-sed '$d' file删除最后一行，其余的打印
-sed '/my/p' file把所有行打印一次，再把包含my的行打印一次
-sed -n '/my/p' file -n取消了默认打印，只打印匹配项
-sed 's/^my/you/g' file 替换my为you,g表示所有的都替换
-sed -n '2,20s/my$/you/gp' file 替换，并只打印替换的行，上一个会默认全打印
-sed -e '1,100d' -e 's/a/b/g' file多重编辑
-</code></pre>
 </div>
 
 
@@ -342,12 +273,12 @@ sed -e '1,100d' -e 's/a/b/g' file多重编辑
   
 
 
-<time datetime="2014-07-14T21:26:23+08:00" pubdate data-updated="true">Jul 14<sup>th</sup>, 2014</time>
+<time datetime="2014-07-16T19:27:13+08:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/language/'>language</a>
+    <a class='category' href='/blog/categories/tools/'>tools</a>
   
 </span>
 
@@ -379,10 +310,10 @@ sed -e '1,100d' -e 's/a/b/g' file多重编辑
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/13/zui-xi-lie/" title="Previous Post: 最系列">&laquo; 最系列</a>
+        <a class="basic-alignment left" href="/blog/2014/07/16/exponentiation/" title="Previous Post: exponentiation">&laquo; exponentiation</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/07/15/sshwu-mi-ma-deng-lu/" title="Next Post: ssh无密码登录">ssh无密码登录 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/07/17/ji-%5B%3F%5D-ci-wang-luo-wen-ti/" title="Next Post: 记一次网络问题">记一次网络问题 &raquo;</a>
       
     </p>
   </footer>
