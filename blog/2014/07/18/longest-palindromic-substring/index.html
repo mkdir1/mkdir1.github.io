@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>记一次网络问题 - Vintion's blog</title>
+  <title>Longest Palindromic Substring - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="记一次网络问题及处理 问题描述 周五的时候，网络还很好的，不论是外网还是内网，速度都正常．到周一的时候，速度特别慢，外网更慢． 速度慢，有的网站很快就刷出来，比如百度，so.com特，外网就很慢．qq聊天一切正常．内网中，局域网没问题，可以ping通网关和内网主机，并且ttl时间也很正常， &hellip;">
+  <meta name="description" content="Longest Palindromic Substring Probles Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/17/ji-%5B%3F%5D-ci-wang-luo-wen-ti">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/18/longest-palindromic-substring">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">记一次网络问题</h1>
+      <h1 class="entry-title">Longest Palindromic Substring</h1>
     
     
       <p class="meta">
@@ -89,7 +89,7 @@
   
 
 
-<time datetime="2014-07-17T00:12:42+08:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
+<time datetime="2014-07-18T21:22:53+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -99,40 +99,147 @@
   </header>
 
 
-<div class="entry-content"><h4>记一次网络问题及处理</h4>
+<div class="entry-content"><h5><a href="https://oj.leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring</a></h5>
 
-<h5>问题描述</h5>
+<h5>Probles</h5>
 
-<p>周五的时候，网络还很好的，不论是外网还是内网，速度都正常．到周一的时候，速度特别慢，外网更慢．</p>
+<p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
 
-<p>速度慢，有的网站很快就刷出来，比如百度，so.com特，外网就很慢．qq聊天一切正常．内网中，局域网没问题，可以ping通网关和内网主机，并且ttl时间也很正常，没有延迟的现象</p>
-
-<p>所有网站都可以访问，只是表现为速度慢，要加载很长时间</p>
+<p>看本站内的总结：<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最长回文字符串</a></p>
 
 <!--more-->
 
 
-<h5>猜测原因</h5>
+<h5>Code</h5>
 
-<p>由于近来，外网好多网站被封，所以外网访问慢的现象暂时没有考虑在内，倒是其它中平时常用的网站确实不能容忍．</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Solution {
+</span><span class='line'>public:
+</span><span class='line'>    string longestPalindrome(string s)
+</span><span class='line'>    {
+</span><span class='line'>        int len = s.length();
+</span><span class='line'>        string str="";
+</span><span class='line'>        if(len==0)return str;
+</span><span class='line'>        int maxlen = 0;
+</span><span class='line'>        int leng;
+</span><span class='line'>        int left,right;
+</span><span class='line'>        for(int i=0;i&lt;2*len-1;i++)
+</span><span class='line'>        {
+</span><span class='line'>            if(i%2==0)
+</span><span class='line'>            {
+</span><span class='line'>                leng = 1;
+</span><span class='line'>                left = i/2 - 1;
+</span><span class='line'>                right = i/2 + 1;
+</span><span class='line'>                while(left&gt;=0&&right&lt;len&&s.at(left)==s.at(right))
+</span><span class='line'>                {
+</span><span class='line'>                    leng += 2;
+</span><span class='line'>                    left--;
+</span><span class='line'>                    right++;
+</span><span class='line'>                }
+</span><span class='line'>                 if(leng&gt;maxlen)
+</span><span class='line'>              {
+</span><span class='line'>                    maxlen = leng;
+</span><span class='line'>                    str = s.substr(i/2-maxlen/2, maxlen);
+</span><span class='line'>              }
+</span><span class='line'>            }
+</span><span class='line'>            else
+</span><span class='line'>            {
+</span><span class='line'>                leng = 0;
+</span><span class='line'>                left = i/2;
+</span><span class='line'>                right = i/2+1;
+</span><span class='line'>                 while(left&gt;=0&&right&lt;len&&s[left]==s[right])
+</span><span class='line'>                {
+</span><span class='line'>                    leng += 2;
+</span><span class='line'>                    left--;
+</span><span class='line'>                    right++;
+</span><span class='line'>                }
+</span><span class='line'>               
+</span><span class='line'>            
+</span><span class='line'>             if(leng&gt;maxlen)
+</span><span class='line'>              {
+</span><span class='line'>                    maxlen = leng;
+</span><span class='line'>                    str = s.substr(i/2-maxlen/2+1, maxlen);
+</span><span class='line'>              }
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>        return str;
+</span><span class='line'>    }
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
 
-<p>咨询过网管，他们也在查找原因．可以确定，他们没改任何配置和参数，近来也没有增添任何新设备过改动</p>
 
-<p>猜测原因：
-&ndash; 1.外网的问题．这个排除，因为其它本地方，没有网络问题的报告
-&ndash; 2.内部有主机干扰主干路由器，中病毒或者其它．这个可能性也不大，如果是干扰路由器，那样网管会很快查找出原因．也不可能会访问得到网络
-&ndash; 3.路由器可能运行异常．网管尝试过重启路由器，但问题仍在
-&ndash; 4.线路断了．</p>
+<h5>注意</h5>
 
-<hr />
+<ul>
+<li><ol>
+<li>把奇偶统一起来，这样i的大小是2len-1的大小</li>
+</ol>
+</li>
+<li><ol>
+<li>还有一个注意点是，substr()这个两个参数是指起始和长度，起始从0开始就算第一个</li>
+</ol>
+</li>
+<li><ol>
+<li>后面两个if判断不能统一起来，因为substr中的参数不一样</li>
+</ol>
+</li>
+<li><ol>
+<li>方法：<strong>从中间向两边比较来判断是否回文，例a_b_c_b_a，则这个字符串abcba长度5，判断的位置有9个，然后从中间向两边展开，首先判断是否出界，再看是不是相等，这样最后更新长度和字符串</strong></li>
+</ol>
+</li>
+<li>5.　本文属于<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最系列</a>的应用</li>
+</ul>
 
-<h5>问题解决</h5>
-
-<p>其实这个问题应该很明显了，就是第四个原因．但当时很傻的认为，既然可以访问网络，只是速度慢了，所以线路，比如网线／电缆／光纤什么的，一定是通畅无误的，否则不是慢的问题，而是能不能上网的问题．但岂知，问题就出现在此</p>
-
-<p>最后问题确定出现在核心交换机的六对光纤中的一对出了问题造成的，通过问题光纤的数据包会丢失，导致出现选择性的丢包现象.当时为什么没想到，是线路部分断了，这样就会丢包，于是会不停的确认和连接，这样又出现在主干网路中，当大家访问多了，这种现象就更严重了．</p>
-
-<hr />
 </div>
 
 
@@ -155,12 +262,12 @@
   
 
 
-<time datetime="2014-07-17T00:12:42+08:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
+<time datetime="2014-07-18T21:22:53+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/others/'>others</a>
+    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
   
 </span>
 
@@ -192,10 +299,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/16/git/" title="Previous Post: git常用命令">&laquo; git常用命令</a>
+        <a class="basic-alignment left" href="/blog/2014/07/18/spiral-matrix/" title="Previous Post: Spiral Matrix">&laquo; Spiral Matrix</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/17/tian-jia-yong-hu/" title="Next Post: 添加用户">添加用户 &raquo;</a>
       
     </p>
   </footer>

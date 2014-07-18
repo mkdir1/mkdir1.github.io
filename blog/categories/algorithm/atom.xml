@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-18T17:03:22+08:00</updated>
+  <updated>2014-07-18T21:31:55+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,214 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Longest Palindromic Substring]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/longest-palindromic-substring/"/>
+    <updated>2014-07-18T21:22:53+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/longest-palindromic-substring</id>
+    <content type="html"><![CDATA[<h5><a href="https://oj.leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring</a></h5>
+
+<h5>Probles</h5>
+
+<p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
+
+<p>看本站内的总结：<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最长回文字符串</a></p>
+
+<!--more-->
+
+
+<h5>Code</h5>
+
+<p>```
+class Solution {
+public:</p>
+
+<pre><code>string longestPalindrome(string s)
+{
+    int len = s.length();
+    string str="";
+    if(len==0)return str;
+    int maxlen = 0;
+    int leng;
+    int left,right;
+    for(int i=0;i&lt;2*len-1;i++)
+    {
+        if(i%2==0)
+        {
+            leng = 1;
+            left = i/2 - 1;
+            right = i/2 + 1;
+            while(left&gt;=0&amp;&amp;right&lt;len&amp;&amp;s.at(left)==s.at(right))
+            {
+                leng += 2;
+                left--;
+                right++;
+            }
+             if(leng&gt;maxlen)
+          {
+                maxlen = leng;
+                str = s.substr(i/2-maxlen/2, maxlen);
+          }
+        }
+        else
+        {
+            leng = 0;
+            left = i/2;
+            right = i/2+1;
+             while(left&gt;=0&amp;&amp;right&lt;len&amp;&amp;s[left]==s[right])
+            {
+                leng += 2;
+                left--;
+                right++;
+            }
+
+
+         if(leng&gt;maxlen)
+          {
+                maxlen = leng;
+                str = s.substr(i/2-maxlen/2+1, maxlen);
+          }
+        }
+    }
+    return str;
+}
+</code></pre>
+
+<p>};
+```</p>
+
+<h5>注意</h5>
+
+<ul>
+<li><ol>
+<li>把奇偶统一起来，这样i的大小是2len-1的大小</li>
+</ol>
+</li>
+<li><ol>
+<li>还有一个注意点是，substr()这个两个参数是指起始和长度，起始从0开始就算第一个</li>
+</ol>
+</li>
+<li><ol>
+<li>后面两个if判断不能统一起来，因为substr中的参数不一样</li>
+</ol>
+</li>
+<li><ol>
+<li>方法：<strong>从中间向两边比较来判断是否回文，例a_b_c_b_a，则这个字符串abcba长度5，判断的位置有9个，然后从中间向两边展开，首先判断是否出界，再看是不是相等，这样最后更新长度和字符串</strong></li>
+</ol>
+</li>
+<li>5.　本文属于<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最系列</a>的应用</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Spiral Matrix]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/spiral-matrix/"/>
+    <updated>2014-07-18T19:01:52+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/spiral-matrix</id>
+    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/spiral-matrix/">Spiral Matrix</a></h4>
+
+<h5>Problem</h5>
+
+<p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>
+
+<p>For example,</p>
+
+<p>Given the following matrix:
+```</p>
+
+<pre><code>[1,2,3]
+[4,5,6]
+[7,8,9]
+</code></pre>
+
+<p><code>``
+You should return</code>[1,2,3,6,8,9,7,4,5]`</p>
+
+<!--more-->
+
+
+<h5>Code</h5>
+
+<p>```
+class Solution {
+public:</p>
+
+<pre><code>vector&lt;int&gt; spiralOrder(vector&lt;vector&lt;int&gt; &gt; &amp;matrix)
+{
+    vector&lt;int&gt;result;
+    result.clear();
+    int row = matrix.size();
+    if(row==0)return result;
+    int col = matrix[0].size();
+    int rowleft = 0, rowright = col -1;
+    int coltop = 0, colbott = row -1;
+    int i=0,j=0;
+    int dir = 1;
+    while(rowleft&lt;=rowright&amp;&amp;coltop&lt;=colbott)
+    {
+        switch(dir)
+        {
+            case 1:   //toright
+                while(rowleft&lt;=rowright&amp;&amp;j&gt;=rowleft&amp;&amp;j&lt;=rowright)
+                {
+                    result.push_back(matrix[i][j]);
+                    j++;
+                }
+                j--;
+                i++;
+                coltop++;
+                dir = 2;
+                break;
+            case 2: //tobott
+               while(coltop&lt;=colbott&amp;&amp;i&gt;=coltop&amp;&amp;i&lt;=colbott)
+               {
+                   result.push_back(matrix[i][j]);
+                   i++;
+               }
+               i--;
+               j--;
+               rowright--;
+               dir = 3;
+               break;
+            case 3: //toleft
+             while(rowleft&lt;=rowright&amp;&amp;j&gt;=rowleft&amp;&amp;j&lt;=rowright)
+             {
+                 result.push_back(matrix[i][j]);
+                 j--;
+             }
+             j++;
+             i--;
+             colbott--;
+             dir = 4;
+             break;
+            case 4:  //totop
+             while(coltop&lt;=colbott&amp;&amp;i&gt;=coltop&amp;&amp;i&lt;=colbott)
+             {
+                  result.push_back(matrix[i][j]);
+                  i--;
+             }
+             i++;
+             j++;
+             rowleft++;
+             dir = 1;
+             break;
+             default:
+                break;
+        }
+    }
+
+    return result;
+}
+</code></pre>
+
+<p>};
+```
+有很多种方法，这是自己的一种实</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rotate Image]]></title>
@@ -235,383 +443,6 @@ public:
 </li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[编程之美|数字之迷]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/16/bian-cheng-zhi-mei-%7Cshu-zi-zhi-mi/"/>
-    <updated>2014-07-16T10:30:05+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/16/bian-cheng-zhi-mei-|shu-zi-zhi-mi</id>
-    <content type="html"><![CDATA[<h4>编程之美之数学之迷</h4>
-
-<p>此书趣味多多．前者类似题充斥网络，始作者即此书也．可见其影响之广，流传之远．细看年月，已数年之久，可谓经典．求职者奉为圭臬，学生党视若珍宝，今一睹真容．</p>
-
-<!--more-->
-
-
-<p><strong>目录：</strong>
-&ndash;  <a href="#1">2.1 二进制中1的个数</a>
-&ndash;  <a href="#2">2.2 阶乘</a>
-&ndash;  <a href="#3">2.3 发帖水王</a>
-&ndash;  <a href="#4">2.4 1的数目</a>
-&ndash;  <a href="#5">2.5 最大的k个数目</a>
-&ndash;  <a href="#6">2.6 精确表达浮点数</a>
-&ndash;  <a href="#7">2.7 最大公约数</a>
-&ndash;  <a href="#8">2.8 符合条件的整数</a></p>
-
-<h5 id="1">2.1二进制中1的个数</h5>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[最系列]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/"/>
-    <updated>2014-07-13T19:58:08+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie</id>
-    <content type="html"><![CDATA[<h4>最系列</h4>
-
-<p>常见到最长子序列，最长公共子序列等，网上总结了也很多．但自己实现一次方才了解．发现收获很多的．</p>
-
-<h4>目录</h4>
-
-<ul>
-<li>1.<a href="#1">最长公共子序列</a></li>
-<li>2.<a href="#2">最长公共子串</a></li>
-<li>3.<a href="#3">最长重复子串</a></li>
-<li>4.<a href="#4">最长回文子串</a></li>
-<li>5.<a href="#5">最大递增子序列</a></li>
-<li>6.<a href="#6">最大子数组和</a></li>
-<li>7.<a href="#7">最大M子段和</a></li>
-<li>8.<a href="#8">最大和子矩阵</a></li>
-<li>9.<a href="#9">字符串编码距离</a></li>
-<li>10.<a href="#10">最长不重复子串</a></li>
-</ul>
-
-
-<!--more-->
-
-
-
-
-<h5 id="1">最长公开子序列</h5>
-
-
-<p>这个最基础，动态规划；转移方程:</p>
-
-<p>C[i,j] = 0; 初始</p>
-
-<p>C[i,j] = C[i-1,j-1] + 1; Xi = Yi</p>
-
-<p>C[i,j] = max(C[i-1,j], C[i,j-1]); Xi != Yi;</p>
-
-<p>**代码</p>
-
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-
-int LCS(char *str1, char *str2, int m, int n, int len[][100],int sub[][100])
-{
-        int i,j;
-        for(i=0;i&lt;m;i++)
-            len[i][0] = 0;
-        for(i=0;i&lt;n;i++)
-            len[0][i] = 0;
-        for(i=1;i&lt;=m;i++)
-        for(j=1;j&lt;=n;j++)
-        {
-            if(str1[i-1]==str2[j-1])
-            {
-                len[i][j] = len[i-1][j-1] + 1;
-                sub[i][j] = 0;
-            }
-            else if(len[i-1][j]&gt;=len[i][j-1])
-            {
-                len[i][j] = len[i-1][j];
-                sub[i][j] = 1;
-            }
-            else
-            {
-                len[i][j] = len[i][j-1];
-                sub[i][j] = -1;
-            }
-        }
-        return len[m][n];
-}
-
-void PrintSub(char *x,int i, int j, int b[][100])
-{
-    if(i==0||j==0)
-        return;
-    if(b[i][j] == 0)
-    {
-        PrintSub(x,i-1,j-1,b);
-        printf("%c",x[i-1]);
-    }
-    else if(b[i][j]==1)
-        PrintSub(x,i-1,j,b);
-    else 
-        PrintSub(x,i,j-1,b);
-    return ;
-}
-int main()
-{
-    char str1[100],str2[100];
-    int len1,len2;
-    int subq[100][100],subq_len[100][100]; 
-    while(~scanf("%s %s",str1,str2))
-    {
-        len1 = strlen(str1); 
-        len2 = strlen(str2); 
-        int len = LCS(str1,str2,len1,len2,subq_len,subq);
-        printf("%d\n",len);
-        PrintSub(str1,len1,len2,subq);
-        printf("\n");
-    }
-    return 0;
-}
-</code></pre>
-
-<h5 id="2">最长公开子串</h5>
-
-
-<p>串和序列的区别在于连续与否，两者实现也差不多</p>
-
-<p>**代码</p>
-
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-
-int LCS(char *str1, char *str2, int m, int n, char *str3, int len[][100])
-{
-        int i,j;
-        int max = -1;
-        int x,y;
-        int k;
-        for(i=0;i&lt;m;i++)
-            len[i][0] = 0;
-        for(i=0;i&lt;n;i++)
-            len[0][i] = 0;
-        for(i=1;i&lt;=m;i++)
-        for(j=1;j&lt;=n;j++)
-        {
-            if(str1[i-1]==str2[j-1])
-                len[i][j] = len[i-1][j-1] + 1;
-            else 
-                len[i][j] = 0;
-            if(len[i][j]&gt;max)
-            {
-                max = len[i][j];
-                x = i;
-                y = j;
-            }
-        }
-        k = max;
-        str3[k] = '\0';
-        while(k&gt;=0)
-            str3[--k] = str1[--x];
-        return max;
-}
-
-int main()
-{
-    char str1[100],str2[100];
-    char str3[100];
-    int len1,len2;
-    int subq_len[100][100]; 
-    while(~scanf("%s %s",str1,str2))
-    {
-        len1 = strlen(str1); 
-        len2 = strlen(str2); 
-        int len = LCS(str1,str2,len1,len2,str3,subq_len);
-        printf("%s\n",str3);
-        printf("%d\n",len);
-    }
-    return 0;
-}
-</code></pre>
-
-<h5 id="6">最大子数组和</h5>
-
-
-<p>即一个数组中连续元素和的最大值，如1,2,-4,2 最大是3</p>
-
-<p>**代码:　</p>
-
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;limits.h&gt;
-
-int main()
-{
-    int n, a[100];
-    int i,sum,tmp;
-    int maxsum ;
-    while(~scanf("%d",&amp;n))
-    {
-        maxsum = INT_MIN;
-        sum = tmp = 0;
-        for(i=0;i&lt;n;i++)
-        {
-            scanf("%d",&amp;a[i]);
-            tmp += a[i];
-            if(tmp&lt;0)
-                tmp = 0;
-            else
-                sum = tmp;
-            if(sum&gt;maxsum)
-                maxsum = sum;
-        }
-        if(maxsum&lt;=0)
-        {
-            maxsum = a[0];
-            for(i=0;i&lt;n;i++)
-                if(a[i]&gt;maxsum)
-                    maxsum = a[i];
-        }
-        printf("%d\n",maxsum);
-    }
-    return 0;
-}
-</code></pre>
-
-<h5 id="5">最大子数组</h5>
-
-
-<p>序列可以为数组，也可以为特别的结构体，原理应该是一样的
-**代码：</p>
-
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-//return the length
-int LongIncreaseSubsquence1(int *a, int n, int *b)
-{
-    int i,j;
-    int lenght = 1;
-    if(n&lt;=0)return 0;
-    if(n==1)return 1;
-    b[0] = 1;
-    for(i=1;i&lt;n;i++)
-    {
-        b[i] = 1;
-        for(j=0;j&lt;i;j++)
-        {
-            if(a[j]&lt;a[i]&amp;&amp;b[j]+1&gt;b[i])
-               b[i] = b[j] + 1;
-        }
-    }
-    for(i=1;i&lt;n;i++)
-        lenght = (lenght&gt;=b[i]?lenght:b[i]);
-    return lenght;
-}
-int main()
-{
-    int a[100];
-    int b[100];
-    int n,i;
-    while(~scanf("%d",&amp;n))
-    {
-        for(i=0;i&lt;n;i++)
-            scanf("%d",&amp;a[i]);
-        int len = LongIncreaseSubsquence1(a,n,b);
-        printf("%d\n",len);
-    }
-    return 0;
-}
-</code></pre>
-
-<p>还有两种方法：
-&ndash; 1.基于最长公共子序列，先把原串排序，再求最长公共子序列
-&ndash; 2.再查找b[n]的时候，用二分法，因为b[n]是递增的序列</p>
-
-<hr />
-
-<h5>最大各子矩阵</h5>
-
-<h5>最长重复子串</h5>
-
-<h5>最长回文子串</h5>
-
-<h5>最大M子段</h5>
-
-<h5 id="9">字符编码距离</h5>
-
-
-<p>两个字符串，从其中一个变为另外一个需要的操作次数就是编码距离，这个或者还有其它的名词称谓．</p>
-
-<p>操作只有三种最基本的，即增删改，例如abc和bcd的距离就是，abc删除a，再后面添加d，操作就两步</p>
-
-<p>这种有一个很简单的方法，基于最长公共子序列，首先求出最长公共子序列int len = GetLongestCommomSubsquence(str1,str2),然后得到两个字符串长度，len1,len2.则操作的距离是len1+len2-len*2</p>
-
-<p>当这几个系列的操作都了解后，好多字符串的处理都是基于此的</p>
-
-<p>```</p>
-
-<p>class Solution {
-public:</p>
-
-<pre><code>int minDistance(string word1, string word2) {
-    // Start typing your C/C++ solution below
-    // DO NOT write int main() function
-    int row = word1.length() + 1;
-    int col = word2.length() + 1;
-
-    vector&lt;vector&lt;int&gt; &gt; f(row, vector&lt;int&gt;(col));
-
-    for (int i = 0; i &lt; row; i++)
-        f[i][0] = i;
-
-    for (int i = 0; i &lt; col; i++)
-        f[0][i] = i; 
-    for (int i = 1; i &lt; row; i++)
-        for (int j = 1; j &lt; col; j++){
-            if (word1[i-1] == word2[j-1])
-                f[i][j] = f[i-1][j-1];
-            else
-                f[i][j] = f[i-1][j-1] + 1;
-            f[i][j] = min(f[i][j], min(f[i-1][j]+1, f[i][j-1]+1));
-        }
-
-    return f[row-1][col-1];
-}
-</code></pre>
-
-<p>};lass Solution {
-public:</p>
-
-<pre><code>int minDistance(string word1, string word2) {
-    // Start typing your C/C++ solution below
-    // DO NOT write int main() function
-    int row = word1.length() + 1;
-    int col = word2.length() + 1;
-
-    vector&lt;vector&lt;int&gt; &gt; f(row, vector&lt;int&gt;(col));
-
-    for (int i = 0; i &lt; row; i++)
-        f[i][0] = i;
-
-    for (int i = 0; i &lt; col; i++)
-        f[0][i] = i;
-
-    for (int i = 1; i &lt; row; i++)
-        for (int j = 1; j &lt; col; j++){
-            if (word1[i-1] == word2[j-1])
-                f[i][j] = f[i-1][j-1];
-            else
-                f[i][j] = f[i-1][j-1] + 1;
-            f[i][j] = min(f[i][j], min(f[i-1][j]+1, f[i][j-1]+1));
-        }
-
-    return f[row-1][col-1];
-}
-</code></pre>
-
-<p>};
-```</p>
-
-<hr />
-
-<p><strong><em>待续</em></strong></p>
 ]]></content>
   </entry>
   

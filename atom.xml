@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-18T17:03:22+08:00</updated>
+  <updated>2014-07-18T21:31:55+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,329 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Longest Palindromic Substring]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/longest-palindromic-substring/"/>
+    <updated>2014-07-18T21:22:53+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/longest-palindromic-substring</id>
+    <content type="html"><![CDATA[<h5><a href="https://oj.leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring</a></h5>
+
+<h5>Probles</h5>
+
+<p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
+
+<p>看本站内的总结：<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最长回文字符串</a></p>
+
+<!--more-->
+
+
+<h5>Code</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Solution {
+</span><span class='line'>public:
+</span><span class='line'>    string longestPalindrome(string s)
+</span><span class='line'>    {
+</span><span class='line'>        int len = s.length();
+</span><span class='line'>        string str="";
+</span><span class='line'>        if(len==0)return str;
+</span><span class='line'>        int maxlen = 0;
+</span><span class='line'>        int leng;
+</span><span class='line'>        int left,right;
+</span><span class='line'>        for(int i=0;i&lt;2*len-1;i++)
+</span><span class='line'>        {
+</span><span class='line'>            if(i%2==0)
+</span><span class='line'>            {
+</span><span class='line'>                leng = 1;
+</span><span class='line'>                left = i/2 - 1;
+</span><span class='line'>                right = i/2 + 1;
+</span><span class='line'>                while(left&gt;=0&&right&lt;len&&s.at(left)==s.at(right))
+</span><span class='line'>                {
+</span><span class='line'>                    leng += 2;
+</span><span class='line'>                    left--;
+</span><span class='line'>                    right++;
+</span><span class='line'>                }
+</span><span class='line'>                 if(leng&gt;maxlen)
+</span><span class='line'>              {
+</span><span class='line'>                    maxlen = leng;
+</span><span class='line'>                    str = s.substr(i/2-maxlen/2, maxlen);
+</span><span class='line'>              }
+</span><span class='line'>            }
+</span><span class='line'>            else
+</span><span class='line'>            {
+</span><span class='line'>                leng = 0;
+</span><span class='line'>                left = i/2;
+</span><span class='line'>                right = i/2+1;
+</span><span class='line'>                 while(left&gt;=0&&right&lt;len&&s[left]==s[right])
+</span><span class='line'>                {
+</span><span class='line'>                    leng += 2;
+</span><span class='line'>                    left--;
+</span><span class='line'>                    right++;
+</span><span class='line'>                }
+</span><span class='line'>               
+</span><span class='line'>            
+</span><span class='line'>             if(leng&gt;maxlen)
+</span><span class='line'>              {
+</span><span class='line'>                    maxlen = leng;
+</span><span class='line'>                    str = s.substr(i/2-maxlen/2+1, maxlen);
+</span><span class='line'>              }
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>        return str;
+</span><span class='line'>    }
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>注意</h5>
+
+<ul>
+<li><ol>
+<li>把奇偶统一起来，这样i的大小是2len-1的大小</li>
+</ol>
+</li>
+<li><ol>
+<li>还有一个注意点是，substr()这个两个参数是指起始和长度，起始从0开始就算第一个</li>
+</ol>
+</li>
+<li><ol>
+<li>后面两个if判断不能统一起来，因为substr中的参数不一样</li>
+</ol>
+</li>
+<li><ol>
+<li>方法：<strong>从中间向两边比较来判断是否回文，例a_b_c_b_a，则这个字符串abcba长度5，判断的位置有9个，然后从中间向两边展开，首先判断是否出界，再看是不是相等，这样最后更新长度和字符串</strong></li>
+</ol>
+</li>
+<li>5.　本文属于<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最系列</a>的应用</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Spiral Matrix]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/spiral-matrix/"/>
+    <updated>2014-07-18T19:01:52+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/spiral-matrix</id>
+    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/spiral-matrix/">Spiral Matrix</a></h4>
+
+<h5>Problem</h5>
+
+<p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>
+
+<p>For example,</p>
+
+<p>Given the following matrix:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[1,2,3]
+</span><span class='line'>[4,5,6]
+</span><span class='line'>[7,8,9]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should return<code>[1,2,3,6,8,9,7,4,5]</code></p>
+
+<!--more-->
+
+
+<h5>Code</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Solution {
+</span><span class='line'>public:
+</span><span class='line'>    vector&lt;int&gt; spiralOrder(vector&lt;vector&lt;int&gt; &gt; &matrix)
+</span><span class='line'>    {
+</span><span class='line'>        vector&lt;int&gt;result;
+</span><span class='line'>        result.clear();
+</span><span class='line'>        int row = matrix.size();
+</span><span class='line'>        if(row==0)return result;
+</span><span class='line'>        int col = matrix[0].size();
+</span><span class='line'>        int rowleft = 0, rowright = col -1;
+</span><span class='line'>        int coltop = 0, colbott = row -1;
+</span><span class='line'>        int i=0,j=0;
+</span><span class='line'>        int dir = 1;
+</span><span class='line'>        while(rowleft&lt;=rowright&&coltop&lt;=colbott)
+</span><span class='line'>        {
+</span><span class='line'>            switch(dir)
+</span><span class='line'>            {
+</span><span class='line'>                case 1:   //toright
+</span><span class='line'>                    while(rowleft&lt;=rowright&&j&gt;=rowleft&&j&lt;=rowright)
+</span><span class='line'>                    {
+</span><span class='line'>                        result.push_back(matrix[i][j]);
+</span><span class='line'>                        j++;
+</span><span class='line'>                    }
+</span><span class='line'>                    j--;
+</span><span class='line'>                    i++;
+</span><span class='line'>                    coltop++;
+</span><span class='line'>                    dir = 2;
+</span><span class='line'>                    break;
+</span><span class='line'>                case 2: //tobott
+</span><span class='line'>                   while(coltop&lt;=colbott&&i&gt;=coltop&&i&lt;=colbott)
+</span><span class='line'>                   {
+</span><span class='line'>                       result.push_back(matrix[i][j]);
+</span><span class='line'>                       i++;
+</span><span class='line'>                   }
+</span><span class='line'>                   i--;
+</span><span class='line'>                   j--;
+</span><span class='line'>                   rowright--;
+</span><span class='line'>                   dir = 3;
+</span><span class='line'>                   break;
+</span><span class='line'>                case 3: //toleft
+</span><span class='line'>                 while(rowleft&lt;=rowright&&j&gt;=rowleft&&j&lt;=rowright)
+</span><span class='line'>                 {
+</span><span class='line'>                     result.push_back(matrix[i][j]);
+</span><span class='line'>                     j--;
+</span><span class='line'>                 }
+</span><span class='line'>                 j++;
+</span><span class='line'>                 i--;
+</span><span class='line'>                 colbott--;
+</span><span class='line'>                 dir = 4;
+</span><span class='line'>                 break;
+</span><span class='line'>                case 4:  //totop
+</span><span class='line'>                 while(coltop&lt;=colbott&&i&gt;=coltop&&i&lt;=colbott)
+</span><span class='line'>                 {
+</span><span class='line'>                      result.push_back(matrix[i][j]);
+</span><span class='line'>                      i--;
+</span><span class='line'>                 }
+</span><span class='line'>                 i++;
+</span><span class='line'>                 j++;
+</span><span class='line'>                 rowleft++;
+</span><span class='line'>                 dir = 1;
+</span><span class='line'>                 break;
+</span><span class='line'>                 default:
+</span><span class='line'>                    break;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>      
+</span><span class='line'>        return result;
+</span><span class='line'>    }
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<p>有很多种方法，这是自己的一种实</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[李天一列传]]></title>
@@ -1715,280 +2038,6 @@ int main()
 <p><audio controls="controls">
   <source src="http://mkdir1.github.io/music/xing.mp3" type="audio/mpeg">
 </audio></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Gem-stones]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/11/gem-stones/"/>
-    <updated>2014-07-11T14:38:44+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/11/gem-stones</id>
-    <content type="html"><![CDATA[<h3><a href="https://www.hackerrank.com/challenges/gem-stones">Gem-stones</a></h3>
-
-<p>John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lowercase latin letter from &lsquo;a&rsquo; to &lsquo;z&rsquo;. An element can be present multiple times in a rock. An element is called a &lsquo;gem-element&rsquo; if it occurs at least once in each of the rocks.</p>
-
-<p>Given the list of rocks with their compositions, display the number of gem-elements that exist in those rocks.</p>
-
-<!--more-->
-
-
-<ul>
-<li>Input Format</li>
-</ul>
-
-
-<p>The first line consists of N, the number of rocks.
-Each of the next N lines contain rocks&#8217; composition. Each composition consists of lowercase letters of English alphabet.</p>
-
-<ul>
-<li>Output Format</li>
-</ul>
-
-
-<p>Print the number gem-elements that exist in those rocks.</p>
-
-<p>Constraints</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ N ≤ 100 
-</span><span class='line'>Each composition consists of only small latin letters ('a'-'z'). 
-</span><span class='line'>1 ≤ Length of each composition ≤ 100</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Input</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>3
-</span><span class='line'>abcdde
-</span><span class='line'>baccd
-</span><span class='line'>eeabg</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Output</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Explanation
-Only &ldquo;a&rdquo;, &ldquo;b&rdquo; are the two kind of gem-elements, since these are the only characters that occur in each of the rocks&#8217; composition.</p>
-
-<hr />
-
-<p><strong>The Code</strong>:</p>
-
-<pre><code>#include &lt;iostream&gt;
-#include &lt;string.h&gt;
-using namespace std;
-
-int main()
-{
-    int N;
-    int ele[26];
-    char str[100];
-    while(cin&gt;&gt;N)
-    {
-        int sum = 0;
-        for(int i=0;i&lt;26;i++)ele[i]=1;
-        for(int i=0;i&lt;N;i++)
-        {
-            cin&gt;&gt;str;
-            int len = strlen(str);
-            for(int j=0;j&lt;len;j++)
-                if(ele[str[j]-'a']!=0)
-                ele[str[j]-'a']++;
-            for(int k=0;k&lt;26;k++)
-            {        
-                if(ele[k]&gt;1)
-                    ele[k]=1;
-                else
-                    ele[k]=0;
-            } 
-        } 
-        for(int j=0;j&lt;26;j++)
-                if(ele[j]==1)sum++;
-
-           printf("%d\n",sum);
-        }
-
-    return 0;    
-}
-
----
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Markdown转html和pdf]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/10/markdownzhuan-htmlhe-pdf/"/>
-    <updated>2014-07-10T17:59:21+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/10/markdownzhuan-htmlhe-pdf</id>
-    <content type="html"><![CDATA[<h3>Markdown转html和pdf</h3>
-
-<p>这个功能很实用，可以在网上完成．但对于本地，则也有几个不错的工具选择</p>
-
-<hr />
-
-<!--more-->
-
-
-<h4>之前的解决方案</h4>
-
-<p>可以在这几个网址上完成转换:</p>
-
-<ul>
-<li><p>1 <a href="http://maxiang.info/">马克飞象</a>,这个很方便，可以同步evernote，b也有不错的界面，是目前我最看好的一个．但唯一不爽的是保存的pdf中竟然有它的logo这个真是要命</p></li>
-<li><p>2 <a href="https://stackedit.io/">statedit</a>,这个也不错，和前者很像．应该大部分这类网站都是这个风格，在没有搭建好本地的转换的时候，本人一直是在这上面完成pdf转换的，想来真是折腾啊</p></li>
-<li><p>3 再一个就是linux下的retext了，这是个简单的免费工具，文本操作，对于vim程序员确实使用不爽，唯一的用处就是预览和修改用</p></li>
-<li><p>4 还好，linux下面有一个markdown的命令，使用也简单，也<code>sudo apt-get isntall markdwon</code>就行.不过令人不爽的是，html乱码，对中文支持不够，看了官网上的，好像还是2004年的更新，所以一定有我这样的志士仁人受不了</p></li>
-</ul>
-
-
-<hr />
-
-<h5>现在的解决方案</h5>
-
-<p>程序员的原则就是大道至简，其实就是方便，通俗点就是懒惰，怎么能忍受如此多的工具换来换去的，那岂不是要疯，最好是一个命令就搞定，生成了pdf, txt, html, md等所有格式，如果要用，就直接里面找．</p>
-
-<p>首先安装<code>sudo apt-get install pandoc</code>，再看下它的方法，使用也很简单</p>
-
-<p><strong>语法如下</strong></p>
-
-<pre><code>pandoc -h
-pandoc [OPTIONS] [FILES]
-Input formats:  native, markdown, markdown+lhs, rst, rst+lhs, html, latex, latex+lhs
-Output formats:  native, html, html+lhs, s5, docbook, opendocument, odt, latex, latex+lhs, context, texinfo, man, markdown, markdown+lhs, plain, rst, rst+lhs, mediawiki, rtf
-Options:
-  -f FORMAT, -r FORMAT  --from=FORMAT, --read=FORMAT                    
-  -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT                     
-  -s                    --standalone                                    
-  -o FILENAME           --output=FILENAME                               
-  -p                    --preserve-tabs                                 
-                        --tab-stop=TABSTOP                              
-                        --strict                                        
-                        --reference-links                               
-  -R                    --parse-raw                                     
-  -S                    --smart                                         
-  -m[URL]               --latexmathml[=URL], --asciimathml[=URL]        
-                        --mathml[=URL]                                  
-                        --mimetex[=URL]                                 
-                        --jsmath[=URL]                                  
-                        --gladtex                                       
-  -i                    --incremental                                   
-                        --xetex                                         
-  -N                    --number-sections                               
-                        --no-wrap                                       
-                        --sanitize-html                                 
-                        --email-obfuscation=none|javascript|references  
-                        --id-prefix=STRING                              
-                        --indented-code-classes=STRING                  
-                        --toc, --table-of-contents                      
-                        --base-header-level=LEVEL                       
-                        --template=FILENAME                             
-  -V FILENAME           --variable=FILENAME                             
-  -c URL                --css=URL                                       
-  -H FILENAME           --include-in-header=FILENAME                    
-  -B FILENAME           --include-before-body=FILENAME                  
-  -A FILENAME           --include-after-body=FILENAME                   
-  -C FILENAME           --custom-header=FILENAME                        
-  -T STRING             --title-prefix=STRING                           
-                        --reference-odt=FILENAME                        
-  -D FORMAT             --print-default-template=FORMAT                 
-                        --data-dir=DIRECTORY                            
-                        --dump-args                                     
-                        --ignore-args                                   
-  -v                    --version                                       
-  -h                    --help
-</code></pre>
-
-<p>支持格式中，比较有用的有**markdown, html, latex, rtf, odt</p>
-
-<h4>使用</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pandoc -f markdown -t html -o example.html example.md
-</span><span class='line'>pandoc --ascii example.md -o example.html
-</span><span class='line'>    </span></code></pre></td></tr></table></div></figure>
-
-
-<p>加&mdash;ascii后html不会乱码</p>
-
-<h4>转为pdf</h4>
-
-<p>这个历程真是坑，转为pdf的软件何其多，当初很2的选择了xhtml2pdf.这个软件我至今还没安装好，依赖包好多，PIL, Reporlab．最后安装好了，还是出问题．当时的想法就是换一个软件．终于有一个神器出现了</p>
-
-<pre><code>sudo apt-get install unoconv
-</code></pre>
-
-<p>使用也很方便，<code>unoconv -f pdf demo.html</code></p>
-
-<p>为什么说<strong>unoconv</strong>是神器了，用了才知道它支持好多格式，常用的几乎包含了．</p>
-
-<h4>写个Makefile就好了</h4>
-
-<pre><code>MD = pandoc
-MDFLAGS = --ascii
-H2P = unoconv
-H2PFLAGS = -f pdf 
-SOURCES := $(wildcard *.md)
-OBJECTS := $(patsubst %.md, %.html, $(wildcard *.md))
-OBJECTS_PDF := $(patsubst %.md, %.pdf, $(wildcard *.md))
-all: build
-build: html pdf
-pdf: $(OBJECTS_PDF)
-html: $(OBJECTS)
-$(OBJECTS_PDF): %.pdf: %.html
-    $(H2P) $(H2PFLAGS) $&lt; 
-$(OBJECTS): %.html: %.md
-    $(MD) $(MDFLAGS) -o $@ $&lt;
-clean:
-    rm -f $(OBJECTS) *.pdf
-</code></pre>
-
-<p>这样再直接用就一切ok</p>
-
-<h4>写个Shell一切安好</h4>
-
-<p>这里整理一下要点</p>
-
-<ul>
-<li><ol>
-<li>查找匹配后缀名<code>find * -type f -name '*.md'</code>，这里如果find后是.则匹配的文件有本目录如，./demo.md，如果用*则如demo.md</li>
-</ol>
-</li>
-<li><p>2.匹配文件名和后缀，如果file=&ldquo;thisfile.md&rdquo;,则${file%.<em>}表示thisfile, ${file##</em>.}表示md</p></li>
-</ul>
-
-
-<p><strong>详细代码，我的shell名为tran.sh</strong></p>
-
-<pre><code>#!/bin/sh                                                          
-filelist=`find * -type f -name '*.md'`
-for file in $filelist
-do   
-    htmlfile=${file%.*}.html
-    pandoc --ascii $file -o $htmlfile
-    unoconv -f pdf $htmlfile
-done 
-</code></pre>
-
-<p>最后就放到bin中就搞定了</p>
-
-<p>有的后缀很花样，没办法，把shell中两行改为:</p>
-
-<pre><code>filelists=`find * -type f -name '*.markdown'`
-for file in $filelist $filelists
-</code></pre>
-
-<p>Enjoy~</p>
 ]]></content>
   </entry>
   
