@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Language | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/language/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-18T10:43:41+08:00</updated>
+  <updated>2014-07-18T16:53:16+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[C++中sort报错]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo/"/>
+    <updated>2014-07-18T12:25:35+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo</id>
+    <content type="html"><![CDATA[<h4>C++中报错</h4>
+
+<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+
+<!--more-->
+
+
+<p>具体：</p>
+
+<p>代码如下：</p>
+
+<pre><code>class Solution {
+public:
+bool  cmp(Interval interval1, Interval interval2)
+{
+        return interval1.start&lt;interval2.start;
+};
+int f()
+{
+    ...
+    sort(intervals.begin(),intervals.end(),cmp);
+    ...
+}
+};
+</code></pre>
+
+<p>此处用法错误，不知是否察觉：</p>
+
+<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+
+<p>解决之法：</p>
+
+<p>将cmp的定义置于class之外</p>
+
+<p>可以将sort定义在结构体之内，这样就直接intervals.sort(&hellip;)；如果定义在之外，要放在类的外面</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Google_c++编程规范图]]></title>

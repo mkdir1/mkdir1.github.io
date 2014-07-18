@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Tools - Vintion's blog</title>
+  <title>Unique Binary Search Trees Ii - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Category: tools">
+  <meta name="description" content="Unique Binary Search Tree II Problem Given n, generate all structurally unique BST&rsquo;s (binary search trees) that store values 1&hellip;n. Code &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/categories/tools">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/18/unique-binary-search-trees-ii">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -69,92 +69,185 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Tools</h1>
+    
+      <h1 class="entry-title">Unique Binary Search Trees Ii</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-18T16:14:31+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="#comments">Comments</a>
+         
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><h4><a href="https://oj.leetcode.com/problems/unique-binary-search-trees-ii/">Unique Binary Search Tree II</a></h4>
 
-  
-  <h2>2014</h2>
-
-<article>
-  
-<h1><a href="/blog/2014/07/16/git/">Git常用命令</a></h1>
-<time datetime="2014-07-16T19:27:13+08:00" pubdate><span class='month'>Jul</span> <span class='day'>16</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/tools/'>tools</a></span>
-</footer>
+<!--more-->
 
 
-</article>
+<h5>Problem</h5>
 
+<p>Given n, generate all structurally unique BST&rsquo;s (binary search trees) that store values 1&hellip;n.</p>
 
+<h5>Code</h5>
 
-<article>
-  
-<h1><a href="/blog/2014/07/15/chromekuai-jie-jian/">Chrome快捷键</a></h1>
-<time datetime="2014-07-15T00:39:34+08:00" pubdate><span class='month'>Jul</span> <span class='day'>15</span> <span class='year'>2014</span></time>
+<pre><code>/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;TreeNode *&gt; generate(int beg, int end)
+    {
+        vector&lt;TreeNode* &gt; ret;
+        if (beg &gt; end)
+        {
+            ret.push_back(NULL);
+            return ret;
+        }
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/tools/'>tools</a></span>
-</footer>
+        for(int i = beg; i &lt;= end; i++)
+        {
+            vector&lt;TreeNode* &gt; leftTree = generate(beg, i - 1);
+            vector&lt;TreeNode* &gt; rightTree = generate(i + 1, end);
+            for(int j = 0; j &lt; leftTree.size(); j++)
+                for(int k = 0; k &lt; rightTree.size(); k++)
+                {
+                    TreeNode *node = new TreeNode(i + 1);
+                    ret.push_back(node);
+                    node-&gt;left = leftTree[j];
+                    node-&gt;right = rightTree[k];              
+                }           
+        }
 
+        return ret;
+    }
 
-</article>
+    vector&lt;TreeNode *&gt; generateTrees(int n) {
+        return generate(0, n - 1);
+    }
+};
+</code></pre>
 
+<h5>注意</h5>
 
-
-<article>
-  
-<h1><a href="/blog/2014/07/12/software-for-blog-on-ubuntu/">Software for Blog on Ubuntu</a></h1>
-<time datetime="2014-07-12T22:14:15+08:00" pubdate><span class='month'>Jul</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/tools/'>tools</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/07/10/markdownzhuan-htmlhe-pdf/">Markdown转html和pdf</a></h1>
-<time datetime="2014-07-10T17:59:21+08:00" pubdate><span class='month'>Jul</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/tools/'>tools</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/07/08/markdown/">Markdown</a></h1>
-<time datetime="2014-07-08T22:32:49+08:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/tools/'>tools</a></span>
-</footer>
-
-
-</article>
+<ul>
+<li>1.此题第一想法就应试是递归或DFS</li>
+</ul>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Vintion</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-18T16:14:31+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+<!-
+  
+  
+  
+->
+
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1398179991822421" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</div>
+
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/18/insert-interval/" title="Previous Post: Insert interval">&laquo; Insert interval</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/07/18/rotate-image/" title="Next Post: rotate image">rotate image &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- 多说评论框 start -->
+	<div class="ds-thread"> </div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"vintion"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</div>
+  </section>
 
 </div>
 

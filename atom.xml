@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-18T10:43:41+08:00</updated>
+  <updated>2014-07-18T16:53:16+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,274 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rotate Image]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/rotate-image/"/>
+    <updated>2014-07-18T16:44:12+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/rotate-image</id>
+    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/rotate-image/">Rotate Image</a></h4>
+
+<h5>Problem:</h5>
+
+<p>You are given an n x n 2D matrix representing an image.</p>
+
+<p>Rotate the image by 90 degrees (clockwise).</p>
+
+<p>Follow up:
+Could you do this in-place?</p>
+
+<!--more-->
+
+
+<h5>Code:</h5>
+
+<pre><code>class Solution {
+public:
+    void rotate(vector&lt;vector&lt;int&gt; &gt; &amp;matrix)
+    {
+        int row = matrix.size();
+        int col = matrix[0].size();
+        // 
+        for(int i=0;i&lt;row;i++)
+        for(int j=0;j&lt;i;j++)
+            swap(matrix[i][j],matrix[j][i]);
+        //
+        for(int i=0;i&lt;row;i++)
+        for(int j=0;j&lt;col/2;j++)
+            swap(matrix[i][j],matrix[i][col-1-j]);
+
+    }
+};
+</code></pre>
+
+<h5>说明</h5>
+
+<ul>
+<li><p>1.从windows下粘贴来的代码后面会有<sup>M</sup>的结尾，原因是换行符的约定问题，在vim中很容易删除，用:%s/^M//g即可，但此处的<sup>M</sup>需要用Ctrl+V再加上M得到</p></li>
+<li><p>2.这题方法不是很多，先正对角线换，再左右换；或者逆对角线，再左右</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unique Binary Search Trees Ii]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/unique-binary-search-trees-ii/"/>
+    <updated>2014-07-18T16:14:31+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/unique-binary-search-trees-ii</id>
+    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/unique-binary-search-trees-ii/">Unique Binary Search Tree II</a></h4>
+
+<!--more-->
+
+
+<h5>Problem</h5>
+
+<p>Given n, generate all structurally unique BST&rsquo;s (binary search trees) that store values 1&hellip;n.</p>
+
+<h5>Code</h5>
+
+<pre><code>/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;TreeNode *&gt; generate(int beg, int end)
+    {
+        vector&lt;TreeNode* &gt; ret;
+        if (beg &gt; end)
+        {
+            ret.push_back(NULL);
+            return ret;
+        }
+
+        for(int i = beg; i &lt;= end; i++)
+        {
+            vector&lt;TreeNode* &gt; leftTree = generate(beg, i - 1);
+            vector&lt;TreeNode* &gt; rightTree = generate(i + 1, end);
+            for(int j = 0; j &lt; leftTree.size(); j++)
+                for(int k = 0; k &lt; rightTree.size(); k++)
+                {
+                    TreeNode *node = new TreeNode(i + 1);
+                    ret.push_back(node);
+                    node-&gt;left = leftTree[j];
+                    node-&gt;right = rightTree[k];              
+                }           
+        }
+
+        return ret;
+    }
+
+    vector&lt;TreeNode *&gt; generateTrees(int n) {
+        return generate(0, n - 1);
+    }
+};
+</code></pre>
+
+<h5>注意</h5>
+
+<ul>
+<li>1.此题第一想法就应试是递归或DFS</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Insert Interval]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/insert-interval/"/>
+    <updated>2014-07-18T15:40:02+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/insert-interval</id>
+    <content type="html"><![CDATA[<h4>leetcode-Insert interval</h4>
+
+<h5>题干</h5>
+
+<p>Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).</p>
+
+<p>You may assume that the intervals were initially sorted according to their start times.</p>
+
+<p>Example 1:
+Given intervals [1,3],[6,9], insert and merge [2,5] in as [1,5],[6,9].</p>
+
+<p>Example 2:
+Given [1,2],[3,5],[6,7],[8,10],[12,16], insert and merge [4,9] in as [1,2],[3,10],[12,16].</p>
+
+<p>This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].</p>
+
+<!--more-->
+
+
+<p>这题被虐了十几次，耗时半日．</p>
+
+<p>其实逻辑简单，只是处理起来麻烦，如果有调试会更简单，只是平台上面只有结果．</p>
+
+<h5>code</h5>
+
+<pre><code>/**
+ * Definition for an interval.
+ * struct Interval {
+ *     int start;
+ *     int end;
+ *     Interval() : start(0), end(0) {}
+ *     Interval(int s, int e) : start(s), end(e) {}
+ * };
+ */
+bool  cmp(Interval interval1, Interval interval2)
+{
+        return interval1.start&lt;interval2.start;
+}
+class Solution {
+public:
+
+    vector&lt;Interval&gt; insert(vector&lt;Interval&gt; &amp;intervals, Interval newInterval) 
+    {
+         int size = intervals.size();
+         intervals.push_back(newInterval);
+         if(size==0)
+            return intervals;  // pitfall1
+        sort(intervals.begin(), intervals.end(), cmp);
+        vector&lt;Interval&gt; result;
+        int starts, ends;
+        size++;
+        int i,j;
+        for(i=0;i&lt;size;i++)
+        {
+            starts = intervals[i].start;
+            ends   = intervals[i].end;
+            for(j=i+1;j&lt;size;j++)
+            {
+                if(ends&lt;intervals[j].start)
+                  {
+                    Interval tmp(starts, ends);
+                    result.push_back(tmp);
+                     break;
+                  }
+                 else if(ends&gt;=intervals[j].start&amp;&amp;ends&lt;=intervals[j].end)
+                 {
+                     ends = intervals[j].end;
+                     i = j; //pitfall2
+                 }
+                 else
+                    i = j; //pitfall3
+            }
+            if(size==j)
+             {
+                    Interval tmp(starts, ends);
+                    result.push_back(tmp);
+                    break;
+             }
+        }
+        return result;
+    }
+};
+</code></pre>
+
+<p>三个pitfalls，首先按starts排序，然后遍历，其中要更新的不止是ends的值，还有是i也要更新，这样，就略过了．</p>
+
+<h5>Bug</h5>
+
+<ul>
+<li><ol>
+<li>关于sort排序，应该放在class之外，否则会报错</li>
+</ol>
+</li>
+<li><ol>
+<li>vector也有sort函数</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[C++中sort报错]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo/"/>
+    <updated>2014-07-18T12:25:35+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo</id>
+    <content type="html"><![CDATA[<h4>C++中报错</h4>
+
+<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+
+<!--more-->
+
+
+<p>具体：</p>
+
+<p>代码如下：</p>
+
+<pre><code>class Solution {
+public:
+bool  cmp(Interval interval1, Interval interval2)
+{
+        return interval1.start&lt;interval2.start;
+};
+int f()
+{
+    ...
+    sort(intervals.begin(),intervals.end(),cmp);
+    ...
+}
+};
+</code></pre>
+
+<p>此处用法错误，不知是否察觉：</p>
+
+<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+
+<p>解决之法：</p>
+
+<p>将cmp的定义置于class之外</p>
+
+<p>可以将sort定义在结构体之内，这样就直接intervals.sort(&hellip;)；如果定义在之外，要放在类的外面</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[添加用户]]></title>
@@ -1801,233 +2069,6 @@ int main() {
 </code></pre>
 
 <hr />
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2014中国软件开发者调查报告CSDN]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/"/>
-    <updated>2014-07-10T09:30:33+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn</id>
-    <content type="html"><![CDATA[<h3>2014中国软件开发者调查报告CSDN</h3>
-
-<p>由CSDN发起的一项调查报告，有一定的可信度，值得每个程序员借鉴与思考．里面的数据需要简单分析一下，可对自己职业规划，业界现状，甚至人生都有一定的好处，现摘录加一点分析</p>
-
-<p>可以到这里看全文<a href="http://www.csdn.net/article/2014-07-02/2820493?utm_source=tuicool">调查报告新闻</a></p>
-
-<!--more-->
-
-
-<hr />
-
-<h5>相关数据</h5>
-
-<ul>
-<li><p>开发者男性为主导，特别是年轻男性，21~30岁占82%，硕士15%, 本科64%</p></li>
-<li><p>北上广深成都调查者占近一半</p></li>
-<li><p>30岁以上从事开发者很少</p></li>
-<li><p>创业的比例和想要创业的人的比例</p></li>
-</ul>
-
-
-<p><img src="http://mkdir1.github.io/images/baogao1.jpg" alt="创业" /></p>
-
-<ul>
-<li>操作系统使用比例</li>
-</ul>
-
-
-<p><img src="http://mkdir1.github.io/images/baogao2.jpg" alt="操作系统" /></p>
-
-<ul>
-<li>行业细分</li>
-</ul>
-
-
-<p><img src="http://mkdir1.github.io/images/baogao3.jpg" alt="行业" /></p>
-
-<ul>
-<li>语言分类</li>
-</ul>
-
-
-<p><img src="http://mkdir1.github.io/images/baogao4.jpg" alt="语言" /></p>
-
-<hr />
-
-<h5>可以看出</h5>
-
-<ul>
-<li><p>1 大城市一般是IT行业者的理想栖息地，不仅仅工资可观，而且机会众多，不少企业和研究所都坐落于此，所以，这也解释了为什么这个行业可选的地方也就少有的几个大中城市</p></li>
-<li><p>2 创业没有什么年龄段，有机会就要上，而且比例还不占少数，而真正实践的确不多</p></li>
-<li><p>3 女性在这个行业竞争确实有限，大部分到一定年龄就退出了，不知以后是否有变化，我估计也改变不大</p></li>
-<li><p>4 操作系统移动端的上升明显，linux和windown地位目前不可撼动</p></li>
-<li><p>5 有必要学会这几种语言<strong>Java, C#, C++/C, PHP, JavaScript, Python</strong></p></li>
-</ul>
-
-
-<hr />
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[C语言中char *a与char A[]的区别]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/"/>
-    <updated>2014-07-09T23:41:57+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie</id>
-    <content type="html"><![CDATA[<h4>C语言char s[] 和 char *s的区别</h4>
-
-<p>看如下的代码，区别立现</p>
-
-<pre><code>char *s = "hello world";
-char s[] = "hello world"
-</code></pre>
-
-<p>区别在于<strong>前者是指针，后者是数组</strong></p>
-
-<pre><code>char *s是一个指向只读区域的指针，只读区域是hello world
-char s[]是一个数组，内容是拷贝了只读区别的数据
-</code></pre>
-
-<p>前者指针指向的内容不能变，后者可变</p>
-
-<hr />
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Linux启动流程]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/09/linuxqi-dong-liu-cheng/"/>
-    <updated>2014-07-09T23:14:18+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/09/linuxqi-dong-liu-cheng</id>
-    <content type="html"><![CDATA[<h4>Linux的启动顺序</h4>
-
-<ul>
-<li><p>1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；</p></li>
-<li><p>2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；</p></li>
-<li><p>3 依据bootloader的设置加载kernel，kernel开始检测硬件和加载驱动程序；</p></li>
-</ul>
-
-
-<!--more-->
-
-
-<ul>
-<li><p>4 在硬件驱动成功后，kernel会调用init进程，init进程会取得run-level信息；</p></li>
-<li><p>5 init执行/etc/rc.d/sysinit文件来准备软件执行的操作环境；</p></li>
-<li><p>6 init执行run-level的各个服务；</p></li>
-<li><p>7 init执行/etc/rc.d/rc.local文件；</p></li>
-<li><p>8 init执行终端机模拟程序mingetty来启动login进程，最后等待用户登录。</p></li>
-</ul>
-
-
-<hr />
-
-<h4>用户登录后</h4>
-
-<ul>
-<li><p>1 /etc/profile：此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 并从/etc/profile.d目录的配置文件中搜集shell的设置。</p></li>
-<li><p>2 /etc/bashrc: 为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取。</p></li>
-<li><p>3 ~/.bash_profile: 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件。</p></li>
-<li><p>4 ~/.bashrc: 该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取。</p></li>
-<li><p>5 ~/.bash_logout:当每次退出系统(退出bash shell)时,执行该文件.  另外,/etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承 /etc/profile中的变量,他们是&#8221;父子&#8221;关系。</p></li>
-<li><p>6 ~/.bash_profile 是交互式、login 方式进入 bash 运行的~/.bashrc 是交互式 non-login 方式进入 bash 运行的通常二者设置大致相同，所以通常前者会调用后者。</p></li>
-</ul>
-
-
-<hr />
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Linux下常用的软件汇集]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji/"/>
-    <updated>2014-07-09T20:29:04+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji</id>
-    <content type="html"><![CDATA[<h3>Linux下常用的软件合集</h3>
-
-<p>自己所用的环境一直是Linux,版本是最新的Ubuntu14.04.</p>
-
-<p>其它版本的linux未尝试，实属遗憾，先把自己所用的环境整理一番</p>
-
-<!--more-->
-
-
-<hr />
-
-<h4>工作必备</h4>
-
-<ul>
-<li>Chrome/Firefox.(Vimium)</li>
-<li>Thunderbird</li>
-<li>为知笔记(Evernote也很不错，不过在linux下只有这个支持得不错，且用户量也大)</li>
-<li>搜狗五笔(支持linux真心不错，业界良心，其它的什么一直使用不便)</li>
-<li>Samba</li>
-<li>QQ，（这个需要自己想办法，不过至今有一个完全支持的版本，总是bug不断)</li>
-<li>Ffmpeg&amp;VLC</li>
-<li>rdesktop</li>
-<li>syspeek</li>
-<li>deeping-Music-play</li>
-<li>wps&amp;liboffice(有些要自己安装)</li>
-<li>星际译王</li>
-<li>unoconv和pandoc</li>
-<li>synergy</li>
-<li>skype</li>
-<li>variety(这个软件使得Linux有了windows上aero的效果)</li>
-<li>Dropbox</li>
-<li>OpenFetion</li>
-<li>Filezilla
-&ndash;. Freemind</li>
-<li>Wine</li>
-<li>豆瓣fm</li>
-<li>Tweak</li>
-<li>Gimp</li>
-<li>SMplayer</li>
-<li>Adobe Flash</li>
-<li>福昕PDF</li>
-<li>Cairo-Dock(这个搞得像Mac)</li>
-<li>抓虾(git上的zx)</li>
-</ul>
-
-
-<hr />
-
-<h4>程序员必备</h4>
-
-<p>这个应该没什么是必备的，程序员的世界无法看遍．下面是老夫用的，bin下面一大堆，只列几个正在用的</p>
-
-<ul>
-<li>Vim(推荐k-vim)</li>
-<li>QT</li>
-<li>retext</li>
-<li>eclipse</li>
-<li>mysql</li>
-<li>python</li>
-<li>git&amp;svn</li>
-<li>ssh</li>
-<li>Wireshark</li>
-<li>codeblocks</li>
-<li>Texmaker</li>
-<li>VirtualBox</li>
-<li>JAVA</li>
-<li>g++</li>
-</ul>
-
-
-<hr />
-
-<h5>原则</h5>
-
-<ul>
-<li>不折腾不舒服，不尝试无发言权</li>
-<li>数学和音乐让我又度过了无聊的一天</li>
-<li>一天不学，落后</li>
-<li>记在纸上的，永远记不住</li>
-<li>用不上的，最好不要学，除非是装13</li>
-<li>永远不要看电视剧，看下情节概要就行</li>
-<li>人生如戏，就看演技　</li>
-</ul>
-
 ]]></content>
   </entry>
   

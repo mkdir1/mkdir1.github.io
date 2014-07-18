@@ -9,7 +9,7 @@
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Markdonw语法简要 此处权当工具参考之用，可覆盖90%应用 ">
+  <meta name="description" content="2014中国软件开发者调查报告CSDN 由CSDN发起的一项调查报告，有一定的可信度，值得每个程序员借鉴与思考．里面的数据需要简单分析一下，可对自己职业规划，业界现状，甚至人生都有一定的好处，现摘录加一点分析 可以到这里看全文调查报告新闻 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +70,208 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/">2014中国软件开发者调查报告CSDN</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-10T09:30:33+08:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>2014中国软件开发者调查报告CSDN</h3>
+
+<p>由CSDN发起的一项调查报告，有一定的可信度，值得每个程序员借鉴与思考．里面的数据需要简单分析一下，可对自己职业规划，业界现状，甚至人生都有一定的好处，现摘录加一点分析</p>
+
+<p>可以到这里看全文<a href="http://www.csdn.net/article/2014-07-02/2820493?utm_source=tuicool">调查报告新闻</a></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/">阅读全文&rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/">C语言中char *a与char A[]的区别</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-09T23:41:57+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>C语言char s[] 和 char *s的区别</h4>
+
+<p>看如下的代码，区别立现</p>
+
+<pre><code>char *s = "hello world";
+char s[] = "hello world"
+</code></pre>
+
+<p>区别在于<strong>前者是指针，后者是数组</strong></p>
+
+<pre><code>char *s是一个指向只读区域的指针，只读区域是hello world
+char s[]是一个数组，内容是拷贝了只读区别的数据
+</code></pre>
+
+<p>前者指针指向的内容不能变，后者可变</p>
+
+<hr />
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/09/linuxqi-dong-liu-cheng/">Linux启动流程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-09T23:14:18+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/09/linuxqi-dong-liu-cheng/#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>Linux的启动顺序</h4>
+
+<ul>
+<li><p>1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；</p></li>
+<li><p>2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；</p></li>
+<li><p>3 依据bootloader的设置加载kernel，kernel开始检测硬件和加载驱动程序；</p></li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/09/linuxqi-dong-liu-cheng/">阅读全文&rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji/">Linux下常用的软件汇集</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-09T20:29:04+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji/#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Linux下常用的软件合集</h3>
+
+<p>自己所用的环境一直是Linux,版本是最新的Ubuntu14.04.</p>
+
+<p>其它版本的linux未尝试，实属遗憾，先把自己所用的环境整理一番</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/09/linuxxia-chang-yong-de-ruan-jian-hui-ji/">阅读全文&rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -310,11 +512,10 @@
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/blog/categories/acm/'>acm (1)</a></li>
-<li class='category'><a href='/blog/categories/algorithm/'>algorithm (4)</a></li>
+    <li class='category'><a href='/blog/categories/algorithm/'>algorithm (8)</a></li>
 <li class='category'><a href='/blog/categories/artistic/'>artistic (1)</a></li>
 <li class='category'><a href='/blog/categories/c/'>c (1)</a></li>
-<li class='category'><a href='/blog/categories/language/'>language (3)</a></li>
+<li class='category'><a href='/blog/categories/language/'>language (4)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>linux (4)</a></li>
 <li class='category'><a href='/blog/categories/others/'>others (2)</a></li>
 <li class='category'><a href='/blog/categories/tools/'>tools (5)</a></li>
@@ -326,23 +527,23 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/18/rotate-image/">Rotate Image</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/18/unique-binary-search-trees-ii/">Unique Binary Search Trees Ii</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/18/insert-interval/">Insert Interval</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo/">C++中sort报错</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/17/tian-jia-yong-hu/">添加用户</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/17/ji-%5B%3F%5D-ci-wang-luo-wen-ti/">记一次网络问题</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/16/git/">Git常用命令</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/16/exponentiation/">Exponentiation</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/16/bian-cheng-zhi-mei-%7Cshu-zi-zhi-mi/">编程之美|数字之迷</a>
       </li>
     
   </ul>
