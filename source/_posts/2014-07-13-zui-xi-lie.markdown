@@ -3,7 +3,7 @@ layout: post
 title: "最系列"
 date: 2014-07-13 19:58:08 +0800
 comments: true
-categories: Agorithm 
+categories: Algorithm 
 
 ---
 
@@ -20,8 +20,9 @@ categories: Agorithm
 - 5.[最大递增子序列](#5)
 - 6.[最大子数组和](#6)
 - 7.[最大M子段和](#7)
-- 8.[最大子矩阵](#8)
+- 8.[最大和子矩阵](#8)
 - 9.[字符串编码距离](#9)
+- 10.[最长不重复子串](#10)
 
 <!--more-->
 
@@ -246,8 +247,77 @@ C[i,j] = max(C[i-1,j], C[i,j-1]); Xi != Yi;
 
 ----
 
-#####最大子矩阵
-#####最大重复子串
-#####最大回文子串
+#####最大各子矩阵
+#####最长重复子串
+#####最长回文子串
 #####最大M子段
-#####字符编码距离
+<h5 id="9">字符编码距离</h5>
+两个字符串，从其中一个变为另外一个需要的操作次数就是编码距离，这个或者还有其它的名词称谓．
+
+操作只有三种最基本的，即增删改，例如abc和bcd的距离就是，abc删除a，再后面添加d，操作就两步
+
+这种有一个很简单的方法，基于最长公共子序列，首先求出最长公共子序列int len = GetLongestCommomSubsquence(str1,str2),然后得到两个字符串长度，len1,len2.则操作的距离是len1+len2-len*2
+
+当这几个系列的操作都了解后，好多字符串的处理都是基于此的
+
+```
+
+class Solution {
+public:
+    int minDistance(string word1, string word2) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        int row = word1.length() + 1;
+        int col = word2.length() + 1;
+        
+        vector<vector<int> > f(row, vector<int>(col));
+
+        for (int i = 0; i < row; i++)
+            f[i][0] = i;
+
+        for (int i = 0; i < col; i++)
+            f[0][i] = i; 
+        for (int i = 1; i < row; i++)
+            for (int j = 1; j < col; j++){
+                if (word1[i-1] == word2[j-1])
+                    f[i][j] = f[i-1][j-1];
+                else
+                    f[i][j] = f[i-1][j-1] + 1;
+                f[i][j] = min(f[i][j], min(f[i-1][j]+1, f[i][j-1]+1));
+            }
+
+        return f[row-1][col-1];
+    }
+};lass Solution {
+public:
+    int minDistance(string word1, string word2) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        int row = word1.length() + 1;
+        int col = word2.length() + 1;
+        
+        vector<vector<int> > f(row, vector<int>(col));
+
+        for (int i = 0; i < row; i++)
+            f[i][0] = i;
+
+        for (int i = 0; i < col; i++)
+            f[0][i] = i;
+
+        for (int i = 1; i < row; i++)
+            for (int j = 1; j < col; j++){
+                if (word1[i-1] == word2[j-1])
+                    f[i][j] = f[i-1][j-1];
+                else
+                    f[i][j] = f[i-1][j-1] + 1;
+                f[i][j] = min(f[i][j], min(f[i-1][j]+1, f[i][j-1]+1));
+            }
+
+        return f[row-1][col-1];
+    }
+};
+```
+
+----
+
+***待续***

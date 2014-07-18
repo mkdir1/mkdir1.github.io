@@ -3,7 +3,7 @@ layout: post
 title: "Chocolate Feast"
 date: 2014-07-10 14:48:43 +0800
 comments: true
-categories: ACM
+categories: algorithm 
 tags: [hackerrank, acm]
 
 ---

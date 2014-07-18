@@ -1,0 +1,69 @@
+---
+layout: post
+title: "git常用命令"
+date: 2014-07-16 19:27:13 +0800
+comments: true
+categories: tools 
+tags: git
+
+---
+####Git常用命令
+Git命令很多，大多都可直接用git查询，有些用不上．常用的也就那几条，记录之．
+<!--more-->
+```
+git diff/git diff --cached/git diff HEAD
+git add -u 将本地改动的文件add
+git add -A
+git mv file1 file2
+git add .
+git commit -m'a'
+git push origin source
+git reset --hard HEAD^/HEAD^^/HEAD~100
+git reset -hard ****
+git log / git log --pretty=oneline
+git reflog 
+git status
+
+working directory工作区--->版本库repository{stage/index暂存区, master};
+
+git checkout --　file 丢弃工作区的修改，回到和暂存区一致
+git reset　HEAD filename撤销暂存区中的修改，表示filename是最新的版本
+误删rm文件后，可以git checkout -- file
+git rm file从版本库中删除，再git commit -m''或者rm file后再git rm file 再git commit -m''
+
+本地仓库添加远程库git remote add origin url 远程库名叫origin
+git push -u origin master(第一次推送)
+git push orighin master
+
+主分支master，提倡用分支来完成工作，再合并后删除
+创建分支git checkout -b dev(b表示创建并切换)相当于git branch dev 和git checkout dev
+git branch查看当前分支
+git checkout master切回分支
+git merge dev合并分支到master上
+git branch -d dev 删除分支
+
+git merge --no-ff -m"" dev合并分支时禁用fast forward方式，这样分支的commit信息还会存在
+
+git stash把当前工作现场储存起来
+git stash list查看工作现场
+git stash apply恢复，但stash内容不删除，需要git stash drop删除
+git stash pop恢复并删除stash
+git remote　－v 查看远程信息
+git branch -D branchname强行删除分支
+git push origin master推送分支master到远程
+git pull把远程的提交抓下来，然后本地合并，解决冲突后再推送上去
+一般分支master, dev, bug, featurejjj
+git checkout -b dev origin/dev本地创建dev分支
+git tag v1.0打标签
+git tag查看tags
+git tag name commitid -m'a'
+git tag -d name 删除
+git push origin name 推送某个
+git psuh origin --tags推送所有
+
+github上的pull　request申请后才可以pull上去
+fork也可以pull
+创建.gitignore文件，把要忽略的文件名放进去git会忽略
+
+```
+
