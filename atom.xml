@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-17T08:46:53+08:00</updated>
+  <updated>2014-07-18T10:43:41+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -1052,6 +1052,118 @@ int main()
 <p>这种有一个很简单的方法，基于最长公共子序列，首先求出最长公共子序列int len = GetLongestCommomSubsquence(str1,str2),然后得到两个字符串长度，len1,len2.则操作的距离是len1+len2-len*2</p>
 
 <p>当这几个系列的操作都了解后，好多字符串的处理都是基于此的</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>class Solution {
+</span><span class='line'>public:
+</span><span class='line'>    int minDistance(string word1, string word2) {
+</span><span class='line'>        // Start typing your C/C++ solution below
+</span><span class='line'>        // DO NOT write int main() function
+</span><span class='line'>        int row = word1.length() + 1;
+</span><span class='line'>        int col = word2.length() + 1;
+</span><span class='line'>        
+</span><span class='line'>        vector&lt;vector&lt;int&gt; &gt; f(row, vector&lt;int&gt;(col));
+</span><span class='line'>
+</span><span class='line'>        for (int i = 0; i &lt; row; i++)
+</span><span class='line'>            f[i][0] = i;
+</span><span class='line'>
+</span><span class='line'>        for (int i = 0; i &lt; col; i++)
+</span><span class='line'>            f[0][i] = i; 
+</span><span class='line'>        for (int i = 1; i &lt; row; i++)
+</span><span class='line'>            for (int j = 1; j &lt; col; j++){
+</span><span class='line'>                if (word1[i-1] == word2[j-1])
+</span><span class='line'>                    f[i][j] = f[i-1][j-1];
+</span><span class='line'>                else
+</span><span class='line'>                    f[i][j] = f[i-1][j-1] + 1;
+</span><span class='line'>                f[i][j] = min(f[i][j], min(f[i-1][j]+1, f[i][j-1]+1));
+</span><span class='line'>            }
+</span><span class='line'>
+</span><span class='line'>        return f[row-1][col-1];
+</span><span class='line'>    }
+</span><span class='line'>};lass Solution {
+</span><span class='line'>public:
+</span><span class='line'>    int minDistance(string word1, string word2) {
+</span><span class='line'>        // Start typing your C/C++ solution below
+</span><span class='line'>        // DO NOT write int main() function
+</span><span class='line'>        int row = word1.length() + 1;
+</span><span class='line'>        int col = word2.length() + 1;
+</span><span class='line'>        
+</span><span class='line'>        vector&lt;vector&lt;int&gt; &gt; f(row, vector&lt;int&gt;(col));
+</span><span class='line'>
+</span><span class='line'>        for (int i = 0; i &lt; row; i++)
+</span><span class='line'>            f[i][0] = i;
+</span><span class='line'>
+</span><span class='line'>        for (int i = 0; i &lt; col; i++)
+</span><span class='line'>            f[0][i] = i;
+</span><span class='line'>
+</span><span class='line'>        for (int i = 1; i &lt; row; i++)
+</span><span class='line'>            for (int j = 1; j &lt; col; j++){
+</span><span class='line'>                if (word1[i-1] == word2[j-1])
+</span><span class='line'>                    f[i][j] = f[i-1][j-1];
+</span><span class='line'>                else
+</span><span class='line'>                    f[i][j] = f[i-1][j-1] + 1;
+</span><span class='line'>                f[i][j] = min(f[i][j], min(f[i-1][j]+1, f[i][j-1]+1));
+</span><span class='line'>            }
+</span><span class='line'>
+</span><span class='line'>        return f[row-1][col-1];
+</span><span class='line'>    }
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
 
 <hr />
 
