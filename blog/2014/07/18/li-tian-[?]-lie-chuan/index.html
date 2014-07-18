@@ -5,46 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Git常用命令 - Vintion's blog</title>
+  <title>李天一列传 - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Git常用命令 Git命令很多，大多都可直接用git查询，有些用不上．常用的也就那几条，记录之． 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36 &hellip;">
+  <meta name="description" content="屎记　李天一列传 屎记　李天一列传 文兄 李天一，字冠丰，长安海淀人也。父两江，伶官也，以狎歌得宠，捧之歌王，颇得上赞许，封誉无数。天一好游侠，喜交接，眉清目秀，雄姿英发。尝与父同演，时人渐知其名。母梦鸟，荧屏之上尽吐相夫教子之法。根正苗红，其所谓也。未冠既海内闻名，当世人奇之。 天一孩提之时， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -53,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/16/git">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/18/li-tian-%5B%3F%5D-lie-chuan">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -108,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">Git常用命令</h1>
+      <h1 class="entry-title">李天一列传</h1>
     
     
       <p class="meta">
@@ -124,7 +89,7 @@
   
 
 
-<time datetime="2014-07-16T19:27:13+08:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
+<time datetime="2014-07-18T16:57:08+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -134,123 +99,27 @@
   </header>
 
 
-<div class="entry-content"><h4>Git常用命令</h4>
+<div class="entry-content"><h4>屎记　李天一列传</h4>
 
-<p>Git命令很多，大多都可直接用git查询，有些用不上．常用的也就那几条，记录之．</p>
+<p><strong>屎记　李天一列传</strong></p>
+
+<p><strong>文兄</strong></p>
 
 <!--more-->
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git diff/git diff --cached/git diff HEAD
-</span><span class='line'>git add -u 将本地改动的文件add
-</span><span class='line'>git add -A
-</span><span class='line'>git mv file1 file2
-</span><span class='line'>git add .
-</span><span class='line'>git commit -m'a'
-</span><span class='line'>git push origin source
-</span><span class='line'>git reset --hard HEAD^/HEAD^^/HEAD~100
-</span><span class='line'>git reset -hard ****
-</span><span class='line'>git log / git log --pretty=oneline
-</span><span class='line'>git reflog 
-</span><span class='line'>git status
-</span><span class='line'>
-</span><span class='line'>working directory工作区---&gt;版本库repository{stage/index暂存区, master};
-</span><span class='line'>
-</span><span class='line'>git checkout --　file 丢弃工作区的修改，回到和暂存区一致
-</span><span class='line'>git reset　HEAD filename撤销暂存区中的修改，表示filename是最新的版本
-</span><span class='line'>误删rm文件后，可以git checkout -- file
-</span><span class='line'>git rm file从版本库中删除，再git commit -m''或者rm file后再git rm file 再git commit -m''
-</span><span class='line'>
-</span><span class='line'>本地仓库添加远程库git remote add origin url 远程库名叫origin
-</span><span class='line'>git push -u origin master(第一次推送)
-</span><span class='line'>git push orighin master
-</span><span class='line'>
-</span><span class='line'>主分支master，提倡用分支来完成工作，再合并后删除
-</span><span class='line'>创建分支git checkout -b dev(b表示创建并切换)相当于git branch dev 和git checkout dev
-</span><span class='line'>git branch查看当前分支
-</span><span class='line'>git checkout master切回分支
-</span><span class='line'>git merge dev合并分支到master上
-</span><span class='line'>git branch -d dev 删除分支
-</span><span class='line'>
-</span><span class='line'>git merge --no-ff -m"" dev合并分支时禁用fast forward方式，这样分支的commit信息还会存在
-</span><span class='line'>
-</span><span class='line'>git stash把当前工作现场储存起来
-</span><span class='line'>git stash list查看工作现场
-</span><span class='line'>git stash apply恢复，但stash内容不删除，需要git stash drop删除
-</span><span class='line'>git stash pop恢复并删除stash
-</span><span class='line'>git remote　－v 查看远程信息
-</span><span class='line'>git branch -D branchname强行删除分支
-</span><span class='line'>git push origin master推送分支master到远程
-</span><span class='line'>git pull把远程的提交抓下来，然后本地合并，解决冲突后再推送上去
-</span><span class='line'>一般分支master, dev, bug, featurejjj
-</span><span class='line'>git checkout -b dev origin/dev本地创建dev分支
-</span><span class='line'>git tag v1.0打标签
-</span><span class='line'>git tag查看tags
-</span><span class='line'>git tag name commitid -m'a'
-</span><span class='line'>git tag -d name 删除
-</span><span class='line'>git push origin name 推送某个
-</span><span class='line'>git psuh origin --tags推送所有
-</span><span class='line'>
-</span><span class='line'>github上的pull　request申请后才可以pull上去
-</span><span class='line'>fork也可以pull
-</span><span class='line'>创建.gitignore文件，把要忽略的文件名放进去git会忽略
-</span></code></pre></td></tr></table></div></figure>
+<hr />
 
+<pre><code> 李天一，字冠丰，长安海淀人也。父两江，伶官也，以狎歌得宠，捧之歌王，颇得上赞许，封誉无数。天一好游侠，喜交接，眉清目秀，雄姿英发。尝与父同演，时人渐知其名。母梦鸟，荧屏之上尽吐相夫教子之法。根正苗红，其所谓也。未冠既海内闻名，当世人奇之。
 
+   天一孩提之时，便懂鼓琴，童龀之年，即会书法，幼学之际，渐通冰球。凡此种种，不一而足，可谓全才。其父甚喜，遂请名家教之。尝偕其交接权贵，以为后靠，现身荧屏，以养盛名。又系钟鸣鼎食之家，富家权贵之族，必国之大器也。天下第一，恰如其名，亦其父之所盼也。天一系老来子，捧之心肝，又类己，两江宠之尤甚。故宝马香车，无所不予，锦衣雕裘，毫不吝惜。少时米国游学，未冠既海归故里。
 
+  天一好宝马，喜美色，甚类其父。尝驱马游街，风驰电掣之状，迅雷不及万一也。行人如遇鬼神，唯恐避之不及。天一见状，快然自乐。先时，天一与其友各得一名驹，相与赛驰。天一为别驾所阻，稍逊其友。见所阻者形容甚猥，乃恶语加之。然此人不知其大名，竟起而理论。当时，众友于侧，天一颜面尽失，怒发冲冠，挥拳相向。天一身长八尺，力能扛鼎，无与争锋。狂殴几死乃止。或唤巡捕房。天一愈怒曰：“敢生事者死！竖子焉知吾父其谁？” 乃扬长而去。有司惮其父威，息事宁人。其父多以钱财了结此事。天一遂骄恣日长，乃恣意纵情，豪掷千金，游逞市井，结交朋党，不务正业。
+
+  及长，略懂云雨之事。尝闻天一侮其师，其师乃有夫之妇，畏两江夫妇淫威，不敢发。遂得诨名：海淀银枪小霸王。一晚，偕友数人章台游冶。酒酣耳热之际，灯火阑珊之处，见一女子，仪容艳丽，眉目清明。误以为陪酒，欲谋不轨。趁其醉，遂行苟且。天一素豪气，事毕亦念其党，可怜此女，数遭其辱。天一视若无事，恨未携相机，记此盛事。然此烈女，诉至大理寺，非钱财所能屈也。一时，世人哗然，海内震动，外邦亦引为笑谈。有司畏滔滔民意，汹汹舆情，不敢不察。两江素善钻研、勤于奔走，又门生故吏遍布朝野，多有名伶教授为之辩解，更添权贵为之开脱，指鹿为马、颠倒黑白更不在话下。或曰：此女系风尘，实索财未果反诬天一。又太学教授易延友曰：陪酒之女，人微命贱，侮之，其害甚小。梦鸟亦哭亦诉，其状生不如死，有司怜之。然不知梦鸟本两江之徒，素善演技。时平哥元年，始推新政，严惩腐败。国人久遭苛政，素淫官威。深恶权贵鱼肉。当时，群情激动，请愿之声不绝。纵两江四处走动，亦不免身败名裂，其子囹圄。
+
+  文兄曰：昔陈涉诚不知王侯将相，确有其种。富贵之家，官宦子弟，本无饥寒之忧，无从业之虑。固其立业之机，倍于庶民，其功成之道，数于常人。 然其不争，流恶乡里，何也？ 古今纨绔之所同也！
+</code></pre>
 </div>
 
 
@@ -273,12 +142,12 @@
   
 
 
-<time datetime="2014-07-16T19:27:13+08:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
+<time datetime="2014-07-18T16:57:08+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/tools/'>tools</a>
+    <a class='category' href='/blog/categories/artistic/'>artistic</a>
   
 </span>
 
@@ -310,10 +179,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/16/exponentiation/" title="Previous Post: exponentiation">&laquo; exponentiation</a>
+        <a class="basic-alignment left" href="/blog/2014/07/18/rotate-image/" title="Previous Post: rotate image">&laquo; rotate image</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/17/ji-%5B%3F%5D-ci-wang-luo-wen-ti/" title="Next Post: 记一次网络问题">记一次网络问题 &raquo;</a>
       
     </p>
   </footer>
