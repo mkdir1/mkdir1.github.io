@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-22T17:09:10+08:00</updated>
+  <updated>2014-07-22T20:01:11+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Valid-sudoku]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/22/valid-sudoku/"/>
+    <updated>2014-07-22T19:56:41+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/22/valid-sudoku</id>
+    <content type="html"><![CDATA[<h4>Valid Sudoku</h4>
+
+<p>The Sudoku board could be partially filled, where empty cells are filled with the character &lsquo;.&rsquo;.</p>
+
+<p>A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.</p>
+
+<p>我这解法，绝对是对算法的侮辱～　哈哈</p>
+
+<!--more-->
+
+
+<p>Code:</p>
+
+<pre><code>class Solution {
+public:
+    bool isValidSudoku(vector&lt;vector&lt;char&gt; &gt; &amp;board) 
+    {
+        for(int i=0;i&lt;9;i++)
+        for(int j=0;j&lt;9;j++)
+        {
+            if(board[i][j]=='.')
+                continue;
+            for(int k=j+1;k&lt;9;k++)
+                if(board[i][j]==board[i][k])return false;
+            for(int k=i+1;k&lt;9;k++)
+                if(board[i][j]==board[k][j])return false;
+            if(i%3==0&amp;&amp;j%3==0)
+            {
+                if(board[i+1][j+1]!='.'&amp;&amp;board[i+1][j+1]==board[i][j])return false;
+                if(board[i+2][j+1]!='.'&amp;&amp;board[i+2][j+1]==board[i][j])return false;
+                if(board[i+1][j+2]!='.'&amp;&amp;board[i+1][j+2]==board[i][j])return false;
+                if(board[i+2][j+2]!='.'&amp;&amp;board[i+2][j+2]==board[i][j])return false;
+            }
+            if(i%3==0&amp;&amp;(j-1)%3==0)
+            {
+                if(board[i+1][j-1]!='.'&amp;&amp;board[i+1][j-1]==board[i][j])return false;
+                if(board[i+2][j-1]!='.'&amp;&amp;board[i+2][j-1]==board[i][j])return false;
+                if(board[i+1][j+1]!='.'&amp;&amp;board[i+1][j+1]==board[i][j])return false;
+                if(board[i+2][j+1]!='.'&amp;&amp;board[i+2][j+1]==board[i][j])return false;   
+            }
+            if(i%3==0&amp;&amp;(j+1)%3==0)
+            {
+                if(board[i+1][j-1]!='.'&amp;&amp;board[i+1][j-1]==board[i][j])return false;
+                if(board[i+2][j-1]!='.'&amp;&amp;board[i+2][j-1]==board[i][j])return false;
+                if(board[i+1][j-2]!='.'&amp;&amp;board[i+1][j-2]==board[i][j])return false;
+                if(board[i+2][j-2]!='.'&amp;&amp;board[i+2][j-2]==board[i][j])return false;   
+            }
+            if((i-1)%3==0&amp;&amp;j%3==0)
+            {
+                if(board[i+1][j+1]!='.'&amp;&amp;board[i+1][j+1]==board[i][j])return false;
+                if(board[i+1][j+2]!='.'&amp;&amp;board[i+1][j+2]==board[i][j])return false;
+            }
+            if((i-1)%3==0&amp;&amp;(j-1)%3==0)
+            {
+                if(board[i+1][j-1]!='.'&amp;&amp;board[i+1][j-1]==board[i][j])return false;
+                if(board[i+1][j+1]!='.'&amp;&amp;board[i+1][j+1]==board[i][j])return false;
+            }
+             if((i-1)%3==0&amp;&amp;(j+1)%3==0)
+            {
+                if(board[i+1][j-1]!='.'&amp;&amp;board[i+1][j-1]==board[i][j])return false;
+                if(board[i+1][j-2]!='.'&amp;&amp;board[i+1][j-2]==board[i][j])return false;
+            }
+
+        }
+        return true;
+    }
+};
+</code></pre>
+
+<p>好吧，管用就行，一遍过需要多仔细认真啊</p>
+
+<p>这样代码还是很好看的，就是有点长</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Leetcode-combination Sum]]></title>
@@ -337,74 +417,6 @@ public:
 <ul>
 <li><p>1.从windows下粘贴来的代码后面会有<sup>M</sup>的结尾，原因是换行符的约定问题，在vim中很容易删除，用:%s/^M//g即可，但此处的<sup>M</sup>需要用Ctrl+V再加上M得到</p></li>
 <li><p>2.这题方法不是很多，先正对角线换，再左右换；或者逆对角线，再左右</p></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Unique Binary Search Trees Ii]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/18/unique-binary-search-trees-ii/"/>
-    <updated>2014-07-18T16:14:31+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/18/unique-binary-search-trees-ii</id>
-    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/unique-binary-search-trees-ii/">Unique Binary Search Tree II</a></h4>
-
-<!--more-->
-
-
-<h5>Problem</h5>
-
-<p>Given n, generate all structurally unique BST&rsquo;s (binary search trees) that store values 1&hellip;n.</p>
-
-<h5>Code</h5>
-
-<pre><code>/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector&lt;TreeNode *&gt; generate(int beg, int end)
-    {
-        vector&lt;TreeNode* &gt; ret;
-        if (beg &gt; end)
-        {
-            ret.push_back(NULL);
-            return ret;
-        }
-
-        for(int i = beg; i &lt;= end; i++)
-        {
-            vector&lt;TreeNode* &gt; leftTree = generate(beg, i - 1);
-            vector&lt;TreeNode* &gt; rightTree = generate(i + 1, end);
-            for(int j = 0; j &lt; leftTree.size(); j++)
-                for(int k = 0; k &lt; rightTree.size(); k++)
-                {
-                    TreeNode *node = new TreeNode(i + 1);
-                    ret.push_back(node);
-                    node-&gt;left = leftTree[j];
-                    node-&gt;right = rightTree[k];              
-                }           
-        }
-
-        return ret;
-    }
-
-    vector&lt;TreeNode *&gt; generateTrees(int n) {
-        return generate(0, n - 1);
-    }
-};
-</code></pre>
-
-<h5>注意</h5>
-
-<ul>
-<li>1.此题第一想法就应试是递归或DFS</li>
 </ul>
 
 ]]></content>
