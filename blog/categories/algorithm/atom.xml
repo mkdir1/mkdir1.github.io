@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-22T20:01:11+08:00</updated>
+  <updated>2014-07-22T20:30:10+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sudoku-solver]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/22/sudoku-solver/"/>
+    <updated>2014-07-22T20:27:47+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/22/sudoku-solver</id>
+    <content type="html"><![CDATA[<h4>Sudoku Solver</h4>
+
+<p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
+
+<p>Empty cells are indicated by the character &lsquo;.&rsquo;.</p>
+
+<p>You may assume that there will be only one unique solution.</p>
+
+<!--more-->
+
+
+<p>递归的方法，确实不错～　</p>
+
+<h5>Code</h5>
+
+<pre><code>bool isValid(vector&lt;vector&lt;char&gt; &gt; &amp;board, int a, int b) {
+        int i,j;
+        for(i = 0; i &lt; 9; i++)
+            if(i != a &amp;&amp; board[i][b] == board[a][b])
+                return false;
+
+        for(j = 0; j &lt; 9; j++)
+            if(j != b &amp;&amp; board[a][j] == board[a][b])
+                return false;
+
+        int x = a/3*3;
+        int y = b/3*3;
+        for(i = 0; i &lt; 3; i++)
+            for(j = 0; j&lt; 3; j++)
+                if(x+i != a &amp;&amp; y+j != b &amp;&amp; board[x+i][y+j] == board[a][b])
+                    return false;
+        return true;
+    }
+    bool solveSudokudfs(vector&lt;vector&lt;char&gt; &gt; &amp;board)
+    {
+        for(int i = 0; i &lt; 9; i++)
+            for(int j = 0; j &lt; 9; j++)
+            {
+                if(board[i][j] == '.')
+                {
+                    for(int k = 1; k &lt;= 9; k++)
+                    {
+                        board[i][j] = '0' + k;
+                        if(isValid(board,i,j) &amp;&amp; solveSudokudfs(board))
+                            return true;
+                        board[i][j] = '.';
+                    }
+                    return false;
+                }
+            }
+        return true;
+    }
+    void solveSudoku(vector&lt;vector&lt;char&gt; &gt; &amp;board) {
+        // Note: The Solution object is instantiated only once.
+        solveSudokudfs(board);
+    }
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Valid-sudoku]]></title>
@@ -369,56 +434,6 @@ public:</p>
 <p>};
 ```
 有很多种方法，这是自己的一种实</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Rotate Image]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/18/rotate-image/"/>
-    <updated>2014-07-18T16:44:12+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/18/rotate-image</id>
-    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/rotate-image/">Rotate Image</a></h4>
-
-<h5>Problem:</h5>
-
-<p>You are given an n x n 2D matrix representing an image.</p>
-
-<p>Rotate the image by 90 degrees (clockwise).</p>
-
-<p>Follow up:
-Could you do this in-place?</p>
-
-<!--more-->
-
-
-<h5>Code:</h5>
-
-<pre><code>class Solution {
-public:
-    void rotate(vector&lt;vector&lt;int&gt; &gt; &amp;matrix)
-    {
-        int row = matrix.size();
-        int col = matrix[0].size();
-        // 
-        for(int i=0;i&lt;row;i++)
-        for(int j=0;j&lt;i;j++)
-            swap(matrix[i][j],matrix[j][i]);
-        //
-        for(int i=0;i&lt;row;i++)
-        for(int j=0;j&lt;col/2;j++)
-            swap(matrix[i][j],matrix[i][col-1-j]);
-
-    }
-};
-</code></pre>
-
-<h5>说明</h5>
-
-<ul>
-<li><p>1.从windows下粘贴来的代码后面会有<sup>M</sup>的结尾，原因是换行符的约定问题，在vim中很容易删除，用:%s/^M//g即可，但此处的<sup>M</sup>需要用Ctrl+V再加上M得到</p></li>
-<li><p>2.这题方法不是很多，先正对角线换，再左右换；或者逆对角线，再左右</p></li>
-</ul>
-
 ]]></content>
   </entry>
   

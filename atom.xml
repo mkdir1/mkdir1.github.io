@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-22T20:01:11+08:00</updated>
+  <updated>2014-07-22T20:30:10+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sudoku-solver]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/22/sudoku-solver/"/>
+    <updated>2014-07-22T20:27:47+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/22/sudoku-solver</id>
+    <content type="html"><![CDATA[<h4>Sudoku Solver</h4>
+
+<p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
+
+<p>Empty cells are indicated by the character &lsquo;.&rsquo;.</p>
+
+<p>You may assume that there will be only one unique solution.</p>
+
+<!--more-->
+
+
+<p>递归的方法，确实不错～　</p>
+
+<h5>Code</h5>
+
+<pre><code>bool isValid(vector&lt;vector&lt;char&gt; &gt; &amp;board, int a, int b) {
+        int i,j;
+        for(i = 0; i &lt; 9; i++)
+            if(i != a &amp;&amp; board[i][b] == board[a][b])
+                return false;
+
+        for(j = 0; j &lt; 9; j++)
+            if(j != b &amp;&amp; board[a][j] == board[a][b])
+                return false;
+
+        int x = a/3*3;
+        int y = b/3*3;
+        for(i = 0; i &lt; 3; i++)
+            for(j = 0; j&lt; 3; j++)
+                if(x+i != a &amp;&amp; y+j != b &amp;&amp; board[x+i][y+j] == board[a][b])
+                    return false;
+        return true;
+    }
+    bool solveSudokudfs(vector&lt;vector&lt;char&gt; &gt; &amp;board)
+    {
+        for(int i = 0; i &lt; 9; i++)
+            for(int j = 0; j &lt; 9; j++)
+            {
+                if(board[i][j] == '.')
+                {
+                    for(int k = 1; k &lt;= 9; k++)
+                    {
+                        board[i][j] = '0' + k;
+                        if(isValid(board,i,j) &amp;&amp; solveSudokudfs(board))
+                            return true;
+                        board[i][j] = '.';
+                    }
+                    return false;
+                }
+            }
+        return true;
+    }
+    void solveSudoku(vector&lt;vector&lt;char&gt; &gt; &amp;board) {
+        // Note: The Solution object is instantiated only once.
+        solveSudokudfs(board);
+    }
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Valid-sudoku]]></title>
@@ -1553,38 +1618,6 @@ usermod, groupdd</p>
 <li>空格</li>
 <li>PageUp, PageDown, Array</li>
 <li>Home, End, Insert</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ssh无密码登录]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/15/sshwu-mi-ma-deng-lu/"/>
-    <updated>2014-07-15T00:30:04+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/15/sshwu-mi-ma-deng-lu</id>
-    <content type="html"><![CDATA[<h4>ssh无密码登录</h4>
-
-<!--more-->
-
-
-<p>ssh应用太广，最常用的就是远程登录和文件传输了，每次输入密码和登录确实很浪费时间，这里就不需要输入密码了</p>
-
-<h5>设置</h5>
-
-<ul>
-<li><ol>
-<li>在客户端．生成密钥<code>ssh-keygen -t rsa</code>，这样在~/.ssh文件夹中就会有一个公钥和一个私钥</li>
-</ol>
-</li>
-<li><ol>
-<li>服务端，在~/.ssh中，将客户端的id_rsa.phb放到这里，<code>scp .ssh/id_rsa.phb ip:.ssh/authorizend_keys</code>，也可以命名其它的</li>
-</ol>
-</li>
-<li><ol>
-<li>再登录时就可以不用输入密码．也可以把登录alias写入bash中，scp时也不用输入密码，但是还是要记住ip</li>
-</ol>
-</li>
 </ul>
 
 ]]></content>
