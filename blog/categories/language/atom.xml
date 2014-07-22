@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Language | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/language/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-18T21:31:55+08:00</updated>
+  <updated>2014-07-22T17:09:10+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,236 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHP入门]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/20/phpru-men/"/>
+    <updated>2014-07-20T13:18:28+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/20/phpru-men</id>
+    <content type="html"><![CDATA[<h4>PHP入门</h4>
+
+<p>前端的几门语言，HTML/CSS/JavaScript/XML等，这些语言有很大的关联性，很多都是相通相互使用的．入门后，至少可以阅读源码，这样对理解和布局帮助很大．</p>
+
+<p>至于高级技巧和应用，如果从事前端的开发，那就要精通了，这里只对本人初学入门所用，仅对基本语法和代码阅读无碍即可．</p>
+
+<!--more-->
+
+
+<h5>介绍与特点</h5>
+
+<ul>
+<li>1.PHP脚本是在服务器上执行</li>
+<li>2.PHP Hypertext Preprocessor</li>
+<li>3.开源脚本语言，可免费下载，相对于微软的ASP，其是收费的，</li>
+<li>4.PHP文件能包含文本，HTML, CSS以及PHP代码</li>
+<li>5.PHP在服务器上运行，结果以纯文本返回浏览器</li>
+<li><ol>
+<li>PHP文件后缀.php</li>
+</ol>
+</li>
+</ul>
+
+
+<h5>PHP能够做什么　</h5>
+
+<ul>
+<li>1.PHP 能够生成动态页面内容</li>
+<li>2.PHP 能够创建、打开、读取、写入、删除以及关闭服务器上的文件</li>
+<li>3.PHP 能够接收表单数据</li>
+<li>4.PHP 能够发送并取回 cookies</li>
+<li>5.PHP 能够添加、删除、修改数据库中的数据</li>
+<li>6.PHP 能够限制用户访问网站中的某些页面</li>
+<li>7.PHP 能够对数据进行加密</li>
+<li>8.通过 PHP，您可以不受限于只输出 HTML。您还能够输出图像、PDF 文件、甚至 Flash 影片。您也可以输出任何文本，比如 XHTML 和 XML</li>
+<li>9.LAMP中的P就是PHP</li>
+</ul>
+
+
+<h5>安装PHP</h5>
+
+<ul>
+<li><ol>
+<li>安装Web服务器，LAMP中的Apatch</li>
+</ol>
+</li>
+<li><ol>
+<li>安装数据库，Mysql</li>
+</ol>
+</li>
+<li><ol>
+<li>安装PHP</li>
+</ol>
+</li>
+</ul>
+
+
+<p>如需在 Windows 平台设置并立即运行 PHP，您还可以安装<strong>WebMatrix</strong>.</p>
+
+<p>WebMatrix is a free, lightweight, cloud-connected web development tool</p>
+
+<h5>基本语法</h5>
+
+<ul>
+<li>1.PHP脚本以<code>&lt;?php　//代码　．．　?&gt;</code>包含起来</li>
+<li>2.PHP文件通常包含HTML标签和PHP脚本代码</li>
+<li>3.PHP代码中语句以;结尾</li>
+<li>4,注释// # /**/</li>
+<li>5.大小写敏感</li>
+<li>6.有点像Shell脚本</li>
+</ul>
+
+
+<p>变量规则：
+&ndash;  变量以 $ 符号开头，其后是变量的名称
+&ndash;  变量名称必须以字母或下划线开头
+&ndash;  变量名称不能以数字开头
+&ndash;  变量名称只能包含字母数字字符和下划线（A-z、0-9 以及 _）
+&ndash;  变量名称对大小写敏感（$y 与 $Y 是两个不同的变量）</p>
+
+<p>三种不同作用域变量：
+&ndash; local（局部）
+&ndash; global（全局）
+&ndash; static（静态）</p>
+
+<p>通常，当函数完成/执行后，会删除所有变量。不过，有时我需要不删除某个局部变量。实现这一点需要更进一步的工作。
+要完成这一点，请在您首次声明变量时使用 static</p>
+
+<p>echo 和 print 之间的差异：
+&ndash; echo &ndash; 能够输出一个以上的字符串
+&ndash; print &ndash; 只能输出一个字符串，并始终返回 1
+&ndash; 两者均可包含括号</p>
+
+<p><strong>数据类型:</strong>字符串、整数、浮点数、逻辑、数组、对象、NULL</p>
+
+<p><strong>整数规则：</strong>
+&ndash; 整数必须有至少一个数字（0-9）
+&ndash; 整数不能包含逗号或空格
+&ndash; 整数不能有小数点
+&ndash; 整数正负均可
+&ndash; 可以用三种格式规定整数：十进制、十六进制（前缀是 0x）或八进制（前缀是 0）</p>
+
+<p>浮点数是有小数点或指数形式的数字</p>
+
+<p>逻辑是 true 或 false</p>
+
+<p>对象是存储数据和有关如何处理数据的信息的数据类型。
+在 PHP 中，必须明确地声明对象。
+首先我们必须声明对象的类。对此，我们使用 class 关键词。类是包含属性和方法的结构。
+然后我们在对象类中定义数据类型，然后在该类的实例中使用
+```
+&lt;?php
+class Car
+{
+  var $color;
+  function Car($color=&ldquo;green&rdquo;) {</p>
+
+<pre><code>$this-&gt;color = $color;
+</code></pre>
+
+<p>  }
+  function what_color() {</p>
+
+<pre><code>return $this-&gt;color;
+</code></pre>
+
+<p>  }
+}
+?>
+```
+<strong>字符串函数</strong>
+&ndash; strle()
+&ndash; strpos();查找匹配字符，strpos(&ldquo;Hello&rdquo;,&ldquo;ll&rdquo;);结果为2;找不到返回FALSE</p>
+
+<p><a href="http://www.w3school.com.cn/php/php_ref_string.asp">参考字符串函数</a></p>
+
+<p>define()函数定义常量</p>
+
+<p><strong>运算符</strong>
+. 串接，如$str1=&ldquo;hello&rdquo;;$str2=$str1.&ldquo;world&rdquo;;则str=&ldquo;helloworld&rdquo;;
+.= 串接赋值</p>
+
+<p>还有条件语句，循环，数组等，这一些操作和其它语句有很大的相似，可直接读代码时得到什么意思，但于自己写的话，可能需要常期训练．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Xml学习]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/20/xmlxue-xi/"/>
+    <updated>2014-07-20T04:13:30+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/20/xmlxue-xi</id>
+    <content type="html"><![CDATA[<h4>XML入门</h4>
+
+<p>XML用来传输和存储数据</p>
+
+<p>HTML用来显示数据</p>
+
+<p>Extensible Markup Language可扩展标记语言，类似HTML也是标记语言</p>
+
+<!--more-->
+
+
+<h5>特点</h5>
+
+<ul>
+<li>1.XML标签没有预定义，HTML标签定义了</li>
+<li>2.XML被设计用来结构化，存储以及传输信息</li>
+<li>3.Json也是和XML功能相同，但用的范围不同</li>
+<li>4.XML是纯文本，没有什么特别之处，可以处理文本的软件都可来处理XML</li>
+<li>5.XML 是独立于软件和硬件的信息传输工具</li>
+<li>6.XML把数据从HTML中分离</li>
+<li>7.XML 简化数据共享</li>
+<li>8.XML 简化数据传输</li>
+<li>9.XHTML &ndash; 最新的 HTML 版本</li>
+<li>10.WSDL &ndash; 用于描述可用的 web service</li>
+<li>11.WAP 和 WML &ndash; 用于手持设备的标记语言</li>
+<li>12.RSS &ndash; 用于 RSS feed 的语言</li>
+<li>13.RDF 和 OWL &ndash; 用于描述资源和本体</li>
+<li>14.SMIL &ndash; 用于描述针针对 web 的多媒体</li>
+</ul>
+
+
+<h5>语法</h5>
+
+<p>第一行一般为说明文字
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;ISO-8859-1&rdquo;?>
+<code>
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;note&gt;
+&lt;to&gt;George&lt;/to&gt;
+&lt;from&gt;John&lt;/from&gt;
+&lt;heading&gt;Reminder&lt;/heading&gt;
+&lt;body&gt;Don't forget the meeting!&lt;/body&gt;
+&lt;/note&gt;
+</code>
+&ndash; 第一行，说明文字
+&ndash; 第二行，根部，note是自定义文字，note说明是个书签
+&ndash; 第三行，to的内容是George，对应的其它行意义一样</p>
+
+<h5>树形结构</h5>
+
+<p>```
+<root></p>
+
+<pre><code>&lt;child&gt;
+    &lt;subchild&gt;...&lt;/subchild&gt;
+&lt;/child
+&lt;otherchild&gt;...&lt;/otherchild&gt;
+</code></pre>
+
+<p></root>
+```
+&ndash; 1.还可以像HTML那样添加属性</p>
+
+<ul>
+<li><p>2.元素必须有关闭标签</p></li>
+<li><p>3.对大小写敏感</p></li>
+<li><p>4.必须正确嵌套</p></li>
+</ul>
+
+
+<p>这是最基础的</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[C++中sort报错]]></title>
@@ -327,70 +557,6 @@ sed 's/^my/you/g' file 替换my为you,g表示所有的都替换
 sed -n '2,20s/my$/you/gp' file 替换，并只打印替换的行，上一个会默认全打印
 sed -e '1,100d' -e 's/a/b/g' file多重编辑
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Markdonw语法简要]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/09/markdonwyu-fa-jian-yao/"/>
-    <updated>2014-07-09T16:39:07+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/09/markdonwyu-fa-jian-yao</id>
-    <content type="html"><![CDATA[<h3>Markdonw语法简要</h3>
-
-<p>此处权当工具参考之用，可覆盖90%应用</p>
-
-<!--more-->
-
-
-<hr />
-
-<h5>标题和加粗斜体</h5>
-
-<ul>
-<li>用#的个数表示标题大小</li>
-<li>粗体和斜体用星号来括起来</li>
-</ul>
-
-
-<hr />
-
-<h5>图片和链接</h5>
-
-<ul>
-<li><p>链接
-[linkname](url,&ldquo;description&rdquo;)</p></li>
-<li><p>图片 <br/>
-![name](url,&ldquo;title&rdquo;)
-  直接&lt;img>标签可以改变大小，这个可以尝试</p></li>
-<li><p>两者都可以引用表示</p></li>
-</ul>
-
-
-<hr />
-
-<h5>引用</h5>
-
-<ul>
-<li>在行首加上&lt;即可，可嵌套使用</li>
-<li>引用内可支持其它的Markdown语法</li>
-<li>\用来转义</li>
-</ul>
-
-
-<h5>列表</h5>
-
-<ul>
-<li>使用+/-/*俱可</li>
-</ul>
-
-
-<h5>代码块</h5>
-
-<ul>
-<li>代码块用一个tab或四个空格，块内的格式将保留，一直会持续到没有tab或文件完</li>
-<li>可直接加入html标签，但前后要加空行</li>
-</ul>
-
 ]]></content>
   </entry>
   

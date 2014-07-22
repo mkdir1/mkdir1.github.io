@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>C++中sort报错 - Vintion's blog</title>
+  <title>PHP入门 - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="C++中报错 no matching function for call to &lsquo;sort&rsquo; 具体： 代码如下： class Solution {
-public:
-bool cmp(Interval interval1, Interval interval2)
-{ &hellip;">
+  <meta name="description" content="PHP入门 前端的几门语言，HTML/CSS/JavaScript/XML等，这些语言有很大的关联性，很多都是相通相互使用的．入门后，至少可以阅读源码，这样对理解和布局帮助很大． 至于高级技巧和应用，如果从事前端的开发，那就要精通了，这里只对本人初学入门所用，仅对基本语法和代码阅读无碍即可． &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ bool cmp(Interval interval1, Interval interval2)
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/20/phpru-men">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -76,7 +73,7 @@ bool cmp(Interval interval1, Interval interval2)
   
   <header>
     
-      <h1 class="entry-title">C++中sort报错</h1>
+      <h1 class="entry-title">PHP入门</h1>
     
     
       <p class="meta">
@@ -92,7 +89,7 @@ bool cmp(Interval interval1, Interval interval2)
   
 
 
-<time datetime="2014-07-18T12:25:35+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-20T13:18:28+08:00" pubdate data-updated="true">Jul 20<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -102,41 +99,156 @@ bool cmp(Interval interval1, Interval interval2)
   </header>
 
 
-<div class="entry-content"><h4>C++中报错</h4>
+<div class="entry-content"><h4>PHP入门</h4>
 
-<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+<p>前端的几门语言，HTML/CSS/JavaScript/XML等，这些语言有很大的关联性，很多都是相通相互使用的．入门后，至少可以阅读源码，这样对理解和布局帮助很大．</p>
+
+<p>至于高级技巧和应用，如果从事前端的开发，那就要精通了，这里只对本人初学入门所用，仅对基本语法和代码阅读无碍即可．</p>
 
 <!--more-->
 
 
-<p>具体：</p>
+<h5>介绍与特点</h5>
 
-<p>代码如下：</p>
+<ul>
+<li>1.PHP脚本是在服务器上执行</li>
+<li>2.PHP Hypertext Preprocessor</li>
+<li>3.开源脚本语言，可免费下载，相对于微软的ASP，其是收费的，</li>
+<li>4.PHP文件能包含文本，HTML, CSS以及PHP代码</li>
+<li>5.PHP在服务器上运行，结果以纯文本返回浏览器</li>
+<li><ol>
+<li>PHP文件后缀.php</li>
+</ol>
+</li>
+</ul>
 
-<pre><code>class Solution {
-public:
-bool  cmp(Interval interval1, Interval interval2)
-{
-        return interval1.start&lt;interval2.start;
-};
-int f()
-{
-    ...
-    sort(intervals.begin(),intervals.end(),cmp);
-    ...
-}
-};
-</code></pre>
 
-<p>此处用法错误，不知是否察觉：</p>
+<h5>PHP能够做什么　</h5>
 
-<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+<ul>
+<li>1.PHP 能够生成动态页面内容</li>
+<li>2.PHP 能够创建、打开、读取、写入、删除以及关闭服务器上的文件</li>
+<li>3.PHP 能够接收表单数据</li>
+<li>4.PHP 能够发送并取回 cookies</li>
+<li>5.PHP 能够添加、删除、修改数据库中的数据</li>
+<li>6.PHP 能够限制用户访问网站中的某些页面</li>
+<li>7.PHP 能够对数据进行加密</li>
+<li>8.通过 PHP，您可以不受限于只输出 HTML。您还能够输出图像、PDF 文件、甚至 Flash 影片。您也可以输出任何文本，比如 XHTML 和 XML</li>
+<li>9.LAMP中的P就是PHP</li>
+</ul>
 
-<p>解决之法：</p>
 
-<p>将cmp的定义置于class之外</p>
+<h5>安装PHP</h5>
 
-<p>可以将sort定义在结构体之内，这样就直接intervals.sort(&hellip;)；如果定义在之外，要放在类的外面</p>
+<ul>
+<li><ol>
+<li>安装Web服务器，LAMP中的Apatch</li>
+</ol>
+</li>
+<li><ol>
+<li>安装数据库，Mysql</li>
+</ol>
+</li>
+<li><ol>
+<li>安装PHP</li>
+</ol>
+</li>
+</ul>
+
+
+<p>如需在 Windows 平台设置并立即运行 PHP，您还可以安装<strong>WebMatrix</strong>.</p>
+
+<p>WebMatrix is a free, lightweight, cloud-connected web development tool</p>
+
+<h5>基本语法</h5>
+
+<ul>
+<li>1.PHP脚本以<code>&lt;?php　//代码　．．　?&gt;</code>包含起来</li>
+<li>2.PHP文件通常包含HTML标签和PHP脚本代码</li>
+<li>3.PHP代码中语句以;结尾</li>
+<li>4,注释// # /**/</li>
+<li>5.大小写敏感</li>
+<li>6.有点像Shell脚本</li>
+</ul>
+
+
+<p>变量规则：
+&ndash;  变量以 $ 符号开头，其后是变量的名称
+&ndash;  变量名称必须以字母或下划线开头
+&ndash;  变量名称不能以数字开头
+&ndash;  变量名称只能包含字母数字字符和下划线（A-z、0-9 以及 _）
+&ndash;  变量名称对大小写敏感（$y 与 $Y 是两个不同的变量）</p>
+
+<p>三种不同作用域变量：
+&ndash; local（局部）
+&ndash; global（全局）
+&ndash; static（静态）</p>
+
+<p>通常，当函数完成/执行后，会删除所有变量。不过，有时我需要不删除某个局部变量。实现这一点需要更进一步的工作。
+要完成这一点，请在您首次声明变量时使用 static</p>
+
+<p>echo 和 print 之间的差异：
+&ndash; echo &ndash; 能够输出一个以上的字符串
+&ndash; print &ndash; 只能输出一个字符串，并始终返回 1
+&ndash; 两者均可包含括号</p>
+
+<p><strong>数据类型:</strong>字符串、整数、浮点数、逻辑、数组、对象、NULL</p>
+
+<p><strong>整数规则：</strong>
+&ndash; 整数必须有至少一个数字（0-9）
+&ndash; 整数不能包含逗号或空格
+&ndash; 整数不能有小数点
+&ndash; 整数正负均可
+&ndash; 可以用三种格式规定整数：十进制、十六进制（前缀是 0x）或八进制（前缀是 0）</p>
+
+<p>浮点数是有小数点或指数形式的数字</p>
+
+<p>逻辑是 true 或 false</p>
+
+<p>对象是存储数据和有关如何处理数据的信息的数据类型。
+在 PHP 中，必须明确地声明对象。
+首先我们必须声明对象的类。对此，我们使用 class 关键词。类是包含属性和方法的结构。
+然后我们在对象类中定义数据类型，然后在该类的实例中使用</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?php
+</span><span class='line'>class Car
+</span><span class='line'>{
+</span><span class='line'>  var $color;
+</span><span class='line'>  function Car($color="green") {
+</span><span class='line'>    $this-&gt;color = $color;
+</span><span class='line'>  }
+</span><span class='line'>  function what_color() {
+</span><span class='line'>    return $this-&gt;color;
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>?&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>字符串函数</strong>
+&ndash; strle()
+&ndash; strpos();查找匹配字符，strpos(&ldquo;Hello&rdquo;,&ldquo;ll&rdquo;);结果为2;找不到返回FALSE</p>
+
+<p><a href="http://www.w3school.com.cn/php/php_ref_string.asp">参考字符串函数</a></p>
+
+<p>define()函数定义常量</p>
+
+<p><strong>运算符</strong>
+. 串接，如$str1=&ldquo;hello&rdquo;;$str2=$str1.&ldquo;world&rdquo;;则str=&ldquo;helloworld&rdquo;;
+.= 串接赋值</p>
+
+<p>还有条件语句，循环，数组等，这一些操作和其它语句有很大的相似，可直接读代码时得到什么意思，但于自己写的话，可能需要常期训练．</p>
 </div>
 
 
@@ -159,7 +271,7 @@ int f()
   
 
 
-<time datetime="2014-07-18T12:25:35+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-20T13:18:28+08:00" pubdate data-updated="true">Jul 20<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
@@ -196,10 +308,10 @@ int f()
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/17/tian-jia-yong-hu/" title="Previous Post: 添加用户">&laquo; 添加用户</a>
+        <a class="basic-alignment left" href="/blog/2014/07/20/xmlxue-xi/" title="Previous Post: xml学习">&laquo; xml学习</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/07/18/insert-interval/" title="Next Post: Insert interval">Insert interval &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/07/22/leetcode-combination-sum/" title="Next Post: leetcode-combination sum">leetcode-combination sum &raquo;</a>
       
     </p>
   </footer>

@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-18T21:31:55+08:00</updated>
+  <updated>2014-07-22T17:09:10+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,354 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Leetcode-combination Sum]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/22/leetcode-combination-sum/"/>
+    <updated>2014-07-22T17:05:12+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/22/leetcode-combination-sum</id>
+    <content type="html"><![CDATA[<h4>Combination Sum</h4>
+
+<p>Given a set of candidate numbers &copy; and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p>
+
+<p>The same repeated number may be chosen from C unlimited number of times.</p>
+
+<p>Note:</p>
+
+<p>All numbers (including target) will be positive integers.
+Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 ≤ a2 ≤ … ≤ ak).</p>
+
+<p>The solution set must not contain duplicate combinations.
+For example, given candidate set 2,3,6,7 and target 7,
+A solution set is:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[2,3,6,7] 7
+</span><span class='line'>[7] 
+</span><span class='line'>[2, 2, 3] 
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
+
+
+<p>这题真是基础，之前一直对此类不知所措，现在略通一二，甚喜</p>
+
+<p>Code:</p>
+
+<pre><code>class Solution {
+public:
+    void Getcom(vector&lt;int&gt;&amp;can, int target, vector&lt;vector&lt;int&gt;&gt;&amp;result, int level, int &amp;sumcurrent, int nsize, vector&lt;int&gt;&amp;tmp)
+    {
+        if(sumcurrent&gt;target)return;
+        if(target==sumcurrent)
+        {
+            result.push_back(tmp);
+            return;
+        }
+        for(int i=level;i&lt;nsize;i++)
+        {
+
+                sumcurrent += can[i];
+                tmp.push_back(can[i]);
+                Getcom(can,target,result,i,sumcurrent,nsize,tmp);
+                tmp.pop_back();
+                sumcurrent -=can[i];
+        }
+
+    }
+    vector&lt;vector&lt;int&gt; &gt; combinationSum(vector&lt;int&gt; &amp;candidates, int target) 
+    {
+       vector&lt;vector&lt;int&gt;&gt; result;
+       vector&lt;int&gt;tmp;
+       int size = candidates.size();
+       sort(candidates.begin(),candidates.end());
+       int sumc = 0;
+       Getcom(candidates,target,result,0,sumc,size,tmp);
+       return result;
+    }
+};
+</code></pre>
+
+<p>DFS方便记录结果，DP方便记数</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP入门]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/20/phpru-men/"/>
+    <updated>2014-07-20T13:18:28+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/20/phpru-men</id>
+    <content type="html"><![CDATA[<h4>PHP入门</h4>
+
+<p>前端的几门语言，HTML/CSS/JavaScript/XML等，这些语言有很大的关联性，很多都是相通相互使用的．入门后，至少可以阅读源码，这样对理解和布局帮助很大．</p>
+
+<p>至于高级技巧和应用，如果从事前端的开发，那就要精通了，这里只对本人初学入门所用，仅对基本语法和代码阅读无碍即可．</p>
+
+<!--more-->
+
+
+<h5>介绍与特点</h5>
+
+<ul>
+<li>1.PHP脚本是在服务器上执行</li>
+<li>2.PHP Hypertext Preprocessor</li>
+<li>3.开源脚本语言，可免费下载，相对于微软的ASP，其是收费的，</li>
+<li>4.PHP文件能包含文本，HTML, CSS以及PHP代码</li>
+<li>5.PHP在服务器上运行，结果以纯文本返回浏览器</li>
+<li><ol>
+<li>PHP文件后缀.php</li>
+</ol>
+</li>
+</ul>
+
+
+<h5>PHP能够做什么　</h5>
+
+<ul>
+<li>1.PHP 能够生成动态页面内容</li>
+<li>2.PHP 能够创建、打开、读取、写入、删除以及关闭服务器上的文件</li>
+<li>3.PHP 能够接收表单数据</li>
+<li>4.PHP 能够发送并取回 cookies</li>
+<li>5.PHP 能够添加、删除、修改数据库中的数据</li>
+<li>6.PHP 能够限制用户访问网站中的某些页面</li>
+<li>7.PHP 能够对数据进行加密</li>
+<li>8.通过 PHP，您可以不受限于只输出 HTML。您还能够输出图像、PDF 文件、甚至 Flash 影片。您也可以输出任何文本，比如 XHTML 和 XML</li>
+<li>9.LAMP中的P就是PHP</li>
+</ul>
+
+
+<h5>安装PHP</h5>
+
+<ul>
+<li><ol>
+<li>安装Web服务器，LAMP中的Apatch</li>
+</ol>
+</li>
+<li><ol>
+<li>安装数据库，Mysql</li>
+</ol>
+</li>
+<li><ol>
+<li>安装PHP</li>
+</ol>
+</li>
+</ul>
+
+
+<p>如需在 Windows 平台设置并立即运行 PHP，您还可以安装<strong>WebMatrix</strong>.</p>
+
+<p>WebMatrix is a free, lightweight, cloud-connected web development tool</p>
+
+<h5>基本语法</h5>
+
+<ul>
+<li>1.PHP脚本以<code>&lt;?php　//代码　．．　?&gt;</code>包含起来</li>
+<li>2.PHP文件通常包含HTML标签和PHP脚本代码</li>
+<li>3.PHP代码中语句以;结尾</li>
+<li>4,注释// # /**/</li>
+<li>5.大小写敏感</li>
+<li>6.有点像Shell脚本</li>
+</ul>
+
+
+<p>变量规则：
+&ndash;  变量以 $ 符号开头，其后是变量的名称
+&ndash;  变量名称必须以字母或下划线开头
+&ndash;  变量名称不能以数字开头
+&ndash;  变量名称只能包含字母数字字符和下划线（A-z、0-9 以及 _）
+&ndash;  变量名称对大小写敏感（$y 与 $Y 是两个不同的变量）</p>
+
+<p>三种不同作用域变量：
+&ndash; local（局部）
+&ndash; global（全局）
+&ndash; static（静态）</p>
+
+<p>通常，当函数完成/执行后，会删除所有变量。不过，有时我需要不删除某个局部变量。实现这一点需要更进一步的工作。
+要完成这一点，请在您首次声明变量时使用 static</p>
+
+<p>echo 和 print 之间的差异：
+&ndash; echo &ndash; 能够输出一个以上的字符串
+&ndash; print &ndash; 只能输出一个字符串，并始终返回 1
+&ndash; 两者均可包含括号</p>
+
+<p><strong>数据类型:</strong>字符串、整数、浮点数、逻辑、数组、对象、NULL</p>
+
+<p><strong>整数规则：</strong>
+&ndash; 整数必须有至少一个数字（0-9）
+&ndash; 整数不能包含逗号或空格
+&ndash; 整数不能有小数点
+&ndash; 整数正负均可
+&ndash; 可以用三种格式规定整数：十进制、十六进制（前缀是 0x）或八进制（前缀是 0）</p>
+
+<p>浮点数是有小数点或指数形式的数字</p>
+
+<p>逻辑是 true 或 false</p>
+
+<p>对象是存储数据和有关如何处理数据的信息的数据类型。
+在 PHP 中，必须明确地声明对象。
+首先我们必须声明对象的类。对此，我们使用 class 关键词。类是包含属性和方法的结构。
+然后我们在对象类中定义数据类型，然后在该类的实例中使用</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?php
+</span><span class='line'>class Car
+</span><span class='line'>{
+</span><span class='line'>  var $color;
+</span><span class='line'>  function Car($color="green") {
+</span><span class='line'>    $this-&gt;color = $color;
+</span><span class='line'>  }
+</span><span class='line'>  function what_color() {
+</span><span class='line'>    return $this-&gt;color;
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>?&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>字符串函数</strong>
+&ndash; strle()
+&ndash; strpos();查找匹配字符，strpos(&ldquo;Hello&rdquo;,&ldquo;ll&rdquo;);结果为2;找不到返回FALSE</p>
+
+<p><a href="http://www.w3school.com.cn/php/php_ref_string.asp">参考字符串函数</a></p>
+
+<p>define()函数定义常量</p>
+
+<p><strong>运算符</strong>
+. 串接，如$str1=&ldquo;hello&rdquo;;$str2=$str1.&ldquo;world&rdquo;;则str=&ldquo;helloworld&rdquo;;
+.= 串接赋值</p>
+
+<p>还有条件语句，循环，数组等，这一些操作和其它语句有很大的相似，可直接读代码时得到什么意思，但于自己写的话，可能需要常期训练．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Xml学习]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/20/xmlxue-xi/"/>
+    <updated>2014-07-20T04:13:30+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/20/xmlxue-xi</id>
+    <content type="html"><![CDATA[<h4>XML入门</h4>
+
+<p>XML用来传输和存储数据</p>
+
+<p>HTML用来显示数据</p>
+
+<p>Extensible Markup Language可扩展标记语言，类似HTML也是标记语言</p>
+
+<!--more-->
+
+
+<h5>特点</h5>
+
+<ul>
+<li>1.XML标签没有预定义，HTML标签定义了</li>
+<li>2.XML被设计用来结构化，存储以及传输信息</li>
+<li>3.Json也是和XML功能相同，但用的范围不同</li>
+<li>4.XML是纯文本，没有什么特别之处，可以处理文本的软件都可来处理XML</li>
+<li>5.XML 是独立于软件和硬件的信息传输工具</li>
+<li>6.XML把数据从HTML中分离</li>
+<li>7.XML 简化数据共享</li>
+<li>8.XML 简化数据传输</li>
+<li>9.XHTML &ndash; 最新的 HTML 版本</li>
+<li>10.WSDL &ndash; 用于描述可用的 web service</li>
+<li>11.WAP 和 WML &ndash; 用于手持设备的标记语言</li>
+<li>12.RSS &ndash; 用于 RSS feed 的语言</li>
+<li>13.RDF 和 OWL &ndash; 用于描述资源和本体</li>
+<li>14.SMIL &ndash; 用于描述针针对 web 的多媒体</li>
+</ul>
+
+
+<h5>语法</h5>
+
+<p>第一行一般为说明文字
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;ISO-8859-1&rdquo;?></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+</span><span class='line'>&lt;note&gt;
+</span><span class='line'>&lt;to&gt;George&lt;/to&gt;
+</span><span class='line'>&lt;from&gt;John&lt;/from&gt;
+</span><span class='line'>&lt;heading&gt;Reminder&lt;/heading&gt;
+</span><span class='line'>&lt;body&gt;Don't forget the meeting!&lt;/body&gt;
+</span><span class='line'>&lt;/note&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>第一行，说明文字</li>
+<li>第二行，根部，note是自定义文字，note说明是个书签</li>
+<li>第三行，to的内容是George，对应的其它行意义一样</li>
+</ul>
+
+
+<h5>树形结构</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;root&gt;
+</span><span class='line'>    &lt;child&gt;
+</span><span class='line'>        &lt;subchild&gt;...&lt;/subchild&gt;
+</span><span class='line'>    &lt;/child
+</span><span class='line'>    &lt;otherchild&gt;...&lt;/otherchild&gt;
+</span><span class='line'>&lt;/root&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p>1.还可以像HTML那样添加属性</p></li>
+<li><p>2.元素必须有关闭标签</p></li>
+<li><p>3.对大小写敏感</p></li>
+<li><p>4.必须正确嵌套</p></li>
+</ul>
+
+
+<p>这是最基础的</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android-控件]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/19/android-kong-jian/"/>
+    <updated>2014-07-19T21:00:37+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/19/android-kong-jian</id>
+    <content type="html"><![CDATA[<h4>Android常用控件</h4>
+
+<p>仅列常用的控件，并实践之．毕竟初学者，学会用，有印象即可，其它的可举一反三，融会贯通．</p>
+
+<!--more-->
+
+
+<h5>TextView</h5>
+
+<h5>EditText</h5>
+
+<h5>ImageView</h5>
+
+<h5>Button</h5>
+
+<h4>#</h4>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Longest Palindromic Substring]]></title>
@@ -1387,657 +1735,6 @@ sed 's/^my/you/g' file 替换my为you,g表示所有的都替换
 sed -n '2,20s/my$/you/gp' file 替换，并只打印替换的行，上一个会默认全打印
 sed -e '1,100d' -e 's/a/b/g' file多重编辑
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[最系列]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/"/>
-    <updated>2014-07-13T19:58:08+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie</id>
-    <content type="html"><![CDATA[<h4>最系列</h4>
-
-<p>常见到最长子序列，最长公共子序列等，网上总结了也很多．但自己实现一次方才了解．发现收获很多的．</p>
-
-<h4>目录</h4>
-
-<ul>
-<li>1.<a href="#1">最长公共子序列</a></li>
-<li>2.<a href="#2">最长公共子串</a></li>
-<li>3.<a href="#3">最长重复子串</a></li>
-<li>4.<a href="#4">最长回文子串</a></li>
-<li>5.<a href="#5">最大递增子序列</a></li>
-<li>6.<a href="#6">最大子数组和</a></li>
-<li>7.<a href="#7">最大M子段和</a></li>
-<li>8.<a href="#8">最大和子矩阵</a></li>
-<li>9.<a href="#9">字符串编码距离</a></li>
-<li>10.<a href="#10">最长不重复子串</a></li>
-</ul>
-
-
-<!--more-->
-
-
-
-
-<h5 id="1">最长公开子序列</h5>
-
-
-<p>这个最基础，动态规划；转移方程:</p>
-
-<p>C[i,j] = 0; 初始</p>
-
-<p>C[i,j] = C[i-1,j-1] + 1; Xi = Yi</p>
-
-<p>C[i,j] = max(C[i-1,j], C[i,j-1]); Xi != Yi;</p>
-
-<p>**代码</p>
-
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-
-int LCS(char *str1, char *str2, int m, int n, int len[][100],int sub[][100])
-{
-        int i,j;
-        for(i=0;i&lt;m;i++)
-            len[i][0] = 0;
-        for(i=0;i&lt;n;i++)
-            len[0][i] = 0;
-        for(i=1;i&lt;=m;i++)
-        for(j=1;j&lt;=n;j++)
-        {
-            if(str1[i-1]==str2[j-1])
-            {
-                len[i][j] = len[i-1][j-1] + 1;
-                sub[i][j] = 0;
-            }
-            else if(len[i-1][j]&gt;=len[i][j-1])
-            {
-                len[i][j] = len[i-1][j];
-                sub[i][j] = 1;
-            }
-            else
-            {
-                len[i][j] = len[i][j-1];
-                sub[i][j] = -1;
-            }
-        }
-        return len[m][n];
-}
-
-void PrintSub(char *x,int i, int j, int b[][100])
-{
-    if(i==0||j==0)
-        return;
-    if(b[i][j] == 0)
-    {
-        PrintSub(x,i-1,j-1,b);
-        printf("%c",x[i-1]);
-    }
-    else if(b[i][j]==1)
-        PrintSub(x,i-1,j,b);
-    else 
-        PrintSub(x,i,j-1,b);
-    return ;
-}
-int main()
-{
-    char str1[100],str2[100];
-    int len1,len2;
-    int subq[100][100],subq_len[100][100]; 
-    while(~scanf("%s %s",str1,str2))
-    {
-        len1 = strlen(str1); 
-        len2 = strlen(str2); 
-        int len = LCS(str1,str2,len1,len2,subq_len,subq);
-        printf("%d\n",len);
-        PrintSub(str1,len1,len2,subq);
-        printf("\n");
-    }
-    return 0;
-}
-</code></pre>
-
-<h5 id="2">最长公开子串</h5>
-
-
-<p>串和序列的区别在于连续与否，两者实现也差不多</p>
-
-<p>**代码</p>
-
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-
-int LCS(char *str1, char *str2, int m, int n, char *str3, int len[][100])
-{
-        int i,j;
-        int max = -1;
-        int x,y;
-        int k;
-        for(i=0;i&lt;m;i++)
-            len[i][0] = 0;
-        for(i=0;i&lt;n;i++)
-            len[0][i] = 0;
-        for(i=1;i&lt;=m;i++)
-        for(j=1;j&lt;=n;j++)
-        {
-            if(str1[i-1]==str2[j-1])
-                len[i][j] = len[i-1][j-1] + 1;
-            else 
-                len[i][j] = 0;
-            if(len[i][j]&gt;max)
-            {
-                max = len[i][j];
-                x = i;
-                y = j;
-            }
-        }
-        k = max;
-        str3[k] = '\0';
-        while(k&gt;=0)
-            str3[--k] = str1[--x];
-        return max;
-}
-
-int main()
-{
-    char str1[100],str2[100];
-    char str3[100];
-    int len1,len2;
-    int subq_len[100][100]; 
-    while(~scanf("%s %s",str1,str2))
-    {
-        len1 = strlen(str1); 
-        len2 = strlen(str2); 
-        int len = LCS(str1,str2,len1,len2,str3,subq_len);
-        printf("%s\n",str3);
-        printf("%d\n",len);
-    }
-    return 0;
-}
-</code></pre>
-
-<h5 id="6">最大子数组和</h5>
-
-
-<p>即一个数组中连续元素和的最大值，如1,2,-4,2 最大是3</p>
-
-<p>**代码:　</p>
-
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;limits.h&gt;
-
-int main()
-{
-    int n, a[100];
-    int i,sum,tmp;
-    int maxsum ;
-    while(~scanf("%d",&amp;n))
-    {
-        maxsum = INT_MIN;
-        sum = tmp = 0;
-        for(i=0;i&lt;n;i++)
-        {
-            scanf("%d",&amp;a[i]);
-            tmp += a[i];
-            if(tmp&lt;0)
-                tmp = 0;
-            else
-                sum = tmp;
-            if(sum&gt;maxsum)
-                maxsum = sum;
-        }
-        if(maxsum&lt;=0)
-        {
-            maxsum = a[0];
-            for(i=0;i&lt;n;i++)
-                if(a[i]&gt;maxsum)
-                    maxsum = a[i];
-        }
-        printf("%d\n",maxsum);
-    }
-    return 0;
-}
-</code></pre>
-
-<h5 id="5">最大子数组</h5>
-
-
-<p>序列可以为数组，也可以为特别的结构体，原理应该是一样的
-**代码：</p>
-
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-//return the length
-int LongIncreaseSubsquence1(int *a, int n, int *b)
-{
-    int i,j;
-    int lenght = 1;
-    if(n&lt;=0)return 0;
-    if(n==1)return 1;
-    b[0] = 1;
-    for(i=1;i&lt;n;i++)
-    {
-        b[i] = 1;
-        for(j=0;j&lt;i;j++)
-        {
-            if(a[j]&lt;a[i]&amp;&amp;b[j]+1&gt;b[i])
-               b[i] = b[j] + 1;
-        }
-    }
-    for(i=1;i&lt;n;i++)
-        lenght = (lenght&gt;=b[i]?lenght:b[i]);
-    return lenght;
-}
-int main()
-{
-    int a[100];
-    int b[100];
-    int n,i;
-    while(~scanf("%d",&amp;n))
-    {
-        for(i=0;i&lt;n;i++)
-            scanf("%d",&amp;a[i]);
-        int len = LongIncreaseSubsquence1(a,n,b);
-        printf("%d\n",len);
-    }
-    return 0;
-}
-</code></pre>
-
-<p>还有两种方法：
-&ndash; 1.基于最长公共子序列，先把原串排序，再求最长公共子序列
-&ndash; 2.再查找b[n]的时候，用二分法，因为b[n]是递增的序列</p>
-
-<hr />
-
-<h5>最大各子矩阵</h5>
-
-<h5>最长重复子串</h5>
-
-<h5>最长回文子串</h5>
-
-<h5>最大M子段</h5>
-
-<h5 id="9">字符编码距离</h5>
-
-
-<p>两个字符串，从其中一个变为另外一个需要的操作次数就是编码距离，这个或者还有其它的名词称谓．</p>
-
-<p>操作只有三种最基本的，即增删改，例如abc和bcd的距离就是，abc删除a，再后面添加d，操作就两步</p>
-
-<p>这种有一个很简单的方法，基于最长公共子序列，首先求出最长公共子序列int len = GetLongestCommomSubsquence(str1,str2),然后得到两个字符串长度，len1,len2.则操作的距离是len1+len2-len*2</p>
-
-<p>当这几个系列的操作都了解后，好多字符串的处理都是基于此的</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>class Solution {
-</span><span class='line'>public:
-</span><span class='line'>    int minDistance(string word1, string word2) {
-</span><span class='line'>        // Start typing your C/C++ solution below
-</span><span class='line'>        // DO NOT write int main() function
-</span><span class='line'>        int row = word1.length() + 1;
-</span><span class='line'>        int col = word2.length() + 1;
-</span><span class='line'>        
-</span><span class='line'>        vector&lt;vector&lt;int&gt; &gt; f(row, vector&lt;int&gt;(col));
-</span><span class='line'>
-</span><span class='line'>        for (int i = 0; i &lt; row; i++)
-</span><span class='line'>            f[i][0] = i;
-</span><span class='line'>
-</span><span class='line'>        for (int i = 0; i &lt; col; i++)
-</span><span class='line'>            f[0][i] = i; 
-</span><span class='line'>        for (int i = 1; i &lt; row; i++)
-</span><span class='line'>            for (int j = 1; j &lt; col; j++){
-</span><span class='line'>                if (word1[i-1] == word2[j-1])
-</span><span class='line'>                    f[i][j] = f[i-1][j-1];
-</span><span class='line'>                else
-</span><span class='line'>                    f[i][j] = f[i-1][j-1] + 1;
-</span><span class='line'>                f[i][j] = min(f[i][j], min(f[i-1][j]+1, f[i][j-1]+1));
-</span><span class='line'>            }
-</span><span class='line'>
-</span><span class='line'>        return f[row-1][col-1];
-</span><span class='line'>    }
-</span><span class='line'>};lass Solution {
-</span><span class='line'>public:
-</span><span class='line'>    int minDistance(string word1, string word2) {
-</span><span class='line'>        // Start typing your C/C++ solution below
-</span><span class='line'>        // DO NOT write int main() function
-</span><span class='line'>        int row = word1.length() + 1;
-</span><span class='line'>        int col = word2.length() + 1;
-</span><span class='line'>        
-</span><span class='line'>        vector&lt;vector&lt;int&gt; &gt; f(row, vector&lt;int&gt;(col));
-</span><span class='line'>
-</span><span class='line'>        for (int i = 0; i &lt; row; i++)
-</span><span class='line'>            f[i][0] = i;
-</span><span class='line'>
-</span><span class='line'>        for (int i = 0; i &lt; col; i++)
-</span><span class='line'>            f[0][i] = i;
-</span><span class='line'>
-</span><span class='line'>        for (int i = 1; i &lt; row; i++)
-</span><span class='line'>            for (int j = 1; j &lt; col; j++){
-</span><span class='line'>                if (word1[i-1] == word2[j-1])
-</span><span class='line'>                    f[i][j] = f[i-1][j-1];
-</span><span class='line'>                else
-</span><span class='line'>                    f[i][j] = f[i-1][j-1] + 1;
-</span><span class='line'>                f[i][j] = min(f[i][j], min(f[i-1][j]+1, f[i][j-1]+1));
-</span><span class='line'>            }
-</span><span class='line'>
-</span><span class='line'>        return f[row-1][col-1];
-</span><span class='line'>    }
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<p><strong><em>待续</em></strong></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[星月神话]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/13/xing-yue-shen-hua/"/>
-    <updated>2014-07-13T16:03:19+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/13/xing-yue-shen-hua</id>
-    <content type="html"><![CDATA[<h4>星月神话</h4>
-
-<!--more-->
-
-
-<p>参加葬礼一出．当地习俗，传承日久，势必请法师做法，戏子唱戏，乐队奏乐．亲朋来吊，乡里致哀，伤感不已．出殡之日，更是凝重无比．</p>
-
-<p>古人有云：死生亦大矣．千古同此一叹．原本哀事，古人忌讳死，故曰喜．曰白喜事．</p>
-
-<p>葬礼按部就班．唯乐队一曲＂<strong>星月神话</strong>＂，曲调哀婉，绵延幽长．旋律和缓，饱含感伤．虽原词歌诵爱情，流行已久，但于此处尤撩人伤怀，其音高于鞭炮礼花齐鸣，抑扬顿挫之调引人回忆．笛声悠扬，琴声绵长，更增凝重．曲调层层递进，情感步步难抑～</p>
-
-<p><strong>＂千年之后的你会在哪里？身边有怎样风景＂</strong>．到此，几欲落泪.</p>
-
-<hr />
-
-<p><strong>星月神话，金莎</strong>(点击欣赏)</p>
-
-<p>  <audio controls="controls">
-  <source src="http://mkdir1.github.io/music/xing.mp3" type="audio/mpeg">
-  </audio></p>
-
-<pre><code>作词:金莎 作曲:金莎
-
-我的一生最美好的场景
-就是遇见你
-在人海茫茫中静静凝望着你
-陌生又熟悉
-
-尽管呼吸着同一天空的气息
-却无法拥抱到你
-如果转换了时空身份和姓名
-但愿认得你眼睛
-
-千年之后的你会在哪里
-身边有怎样风景
-我们的故事并不算美丽
-却如此难以忘记
-
-尽管呼吸着同一天空的气息
-却无法拥抱到你
-如果转换了时空身份和姓名
-但愿认得你眼睛
-
-千年之后的你会在哪里
-身边有怎样风景
-我们的故事并不算美丽
-却如此难以忘记
-
-如果当初勇敢的在一起
-会不会不同结局
-你会不会也有千言万语
-埋在沉默的梦里
-</code></pre>
-
-<hr />
-
-<p>感时伤怀之作甚多，生离死别之事不少．屏幕电视演绎者再．若不经历生死，不目睹死别，诚不知容颜易老，韶华难再．俱各为前程，东奔西走，行色匆匆，始知相聚甚难. 纵为亲子，如之奈何？若抚遗像嗟悼，徒留回忆，岂不痛哉！</p>
-
-<p>活在当下，珍惜眼前吧!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Software for Blog on Ubuntu]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/12/software-for-blog-on-ubuntu/"/>
-    <updated>2014-07-12T22:14:15+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/12/software-for-blog-on-ubuntu</id>
-    <content type="html"><![CDATA[<h3>写博客常用到的工具</h3>
-
-<p>磨刀不费砍柴功，看来工具真的很重要</p>
-
-<p>今天网上又发现一些好东西</p>
-
-<!--more-->
-
-
-<h4>常用快捷键</h4>
-
-<p>那些我知道的就不列了哈，找些实用但不常用的</p>
-
-<ul>
-<li><ol>
-<li>C+Super+D</li>
-</ol>
-</li>
-<li><ol>
-<li>C+H 资源管理器中显示隐藏文件</li>
-</ol>
-</li>
-<li><ol>
-<li><strong>Alt+PrtSc截取窗口; Shift+PrtSc部分截取</strong>，这个比qq上的截取功能相似，很强大</li>
-</ol>
-</li>
-<li><ol>
-<li>Super+w 显示当前所有窗口，专业术语Expo模式</li>
-</ol>
-</li>
-<li><ol>
-<li>Super+S 缩小工作区，相当于点击了工作区的按键</li>
-</ol>
-</li>
-<li><ol>
-<li>Alt+F2弹出命令窗口，相当于Windows下的Win+R</li>
-</ol>
-</li>
-<li><ol>
-<li>Alt+Tab与Alt+｀一起使用，效果很酷</li>
-</ol>
-</li>
-</ul>
-
-
-<hr />
-
-<h4>software</h4>
-
-<ul>
-<li><p>1.图片处理，mypaint,shotwell和gthumb. 前者是自带的，直接命令行下可用.都是ap-get install 就可得到的.设置好软件，可命令行启动.</p></li>
-<li><ol>
-<li>feedly查看rss的利器，但本人习惯用thunderbird. 主要是集成了邮件和rss，相对方便．　可以把feedly中获取非技术类的文章，有空的时候打开看看．　毕竟thunderbird太过臃肿，东西太多</li>
-</ol>
-</li>
-<li><ol>
-<li>Google Docs.编辑文档的很多，wps等，但是，一般我们要的是轻量级的编辑工具，而不是启动慢，工具选项多，操作不便的，大而全的工具．当然对于博客来说</li>
-</ol>
-</li>
-<li><ol>
-<li>Sublime 以后非命令行下，可以试试这个</li>
-</ol>
-</li>
-<li><ol>
-<li>Eclipse, Vim, Qt Creator, Sublime.各有一批拥趸．适合不同的开发者．Sublime适合前端，Vim通用，其它的集成，也很广泛</li>
-</ol>
-</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Love-Letter Mystery]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/11/the-love-letter-mystery/"/>
-    <updated>2014-07-11T14:55:48+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/11/the-love-letter-mystery</id>
-    <content type="html"><![CDATA[<h4><a href="https://www.hackerrank.com/challenges/the-love-letter-mystery">The Love-Letter Mystery</a></h4>
-
-<hr />
-
-<p>James got hold of a love letter that his friend Harry has written for his girlfriend. Being the prankster that James is, he decides to meddle with it. He changes all the words in the letter into palindromes.</p>
-
-<p>While modifying the letters of the word, he follows 2 rules:</p>
-
-<p>(a) He always reduces the value of a letter, e.g. he changes &rsquo;d&#8217; to &lsquo;c&rsquo;, but he does not change &lsquo;c&rsquo; to &rsquo;d&#8217;.
-(b) If he has to repeatedly reduce the value of a letter, he can do it until the letter becomes &lsquo;a&rsquo;. Once a letter has been changed to &lsquo;a&rsquo;, it can no longer be changed.</p>
-
-<p>Each reduction in the value of any letter is counted as a single operation. Find the minimum number of operations he carries out to convert a given string into a palindrome.</p>
-
-<!--more-->
-
-
-<p>Input Format</p>
-
-<p>The first line contains an integer T, i.e., the number of test cases.
-The next T lines will contain a string each.</p>
-
-<p>Output Format</p>
-
-<p>A single line containing the number of minimum operations corresponding to each test case.</p>
-
-<p>Constraints</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>1 ≤ T ≤ 10
-</span><span class='line'>1 ≤ length of string ≤ 104 
-</span><span class='line'>All characters are lower cased english letters.</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Input #00</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>3
-</span><span class='line'>abc
-</span><span class='line'>abcba
-</span><span class='line'>abcd</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sample Output #00</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>2
-</span><span class='line'>0
-</span><span class='line'>4</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Explanation</p>
-
-<p>For the first test case, ab<em>c</em> &ndash;> ab<em>b</em> &ndash;> ab<em>a</em>.
-For the second test case, abcba is a palindromic string.
-For the third test case, abc<em>d</em> &ndash;> abc<em>c</em> &ndash;> abc<em>b</em> &ndash;> abc<em>a</em> = ab<em>c</em>a &ndash;> ab<em>b</em>a.</p>
-
-<hr />
-
-<p>**The Code:</p>
-
-<pre><code>#include &lt;iostream&gt;
-#include &lt;string.h&gt;
-using namespace std;
-
-int main()
-{
-    int T,sum,j,diff;
-    char str[10000];
-    while(cin&gt;&gt;T)
-        {
-        for(int i=0;i&lt;T;i++)
-            {
-            cin&gt;&gt;str;
-            int len = strlen(str);
-            len -=1;
-            sum = 0;
-            j = 0;
-            while(j&lt;len)
-                {
-                str[j]&gt;str[len]?diff=str[j]-str[len]:diff=str[len]-str[j];
-                sum += diff;
-                j++;
-                len--;
-            }
-            cout&lt;&lt;sum&lt;&lt;endl;
-        }
-    }
-    return 0;
-}
-</code></pre>
-
-<p><audio controls="controls">
-  <source src="http://mkdir1.github.io/music/xing.mp3" type="audio/mpeg">
-</audio></p>
 ]]></content>
   </entry>
   

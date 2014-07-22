@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>C++中sort报错 - Vintion's blog</title>
+  <title>Xml学习 - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="C++中报错 no matching function for call to &lsquo;sort&rsquo; 具体： 代码如下： class Solution {
-public:
-bool cmp(Interval interval1, Interval interval2)
-{ &hellip;">
+  <meta name="description" content="XML入门 XML用来传输和存储数据 HTML用来显示数据 Extensible Markup Language可扩展标记语言，类似HTML也是标记语言 特点 1.XML标签没有预定义，HTML标签定义了
+2.XML被设计用来结构化，存储以及传输信息
+3.Json也是和XML功能相同， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ bool cmp(Interval interval1, Interval interval2)
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/20/xmlxue-xi">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -76,7 +75,7 @@ bool cmp(Interval interval1, Interval interval2)
   
   <header>
     
-      <h1 class="entry-title">C++中sort报错</h1>
+      <h1 class="entry-title">Xml学习</h1>
     
     
       <p class="meta">
@@ -92,7 +91,7 @@ bool cmp(Interval interval1, Interval interval2)
   
 
 
-<time datetime="2014-07-18T12:25:35+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-20T04:13:30+08:00" pubdate data-updated="true">Jul 20<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -102,41 +101,90 @@ bool cmp(Interval interval1, Interval interval2)
   </header>
 
 
-<div class="entry-content"><h4>C++中报错</h4>
+<div class="entry-content"><h4>XML入门</h4>
 
-<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+<p>XML用来传输和存储数据</p>
+
+<p>HTML用来显示数据</p>
+
+<p>Extensible Markup Language可扩展标记语言，类似HTML也是标记语言</p>
 
 <!--more-->
 
 
-<p>具体：</p>
+<h5>特点</h5>
 
-<p>代码如下：</p>
+<ul>
+<li>1.XML标签没有预定义，HTML标签定义了</li>
+<li>2.XML被设计用来结构化，存储以及传输信息</li>
+<li>3.Json也是和XML功能相同，但用的范围不同</li>
+<li>4.XML是纯文本，没有什么特别之处，可以处理文本的软件都可来处理XML</li>
+<li>5.XML 是独立于软件和硬件的信息传输工具</li>
+<li>6.XML把数据从HTML中分离</li>
+<li>7.XML 简化数据共享</li>
+<li>8.XML 简化数据传输</li>
+<li>9.XHTML &ndash; 最新的 HTML 版本</li>
+<li>10.WSDL &ndash; 用于描述可用的 web service</li>
+<li>11.WAP 和 WML &ndash; 用于手持设备的标记语言</li>
+<li>12.RSS &ndash; 用于 RSS feed 的语言</li>
+<li>13.RDF 和 OWL &ndash; 用于描述资源和本体</li>
+<li>14.SMIL &ndash; 用于描述针针对 web 的多媒体</li>
+</ul>
 
-<pre><code>class Solution {
-public:
-bool  cmp(Interval interval1, Interval interval2)
-{
-        return interval1.start&lt;interval2.start;
-};
-int f()
-{
-    ...
-    sort(intervals.begin(),intervals.end(),cmp);
-    ...
-}
-};
-</code></pre>
 
-<p>此处用法错误，不知是否察觉：</p>
+<h5>语法</h5>
 
-<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+<p>第一行一般为说明文字
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;ISO-8859-1&rdquo;?></p>
 
-<p>解决之法：</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+</span><span class='line'>&lt;note&gt;
+</span><span class='line'>&lt;to&gt;George&lt;/to&gt;
+</span><span class='line'>&lt;from&gt;John&lt;/from&gt;
+</span><span class='line'>&lt;heading&gt;Reminder&lt;/heading&gt;
+</span><span class='line'>&lt;body&gt;Don't forget the meeting!&lt;/body&gt;
+</span><span class='line'>&lt;/note&gt;</span></code></pre></td></tr></table></div></figure>
 
-<p>将cmp的定义置于class之外</p>
 
-<p>可以将sort定义在结构体之内，这样就直接intervals.sort(&hellip;)；如果定义在之外，要放在类的外面</p>
+<ul>
+<li>第一行，说明文字</li>
+<li>第二行，根部，note是自定义文字，note说明是个书签</li>
+<li>第三行，to的内容是George，对应的其它行意义一样</li>
+</ul>
+
+
+<h5>树形结构</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;root&gt;
+</span><span class='line'>    &lt;child&gt;
+</span><span class='line'>        &lt;subchild&gt;...&lt;/subchild&gt;
+</span><span class='line'>    &lt;/child
+</span><span class='line'>    &lt;otherchild&gt;...&lt;/otherchild&gt;
+</span><span class='line'>&lt;/root&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p>1.还可以像HTML那样添加属性</p></li>
+<li><p>2.元素必须有关闭标签</p></li>
+<li><p>3.对大小写敏感</p></li>
+<li><p>4.必须正确嵌套</p></li>
+</ul>
+
+
+<p>这是最基础的</p>
 </div>
 
 
@@ -159,7 +207,7 @@ int f()
   
 
 
-<time datetime="2014-07-18T12:25:35+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-20T04:13:30+08:00" pubdate data-updated="true">Jul 20<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
@@ -196,10 +244,10 @@ int f()
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/17/tian-jia-yong-hu/" title="Previous Post: 添加用户">&laquo; 添加用户</a>
+        <a class="basic-alignment left" href="/blog/2014/07/19/android-kong-jian/" title="Previous Post: android-控件">&laquo; android-控件</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/07/18/insert-interval/" title="Next Post: Insert interval">Insert interval &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/07/20/phpru-men/" title="Next Post: PHP入门">PHP入门 &raquo;</a>
       
     </p>
   </footer>

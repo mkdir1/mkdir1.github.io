@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>C++中sort报错 - Vintion's blog</title>
+  <title>Leetcode-combination Sum - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="C++中报错 no matching function for call to &lsquo;sort&rsquo; 具体： 代码如下： class Solution {
-public:
-bool cmp(Interval interval1, Interval interval2)
-{ &hellip;">
+  <meta name="description" content="Combination Sum Given a set of candidate numbers &copy; and a target number (T), find all unique combinations in C where the candidate numbers sums &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ bool cmp(Interval interval1, Interval interval2)
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/22/leetcode-combination-sum">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -76,7 +73,7 @@ bool cmp(Interval interval1, Interval interval2)
   
   <header>
     
-      <h1 class="entry-title">C++中sort报错</h1>
+      <h1 class="entry-title">Leetcode-combination Sum</h1>
     
     
       <p class="meta">
@@ -92,7 +89,7 @@ bool cmp(Interval interval1, Interval interval2)
   
 
 
-<time datetime="2014-07-18T12:25:35+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-22T17:05:12+08:00" pubdate data-updated="true">Jul 22<sup>nd</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -102,41 +99,72 @@ bool cmp(Interval interval1, Interval interval2)
   </header>
 
 
-<div class="entry-content"><h4>C++中报错</h4>
+<div class="entry-content"><h4>Combination Sum</h4>
 
-<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+<p>Given a set of candidate numbers &copy; and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p>
+
+<p>The same repeated number may be chosen from C unlimited number of times.</p>
+
+<p>Note:</p>
+
+<p>All numbers (including target) will be positive integers.
+Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 ≤ a2 ≤ … ≤ ak).</p>
+
+<p>The solution set must not contain duplicate combinations.
+For example, given candidate set 2,3,6,7 and target 7,
+A solution set is:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[2,3,6,7] 7
+</span><span class='line'>[7] 
+</span><span class='line'>[2, 2, 3] 
+</span></code></pre></td></tr></table></div></figure>
+
 
 <!--more-->
 
 
-<p>具体：</p>
+<p>这题真是基础，之前一直对此类不知所措，现在略通一二，甚喜</p>
 
-<p>代码如下：</p>
+<p>Code:</p>
 
 <pre><code>class Solution {
 public:
-bool  cmp(Interval interval1, Interval interval2)
-{
-        return interval1.start&lt;interval2.start;
-};
-int f()
-{
-    ...
-    sort(intervals.begin(),intervals.end(),cmp);
-    ...
-}
+    void Getcom(vector&lt;int&gt;&amp;can, int target, vector&lt;vector&lt;int&gt;&gt;&amp;result, int level, int &amp;sumcurrent, int nsize, vector&lt;int&gt;&amp;tmp)
+    {
+        if(sumcurrent&gt;target)return;
+        if(target==sumcurrent)
+        {
+            result.push_back(tmp);
+            return;
+        }
+        for(int i=level;i&lt;nsize;i++)
+        {
+
+                sumcurrent += can[i];
+                tmp.push_back(can[i]);
+                Getcom(can,target,result,i,sumcurrent,nsize,tmp);
+                tmp.pop_back();
+                sumcurrent -=can[i];
+        }
+
+    }
+    vector&lt;vector&lt;int&gt; &gt; combinationSum(vector&lt;int&gt; &amp;candidates, int target) 
+    {
+       vector&lt;vector&lt;int&gt;&gt; result;
+       vector&lt;int&gt;tmp;
+       int size = candidates.size();
+       sort(candidates.begin(),candidates.end());
+       int sumc = 0;
+       Getcom(candidates,target,result,0,sumc,size,tmp);
+       return result;
+    }
 };
 </code></pre>
 
-<p>此处用法错误，不知是否察觉：</p>
-
-<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
-
-<p>解决之法：</p>
-
-<p>将cmp的定义置于class之外</p>
-
-<p>可以将sort定义在结构体之内，这样就直接intervals.sort(&hellip;)；如果定义在之外，要放在类的外面</p>
+<p>DFS方便记录结果，DP方便记数</p>
 </div>
 
 
@@ -159,12 +187,12 @@ int f()
   
 
 
-<time datetime="2014-07-18T12:25:35+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-22T17:05:12+08:00" pubdate data-updated="true">Jul 22<sup>nd</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/language/'>language</a>
+    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
   
 </span>
 
@@ -196,10 +224,8 @@ int f()
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/17/tian-jia-yong-hu/" title="Previous Post: 添加用户">&laquo; 添加用户</a>
+        <a class="basic-alignment left" href="/blog/2014/07/20/phpru-men/" title="Previous Post: PHP入门">&laquo; PHP入门</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/18/insert-interval/" title="Next Post: Insert interval">Insert interval &raquo;</a>
       
     </p>
   </footer>

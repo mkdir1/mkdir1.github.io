@@ -5,14 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>C++中sort报错 - Vintion's blog</title>
+  <title>Android-控件 - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="C++中报错 no matching function for call to &lsquo;sort&rsquo; 具体： 代码如下： class Solution {
-public:
-bool cmp(Interval interval1, Interval interval2)
-{ &hellip;">
+  <meta name="description" content="Android常用控件 仅列常用的控件，并实践之．毕竟初学者，学会用，有印象即可，其它的可举一反三，融会贯通． TextView EditText ImageView Button #
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ bool cmp(Interval interval1, Interval interval2)
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/18/c-plus-plus-zhong-sortbao-cuo">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/19/android-kong-jian">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -76,7 +74,7 @@ bool cmp(Interval interval1, Interval interval2)
   
   <header>
     
-      <h1 class="entry-title">C++中sort报错</h1>
+      <h1 class="entry-title">Android-控件</h1>
     
     
       <p class="meta">
@@ -92,7 +90,7 @@ bool cmp(Interval interval1, Interval interval2)
   
 
 
-<time datetime="2014-07-18T12:25:35+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-19T21:00:37+08:00" pubdate data-updated="true">Jul 19<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -102,41 +100,22 @@ bool cmp(Interval interval1, Interval interval2)
   </header>
 
 
-<div class="entry-content"><h4>C++中报错</h4>
+<div class="entry-content"><h4>Android常用控件</h4>
 
-<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
+<p>仅列常用的控件，并实践之．毕竟初学者，学会用，有印象即可，其它的可举一反三，融会贯通．</p>
 
 <!--more-->
 
 
-<p>具体：</p>
+<h5>TextView</h5>
 
-<p>代码如下：</p>
+<h5>EditText</h5>
 
-<pre><code>class Solution {
-public:
-bool  cmp(Interval interval1, Interval interval2)
-{
-        return interval1.start&lt;interval2.start;
-};
-int f()
-{
-    ...
-    sort(intervals.begin(),intervals.end(),cmp);
-    ...
-}
-};
-</code></pre>
+<h5>ImageView</h5>
 
-<p>此处用法错误，不知是否察觉：</p>
+<h5>Button</h5>
 
-<p><strong> no matching function for call to &lsquo;sort&rsquo;</strong></p>
-
-<p>解决之法：</p>
-
-<p>将cmp的定义置于class之外</p>
-
-<p>可以将sort定义在结构体之内，这样就直接intervals.sort(&hellip;)；如果定义在之外，要放在类的外面</p>
+<h4>#</h4>
 </div>
 
 
@@ -159,12 +138,12 @@ int f()
   
 
 
-<time datetime="2014-07-18T12:25:35+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-19T21:00:37+08:00" pubdate data-updated="true">Jul 19<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/language/'>language</a>
+    <a class='category' href='/blog/categories/android/'>android</a>
   
 </span>
 
@@ -196,10 +175,10 @@ int f()
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/17/tian-jia-yong-hu/" title="Previous Post: 添加用户">&laquo; 添加用户</a>
+        <a class="basic-alignment left" href="/blog/2014/07/18/longest-palindromic-substring/" title="Previous Post: Longest Palindromic Substring">&laquo; Longest Palindromic Substring</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/07/18/insert-interval/" title="Next Post: Insert interval">Insert interval &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/07/20/xmlxue-xi/" title="Next Post: xml学习">xml学习 &raquo;</a>
       
     </p>
   </footer>

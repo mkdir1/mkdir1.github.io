@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | Vintion's blog]]></title>
+  <link href="http://mkdir1.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://mkdir1.github.io/"/>
+  <updated>2014-07-22T17:09:10+08:00</updated>
+  <id>http://mkdir1.github.io/</id>
+  <author>
+    <name><![CDATA[Vintion]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Android-控件]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/19/android-kong-jian/"/>
+    <updated>2014-07-19T21:00:37+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/19/android-kong-jian</id>
+    <content type="html"><![CDATA[<h4>Android常用控件</h4>
+
+<p>仅列常用的控件，并实践之．毕竟初学者，学会用，有印象即可，其它的可举一反三，融会贯通．</p>
+
+<!--more-->
+
+
+<h5>TextView</h5>
+
+<h5>EditText</h5>
+
+<h5>ImageView</h5>
+
+<h5>Button</h5>
+
+<h4>#</h4>
+]]></content>
+  </entry>
+  
+</feed>
