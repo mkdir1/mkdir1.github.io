@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-23T10:00:30+08:00</updated>
+  <updated>2014-07-23T23:08:34+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -19,6 +19,9 @@
     <updated>2014-07-23T09:52:32+08:00</updated>
     <id>http://mkdir1.github.io/blog/2014/07/23/shellzhong-duan-kuai-jie-jian</id>
     <content type="html"><![CDATA[<h4>Shell下的快捷操作</h4>
+
+<!--more-->
+
 
 <p>黑色为常用的操作</p>
 
@@ -70,7 +73,7 @@
 
 <p>alt  + c      把光标当前位置单词头一个字母变为大写</p>
 
-<p><strong>^oldstr<sup>newstr</sup></strong>    替换前一次命令中字符串</p>
+<p><strong>^oldstr ^newstr</strong>    替换前一次命令中字符串</p>
 
 <p>历史命令编辑</p>
 
