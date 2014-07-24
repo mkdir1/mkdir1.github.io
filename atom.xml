@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-23T23:08:34+08:00</updated>
+  <updated>2014-07-24T16:12:25+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Cheat-sheet for Programmer]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/24/cheat-sheet-for-programmer/"/>
+    <updated>2014-07-24T16:09:01+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/24/cheat-sheet-for-programmer</id>
+    <content type="html"><![CDATA[<h4>useful cheat sheet for programmer</h4>
+
+<p>I found a very useful sheets for programmer. Including almost everyaspects.</p>
+
+<p>Here is the <a href="http://yuncode.net/article/a_5348e54c880e945">LINK</a></p>
+
+<p>Thanks to the author.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Shell终端快捷键]]></title>
@@ -1543,15 +1558,6 @@ usermod, groupdd</p>
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Exponentiation]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/16/exponentiation/"/>
-    <updated>2014-07-16T10:49:34+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/16/exponentiation</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
