@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tools | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-24T16:12:25+08:00</updated>
+  <updated>2014-07-24T21:30:20+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -115,6 +115,36 @@
 <p>ctrl + o      重复执行命令</p>
 
 <p>alt  + 数字键  操作的次数</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Debug工具]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/22/debuggong-ju/"/>
+    <updated>2014-07-22T22:05:47+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/22/debuggong-ju</id>
+    <content type="html"><![CDATA[<h4>Debug工具</h4>
+
+<p>看到一内存调试工具，貌似很厉害，老夫居然前所未闻，今试之，感觉博大精深．</p>
+
+<p>Valgrind, 用于内存测试，内存泄漏等，支持众多平台</p>
+
+<!--more-->
+
+
+<p>Debug绝对是和Code一样重要的技能，现在掌握的Debug技能真是乏善可陈，说来惭愧，之前在写一个驱动的时候，一直用的是printf类似的提示，可见见识浅短．</p>
+
+<p>当然，GDB是常用的神器，功能强大</p>
+
+<p>还有C中不注意的一处，宏：</p>
+
+<p><strong>FILE</strong></p>
+
+<p><strong>LINE</strong></p>
+
+<p><strong>FUNC</strong></p>
+
+<p>现记录一下，以后更新&hellip;</p>
 ]]></content>
   </entry>
   
@@ -328,83 +358,6 @@ fork也可以pull
 <li>空格</li>
 <li>PageUp, PageDown, Array</li>
 <li>Home, End, Insert</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Software for Blog on Ubuntu]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/12/software-for-blog-on-ubuntu/"/>
-    <updated>2014-07-12T22:14:15+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/12/software-for-blog-on-ubuntu</id>
-    <content type="html"><![CDATA[<h3>写博客常用到的工具</h3>
-
-<p>磨刀不费砍柴功，看来工具真的很重要</p>
-
-<p>今天网上又发现一些好东西</p>
-
-<!--more-->
-
-
-<h4>常用快捷键</h4>
-
-<p>那些我知道的就不列了哈，找些实用但不常用的</p>
-
-<ul>
-<li><ol>
-<li>C+Super+D</li>
-</ol>
-</li>
-<li><ol>
-<li>C+H 资源管理器中显示隐藏文件</li>
-</ol>
-</li>
-<li><ol>
-<li><strong>Alt+PrtSc截取窗口; Shift+PrtSc部分截取</strong>，这个比qq上的截取功能相似，很强大</li>
-</ol>
-</li>
-<li><ol>
-<li>Super+w 显示当前所有窗口，专业术语Expo模式</li>
-</ol>
-</li>
-<li><ol>
-<li>Super+S 缩小工作区，相当于点击了工作区的按键</li>
-</ol>
-</li>
-<li><ol>
-<li>Alt+F2弹出命令窗口，相当于Windows下的Win+R</li>
-</ol>
-</li>
-<li><ol>
-<li>Alt+Tab与Alt+｀一起使用，效果很酷</li>
-</ol>
-</li>
-</ul>
-
-
-<hr />
-
-<h4>software</h4>
-
-<ul>
-<li><p>1.图片处理，mypaint,shotwell和gthumb. 前者是自带的，直接命令行下可用.都是ap-get install 就可得到的.设置好软件，可命令行启动.</p></li>
-<li><ol>
-<li>feedly查看rss的利器，但本人习惯用thunderbird. 主要是集成了邮件和rss，相对方便．　可以把feedly中获取非技术类的文章，有空的时候打开看看．　毕竟thunderbird太过臃肿，东西太多</li>
-</ol>
-</li>
-<li><ol>
-<li>Google Docs.编辑文档的很多，wps等，但是，一般我们要的是轻量级的编辑工具，而不是启动慢，工具选项多，操作不便的，大而全的工具．当然对于博客来说</li>
-</ol>
-</li>
-<li><ol>
-<li>Sublime 以后非命令行下，可以试试这个</li>
-</ol>
-</li>
-<li><ol>
-<li>Eclipse, Vim, Qt Creator, Sublime.各有一批拥趸．适合不同的开发者．Sublime适合前端，Vim通用，其它的集成，也很广泛</li>
-</ol>
-</li>
 </ul>
 
 ]]></content>

@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-24T16:12:25+08:00</updated>
+  <updated>2014-07-24T21:30:20+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[编程名言名句]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/24/bian-cheng-ming-yan-ming-ju/"/>
+    <updated>2014-07-24T16:25:05+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/24/bian-cheng-ming-yan-ming-ju</id>
+    <content type="html"><![CDATA[<h4>编程名言</h4>
+
+<p>UNIX 很简单。但需要有一定天赋的人才能理解这种简单。 Dennis Ritchie</p>
+
+<p>软件在能够复用前必须先能用。
+　　–Ralph Johnson</p>
+
+<p>优秀的判断力来自经验，但经验来自于错误的判断。
+　　–Fred Brooks</p>
+
+<p>‘理论’是你知道是这样，但它却不好用。‘实践’是它很好用，但你不知道是为什么。程序员将理论和实践结合到一起：既不好用，也不知道是为什么。
+　　–佚名</p>
+
+<p>当你想在你的代码中找到一个错误时，这很难；当你认为你的代码是不会有错误时，这就更难了。
+　　-Steve McConnell 《代码大全》</p>
+
+<p>如果建筑工人盖房子的方式跟程序员写程序一样，那第一只飞来的啄木鸟就将毁掉人类文明。
+　　-Gerald Weinberg</p>
+
+<p>项目开发的六个阶段：</p>
+
+<p>充满热情</p>
+
+<p>醒悟</p>
+
+<p>痛苦</p>
+
+<p>找出罪魁祸首</p>
+
+<p>惩罚无辜</p>
+
+<p>褒奖闲人</p>
+
+<p>　　–佚名</p>
+
+<p>优秀的代码是它自己最好的文档。当你考虑要添加一个注释时，问问自己，“如何能改进这段代码，以让它不需要注释？”</p>
+
+<p>　　-Steve McConnell 《代码大全》</p>
+
+<p>我们这个世界的一个问题是，蠢人信誓旦旦，智人满腹狐疑。</p>
+
+<p>　　–Bertrand Russell</p>
+
+<p>无论在排练中演示是如何的顺利(高效)，当面对真正的现场观众时，出现错误的可能性跟在场观看的人数成正比。</p>
+
+<p>　　–佚名</p>
+
+<p>罗马帝国崩溃的一个主要原因是，没有0，他们没有有效的方法表示他们的C程序成功的终止。</p>
+
+<p>　　–Robert Firth</p>
+
+<p>C程序员永远不会灭亡。他们只是 cast 成了 void。</p>
+
+<p>　　–佚名</p>
+
+<p>如果 debugging 是一种消灭 bug 的过程，那编程就一定是把 bug 放进去的过程。</p>
+
+<p>　　–Edsger Dijkstra</p>
+
+<p>你要么要软件质量，要么要指针算法；两者不可兼得。</p>
+
+<p>(Bertrand Meyer)</p>
+
+<p>有两种方法能写出没有错误的程序；但只有第三种好用。
+–Alan J. Perlis</p>
+
+<p>用代码行数来测评软件开发进度，就相对于用重量来计算飞机建造进度。
+–比尔-盖茨</p>
+
+<p>最初的 90% 的代码用去了最初 90% 的开发时间。余下的 10% 的代码用掉另外 90% 的开发时间。
+–Tom Cargill</p>
+
+<p>程序员和上帝打赌要开发出更大更好——傻瓜都会用的软件。而上帝却总能创造出更大更傻的傻瓜。所以，上帝总能赢。
+–Anon</p>
+
+<p>Talk is cheap, show me your code.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Cheat-sheet for Programmer]]></title>
@@ -1433,131 +1517,6 @@ usermod, groupdd</p>
 <p>最后问题确定出现在核心交换机的六对光纤中的一对出了问题造成的，通过问题光纤的数据包会丢失，导致出现选择性的丢包现象.当时为什么没想到，是线路部分断了，这样就会丢包，于是会不停的确认和连接，这样又出现在主干网路中，当大家访问多了，这种现象就更严重了．</p>
 
 <hr />
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Git常用命令]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/16/git/"/>
-    <updated>2014-07-16T19:27:13+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/16/git</id>
-    <content type="html"><![CDATA[<h4>Git常用命令</h4>
-
-<p>Git命令很多，大多都可直接用git查询，有些用不上．常用的也就那几条，记录之．</p>
-
-<!--more-->
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git diff/git diff --cached/git diff HEAD
-</span><span class='line'>git add -u 将本地改动的文件add
-</span><span class='line'>git add -A
-</span><span class='line'>git mv file1 file2
-</span><span class='line'>git add .
-</span><span class='line'>git commit -m'a'
-</span><span class='line'>git push origin source
-</span><span class='line'>git reset --hard HEAD^/HEAD^^/HEAD~100
-</span><span class='line'>git reset -hard ****
-</span><span class='line'>git log / git log --pretty=oneline
-</span><span class='line'>git reflog 
-</span><span class='line'>git status
-</span><span class='line'>
-</span><span class='line'>working directory工作区---&gt;版本库repository{stage/index暂存区, master};
-</span><span class='line'>
-</span><span class='line'>git checkout --　file 丢弃工作区的修改，回到和暂存区一致
-</span><span class='line'>git reset　HEAD filename撤销暂存区中的修改，表示filename是最新的版本
-</span><span class='line'>误删rm文件后，可以git checkout -- file
-</span><span class='line'>git rm file从版本库中删除，再git commit -m''或者rm file后再git rm file 再git commit -m''
-</span><span class='line'>
-</span><span class='line'>本地仓库添加远程库git remote add origin url 远程库名叫origin
-</span><span class='line'>git push -u origin master(第一次推送)
-</span><span class='line'>git push orighin master
-</span><span class='line'>
-</span><span class='line'>主分支master，提倡用分支来完成工作，再合并后删除
-</span><span class='line'>创建分支git checkout -b dev(b表示创建并切换)相当于git branch dev 和git checkout dev
-</span><span class='line'>git branch查看当前分支
-</span><span class='line'>git checkout master切回分支
-</span><span class='line'>git merge dev合并分支到master上
-</span><span class='line'>git branch -d dev 删除分支
-</span><span class='line'>
-</span><span class='line'>git merge --no-ff -m"" dev合并分支时禁用fast forward方式，这样分支的commit信息还会存在
-</span><span class='line'>
-</span><span class='line'>git stash把当前工作现场储存起来
-</span><span class='line'>git stash list查看工作现场
-</span><span class='line'>git stash apply恢复，但stash内容不删除，需要git stash drop删除
-</span><span class='line'>git stash pop恢复并删除stash
-</span><span class='line'>git remote　－v 查看远程信息
-</span><span class='line'>git branch -D branchname强行删除分支
-</span><span class='line'>git push origin master推送分支master到远程
-</span><span class='line'>git pull把远程的提交抓下来，然后本地合并，解决冲突后再推送上去
-</span><span class='line'>一般分支master, dev, bug, featurejjj
-</span><span class='line'>git checkout -b dev origin/dev本地创建dev分支
-</span><span class='line'>git tag v1.0打标签
-</span><span class='line'>git tag查看tags
-</span><span class='line'>git tag name commitid -m'a'
-</span><span class='line'>git tag -d name 删除
-</span><span class='line'>git push origin name 推送某个
-</span><span class='line'>git psuh origin --tags推送所有
-</span><span class='line'>
-</span><span class='line'>github上的pull　request申请后才可以pull上去
-</span><span class='line'>fork也可以pull
-</span><span class='line'>创建.gitignore文件，把要忽略的文件名放进去git会忽略
-</span></code></pre></td></tr></table></div></figure>
-
-
-
 ]]></content>
   </entry>
   

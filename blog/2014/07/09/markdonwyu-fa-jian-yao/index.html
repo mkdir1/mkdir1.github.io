@@ -10,9 +10,10 @@
 
   
   <meta name="description" content="Markdonw语法简要 此处权当工具参考之用，可覆盖90%应用 标题和加粗斜体 用#的个数表示标题大小
-粗体和斜体用星号来括起来 图片和链接 链接
+粗体和斜体用星号来括起来，也可以用下划线
+行尾添加空格就可以换行了 图片和链接 链接
 [linkname](url,&ldquo;description&rdquo;)
-图片 ![name](url,&ldquo;title& &hellip;">
+图片 ![name]( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,7 +116,8 @@
 
 <ul>
 <li>用#的个数表示标题大小</li>
-<li>粗体和斜体用星号来括起来</li>
+<li>粗体和斜体用星号来括起来，也可以用下划线</li>
+<li>行尾添加空格就可以换行了</li>
 </ul>
 
 
@@ -138,7 +140,7 @@
 <h5>引用</h5>
 
 <ul>
-<li>在行首加上&lt;即可，可嵌套使用</li>
+<li>在行首加上反引号即可，在~键上，可嵌套使用</li>
 <li>引用内可支持其它的Markdown语法</li>
 <li>\用来转义</li>
 </ul>
@@ -158,6 +160,70 @@
 <li>可直接加入html标签，但前后要加空行</li>
 </ul>
 
+
+<hr />
+
+<h5>新技能</h5>
+
+<ol>
+<li>行尾加两个空格再加一个换行符，可实现换行，需要两个英文的Space, 这样换行就不必多添加一个空行了</li>
+<li>用两个尖括号直接括住一个网址就可以了，如<a href="http://mkdir1.github.io">http://mkdir1.github.io</a></li>
+<li>文字前直接用数字后加一个点，可变成列表，当然，也可用-或者其它，不过要留空或者点号</li>
+<li><code>__</code>也可用来加粗字体，这个和星号功能一样</li>
+<li>在文本前加大于号表示引用，如<code>&gt;hello</code> >hello</li>
+<li>列表可嵌套</li>
+<li>引用也可嵌套</li>
+<li>可在Markdown中放入HTML语法</li>
+<li>代码中使用<code>&lt;!--language:python--&gt;</code>,可指定语言</li>
+</ol>
+
+
+<hr />
+
+<h5>测试一下</h5>
+
+<p>原生的代码</p>
+
+<!--language:C++-->
+
+
+<pre><code>1.__hello__
+2.how are you? add two spaces in the end and add a newline  
+test ing 
+3.&lt;http://mkdir1.github.io&gt;
+4.嵌套
+- first
+- second
+ * sub1
+ * sub2
+- third
+ * sub3
+5.引用可以用&gt;也可用``
+&gt; hello world 有空格 &gt;&gt; 嵌套一个引用用两个大于加空格  
+6.``也可以引用，代码`hello **world**`   
+</code></pre>
+
+<p>上面代码的效果：</p>
+
+<p><strong>hello</strong>
+how are you? add two spaces in the end and add a newline<br/>
+test ing
+<a href="http://mkdir1.github.io">http://mkdir1.github.io</a>
+嵌套
+&ndash; first
+&ndash; second
+ * sub1
+ * sub2
+&ndash; third
+ * sub3
+引用可以用>也可用&#8220;</p>
+
+<blockquote><p>hello world 有空格 >> 嵌套一个引用用两个大于加空格<br/>
+<code>`也可以引用，代码</code>hello <strong>world</strong>`</p></blockquote>
+
+<hr />
+
+<p>以后有更新再添加</p>
 </div>
 
 
@@ -271,14 +337,17 @@ var duoshuoQuery = {short_name:"vintion"};
 <li class='category'><a href='/blog/categories/language/'>language (7)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>linux (4)</a></li>
 <li class='category'><a href='/blog/categories/others/'>others (2)</a></li>
-<li class='category'><a href='/blog/categories/tool/'>tool (1)</a></li>
-<li class='category'><a href='/blog/categories/tools/'>tools (7)</a></li>
+<li class='category'><a href='/blog/categories/tools/'>tools (8)</a></li>
 
   </ul>
 </section>
 <section>
   <h2>Recent Posts</h2>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/24/bian-cheng-ming-yan-ming-ju/">编程名言名句</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/24/cheat-sheet-for-programmer/">Cheat-sheet for Programmer</a>
@@ -294,10 +363,6 @@ var duoshuoQuery = {short_name:"vintion"};
     
       <li class="post">
         <a href="/blog/2014/07/22/debuggong-ju/">Debug工具</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/22/sudoku-solver/">Sudoku-solver</a>
       </li>
     
   </ul>
