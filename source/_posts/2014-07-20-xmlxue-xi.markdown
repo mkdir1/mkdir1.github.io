@@ -1,0 +1,68 @@
+---
+layout: post
+title: "xml学习"
+date: 2014-07-20 04:13:30 +0800
+comments: true
+categories: language
+tags: xml
+
+---
+####XML入门
+XML用来传输和存储数据
+
+HTML用来显示数据
+
+Extensible Markup Language可扩展标记语言，类似HTML也是标记语言
+<!--more-->
+
+#####特点
+- 1.XML标签没有预定义，HTML标签定义了
+- 2.XML被设计用来结构化，存储以及传输信息
+- 3.Json也是和XML功能相同，但用的范围不同
+- 4.XML是纯文本，没有什么特别之处，可以处理文本的软件都可来处理XML
+- 5.XML 是独立于软件和硬件的信息传输工具
+- 6.XML把数据从HTML中分离
+- 7.XML 简化数据共享
+- 8.XML 简化数据传输
+- 9.XHTML - 最新的 HTML 版本
+- 10.WSDL - 用于描述可用的 web service
+- 11.WAP 和 WML - 用于手持设备的标记语言
+- 12.RSS - 用于 RSS feed 的语言
+- 13.RDF 和 OWL - 用于描述资源和本体
+- 14.SMIL - 用于描述针针对 web 的多媒体
+
+#####语法
+第一行一般为说明文字
+<?xml version="1.0" encoding="ISO-8859-1"?>
+```
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<note>
+<to>George</to>
+<from>John</from>
+<heading>Reminder</heading>
+<body>Don't forget the meeting!</body>
+</note>
+```
+- 第一行，说明文字
+- 第二行，根部，note是自定义文字，note说明是个书签
+- 第三行，to的内容是George，对应的其它行意义一样
+
+#####树形结构
+```
+<root>
+    <child>
+        <subchild>...</subchild>
+    </child
+    <otherchild>...</otherchild>
+</root>
+```
+- 1.还可以像HTML那样添加属性
+
+- 2.元素必须有关闭标签
+
+- 3.对大小写敏感
+
+- 4.必须正确嵌套
+
+这是最基础的
+
