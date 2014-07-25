@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-25T09:23:23+08:00</updated>
+  <updated>2014-07-25T17:32:32+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Thunderbird下的muttator插件]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/25/thunderbirdxia-de-muttatorcha-jian/"/>
+    <updated>2014-07-25T17:00:58+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/25/thunderbirdxia-de-muttatorcha-jian</id>
+    <content type="html"><![CDATA[<h4>Thunderbird下的muttator</h4>
+
+<p>在linux下工作，Thunderbird应该不可或缺．但是对于追求极简主义的人来说，用鼠标就是一种耻辱，简直就是浪费生命．虽然在chrome下有vimium，firefox下有vimperator，但是对于Thunderbird这一常见的应用，怎么可能没有一个与之匹配的神器呢？于是<br/>
+Muttator横空出世．</p>
+
+<!--more-->
+
+
+<hr />
+
+<h5>功能</h5>
+
+<p>这就不必介绍了，大多数类vim插件，大同小异．记住不同点反而成了某个插件的特点了</p>
+
+<p>需要注意的几点：<br/>
+1. 在邮件中，用Ctrl+n/p上下选邮件列表中的项
+2. Rss订阅中的每一篇文章，用vim上下切换
+3. 针对每一具体文章或者邮件，也是vim键操作
+4. 在这三个选项中切换用m来切，比如，从2切到3,用m,3到2用esc切
+5. 记几个常用的thunderbird快捷键:</p>
+
+<pre><code>- F6面板切换
+- Ctro+o退出
+</code></pre>
+
+<p>　　- F5接受所有消息
+　　- Ctrl++/&mdash;放大缩小
+　　- F回复邮件，hint功能
+6. 其它功能有特发掘</p>
+
+<hr />
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ACM 重定向]]></title>
@@ -1411,113 +1450,6 @@ int f()
 <p>将cmp的定义置于class之外</p>
 
 <p>可以将sort定义在结构体之内，这样就直接intervals.sort(&hellip;)；如果定义在之外，要放在类的外面</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[添加用户]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/17/tian-jia-yong-hu/"/>
-    <updated>2014-07-17T01:28:54+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/17/tian-jia-yong-hu</id>
-    <content type="html"><![CDATA[<h4>Linux下添加用户　</h4>
-
-<p>所涉及到的知识和概念比较多</p>
-
-<!--more-->
-
-
-<h5>命令</h5>
-
-<p><strong>useradd</strong></p>
-
-<pre><code>useradd [] name
--b, --base-dir BASE_DIR 新账户的主目录的基目录
--c, --comment COMMENT         新账户的 GECOS 字段
--d, --home-dir HOME_DIR       新账户的主目录
--D, --defaults      显示或更改默认的 useradd 配置
--e, --expiredate EXPIRE_DATE  新账户的过期日期
--f, --inactive INACTIVE       新账户的密码不活动期
--g, --gid GROUP     新账户主组的名称或 ID
--G, --groups GROUPS 新账户的附加组列表
--h, --help                    显示此帮助信息并推出
--k, --skel SKEL_DIR 使用此目录作为骨架目录
--K, --key KEY=VALUE           不使用 /etc/login.defs 中的默认值
--l, --no-log-init   不要将此用户添加到最近登录和登录失败数据库
--m, --create-home   创建用户的主目录
--M, --no-create-home        不创建用户的主目录
--N, --no-user-group 不创建同名的组
--o, --non-unique        允许使用重复的 UID 创建用户
--p, --password PASSWORD     加密后的新账户密码
--r, --system                  创建一个系统账户
--R, --root CHROOT_DIR         chroot 到的目录
--s, --shell SHELL       新账户的登录 shell
--u, --uid UID           新账户的用户 ID
--U, --user-group        创建与用户同名的组
--Z, --selinux-user SEUSER       为 SELinux 用户映射使用指定 SEU
-sudo useradd -d /home/hadoop/ -g adm -s /bin/bash hadoop
-</code></pre>
-
-<ul>
-<li><ol>
-<li>如果<code>-s /bin/sh</code>就会出现登录后只有一个$的情形，这是所选的shell出不对，应该换成/bin/bash</li>
-</ol>
-</li>
-<li><ol>
-<li>所选的目录应该事先就创建一个 <code>-d</code></li>
-</ol>
-</li>
-<li><ol>
-<li>-g 组名，可以查看<code>/etc/group</code>文件中的组名</li>
-</ol>
-</li>
-</ul>
-
-
-<p><strong>userdel</strong></p>
-
-<pre><code>sudo userdel hadoop
-</code></pre>
-
-<p><strong>who,whoami,w,finger</strong>
-这此命令查看相关用户情况，是个很常用的命令，用法也很简单</p>
-
-<h5>概念</h5>
-
-<p><strong>组的分类</strong>
-&ndash; 1. 管理员 root:具有使用系统所有权限的用户,其UID 为0.
-&ndash; 2. 普通用户: 即一般用户,其使用系统的权限受限,其UID为500-60000之间.
-&ndash; 3. 系统用户 :保障系统运行的用户,一般不提供密码登录系统,其UID为1-499之间.</p>
-
-<p><strong>文件</strong>
-&ndash; 1．/etc/passwd文件：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>其格式：account：password：UID:GID:GECOS:diretory:shell
-</span><span class='line'>        account: 用户名或帐号
-</span><span class='line'>        password ：用户密码占位符
-</span><span class='line'>        UID：用户的ID号
-</span><span class='line'>        GID：用户所在组的ID号
-</span><span class='line'>        GECOS:用户的详细信息（如姓名，年龄，电话等）
-</span><span class='line'>        diretory：用户所的家目录
-</span><span class='line'>        shell：用户所在的编程环境</span></code></pre></td></tr></table></div></figure>
-
-
-<p>            <br/>
-&ndash; 2. /etc/shadow</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   其格式：account：password：最近更改密码的日期：密码不可更该的天数：密码需要重新更改的天数：密码更改前的警告期限：密码过期的宽限时间：帐号失效日期：保留</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>相关命令</strong>
-usermod, groupdd</p>
 ]]></content>
   </entry>
   
