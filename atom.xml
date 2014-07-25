@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-25T17:32:32+08:00</updated>
+  <updated>2014-07-25T17:46:10+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -32,21 +32,26 @@ Muttator横空出世．</p>
 
 <p>这就不必介绍了，大多数类vim插件，大同小异．记住不同点反而成了某个插件的特点了</p>
 
-<p>需要注意的几点：<br/>
-1. 在邮件中，用Ctrl+n/p上下选邮件列表中的项
-2. Rss订阅中的每一篇文章，用vim上下切换
-3. 针对每一具体文章或者邮件，也是vim键操作
-4. 在这三个选项中切换用m来切，比如，从2切到3,用m,3到2用esc切
-5. 记几个常用的thunderbird快捷键:</p>
+<p>需要注意的几点：</p>
 
-<pre><code>- F6面板切换
-- Ctro+o退出
-</code></pre>
+<ol>
+<li>在邮件中，用Ctrl+n/p上下选邮件列表中的项</li>
+<li>Rss订阅中的每一篇文章，用vim上下切换</li>
+<li>针对每一具体文章或者邮件，也是vim键操作</li>
+<li>在这三个选项中切换用m来切，比如，从2切到3,用m,3到2用esc切</li>
+<li>记几个常用的thunderbird快捷键:
 
-<p>　　- F5接受所有消息
+<ul>
+<li>F6面板切换</li>
+<li>Ctro+o退出
+　　- F5接受所有消息
 　　- Ctrl++/&mdash;放大缩小
-　　- F回复邮件，hint功能
-6. 其它功能有特发掘</p>
+　　- F回复邮件，hint功能</li>
+</ul>
+</li>
+<li>其它功能有特发掘</li>
+</ol>
+
 
 <hr />
 ]]></content>
