@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-24T21:38:23+08:00</updated>
+  <updated>2014-07-25T09:23:23+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ACM 重定向]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/25/acm-zhong-ding-xiang/"/>
+    <updated>2014-07-25T09:07:06+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/25/acm-zhong-ding-xiang</id>
+    <content type="html"><![CDATA[<h4>ACM输入输出重定向</h4>
+
+<p>问题描述：<br/>
+在做ACM题时，对于输入输出，总需要键盘来操作，这样显然不方向，对于多数据的测试，显然不合理，现有一个实用的重定向函数，可很好解决.</p>
+
+<!--more-->
+
+
+<h5>解决</h5>
+
+<p>首先，gcc中有一个－D选项，这样表示在文件中添加宏定义</p>
+
+<pre><code>gcc -o example example.c -D TAG
+</code></pre>
+
+<p>在正文中添加</p>
+
+<pre><code>#ifndef TAG
+    freopen("input.txt", "rt", stdin);
+    freopen("output.txt", "wt+", stdout);
+#endif
+</code></pre>
+
+<p>这样，就直接可以重定向到两个文件中．</p>
+
+<p>包含在<code>#include&lt;stdio.h&gt;</code>中</p>
+
+<hr />
+
+<h5>另外</h5>
+
+<p>在windows下找到一个解决方案，有bat文件中<code>example.exe&lt;input.txt&gt;output.txt</code> 不过，一般有IDE中就解决了，不必这么麻烦~</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sudoku-solver]]></title>
@@ -327,113 +367,6 @@ public:</p>
 <li>5.　本文属于<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最系列</a>的应用</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Spiral Matrix]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/18/spiral-matrix/"/>
-    <updated>2014-07-18T19:01:52+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/18/spiral-matrix</id>
-    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/spiral-matrix/">Spiral Matrix</a></h4>
-
-<h5>Problem</h5>
-
-<p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>
-
-<p>For example,</p>
-
-<p>Given the following matrix:
-```</p>
-
-<pre><code>[1,2,3]
-[4,5,6]
-[7,8,9]
-</code></pre>
-
-<p><code>``
-You should return</code>[1,2,3,6,8,9,7,4,5]`</p>
-
-<!--more-->
-
-
-<h5>Code</h5>
-
-<p>```
-class Solution {
-public:</p>
-
-<pre><code>vector&lt;int&gt; spiralOrder(vector&lt;vector&lt;int&gt; &gt; &amp;matrix)
-{
-    vector&lt;int&gt;result;
-    result.clear();
-    int row = matrix.size();
-    if(row==0)return result;
-    int col = matrix[0].size();
-    int rowleft = 0, rowright = col -1;
-    int coltop = 0, colbott = row -1;
-    int i=0,j=0;
-    int dir = 1;
-    while(rowleft&lt;=rowright&amp;&amp;coltop&lt;=colbott)
-    {
-        switch(dir)
-        {
-            case 1:   //toright
-                while(rowleft&lt;=rowright&amp;&amp;j&gt;=rowleft&amp;&amp;j&lt;=rowright)
-                {
-                    result.push_back(matrix[i][j]);
-                    j++;
-                }
-                j--;
-                i++;
-                coltop++;
-                dir = 2;
-                break;
-            case 2: //tobott
-               while(coltop&lt;=colbott&amp;&amp;i&gt;=coltop&amp;&amp;i&lt;=colbott)
-               {
-                   result.push_back(matrix[i][j]);
-                   i++;
-               }
-               i--;
-               j--;
-               rowright--;
-               dir = 3;
-               break;
-            case 3: //toleft
-             while(rowleft&lt;=rowright&amp;&amp;j&gt;=rowleft&amp;&amp;j&lt;=rowright)
-             {
-                 result.push_back(matrix[i][j]);
-                 j--;
-             }
-             j++;
-             i--;
-             colbott--;
-             dir = 4;
-             break;
-            case 4:  //totop
-             while(coltop&lt;=colbott&amp;&amp;i&gt;=coltop&amp;&amp;i&lt;=colbott)
-             {
-                  result.push_back(matrix[i][j]);
-                  i--;
-             }
-             i++;
-             j++;
-             rowleft++;
-             dir = 1;
-             break;
-             default:
-                break;
-        }
-    }
-
-    return result;
-}
-</code></pre>
-
-<p>};
-```
-有很多种方法，这是自己的一种实</p>
 ]]></content>
   </entry>
   

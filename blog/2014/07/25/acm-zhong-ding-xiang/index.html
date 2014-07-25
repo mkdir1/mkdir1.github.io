@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Android-控件 - Vintion's blog</title>
+  <title>ACM 重定向 - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Android常用控件 仅列常用的控件，并实践之．毕竟初学者，学会用，有印象即可，其它的可举一反三，融会贯通． TextView EditText ImageView Button #
-">
+  <meta name="description" content="ACM输入输出重定向 问题描述：
+在做ACM题时，对于输入输出，总需要键盘来操作，这样显然不方向，对于多数据的测试，显然不合理，现有一个实用的重定向函数，可很好解决. 解决 首先，gcc中有一个－D选项，这样表示在文件中添加宏定义 gcc -o example example.c -D TAG &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/19/android-kong-jian">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/25/acm-zhong-ding-xiang">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Android-控件</h1>
+      <h1 class="entry-title">ACM 重定向</h1>
     
     
       <p class="meta">
@@ -90,7 +90,7 @@
   
 
 
-<time datetime="2014-07-19T21:00:37+08:00" pubdate data-updated="true">Jul 19<sup>th</sup>, 2014</time>
+<time datetime="2014-07-25T09:07:06+08:00" pubdate data-updated="true">Jul 25<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -100,22 +100,38 @@
   </header>
 
 
-<div class="entry-content"><h4>Android常用控件</h4>
+<div class="entry-content"><h4>ACM输入输出重定向</h4>
 
-<p>仅列常用的控件，并实践之．毕竟初学者，学会用，有印象即可，其它的可举一反三，融会贯通．</p>
+<p>问题描述：<br/>
+在做ACM题时，对于输入输出，总需要键盘来操作，这样显然不方向，对于多数据的测试，显然不合理，现有一个实用的重定向函数，可很好解决.</p>
 
 <!--more-->
 
 
-<h5>TextView</h5>
+<h5>解决</h5>
 
-<h5>EditText</h5>
+<p>首先，gcc中有一个－D选项，这样表示在文件中添加宏定义</p>
 
-<h5>ImageView</h5>
+<pre><code>gcc -o example example.c -D TAG
+</code></pre>
 
-<h5>Button</h5>
+<p>在正文中添加</p>
 
-<h4>#</h4>
+<pre><code>#ifndef TAG
+    freopen("input.txt", "rt", stdin);
+    freopen("output.txt", "wt+", stdout);
+#endif
+</code></pre>
+
+<p>这样，就直接可以重定向到两个文件中．</p>
+
+<p>包含在<code>#include&lt;stdio.h&gt;</code>中</p>
+
+<hr />
+
+<h5>另外</h5>
+
+<p>在windows下找到一个解决方案，有bat文件中<code>example.exe&lt;input.txt&gt;output.txt</code> 不过，一般有IDE中就解决了，不必这么麻烦~</p>
 </div>
 
 
@@ -138,12 +154,12 @@
   
 
 
-<time datetime="2014-07-19T21:00:37+08:00" pubdate data-updated="true">Jul 19<sup>th</sup>, 2014</time>
+<time datetime="2014-07-25T09:07:06+08:00" pubdate data-updated="true">Jul 25<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/android/'>android</a>
+    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
   
 </span>
 
@@ -175,10 +191,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/18/longest-palindromic-substring/" title="Previous Post: Longest Palindromic Substring">&laquo; Longest Palindromic Substring</a>
+        <a class="basic-alignment left" href="/blog/2014/07/24/bian-cheng-ming-yan-ming-ju/" title="Previous Post: 编程名言名句">&laquo; 编程名言名句</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/20/xmlxue-xi/" title="Next Post: xml学习">xml学习 &raquo;</a>
       
     </p>
   </footer>
