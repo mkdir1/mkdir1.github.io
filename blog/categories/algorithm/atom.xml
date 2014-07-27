@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-27T16:19:33+08:00</updated>
+  <updated>2014-07-28T00:57:20+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Leetcode-copy List With Random Pointer]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/28/leetcode-copy-list-with-random-pointer/"/>
+    <updated>2014-07-28T00:53:19+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/28/leetcode-copy-list-with-random-pointer</id>
+    <content type="html"><![CDATA[<h4>Copy List with random pointer</h4>
+
+<p>这题早就看过，解法也知道，但是，想法与代码差距很大，半天都没发现错误．还得多多练习</p>
+
+<!--more-->
+
+
+<h5>Problem</h5>
+
+<p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
+
+<p>Return a deep copy of the list.</p>
+
+<h5>code:</h5>
+
+<p>``` c++
+/<em><em>
+ * Definition for singly-linked list with a random pointer.
+ * struct RandomListNode {
+ *     int label;
+ *     RandomListNode </em>next, </em>random;
+ *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+ * };
+ */
+class Solution {
+public:</p>
+
+<pre><code>RandomListNode *copyRandomList(RandomListNode *head) 
+{
+    RandomListNode *Head = head;
+    if(NULL==head)
+        return NULL;
+    RandomListNode *p,*q;
+    p = head;
+    while(NULL!=p)
+    {
+        q = new RandomListNode(p-&gt;label);
+        q-&gt;next = p-&gt;next;
+        p-&gt;next = q;
+        p = q-&gt;next;
+    }
+    p = head;
+    while(NULL!=p)
+    {
+        if(p-&gt;random!=NULL) //　这里可能为空
+            p-&gt;next-&gt;random = p-&gt;random-&gt;next;
+        else
+            p-&gt;next-&gt;random = NULL;
+         p = p-&gt;next-&gt;next;
+    }
+    Head = head-&gt;next;
+    p = head;
+    q = Head;
+    if(NULL==q-&gt;next)
+    {
+        p-&gt;next = NULL;
+        return Head;
+    }
+    while(NULL!=q-&gt;next)
+    {
+        p-&gt;next =  q-&gt;next;
+        p = p-&gt;next;
+        q-&gt;next = p-&gt;next;
+        q = q-&gt;next;
+    }
+   p-&gt;next = NULL;// 这里要断开
+    return Head;
+}
+</code></pre>
+
+<p>};
+```</p>
+
+<p>两处注释的地方，瞪大眼睛都没看出来．</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[leetcode-4Sum]]></title>
@@ -304,77 +386,6 @@ public:
 <p>好吧，管用就行，一遍过需要多仔细认真啊</p>
 
 <p>这样代码还是很好看的，就是有点长</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Leetcode-combination Sum]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/22/leetcode-combination-sum/"/>
-    <updated>2014-07-22T17:05:12+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/22/leetcode-combination-sum</id>
-    <content type="html"><![CDATA[<h4>Combination Sum</h4>
-
-<p>Given a set of candidate numbers &copy; and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p>
-
-<p>The same repeated number may be chosen from C unlimited number of times.</p>
-
-<p>Note:</p>
-
-<p>All numbers (including target) will be positive integers.
-Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 ≤ a2 ≤ … ≤ ak).</p>
-
-<p>The solution set must not contain duplicate combinations.
-For example, given candidate set 2,3,6,7 and target 7,
-A solution set is:
-```
-[2,3,6,7] 7
-[7]
-[2, 2, 3]</p>
-
-<p>```</p>
-
-<!--more-->
-
-
-<p>这题真是基础，之前一直对此类不知所措，现在略通一二，甚喜</p>
-
-<p>Code:</p>
-
-<pre><code>class Solution {
-public:
-    void Getcom(vector&lt;int&gt;&amp;can, int target, vector&lt;vector&lt;int&gt;&gt;&amp;result, int level, int &amp;sumcurrent, int nsize, vector&lt;int&gt;&amp;tmp)
-    {
-        if(sumcurrent&gt;target)return;
-        if(target==sumcurrent)
-        {
-            result.push_back(tmp);
-            return;
-        }
-        for(int i=level;i&lt;nsize;i++)
-        {
-
-                sumcurrent += can[i];
-                tmp.push_back(can[i]);
-                Getcom(can,target,result,i,sumcurrent,nsize,tmp);
-                tmp.pop_back();
-                sumcurrent -=can[i];
-        }
-
-    }
-    vector&lt;vector&lt;int&gt; &gt; combinationSum(vector&lt;int&gt; &amp;candidates, int target) 
-    {
-       vector&lt;vector&lt;int&gt;&gt; result;
-       vector&lt;int&gt;tmp;
-       int size = candidates.size();
-       sort(candidates.begin(),candidates.end());
-       int sumc = 0;
-       Getcom(candidates,target,result,0,sumc,size,tmp);
-       return result;
-    }
-};
-</code></pre>
-
-<p>DFS方便记录结果，DP方便记数</p>
 ]]></content>
   </entry>
   

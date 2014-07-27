@@ -9,7 +9,9 @@
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Linux下常用的软件合集 自己所用的环境一直是Linux,版本是最新的Ubuntu14.04. 其它版本的linux未尝试，实属遗憾，先把自己所用的环境整理一番 ">
+  <meta name="description" content="Linux的启动顺序 1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；
+2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；
+3 依据bootloader的设置加载kernel， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +72,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/09/linuxqi-dong-liu-cheng/">Linux启动流程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-09T23:14:18+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/09/linuxqi-dong-liu-cheng/#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>Linux的启动顺序</h4>
+
+<ul>
+<li><p>1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；</p></li>
+<li><p>2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；</p></li>
+<li><p>3 依据bootloader的设置加载kernel，kernel开始检测硬件和加载驱动程序；</p></li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/09/linuxqi-dong-liu-cheng/">阅读全文&rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -358,7 +411,7 @@
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/blog/categories/algorithm/'>algorithm (15)</a></li>
+    <li class='category'><a href='/blog/categories/algorithm/'>algorithm (16)</a></li>
 <li class='category'><a href='/blog/categories/android/'>android (1)</a></li>
 <li class='category'><a href='/blog/categories/artistic/'>artistic (2)</a></li>
 <li class='category'><a href='/blog/categories/c/'>c (1)</a></li>
@@ -374,6 +427,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/28/leetcode-copy-list-with-random-pointer/">Leetcode-copy List With Random Pointer</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/27/leetcode-4sum/">leetcode-4Sum</a>
       </li>
     
@@ -387,10 +444,6 @@
     
       <li class="post">
         <a href="/blog/2014/07/24/bian-cheng-ming-yan-ming-ju/">编程名言名句</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/24/cheat-sheet-for-programmer/">Cheat-sheet for Programmer</a>
       </li>
     
   </ul>

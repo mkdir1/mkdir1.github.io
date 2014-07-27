@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Longest Palindromic Substring - Vintion's blog</title>
+  <title>Leetcode-copy List With Random Pointer - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Longest Palindromic Substring Probles Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is &hellip;">
+  <meta name="description" content="Copy List with random pointer 这题早就看过，解法也知道，但是，想法与代码差距很大，半天都没发现错误．还得多多练习 Problem A linked list is given such that each node contains an additional &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/18/longest-palindromic-substring">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/28/leetcode-copy-list-with-random-pointer">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">Longest Palindromic Substring</h1>
+      <h1 class="entry-title">Leetcode-copy List With Random Pointer</h1>
     
     
       <p class="meta">
@@ -89,7 +89,7 @@
   
 
 
-<time datetime="2014-07-18T21:22:53+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-28T00:53:19+08:00" pubdate data-updated="true">Jul 28<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -99,20 +99,22 @@
   </header>
 
 
-<div class="entry-content"><h5><a href="https://oj.leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring</a></h5>
+<div class="entry-content"><h4>Copy List with random pointer</h4>
 
-<h5>Probles</h5>
-
-<p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
-
-<p>看本站内的总结：<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最长回文字符串</a></p>
+<p>这题早就看过，解法也知道，但是，想法与代码差距很大，半天都没发现错误．还得多多练习</p>
 
 <!--more-->
 
 
-<h5>Code</h5>
+<h5>Problem</h5>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
+
+<p>Return a deep copy of the list.</p>
+
+<h5>code:</h5>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -164,82 +166,62 @@
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
 <span class='line-number'>52</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Solution {
-</span><span class='line'>public:
-</span><span class='line'>    string longestPalindrome(string s)
-</span><span class='line'>    {
-</span><span class='line'>        int len = s.length();
-</span><span class='line'>        string str="";
-</span><span class='line'>        if(len==0)return str;
-</span><span class='line'>        int maxlen = 0;
-</span><span class='line'>        int leng;
-</span><span class='line'>        int left,right;
-</span><span class='line'>        for(int i=0;i&lt;2*len-1;i++)
-</span><span class='line'>        {
-</span><span class='line'>            if(i%2==0)
-</span><span class='line'>            {
-</span><span class='line'>                leng = 1;
-</span><span class='line'>                left = i/2 - 1;
-</span><span class='line'>                right = i/2 + 1;
-</span><span class='line'>                while(left&gt;=0&&right&lt;len&&s.at(left)==s.at(right))
-</span><span class='line'>                {
-</span><span class='line'>                    leng += 2;
-</span><span class='line'>                    left--;
-</span><span class='line'>                    right++;
-</span><span class='line'>                }
-</span><span class='line'>                 if(leng&gt;maxlen)
-</span><span class='line'>              {
-</span><span class='line'>                    maxlen = leng;
-</span><span class='line'>                    str = s.substr(i/2-maxlen/2, maxlen);
-</span><span class='line'>              }
-</span><span class='line'>            }
-</span><span class='line'>            else
-</span><span class='line'>            {
-</span><span class='line'>                leng = 0;
-</span><span class='line'>                left = i/2;
-</span><span class='line'>                right = i/2+1;
-</span><span class='line'>                 while(left&gt;=0&&right&lt;len&&s[left]==s[right])
-</span><span class='line'>                {
-</span><span class='line'>                    leng += 2;
-</span><span class='line'>                    left--;
-</span><span class='line'>                    right++;
-</span><span class='line'>                }
-</span><span class='line'>               
-</span><span class='line'>            
-</span><span class='line'>             if(leng&gt;maxlen)
-</span><span class='line'>              {
-</span><span class='line'>                    maxlen = leng;
-</span><span class='line'>                    str = s.substr(i/2-maxlen/2+1, maxlen);
-</span><span class='line'>              }
-</span><span class='line'>            }
-</span><span class='line'>        }
-</span><span class='line'>        return str;
-</span><span class='line'>    }
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Definition for singly-linked list with a random pointer.</span>
+</span><span class='line'><span class="cm"> * struct RandomListNode {</span>
+</span><span class='line'><span class="cm"> *     int label;</span>
+</span><span class='line'><span class="cm"> *     RandomListNode *next, *random;</span>
+</span><span class='line'><span class="cm"> *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}</span>
+</span><span class='line'><span class="cm"> * };</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span><span class='line'><span class="nl">public:</span>
+</span><span class='line'>    <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">copyRandomList</span><span class="p">(</span><span class="n">RandomListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">Head</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span><span class="o">==</span><span class="n">head</span><span class="p">)</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="o">*</span><span class="n">q</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">p</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RandomListNode</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">label</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">p</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">)</span> <span class="c1">//　这里可能为空</span>
+</span><span class='line'>                <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">else</span>
+</span><span class='line'>                <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="n">Head</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">q</span> <span class="o">=</span> <span class="n">Head</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span><span class="o">==</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">return</span> <span class="n">Head</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span>  <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>       <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span><span class="c1">// 这里要断开</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">Head</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h5>注意</h5>
-
-<ul>
-<li><ol>
-<li>把奇偶统一起来，这样i的大小是2len-1的大小</li>
-</ol>
-</li>
-<li><ol>
-<li>还有一个注意点是，substr()这个两个参数是指起始和长度，起始从0开始就算第一个</li>
-</ol>
-</li>
-<li><ol>
-<li>后面两个if判断不能统一起来，因为substr中的参数不一样</li>
-</ol>
-</li>
-<li><ol>
-<li>方法：<strong>从中间向两边比较来判断是否回文，例a_b_c_b_a，则这个字符串abcba长度5，判断的位置有9个，然后从中间向两边展开，首先判断是否出界，再看是不是相等，这样最后更新长度和字符串</strong></li>
-</ol>
-</li>
-<li>5.　本文属于<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最系列</a>的应用</li>
-</ul>
-
+<p>两处注释的地方，瞪大眼睛都没看出来．</p>
 </div>
 
 
@@ -262,7 +244,7 @@
   
 
 
-<time datetime="2014-07-18T21:22:53+08:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+<time datetime="2014-07-28T00:53:19+08:00" pubdate data-updated="true">Jul 28<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
@@ -299,10 +281,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/18/spiral-matrix/" title="Previous Post: Spiral Matrix">&laquo; Spiral Matrix</a>
+        <a class="basic-alignment left" href="/blog/2014/07/27/leetcode-4sum/" title="Previous Post: leetcode-4Sum">&laquo; leetcode-4Sum</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/19/android-kong-jian/" title="Next Post: android-控件">android-控件 &raquo;</a>
       
     </p>
   </footer>

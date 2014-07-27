@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-27T16:19:33+08:00</updated>
+  <updated>2014-07-28T00:57:20+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,137 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Leetcode-copy List With Random Pointer]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/28/leetcode-copy-list-with-random-pointer/"/>
+    <updated>2014-07-28T00:53:19+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/28/leetcode-copy-list-with-random-pointer</id>
+    <content type="html"><![CDATA[<h4>Copy List with random pointer</h4>
+
+<p>这题早就看过，解法也知道，但是，想法与代码差距很大，半天都没发现错误．还得多多练习</p>
+
+<!--more-->
+
+
+<h5>Problem</h5>
+
+<p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
+
+<p>Return a deep copy of the list.</p>
+
+<h5>code:</h5>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Definition for singly-linked list with a random pointer.</span>
+</span><span class='line'><span class="cm"> * struct RandomListNode {</span>
+</span><span class='line'><span class="cm"> *     int label;</span>
+</span><span class='line'><span class="cm"> *     RandomListNode *next, *random;</span>
+</span><span class='line'><span class="cm"> *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}</span>
+</span><span class='line'><span class="cm"> * };</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span><span class='line'><span class="nl">public:</span>
+</span><span class='line'>    <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">copyRandomList</span><span class="p">(</span><span class="n">RandomListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">Head</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span><span class="o">==</span><span class="n">head</span><span class="p">)</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="o">*</span><span class="n">q</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">p</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RandomListNode</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">label</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">p</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">)</span> <span class="c1">//　这里可能为空</span>
+</span><span class='line'>                <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">else</span>
+</span><span class='line'>                <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="n">Head</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">q</span> <span class="o">=</span> <span class="n">Head</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span><span class="o">==</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">return</span> <span class="n">Head</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span>  <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>       <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span><span class="c1">// 这里要断开</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">Head</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>两处注释的地方，瞪大眼睛都没看出来．</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[leetcode-4Sum]]></title>
@@ -1471,113 +1602,6 @@ public:
 
 <ul>
 <li>1.此题第一想法就应试是递归或DFS</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Insert Interval]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/18/insert-interval/"/>
-    <updated>2014-07-18T15:40:02+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/18/insert-interval</id>
-    <content type="html"><![CDATA[<h4>leetcode-Insert interval</h4>
-
-<h5>题干</h5>
-
-<p>Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).</p>
-
-<p>You may assume that the intervals were initially sorted according to their start times.</p>
-
-<p>Example 1:
-Given intervals [1,3],[6,9], insert and merge [2,5] in as [1,5],[6,9].</p>
-
-<p>Example 2:
-Given [1,2],[3,5],[6,7],[8,10],[12,16], insert and merge [4,9] in as [1,2],[3,10],[12,16].</p>
-
-<p>This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].</p>
-
-<!--more-->
-
-
-<p>这题被虐了十几次，耗时半日．</p>
-
-<p>其实逻辑简单，只是处理起来麻烦，如果有调试会更简单，只是平台上面只有结果．</p>
-
-<h5>code</h5>
-
-<pre><code>/**
- * Definition for an interval.
- * struct Interval {
- *     int start;
- *     int end;
- *     Interval() : start(0), end(0) {}
- *     Interval(int s, int e) : start(s), end(e) {}
- * };
- */
-bool  cmp(Interval interval1, Interval interval2)
-{
-        return interval1.start&lt;interval2.start;
-}
-class Solution {
-public:
-
-    vector&lt;Interval&gt; insert(vector&lt;Interval&gt; &amp;intervals, Interval newInterval) 
-    {
-         int size = intervals.size();
-         intervals.push_back(newInterval);
-         if(size==0)
-            return intervals;  // pitfall1
-        sort(intervals.begin(), intervals.end(), cmp);
-        vector&lt;Interval&gt; result;
-        int starts, ends;
-        size++;
-        int i,j;
-        for(i=0;i&lt;size;i++)
-        {
-            starts = intervals[i].start;
-            ends   = intervals[i].end;
-            for(j=i+1;j&lt;size;j++)
-            {
-                if(ends&lt;intervals[j].start)
-                  {
-                    Interval tmp(starts, ends);
-                    result.push_back(tmp);
-                     break;
-                  }
-                 else if(ends&gt;=intervals[j].start&amp;&amp;ends&lt;=intervals[j].end)
-                 {
-                     ends = intervals[j].end;
-                     i = j; //pitfall2
-                 }
-                 else
-                    i = j; //pitfall3
-            }
-            if(size==j)
-             {
-                    Interval tmp(starts, ends);
-                    result.push_back(tmp);
-                    break;
-             }
-        }
-        return result;
-    }
-};
-</code></pre>
-
-<p>三个pitfalls，首先按starts排序，然后遍历，其中要更新的不止是ends的值，还有是i也要更新，这样，就略过了．</p>
-
-<h5>Bug</h5>
-
-<ul>
-<li><ol>
-<li>关于sort排序，应该放在class之外，否则会报错</li>
-</ol>
-</li>
-<li><ol>
-<li>vector也有sort函数</li>
-</ol>
-</li>
 </ul>
 
 ]]></content>
