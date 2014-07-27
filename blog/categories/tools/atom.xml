@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tools | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-25T17:46:10+08:00</updated>
+  <updated>2014-07-27T16:19:33+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -43,10 +43,10 @@ Muttator横空出世．</p>
 
 <ul>
 <li>F6面板切换</li>
-<li>Ctro+o退出
-　　- F5接受所有消息
-　　- Ctrl++/&mdash;放大缩小
-　　- F回复邮件，hint功能</li>
+<li>Ctro+o退出</li>
+<li>F5接受所有消息</li>
+<li>Ctrl++/&mdash;放大缩小</li>
+<li>F回复邮件，hint功能</li>
 </ul>
 </li>
 <li>其它功能有特发掘</li>
