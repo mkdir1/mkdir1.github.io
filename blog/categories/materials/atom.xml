@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Materials | Vintion's blog]]></title>
+  <link href="http://mkdir1.github.io/blog/categories/materials/atom.xml" rel="self"/>
+  <link href="http://mkdir1.github.io/"/>
+  <updated>2014-07-30T02:41:49+08:00</updated>
+  <id>http://mkdir1.github.io/</id>
+  <author>
+    <name><![CDATA[Vintion]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[前端rss集合]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/30/qian-duan-rssji-he/"/>
+    <updated>2014-07-30T02:31:37+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/30/qian-duan-rssji-he</id>
+    <content type="html"><![CDATA[<h4>前端rss集合</h4>
+
+<p>在github上偶然发现一个前端的rss资源，丰富详实，大有裨益．发现此项目作者很早就建立了，居然好东西现在才发觉．<br/>
+原资源<a href="https://github.com/impressivewebs/frontend-feeds.git">https://github.com/impressivewebs/frontend-feeds.git</a> 可直接git clone 得到，添加到rss中即可</p>
+
+<!--more-->
+
+
+<h5>添加方法</h5>
+
+<p>在rss阅读器中，导入xml文件即可
+或者在浏览器中打开此xml文件也可导入到浏览器中</p>
+
+<hr />
+
+<h5>仿照制作</h5>
+
+<p>受作者启发，实际上本人也可以做一个自己的rss开源库，这样，当环境迁移或项目变化，都可以马上把自己的数据同步更新过来，岂不很方便．</p>
+
+<hr />
+
+<h5>我的开源</h5>
+
+<p>To be continue&hellip;</p>
+]]></content>
+  </entry>
+  
+</feed>

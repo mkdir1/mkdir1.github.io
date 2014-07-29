@@ -9,9 +9,9 @@
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Linux的启动顺序 1 加载BIOS的硬件信息并进行自检，然后根据设置取得第一个可启动的设备；
-2 读取并执行第一个启动设备内MBR(master boot record,主引导分区)的boot loader；
-3 依据bootloader的设置加载kernel， &hellip;">
+  <meta name="description" content="C语言char s[] 和 char *s的区别 看如下的代码，区别立现 char *s = "hello world";
+char s[] = "hello world" 区别在于前者是指针，后者是数组 char *s是一个指向只读区域的指针，只读区域是hello world
+char s[] &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +72,61 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/">C语言中char *a与char A[]的区别</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-09T23:41:57+08:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/09/cyu-yan-zhong-char-star-ayu-char-a-de-qu-bie/#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>C语言char s[] 和 char *s的区别</h4>
+
+<p>看如下的代码，区别立现</p>
+
+<pre><code>char *s = "hello world";
+char s[] = "hello world"
+</code></pre>
+
+<p>区别在于<strong>前者是指针，后者是数组</strong></p>
+
+<pre><code>char *s是一个指向只读区域的指针，只读区域是hello world
+char s[]是一个数组，内容是拷贝了只读区别的数据
+</code></pre>
+
+<p>前者指针指向的内容不能变，后者可变</p>
+
+<hr />
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -417,6 +472,7 @@
 <li class='category'><a href='/blog/categories/c/'>c (1)</a></li>
 <li class='category'><a href='/blog/categories/language/'>language (7)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>linux (4)</a></li>
+<li class='category'><a href='/blog/categories/materials/'>materials (1)</a></li>
 <li class='category'><a href='/blog/categories/others/'>others (2)</a></li>
 <li class='category'><a href='/blog/categories/tools/'>tools (9)</a></li>
 
@@ -425,6 +481,10 @@
 <section>
   <h2>Recent Posts</h2>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/30/qian-duan-rssji-he/">前端rss集合</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/28/leetcode-copy-list-with-random-pointer/">Leetcode-copy List With Random Pointer</a>
@@ -440,10 +500,6 @@
     
       <li class="post">
         <a href="/blog/2014/07/25/acm-zhong-ding-xiang/">ACM 重定向</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/24/bian-cheng-ming-yan-ming-ju/">编程名言名句</a>
       </li>
     
   </ul>

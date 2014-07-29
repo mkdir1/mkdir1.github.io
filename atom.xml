@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-07-28T00:57:20+08:00</updated>
+  <updated>2014-07-30T02:41:49+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[前端rss集合]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/07/30/qian-duan-rssji-he/"/>
+    <updated>2014-07-30T02:31:37+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/07/30/qian-duan-rssji-he</id>
+    <content type="html"><![CDATA[<h4>前端rss集合</h4>
+
+<p>在github上偶然发现一个前端的rss资源，丰富详实，大有裨益．发现此项目作者很早就建立了，居然好东西现在才发觉．<br/>
+原资源<a href="https://github.com/impressivewebs/frontend-feeds.git">https://github.com/impressivewebs/frontend-feeds.git</a> 可直接git clone 得到，添加到rss中即可</p>
+
+<!--more-->
+
+
+<h5>添加方法</h5>
+
+<p>在rss阅读器中，导入xml文件即可
+或者在浏览器中打开此xml文件也可导入到浏览器中</p>
+
+<hr />
+
+<h5>仿照制作</h5>
+
+<p>受作者启发，实际上本人也可以做一个自己的rss开源库，这样，当环境迁移或项目变化，都可以马上把自己的数据同步更新过来，岂不很方便．</p>
+
+<hr />
+
+<h5>我的开源</h5>
+
+<p>To be continue&hellip;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Leetcode-copy List With Random Pointer]]></title>
@@ -1534,74 +1566,6 @@ public:
 <ul>
 <li><p>1.从windows下粘贴来的代码后面会有<sup>M</sup>的结尾，原因是换行符的约定问题，在vim中很容易删除，用:%s/^M//g即可，但此处的<sup>M</sup>需要用Ctrl+V再加上M得到</p></li>
 <li><p>2.这题方法不是很多，先正对角线换，再左右换；或者逆对角线，再左右</p></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Unique Binary Search Trees Ii]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/18/unique-binary-search-trees-ii/"/>
-    <updated>2014-07-18T16:14:31+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/18/unique-binary-search-trees-ii</id>
-    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/unique-binary-search-trees-ii/">Unique Binary Search Tree II</a></h4>
-
-<!--more-->
-
-
-<h5>Problem</h5>
-
-<p>Given n, generate all structurally unique BST&rsquo;s (binary search trees) that store values 1&hellip;n.</p>
-
-<h5>Code</h5>
-
-<pre><code>/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector&lt;TreeNode *&gt; generate(int beg, int end)
-    {
-        vector&lt;TreeNode* &gt; ret;
-        if (beg &gt; end)
-        {
-            ret.push_back(NULL);
-            return ret;
-        }
-
-        for(int i = beg; i &lt;= end; i++)
-        {
-            vector&lt;TreeNode* &gt; leftTree = generate(beg, i - 1);
-            vector&lt;TreeNode* &gt; rightTree = generate(i + 1, end);
-            for(int j = 0; j &lt; leftTree.size(); j++)
-                for(int k = 0; k &lt; rightTree.size(); k++)
-                {
-                    TreeNode *node = new TreeNode(i + 1);
-                    ret.push_back(node);
-                    node-&gt;left = leftTree[j];
-                    node-&gt;right = rightTree[k];              
-                }           
-        }
-
-        return ret;
-    }
-
-    vector&lt;TreeNode *&gt; generateTrees(int n) {
-        return generate(0, n - 1);
-    }
-};
-</code></pre>
-
-<h5>注意</h5>
-
-<ul>
-<li>1.此题第一想法就应试是递归或DFS</li>
 </ul>
 
 ]]></content>
