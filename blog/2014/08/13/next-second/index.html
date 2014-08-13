@@ -5,11 +5,54 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Chocolate Feast - Vintion's blog</title>
+  <title>Next Second - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Chocolate Feast Little Bob loves chocolates, and goes to the store with N money in his pocket. The price of each chocolate is C . The store offers a &hellip;">
+  <meta name="description" content="求下一秒 给定一个时间，求下一秒是什么时间 code 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +61,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/10/chocolate-feast">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/08/13/next-second">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -73,7 +116,7 @@
   
   <header>
     
-      <h1 class="entry-title">Chocolate Feast</h1>
+      <h1 class="entry-title">Next Second</h1>
     
     
       <p class="meta">
@@ -89,7 +132,7 @@
   
 
 
-<time datetime="2014-07-10T14:48:43+08:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
+<time datetime="2014-08-13T10:23:05+08:00" pubdate data-updated="true">Aug 13<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -99,104 +142,166 @@
   </header>
 
 
-<div class="entry-content"><h3><a href="https://www.hackerrank.com/challenges/chocolate-feast">Chocolate Feast</a></h3>
+<div class="entry-content"><h4>求下一秒</h4>
 
-<p>Little Bob loves chocolates, and goes to the store with N money in his pocket. The price of each chocolate is C . The store offers a discount: for every M wrappers he gives the store, he&rsquo;ll get one chocolate for free. How many chocolates does Bob get to eat?</p>
-
-<p><strong>Input Format:</strong></p>
-
-<blockquote><p>The first line contains the number of test cases $T (&lt;=1000)$.
-T lines follow, each of which contains three integers N, C and M</p></blockquote>
-
-<p><strong>Output Format:</strong></p>
-
-<blockquote><p>Print the total number of chocolates Bob eats.</p></blockquote>
+<p>给定一个时间，求下一秒是什么时间</p>
 
 <!--more-->
 
 
-<p><strong>Constraints:</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$2 \le N \le 10^5$ 
-</span><span class='line'>$1 \le C \le N$ 
-</span><span class='line'>$2 \le M \le N$
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Sample input</strong></p>
+<h5>code</h5>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>3
-</span><span class='line'>10 2 5
-</span><span class='line'>12 4 4
-</span><span class='line'>6 2 2
-</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;stdio.h&gt;
+</span><span class='line'>#include &lt;string.h&gt;
+</span><span class='line'>
+</span><span class='line'>bool NextSec(int *nYear,int *nMonth,int *nDate,int *nHour,int *nMinute,int *nSecond)
+</span><span class='line'>{
+</span><span class='line'>  if(*nYear&lt;0 || *nMonth&gt;12 || *nMonth&lt;0 || *nHour&gt;23 || *nHour&lt;0 || *nMinute&lt;0 || *nMinute&gt;59 || *nSecond&lt;0 || *nSecond&gt;59) 
+</span><span class='line'>    return false;
+</span><span class='line'>  int nDays;
+</span><span class='line'>  switch(*nMonth)
+</span><span class='line'>  {
+</span><span class='line'>  case 1:
+</span><span class='line'>  case 3:
+</span><span class='line'>  case 5:
+</span><span class='line'>  case 7:
+</span><span class='line'>  case 8:
+</span><span class='line'>  case 10:
+</span><span class='line'>  case 12:
+</span><span class='line'>    nDays=31;
+</span><span class='line'>    break;
+</span><span class='line'>  case 2:// 判断闰年
+</span><span class='line'>    if(*nYear%400==0|| (*nYear%100!=0&&*nYear%4==0)) {
+</span><span class='line'>        nDays=29;
+</span><span class='line'>    }
+</span><span class='line'>    else {
+</span><span class='line'>        nDays=28;
+</span><span class='line'>    }
+</span><span class='line'>    break;
+</span><span class='line'>  default:
+</span><span class='line'>    nDays=30;
+</span><span class='line'>    break;
+</span><span class='line'>  }
+</span><span class='line'>  if(*nDate&lt;0 || *nDate&gt;nDays) 
+</span><span class='line'>    return false;
+</span><span class='line'>
+</span><span class='line'>  (*nSecond)++;  // 秒加1
+</span><span class='line'>  if(*nSecond&gt;=60) // 秒满60，做出特殊处理，下面时，日，月等类同
+</span><span class='line'>  {
+</span><span class='line'>    *nSecond=0;
+</span><span class='line'>    (*nMinute)++;
+</span><span class='line'>    if(*nMinute&gt;=60) 
+</span><span class='line'>    {
+</span><span class='line'>        *nMinute=0;
+</span><span class='line'>        (*nHour)++;
+</span><span class='line'>        if(*nHour&gt;=24)
+</span><span class='line'>        {
+</span><span class='line'>            *nHour=0;
+</span><span class='line'>            (*nDate)++;
+</span><span class='line'>            if(*nDate&gt;nDays)
+</span><span class='line'>            {
+</span><span class='line'>                *nDate=1;
+</span><span class='line'>                (*nMonth)++;
+</span><span class='line'>                if(*nMonth&gt;12)
+</span><span class='line'>                {
+</span><span class='line'>                    *nMonth=1;
+</span><span class='line'>                    (*nYear)++;
+</span><span class='line'>                }
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>  }
+</span><span class='line'>  
+</span><span class='line'>  return true;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'>  int nYear=2004,nMonth=12,nDate=31,nHour=23,nMinute=59,nSecond=59;
+</span><span class='line'>  bool res = NextSec(&nYear,&nMonth,&nDate,&nHour,&nMinute,&nSecond);
+</span><span class='line'>  if(res)
+</span><span class='line'>    printf("The result:%d-%d-%d %d:%d:%d",nYear,nMonth,nDate,nHour,nMinute,nSecond);
+</span><span class='line'>  else
+</span><span class='line'>    printf("Input error!/n");
+</span><span class='line'>
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-
-<p><strong>Sample Output</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>6
-</span><span class='line'>3
-</span><span class='line'>5
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Explanation</strong></p>
-
-<p>In the first case, he can buy 5 chocolates with $\$10$ and exchange the 5 wrappers to get one more chocolate thus making the total number of chocolates he can eat as 6</p>
-
-<p>In the second case, he can buy 3 chocolates for $\$12$. However, it takes 4 wrappers to get one more chocolate. He can&rsquo;t avail the offer and hence the total number of chocolates remains 3.</p>
-
-<p>In the third case, he can buy 3 chocolates for $\$6$. Now he can give 2 of this 3 wrappers and get 1 chocolate. Again, he can use his 1 unused wrapper and 1 wrapper of new chocolate to get one more chocolate. Total is 5.</p>
-
-<p><strong>The Code:</strong></p>
-
-<pre><code>#include &lt;cmath&gt;
-#include &lt;cstdio&gt;
-#include &lt;vector&gt;
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-
-int main() {
-    int t,n,c,m,tmp;
-    cin&gt;&gt;t;
-    while(t--){
-        cin&gt;&gt;n&gt;&gt;c&gt;&gt;m;
-        int answer  = 0;
-        int wrapper = 0;
-        while(wrapper&gt;=m||n&gt;=c)
-        {
-            if(n&gt;=c)
-            {
-                answer += n/c;
-                wrapper += answer;
-                n %= c; 
-            }
-            if(wrapper&gt;=m)
-            {
-                answer += wrapper/m;
-                tmp     = wrapper/m;
-                wrapper %= m;
-                wrapper += tmp;
-            }
-        }
-        cout&lt;&lt;answer&lt;&lt;endl;
-    }
-    return 0;
-}
-</code></pre>
-
-<hr />
 </div>
 
 
@@ -219,12 +324,12 @@ int main() {
   
 
 
-<time datetime="2014-07-10T14:48:43+08:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
+<time datetime="2014-08-13T10:23:05+08:00" pubdate data-updated="true">Aug 13<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
+    <a class='category' href='/blog/categories/language/'>language</a>
   
 </span>
 
@@ -256,10 +361,8 @@ int main() {
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/10/2014zhong-guo-ruan-jian-kai-fa-zhe-diao-cha-bao-gao-csdn/" title="Previous Post: 2014中国软件开发者调查报告CSDN">&laquo; 2014中国软件开发者调查报告CSDN</a>
+        <a class="basic-alignment left" href="/blog/2014/08/12/itoa/" title="Previous Post: itoa">&laquo; itoa</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/10/markdownzhuan-htmlhe-pdf/" title="Next Post: Markdown转html和pdf">Markdown转html和pdf &raquo;</a>
       
     </p>
   </footer>
