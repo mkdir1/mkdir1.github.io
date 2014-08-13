@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-08-13T10:24:50+08:00</updated>
+  <updated>2014-08-14T05:40:30+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ubuntu上安装CUDA]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/14/ubuntushang-an-zhuang-cuda/"/>
+    <updated>2014-08-14T01:41:56+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/14/ubuntushang-an-zhuang-cuda</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[计算机体系结构量化研究方法1]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/13/ji-suan-ji-ti-xi-jie-gou-liang-hua-yan-jiu-fang-fa-1/"/>
+    <updated>2014-08-13T20:42:27+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/13/ji-suan-ji-ti-xi-jie-gou-liang-hua-yan-jiu-fang-fa-1</id>
+    <content type="html"><![CDATA[<h4>计算机体系结构量化研究方法1</h4>
+
+<p>经典重读，温故知新．<br/>
+突然发现，此乃本人专业，竟陌生如此</p>
+
+<!--more-->
+
+
+<h5>第一章　量化设计与分析基础</h5>
+
+<ol>
+<li>计算机生产技术的发展和计算机设计技术的创新</li>
+<li>新体系结构商业成功源于人们不再使用汇编语言进行编程，降低了对目标代码兼容性的要求；出现了独立于厂商的标准化操作系统</li>
+<li>RISC精简指令集系统，80年代出现，使设计人员专注于两方面的研究：指令级并行（流水线，多指令发射）；缓存的使用</li>
+<li>Intel是将80x86指令转化为类似于RISC的指令，由于晶体管数量的飞速发展，再转化成RISC指令时的硬件开销可忽略不计，但在低端应用中，这种转化开销带来的开销与硅面积成本，使得ARM成为了主流，这也是一种RISC体系结构</li>
+<li>现在的大型计算机和高性能超级计算机也是由微处理器组合而成的</li>
+<li>SPEC基准测试</li>
+<li>计算机体系结构和技术改进</li>
+<li>即时编译器Just-in-time和跟踪编译Trace-based compiling正在替代传统的编译器和链接器</li>
+<li>因特网上的软件即服务Software as a Service正在取代必须在本地计算机上安装的盒装光盘套装软件</li>
+<li>风冷芯片最大功耗和无法有效地开发更多指令级并行这两大孪生瓶颈使得单核处理器性能不能快速的提高，多核成为了主流</li>
+<li>处理器性能的提高从单纯的依赖指令级并行ILP到转向数据级并行DLP和线程级并行TLP</li>
+<li>个人移动设备PMD</li>
+<li>响应性能和可预测性能是多媒体应用程序的关键特性</li>
+<li>针对服务器，可用性至关重要，高吞吐量</li>
+<li>最大规模集群，仓库级计算机WSC</li>
+<li>多种级别的并行度现在已经成为计算机设计的推动力量，而能耗和成本则是主要的约束条件</li>
+<li>应用程序中主要有两种并行：数据级并行DLP和任务级并行TLP</li>
+<li>计算机硬件四种方式：指令级并行／向量体系结构和图行处理器GPU／线程级并行／请求级并行</li>
+<li>分类：单指令流单数据流SISD/单指令流多数据流SIMD／多指令流单数据流MISD（暂无）／多指令流多数据流MIMD</li>
+<li>指令集设计，功能组织，逻辑设计，实现方式(集成电路设计，包装，电池，冷却..)</li>
+<li>指令集体系结构ISA</li>
+<li>MIPS  80x86 ARM MIPS64指令集</li>
+<li>存储器寻指，都是按字节寻指</li>
+<li>寻指模式．例MIPS寻指模式：寄存器寻指，立即数寻指，位移量寻址</li>
+<li>操作数的类型和大小</li>
+<li>操作指令：数据传输，逻辑运算，算术运算．．．</li>
+<li>控制流指令：条件转移，无条件跳转，过程调用，返回等</li>
+<li>ISA编码：固定长度和可变长度;ARM和MIPS都是32位指令长度，80x86可变</li>
+<li>组成和硬件，组成也叫微体系结构；指令级相同但组成不同的处理器如：AMD Opteron和Intel Core i7</li>
+<li>同一系列的计算机通常具有相同的指令集体系结构和几乎相同的组成，但提供不同的存储系统和时钟速率</li>
+<li>集成电路逻辑技术；半导体DRAM；半导体闪存；磁盘技术；网络技术</li>
+<li>集成电路工艺用特征尺寸来衡量：一个晶体管或一条连线在x或y方向上的最小尺寸，目前2011达到32nm,22nm</li>
+<li>晶体管的性能提高大体上与特征尺寸的下降成线性关系，晶体管数目以平方增长</li>
+<li>一段连线的信号延迟与其电阻，电容的乘积成正比，特征尺寸缩小时，连线变短，单位长度的电阻和电容都会变差</li>
+<li>一般来说，与晶体管性能相比，连线延迟方面的改进小得可怜，增加了设计人员面临的挑战，连线延迟已经成为了大型集成电路的主要设计限制，往往比晶体管开关延迟还要关键，越来越多的时钟周期被消耗在信号在连线上的传播延迟上</li>
+<li>功率是设计人员面临的最大挑战：功率引入芯片进行分配，而为仅仅为电源和接地就使用了数以百万计的晶体管和多个互连层；功率以热的形式耗散，必须消除
+1.性能，功率，能耗</li>
+<li>持续功耗，用热设计功耗TDP来度量，决定冷却需求．TDP不是峰值功率，峰值功率大约是其1.5倍</li>
+<li>对于CMOS芯片来说，传统的主要能耗是开关晶体管，也叫动态能耗</li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Next Second]]></title>
@@ -1391,329 +1460,6 @@ public:
 <h5>Button</h5>
 
 <h4>#</h4>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Longest Palindromic Substring]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/18/longest-palindromic-substring/"/>
-    <updated>2014-07-18T21:22:53+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/18/longest-palindromic-substring</id>
-    <content type="html"><![CDATA[<h5><a href="https://oj.leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring</a></h5>
-
-<h5>Probles</h5>
-
-<p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
-
-<p>看本站内的总结：<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最长回文字符串</a></p>
-
-<!--more-->
-
-
-<h5>Code</h5>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Solution {
-</span><span class='line'>public:
-</span><span class='line'>    string longestPalindrome(string s)
-</span><span class='line'>    {
-</span><span class='line'>        int len = s.length();
-</span><span class='line'>        string str="";
-</span><span class='line'>        if(len==0)return str;
-</span><span class='line'>        int maxlen = 0;
-</span><span class='line'>        int leng;
-</span><span class='line'>        int left,right;
-</span><span class='line'>        for(int i=0;i&lt;2*len-1;i++)
-</span><span class='line'>        {
-</span><span class='line'>            if(i%2==0)
-</span><span class='line'>            {
-</span><span class='line'>                leng = 1;
-</span><span class='line'>                left = i/2 - 1;
-</span><span class='line'>                right = i/2 + 1;
-</span><span class='line'>                while(left&gt;=0&&right&lt;len&&s.at(left)==s.at(right))
-</span><span class='line'>                {
-</span><span class='line'>                    leng += 2;
-</span><span class='line'>                    left--;
-</span><span class='line'>                    right++;
-</span><span class='line'>                }
-</span><span class='line'>                 if(leng&gt;maxlen)
-</span><span class='line'>              {
-</span><span class='line'>                    maxlen = leng;
-</span><span class='line'>                    str = s.substr(i/2-maxlen/2, maxlen);
-</span><span class='line'>              }
-</span><span class='line'>            }
-</span><span class='line'>            else
-</span><span class='line'>            {
-</span><span class='line'>                leng = 0;
-</span><span class='line'>                left = i/2;
-</span><span class='line'>                right = i/2+1;
-</span><span class='line'>                 while(left&gt;=0&&right&lt;len&&s[left]==s[right])
-</span><span class='line'>                {
-</span><span class='line'>                    leng += 2;
-</span><span class='line'>                    left--;
-</span><span class='line'>                    right++;
-</span><span class='line'>                }
-</span><span class='line'>               
-</span><span class='line'>            
-</span><span class='line'>             if(leng&gt;maxlen)
-</span><span class='line'>              {
-</span><span class='line'>                    maxlen = leng;
-</span><span class='line'>                    str = s.substr(i/2-maxlen/2+1, maxlen);
-</span><span class='line'>              }
-</span><span class='line'>            }
-</span><span class='line'>        }
-</span><span class='line'>        return str;
-</span><span class='line'>    }
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
-
-
-<h5>注意</h5>
-
-<ul>
-<li><ol>
-<li>把奇偶统一起来，这样i的大小是2len-1的大小</li>
-</ol>
-</li>
-<li><ol>
-<li>还有一个注意点是，substr()这个两个参数是指起始和长度，起始从0开始就算第一个</li>
-</ol>
-</li>
-<li><ol>
-<li>后面两个if判断不能统一起来，因为substr中的参数不一样</li>
-</ol>
-</li>
-<li><ol>
-<li>方法：<strong>从中间向两边比较来判断是否回文，例a_b_c_b_a，则这个字符串abcba长度5，判断的位置有9个，然后从中间向两边展开，首先判断是否出界，再看是不是相等，这样最后更新长度和字符串</strong></li>
-</ol>
-</li>
-<li>5.　本文属于<a href="http://mkdir1.github.io/blog/2014/07/13/zui-xi-lie/">最系列</a>的应用</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Spiral Matrix]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/18/spiral-matrix/"/>
-    <updated>2014-07-18T19:01:52+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/18/spiral-matrix</id>
-    <content type="html"><![CDATA[<h4><a href="https://oj.leetcode.com/problems/spiral-matrix/">Spiral Matrix</a></h4>
-
-<h5>Problem</h5>
-
-<p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>
-
-<p>For example,</p>
-
-<p>Given the following matrix:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[1,2,3]
-</span><span class='line'>[4,5,6]
-</span><span class='line'>[7,8,9]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You should return<code>[1,2,3,6,8,9,7,4,5]</code></p>
-
-<!--more-->
-
-
-<h5>Code</h5>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Solution {
-</span><span class='line'>public:
-</span><span class='line'>    vector&lt;int&gt; spiralOrder(vector&lt;vector&lt;int&gt; &gt; &matrix)
-</span><span class='line'>    {
-</span><span class='line'>        vector&lt;int&gt;result;
-</span><span class='line'>        result.clear();
-</span><span class='line'>        int row = matrix.size();
-</span><span class='line'>        if(row==0)return result;
-</span><span class='line'>        int col = matrix[0].size();
-</span><span class='line'>        int rowleft = 0, rowright = col -1;
-</span><span class='line'>        int coltop = 0, colbott = row -1;
-</span><span class='line'>        int i=0,j=0;
-</span><span class='line'>        int dir = 1;
-</span><span class='line'>        while(rowleft&lt;=rowright&&coltop&lt;=colbott)
-</span><span class='line'>        {
-</span><span class='line'>            switch(dir)
-</span><span class='line'>            {
-</span><span class='line'>                case 1:   //toright
-</span><span class='line'>                    while(rowleft&lt;=rowright&&j&gt;=rowleft&&j&lt;=rowright)
-</span><span class='line'>                    {
-</span><span class='line'>                        result.push_back(matrix[i][j]);
-</span><span class='line'>                        j++;
-</span><span class='line'>                    }
-</span><span class='line'>                    j--;
-</span><span class='line'>                    i++;
-</span><span class='line'>                    coltop++;
-</span><span class='line'>                    dir = 2;
-</span><span class='line'>                    break;
-</span><span class='line'>                case 2: //tobott
-</span><span class='line'>                   while(coltop&lt;=colbott&&i&gt;=coltop&&i&lt;=colbott)
-</span><span class='line'>                   {
-</span><span class='line'>                       result.push_back(matrix[i][j]);
-</span><span class='line'>                       i++;
-</span><span class='line'>                   }
-</span><span class='line'>                   i--;
-</span><span class='line'>                   j--;
-</span><span class='line'>                   rowright--;
-</span><span class='line'>                   dir = 3;
-</span><span class='line'>                   break;
-</span><span class='line'>                case 3: //toleft
-</span><span class='line'>                 while(rowleft&lt;=rowright&&j&gt;=rowleft&&j&lt;=rowright)
-</span><span class='line'>                 {
-</span><span class='line'>                     result.push_back(matrix[i][j]);
-</span><span class='line'>                     j--;
-</span><span class='line'>                 }
-</span><span class='line'>                 j++;
-</span><span class='line'>                 i--;
-</span><span class='line'>                 colbott--;
-</span><span class='line'>                 dir = 4;
-</span><span class='line'>                 break;
-</span><span class='line'>                case 4:  //totop
-</span><span class='line'>                 while(coltop&lt;=colbott&&i&gt;=coltop&&i&lt;=colbott)
-</span><span class='line'>                 {
-</span><span class='line'>                      result.push_back(matrix[i][j]);
-</span><span class='line'>                      i--;
-</span><span class='line'>                 }
-</span><span class='line'>                 i++;
-</span><span class='line'>                 j++;
-</span><span class='line'>                 rowleft++;
-</span><span class='line'>                 dir = 1;
-</span><span class='line'>                 break;
-</span><span class='line'>                 default:
-</span><span class='line'>                    break;
-</span><span class='line'>            }
-</span><span class='line'>        }
-</span><span class='line'>      
-</span><span class='line'>        return result;
-</span><span class='line'>    }
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
-
-
-<p>有很多种方法，这是自己的一种实</p>
 ]]></content>
   </entry>
   
