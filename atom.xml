@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-08-14T05:40:30+08:00</updated>
+  <updated>2014-08-18T17:38:42+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,140 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[进制转化]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/18/jin-zhi-zhuan-hua/"/>
+    <updated>2014-08-18T17:35:10+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/18/jin-zhi-zhuan-hua</id>
+    <content type="html"><![CDATA[<h4>进制转化</h4>
+
+<p>改进了一下进制转化的代码，每次都有进步</p>
+
+<!--more-->
+
+
+<h5>Code</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;stdio.h&gt;
+</span><span class='line'>#include&lt;string.h&gt;
+</span><span class='line'>
+</span><span class='line'>char result[1000];
+</span><span class='line'>static int Name[36]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+</span><span class='line'>
+</span><span class='line'>void reverse(char *p)
+</span><span class='line'>{
+</span><span class='line'>    int len = strlen(p);
+</span><span class='line'>    int i = 0;
+</span><span class='line'>    int j = len-1;
+</span><span class='line'>    char ch;
+</span><span class='line'>    while(i&lt;j)
+</span><span class='line'>    {
+</span><span class='line'>        ch = p[i];
+</span><span class='line'>        p[i] = p[j];
+</span><span class='line'>        p[j] = ch;
+</span><span class='line'>        i++;
+</span><span class='line'>        j--;
+</span><span class='line'>    }
+</span><span class='line'>    return;
+</span><span class='line'>}
+</span><span class='line'>void conver(int n, int m)  
+</span><span class='line'>{
+</span><span class='line'>    int signal = 0;
+</span><span class='line'>    int i = 0;
+</span><span class='line'>    if(n&lt;0)
+</span><span class='line'>    {
+</span><span class='line'>        n = -n;
+</span><span class='line'>        signal = -1;
+</span><span class='line'>        i= 1;
+</span><span class='line'>    }
+</span><span class='line'>    while(n/m!=0)
+</span><span class='line'>    {
+</span><span class='line'>        result[i++] = Name[n%m];
+</span><span class='line'>        n = n/m;
+</span><span class='line'>    }
+</span><span class='line'>    result[i] = Name[n];
+</span><span class='line'>    result[i+1] = 0;
+</span><span class='line'>    if(signal==-1)
+</span><span class='line'>    {
+</span><span class='line'>        result[0] = '-';
+</span><span class='line'>        reverse(result+1);
+</span><span class='line'>    }
+</span><span class='line'>    else
+</span><span class='line'>        reverse(result);
+</span><span class='line'>    printf("%s\n",result);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'>    int n,m;
+</span><span class='line'>    while(~scanf("%d %d",&n,&m))
+</span><span class='line'>        conver(n,m);
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将十进制n转化成m进制的字符串输出
+这里还可以进一步的是，将十进制的字符串
+void conver(char *n, int m)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ubuntu上安装CUDA]]></title>
@@ -1436,30 +1570,6 @@ public:
 
 
 <p>这是最基础的</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Android-控件]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/19/android-kong-jian/"/>
-    <updated>2014-07-19T21:00:37+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/19/android-kong-jian</id>
-    <content type="html"><![CDATA[<h4>Android常用控件</h4>
-
-<p>仅列常用的控件，并实践之．毕竟初学者，学会用，有印象即可，其它的可举一反三，融会贯通．</p>
-
-<!--more-->
-
-
-<h5>TextView</h5>
-
-<h5>EditText</h5>
-
-<h5>ImageView</h5>
-
-<h5>Button</h5>
-
-<h4>#</h4>
 ]]></content>
   </entry>
   

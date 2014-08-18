@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-08-14T05:40:30+08:00</updated>
+  <updated>2014-08-18T17:38:42+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[进制转化]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/18/jin-zhi-zhuan-hua/"/>
+    <updated>2014-08-18T17:35:10+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/18/jin-zhi-zhuan-hua</id>
+    <content type="html"><![CDATA[<h4>进制转化</h4>
+
+<p>改进了一下进制转化的代码，每次都有进步</p>
+
+<!--more-->
+
+
+<h5>Code</h5>
+
+<p>```</p>
+
+<h1>include&lt;stdio.h></h1>
+
+<h1>include&lt;string.h></h1>
+
+<p>char result[1000];
+static int Name[36]={&lsquo;0&rsquo;,&lsquo;1&rsquo;,&lsquo;2&rsquo;,&lsquo;3&rsquo;,&lsquo;4&rsquo;,&lsquo;5&rsquo;,&lsquo;6&rsquo;,&lsquo;7&rsquo;,&lsquo;8&rsquo;,&lsquo;9&rsquo;,&lsquo;A&rsquo;,&lsquo;B&rsquo;,&lsquo;C&rsquo;,&rsquo;D',&lsquo;E&rsquo;,&lsquo;F&rsquo;,&lsquo;G&rsquo;,&lsquo;H&rsquo;,&lsquo;I&rsquo;,&lsquo;J&rsquo;,&lsquo;K&rsquo;,&lsquo;L&rsquo;,&rsquo;M',&lsquo;N&rsquo;,&lsquo;O&rsquo;,&lsquo;P&rsquo;,&lsquo;Q&rsquo;,&lsquo;R&rsquo;,&rsquo;S',&rsquo;T',&lsquo;U&rsquo;,&lsquo;V&rsquo;,&lsquo;W&rsquo;,&lsquo;X&rsquo;,&lsquo;Y&rsquo;,&lsquo;Z&rsquo;};</p>
+
+<p>void reverse(char *p)
+{</p>
+
+<pre><code>int len = strlen(p);
+int i = 0;
+int j = len-1;
+char ch;
+while(i&lt;j)
+{
+    ch = p[i];
+    p[i] = p[j];
+    p[j] = ch;
+    i++;
+    j--;
+}
+return;
+</code></pre>
+
+<p>}
+void conver(int n, int m)<br/>
+{</p>
+
+<pre><code>int signal = 0;
+int i = 0;
+if(n&lt;0)
+{
+    n = -n;
+    signal = -1;
+    i= 1;
+}
+while(n/m!=0)
+{
+    result[i++] = Name[n%m];
+    n = n/m;
+}
+result[i] = Name[n];
+result[i+1] = 0;
+if(signal==-1)
+{
+    result[0] = '-';
+    reverse(result+1);
+}
+else
+    reverse(result);
+printf("%s\n",result);
+</code></pre>
+
+<p>}</p>
+
+<p>int main()
+{</p>
+
+<pre><code>int n,m;
+while(~scanf("%d %d",&amp;n,&amp;m))
+    conver(n,m);
+return 0;
+</code></pre>
+
+<p>}
+```
+将十进制n转化成m进制的字符串输出
+这里还可以进一步的是，将十进制的字符串
+void conver(char *n, int m)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Itoa]]></title>
@@ -288,71 +377,6 @@ public:</p>
 <h5>另外</h5>
 
 <p>在windows下找到一个解决方案，有bat文件中<code>example.exe&lt;input.txt&gt;output.txt</code> 不过，一般有IDE中就解决了，不必这么麻烦~</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sudoku-solver]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/22/sudoku-solver/"/>
-    <updated>2014-07-22T20:27:47+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/22/sudoku-solver</id>
-    <content type="html"><![CDATA[<h4>Sudoku Solver</h4>
-
-<p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
-
-<p>Empty cells are indicated by the character &lsquo;.&rsquo;.</p>
-
-<p>You may assume that there will be only one unique solution.</p>
-
-<!--more-->
-
-
-<p>递归的方法，确实不错～　</p>
-
-<h5>Code</h5>
-
-<pre><code>bool isValid(vector&lt;vector&lt;char&gt; &gt; &amp;board, int a, int b) {
-        int i,j;
-        for(i = 0; i &lt; 9; i++)
-            if(i != a &amp;&amp; board[i][b] == board[a][b])
-                return false;
-
-        for(j = 0; j &lt; 9; j++)
-            if(j != b &amp;&amp; board[a][j] == board[a][b])
-                return false;
-
-        int x = a/3*3;
-        int y = b/3*3;
-        for(i = 0; i &lt; 3; i++)
-            for(j = 0; j&lt; 3; j++)
-                if(x+i != a &amp;&amp; y+j != b &amp;&amp; board[x+i][y+j] == board[a][b])
-                    return false;
-        return true;
-    }
-    bool solveSudokudfs(vector&lt;vector&lt;char&gt; &gt; &amp;board)
-    {
-        for(int i = 0; i &lt; 9; i++)
-            for(int j = 0; j &lt; 9; j++)
-            {
-                if(board[i][j] == '.')
-                {
-                    for(int k = 1; k &lt;= 9; k++)
-                    {
-                        board[i][j] = '0' + k;
-                        if(isValid(board,i,j) &amp;&amp; solveSudokudfs(board))
-                            return true;
-                        board[i][j] = '.';
-                    }
-                    return false;
-                }
-            }
-        return true;
-    }
-    void solveSudoku(vector&lt;vector&lt;char&gt; &gt; &amp;board) {
-        // Note: The Solution object is instantiated only once.
-        solveSudokudfs(board);
-    }
-</code></pre>
 ]]></content>
   </entry>
   
