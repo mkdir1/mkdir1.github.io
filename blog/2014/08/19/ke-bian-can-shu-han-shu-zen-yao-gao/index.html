@@ -5,53 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>进制转化 - Vintion's blog</title>
+  <title>可变参数函数怎么搞? - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="进制转化 改进了一下进制转化的代码，每次都有进步 Code 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43 &hellip;">
+  <meta name="description" content="C语言中的可变参数函数 可变参数函数，比如printf(),这个常用而没深入研究的函数，发现学问很大． 原理 函数的参数入栈顺序是从右到左，这样，第一个参数就在最上面，我们只需要知道第一个参数的地址和后面所有参数的类型就可以确定这些参数的地址了，这样，可变参数函数就需要第一个参数的地址， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/08/18/jin-zhi-zhuan-hua">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/08/19/ke-bian-can-shu-han-shu-zen-yao-gao">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -115,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">进制转化</h1>
+      <h1 class="entry-title">可变参数函数怎么搞?</h1>
     
     
       <p class="meta">
@@ -131,7 +89,7 @@
   
 
 
-<time datetime="2014-08-18T17:35:10+08:00" pubdate data-updated="true">Aug 18<sup>th</sup>, 2014</time>
+<time datetime="2014-08-19T20:27:39+08:00" pubdate data-updated="true">Aug 19<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -141,14 +99,43 @@
   </header>
 
 
-<div class="entry-content"><h4>进制转化</h4>
+<div class="entry-content"><h4>C语言中的可变参数函数</h4>
 
-<p>改进了一下进制转化的代码，每次都有进步</p>
+<p>可变参数函数，比如printf(),这个常用而没深入研究的函数，发现学问很大．</p>
 
 <!--more-->
 
 
-<h5>Code</h5>
+<h5>原理</h5>
+
+<p>函数的参数入栈顺序是从右到左，这样，第一个参数就在最上面，我们只需要知道第一个参数的地址和后面所有参数的类型就可以确定这些参数的地址了，这样，可变参数函数就需要第一个参数的地址，其余部分就用&hellip;来表示　<br/>
+如:
+<code>fun(int a, ...)</code>
+ &hellip;前面的参数必须存在</p>
+
+<h5>标准宏</h5>
+
+<p>在stdarg.h头文件中有可用的宏来实现可变参数函数
+//可变参数标准宏头文件</p>
+
+<h1>include &ldquo;stdarg.h&rdquo;</h1>
+
+<p>//申明va_list数据类型变量pvar，该变量访问变长参数列表中的参数。</p>
+
+<p>va_list pvar;</p>
+
+<p>//宏va_start初始化变长参数列表。pvar是va_list型变量，记载列表中的参数信息。
+//parmN是省略号&#8221;&hellip;&ldquo;前的一个参数名，va_start根据此参数，判断参数列表的起始位置。
+va_start(pvar, parmN);</p>
+
+<p>//获取变长参数列表中参数的值。pvar是va_list型变量，type为参数值的类型，也是宏va_arg返回数值的类型。
+//宏va_arg执行完毕后自动更改对象pvar，将其指向下一个参数。
+va_arg(pvar, type);</p>
+
+<p>//关闭本次对变长参数列表的访问。
+va_end(pvar);</p>
+
+<h5>实现</h5>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -174,99 +161,33 @@
 <span class='line-number'>22</span>
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;stdio.h&gt;
-</span><span class='line'>#include&lt;string.h&gt;
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;stdarg.h&gt;
+</span><span class='line'>#include &lt;iosteam&gt;
+</span><span class='line'>using namespace std;
 </span><span class='line'>
-</span><span class='line'>char result[1000];
-</span><span class='line'>static int Name[36]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+</span><span class='line'>int sum(int count, ...)
+</span><span class='line'>{
+</span><span class='line'>  int sum_value=0;
 </span><span class='line'>
-</span><span class='line'>void reverse(char *p)
-</span><span class='line'>{
-</span><span class='line'>    int len = strlen(p);
-</span><span class='line'>    int i = 0;
-</span><span class='line'>    int j = len-1;
-</span><span class='line'>    char ch;
-</span><span class='line'>    while(i&lt;j)
-</span><span class='line'>    {
-</span><span class='line'>        ch = p[i];
-</span><span class='line'>        p[i] = p[j];
-</span><span class='line'>        p[j] = ch;
-</span><span class='line'>        i++;
-</span><span class='line'>        j--;
-</span><span class='line'>    }
-</span><span class='line'>    return;
-</span><span class='line'>}
-</span><span class='line'>void conver(int n, int m)  
-</span><span class='line'>{
-</span><span class='line'>    int signal = 0;
-</span><span class='line'>    int i = 0;
-</span><span class='line'>    if(n&lt;0)
-</span><span class='line'>    {
-</span><span class='line'>        n = -n;
-</span><span class='line'>        signal = -1;
-</span><span class='line'>        i= 1;
-</span><span class='line'>    }
-</span><span class='line'>    while(n/m!=0)
-</span><span class='line'>    {
-</span><span class='line'>        result[i++] = Name[n%m];
-</span><span class='line'>        n = n/m;
-</span><span class='line'>    }
-</span><span class='line'>    result[i] = Name[n];
-</span><span class='line'>    result[i+1] = 0;
-</span><span class='line'>    if(signal==-1)
-</span><span class='line'>    {
-</span><span class='line'>        result[0] = '-';
-</span><span class='line'>        reverse(result+1);
-</span><span class='line'>    }
-</span><span class='line'>    else
-</span><span class='line'>        reverse(result);
-</span><span class='line'>    printf("%s\n",result);
+</span><span class='line'>  va_list args;
+</span><span class='line'>  va_start(args,count);
+</span><span class='line'>  while(count--)
+</span><span class='line'>  {
+</span><span class='line'>      sum_value+=va_arg(args,int);
+</span><span class='line'>  }
+</span><span class='line'>  va_end(args);
+</span><span class='line'>
+</span><span class='line'>  return sum_value;
 </span><span class='line'>}
 </span><span class='line'>
 </span><span class='line'>int main()
 </span><span class='line'>{
-</span><span class='line'>    int n,m;
-</span><span class='line'>    while(~scanf("%d %d",&n,&m))
-</span><span class='line'>        conver(n,m);
+</span><span class='line'>  cout&lt;&lt;sum(5,1,2,3,4,5);//输出15
 </span><span class='line'>    return 0;
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>将十进制n转化成m进制的字符串输出
-这里还可以进一步的是，将十进制的字符串
-void conver(char *n, int m)</p>
+
 </div>
 
 
@@ -289,12 +210,12 @@ void conver(char *n, int m)</p>
   
 
 
-<time datetime="2014-08-18T17:35:10+08:00" pubdate data-updated="true">Aug 18<sup>th</sup>, 2014</time>
+<time datetime="2014-08-19T20:27:39+08:00" pubdate data-updated="true">Aug 19<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
+    <a class='category' href='/blog/categories/language/'>language</a>
   
 </span>
 
@@ -326,10 +247,8 @@ void conver(char *n, int m)</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/08/14/ubuntushang-an-zhuang-cuda/" title="Previous Post: ubuntu上安装CUDA">&laquo; ubuntu上安装CUDA</a>
+        <a class="basic-alignment left" href="/blog/2014/08/18/jin-zhi-zhuan-hua/" title="Previous Post: 进制转化">&laquo; 进制转化</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/08/19/ke-bian-can-shu-han-shu-zen-yao-gao/" title="Next Post: 可变参数函数怎么搞?">可变参数函数怎么搞? &raquo;</a>
       
     </p>
   </footer>
