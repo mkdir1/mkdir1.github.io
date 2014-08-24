@@ -4,7 +4,7 @@
   <title><![CDATA[Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-08-19T20:35:10+08:00</updated>
+  <updated>2014-08-25T01:16:49+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,443 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[开题提纲]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/25/kai-ti-ti-gang/"/>
+    <updated>2014-08-25T00:47:28+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/25/kai-ti-ti-gang</id>
+    <content type="html"><![CDATA[<h3>一种适用于异构视频转码设备的应用层编程框架</h3>
+
+<!--more-->
+
+
+<hr />
+
+<h4>一. 选题的背景及意义</h4>
+
+<ul>
+<li><strong>1</strong> 视频转码解决方案
+
+<ul>
+<li>视频转码介绍</li>
+<li>解决方案简介</li>
+</ul>
+</li>
+<li><strong>2</strong> 当前主流解决方案
+
+<ul>
+<li>软件转码</li>
+<li>GPU+CPU</li>
+<li>异构设备(重点讲解）</li>
+</ul>
+</li>
+<li><strong>3.</strong> 异构视频转码设备
+
+<ul>
+<li>特点</li>
+<li>优势：
+
+<ul>
+<li>可定制，异构视频转码设备主要是针对特定应用场景定制的，一般适用场景不多</li>
+<li>实现的方案多，可选项多。</li>
+</ul>
+</li>
+<li>不足：
+
+<ul>
+<li>可移植性差，依赖特定的硬件设备。</li>
+<li>可编程性差，依赖对应的底层软件接口。整个程序框架规定好了之后，几乎无法更改，除非是硬件提供者，可看到底层代码实现才能改动，用户几无编程的可能，只能在小问题上修改。</li>
+<li>维护升级困难，可扩展性差。这个是基于上面两个带来的问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>二  国内外本学科领域的现状和趋势</h4>
+
+<ul>
+<li><p><strong>1.</strong> 针对于视频，国内外研究重点</p>
+
+<ul>
+<li>硬件实现（开发或改进硬件的体系结构以适用于视频处理）</li>
+<li>算法改进（如何用更高效的算法来处理视频）</li>
+<li>提高转码速度相关研究</li>
+<li>视频质量或其它细节的研究</li>
+</ul>
+</li>
+<li><p><strong>2.</strong> 视频处理异构设备的现状和进展</p>
+
+<ul>
+<li><strong>2.1</strong> CPU+GPU模型是主流</li>
+<li><strong>2.2</strong> 其它解决方案</li>
+<li><strong>2.3</strong> 这些研究(异构解决方案)的缺点（重点）
+
+<ul>
+<li>各异构解决方案太依赖于硬件提供商，底层接口差异性太大，没有一个通用统一的定义接口，导致异构设备编程因难</li>
+<li>逻辑层次上，没有一个统一的解决方案，特别是应用层。</li>
+<li>虽然有众多的异构设备支持OpenCL等类似语言简化编程，但硬件依赖性太大。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>三，研究内容和预期目标</h4>
+
+<ul>
+<li><strong>1.</strong> 研究的主要内容
+
+<ul>
+<li><strong>1.1</strong> 视频转码的一般过程</li>
+<li><strong>1.2</strong> 视频转码分层思想的提出</li>
+<li><strong>1.3</strong> 视频其它处理在分层中的位置和应用
+其它处理是包括大小缩放，转置，编码算法的选择，视频截取，嵌入音频等，这些可在分层的层次中指出，并具体到应用场景</li>
+</ul>
+</li>
+<li><strong>2.</strong> 预期目标
+
+<ul>
+<li><strong>2.1</strong> 归纳总结出视频转码的逻辑结构，提出基于应用层的视频转码框架</li>
+<li><strong>2.2</strong> 涉及的点包含主要细节
+视频处理有太多的要求和细节，可能无法找到通用统一的归纳，但针对主要的细节，需要有很明确清晰的研究。比如如何处理嵌入音频，如何放大缩小视频，</li>
+<li><strong>2.3</strong> 在主要的异构平台上实现</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h5>四. 研究方法，实验方案，技术路线及可行性分析</h5>
+
+<ul>
+<li><strong>1.</strong> 借鉴项目中已有成果
+
+<ul>
+<li>Intel HD Graphics转码方案，调用的是Intel Media SDK接口，可实现多路视频实时转码。在Intel&reg; Core&trade; i3-3110M CPU @ 2.40GHz处理器上(显示核心是Intel HD Graphics 4000基本频率650MHz)，可实现5路1080p实时转码(h264转h264)</li>
+<li>Ffmpeg开源转码框架，其中H.264格式视频编码，改写成调用Intel HD Graphics硬件编码方案，即为此编写硬件编码器</li>
+<li>Godson-dm芯片，使用的是Coda980编程接口</li>
+</ul>
+</li>
+<li><p><strong>2.</strong> 本文主要作用和创新点</p>
+
+<ul>
+<li><strong>2.1</strong> 在应用层面上，提出了一种视频转码的通用框架，而在底层及各异构模型的具体实现则不关注。</li>
+<li><strong>2.2</strong> 针对应用层的编程框架，定义主要的接口和协议，实现视频转码</li>
+</ul>
+</li>
+<li><p><strong>3.</strong> 主要内容：</p>
+
+<ul>
+<li><strong>3.1</strong> 归纳出视频处理的一般流程和要点</li>
+<li><strong>3.2</strong> 总结一套类似协议的编程框架，类比于网络中的应用层</li>
+<li><strong>3.3</strong>  定义主要的接口和实现细节</li>
+<li><strong>3.4</strong> 在几种主流异构设备上实现</li>
+<li><strong>3.5</strong> 对比各设备中视频转码的数据，分析并修正各接口与实现</li>
+</ul>
+</li>
+<li><p><strong>4.</strong> 视频转码的一般逻辑</p>
+
+<ul>
+<li>异构视频设备初始化</li>
+<li>资源的初始化</li>
+<li>视频处理（循环步骤）
+
+<ul>
+<li>1.读取源视频</li>
+<li>2.解封装，分析视频格式，大小，码率等相关信息</li>
+<li>3.调用对应的解码器，将相关信息存入对应的结构体中，保存下来</li>
+<li>4.对视频部分解码
+（这个步骤重点描述）循环部分</li>
+<li>5.读入编码信息，设定编码器参数和格式</li>
+<li>6.调用编码器编码</li>
+<li>7.封装相关数据，包括音频和文字</li>
+<li>8.结束</li>
+</ul>
+</li>
+<li>资源回收</li>
+<li>关闭设备</li>
+</ul>
+</li>
+<li><p><strong>5.</strong> 实验方案</p>
+
+<ul>
+<li><strong>5.1</strong> 归纳实现现在项目中的三种异构设备，得到主要评估数据</li>
+<li><strong>5.2</strong> 通过对三种异构设备提供的底层接口，定义应用层的接口，并实现其中的几种</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>五，已有的科研基础和科研条件</h4>
+
+<ul>
+<li><p><strong>1.</strong>本人已有研究成果</p>
+
+<ul>
+<li>Intel HD Graphics转码方案，</li>
+<li>Godson-dm芯片，使用的是Coda980</li>
+<li>Ffmpeg视频开源解决方案</li>
+</ul>
+</li>
+<li><p><strong>2.</strong>现有成果需要整理
+～以上三种解决方案的相关数据，包括硬件要求，平台，环境，操作系统，转码速度，格式支持，视频质量相关等</p></li>
+<li><p><strong>3.</strong> 总结归纳</p>
+
+<ul>
+<li>针对以上大约四种异构转码解决方案，分别总结出各种解决方案应用层的实现方法</li>
+<li>定义相关条件和接口要素，并在四种方案中找到对应的接口实现</li>
+</ul>
+</li>
+<li><p><strong>4.</strong> 后续研究</p>
+
+<ul>
+<li>GPU转码，使用OpenCL编程框架，调用Nvadia的Cuda接口来实现转码</li>
+<li>其它异构视频解决方案</li>
+<li>比较异同</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>六，工作计划和进度</h4>
+
+<ul>
+<li><p><strong>1.</strong>几个时间点</p>
+
+<ul>
+<li>9月前开题</li>
+<li>12月中期</li>
+<li>第二年5月答辩，6月毕业</li>
+</ul>
+</li>
+<li><p><strong>2.</strong>计划安排</p>
+
+<ul>
+<li>从开题到中期阶段，总结归纳已有成果，并收集得到相关数据。调研最新技术，大体有论文雏形。</li>
+<li>中期之后，可根据已有的结论成果，应用于其它异构平台。主要是GPU+OpenCl编程框架中。并研究细节问题，丰富论文内容。</li>
+<li>撰写论文，参考查阅文献，修改论文</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>七，参考文献</h4>
+
+<hr />
+
+<h4>八，需要制作的图表</h4>
+
+<p><strong>（论文中需要用到的并制作的）</strong></p>
+
+<ul>
+<li>图:
+
+<ul>
+<li>图1： 视频处理层次图（从底层硬件一直到上层应用）</li>
+<li>图2： 应用层视频处理逻辑层（仅针对应用的逻辑结构，重点）</li>
+<li>图3-5: 针对具体的某一个实现，比如coda980,Media SDK,ffmpeg的实现，这三个图，需要根据图2的框架，具体到接口和定义上（重点）</li>
+<li>图6:GPU+OpenCL编程框架，这个图是根据自己的论文来制作</li>
+</ul>
+</li>
+<li><p>表</p>
+
+<ul>
+<li>表1：主流异构视频转码方案和应用场景，平台等</li>
+<li>表2：三种已有实现方案的对比，主要是接口的对比，以图3-5为依据</li>
+<li>表3：三种已有实现方案数据的对比，主要是针对影响视频的关键要素</li>
+</ul>
+</li>
+<li><p>文献中引用的图表</p></li>
+</ul>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[最小绝对值]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/22/zui-xiao-jue-dui-zhi/"/>
+    <updated>2014-08-22T21:31:19+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/22/zui-xiao-jue-dui-zhi</id>
+    <content type="html"><![CDATA[<h4>求一个递增序列中绝对值最小的数</h4>
+
+<p>比如(-3, -1, 2,4,6),返回-1</p>
+
+<p>当然，时间小于O(n)</p>
+
+<!--more-->
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;stdio.h&gt;
+</span><span class='line'>#define ABS(x,y) ((-x)&gt;=(y)?(y):(x))
+</span><span class='line'>int GetAbsMin(int *a, int n)
+</span><span class='line'>{
+</span><span class='line'>    if(a[0]&gt;=0)return a[0];
+</span><span class='line'>    if(a[n-1]&lt;=0)return a[n-1];
+</span><span class='line'>    int begin = 0;
+</span><span class='line'>    int end   = n-1;
+</span><span class='line'>
+</span><span class='line'>    int left = a[0];
+</span><span class='line'>    int right = a[n-1];
+</span><span class='line'>    int mid;
+</span><span class='line'>    while(begin&lt;=end)
+</span><span class='line'>    {
+</span><span class='line'>        mid = (begin+end)/2;
+</span><span class='line'>        if(a[mid]==0)return 0;
+</span><span class='line'>        if(a[mid]&gt;0)
+</span><span class='line'>        {
+</span><span class='line'>            if(a[mid-1]&lt;0)
+</span><span class='line'>            {
+</span><span class='line'>                left = a[mid-1];
+</span><span class='line'>                right = a[mid];
+</span><span class='line'>                break;
+</span><span class='line'>            }
+</span><span class='line'>            else
+</span><span class='line'>            {
+</span><span class='line'>                end = mid-1;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>        else
+</span><span class='line'>        {
+</span><span class='line'>            if(a[mid+1]&gt;0)
+</span><span class='line'>            {
+</span><span class='line'>                left=a[mid];
+</span><span class='line'>                right=a[mid+1];
+</span><span class='line'>                break;
+</span><span class='line'>            }
+</span><span class='line'>            else
+</span><span class='line'>                begin = mid + 1;
+</span><span class='line'>        }
+</span><span class='line'>
+</span><span class='line'>    }
+</span><span class='line'>    return ABS(left,right);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'>    int n,i;
+</span><span class='line'>    int a[100];
+</span><span class='line'>    int result;
+</span><span class='line'>    while(~scanf("%d",&n))
+</span><span class='line'>    {
+</span><span class='line'>        for(i=0;i&lt;n;i++)
+</span><span class='line'>            scanf("%d",&a[i]);
+</span><span class='line'>       result =  GetAbsMin(a,n); 
+</span><span class='line'>       printf("%d\n",result);
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[安装arm-linux-gcc]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/20/an-zhuang-arm-linux-gcc/"/>
+    <updated>2014-08-20T10:46:59+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/20/an-zhuang-arm-linux-gcc</id>
+    <content type="html"><![CDATA[<h4>安装arm-linux-gcc</h4>
+
+<p>版本是arm-linux-gcc-4.4.3.tar.gz
+解压后会解到opt目录，即：
+<code>tar xvf arm-linux-gcc-4.4.3.tar.gz</code></p>
+
+<!--more-->
+
+
+<p><code>sudo vim /root/.bashrc</code>
+加入</p>
+
+<pre><code>export PATH=$PATH:/opt/toolschain/4.4.3/bin
+</code></pre>
+
+<p>安装兼容库　</p>
+
+<pre><code>sudo apt-get install g++-multilib
+</code></pre>
+
+<p>测试是否成功：　</p>
+
+<pre><code>arm-linux-gcc -v
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[可变参数函数怎么搞?]]></title>
@@ -1263,318 +1700,6 @@ Muttator横空出世．</p>
         solveSudokudfs(board);
     }
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Valid-sudoku]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/22/valid-sudoku/"/>
-    <updated>2014-07-22T19:56:41+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/22/valid-sudoku</id>
-    <content type="html"><![CDATA[<h4>Valid Sudoku</h4>
-
-<p>The Sudoku board could be partially filled, where empty cells are filled with the character &lsquo;.&rsquo;.</p>
-
-<p>A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.</p>
-
-<p>我这解法，绝对是对算法的侮辱～　哈哈</p>
-
-<!--more-->
-
-
-<p>Code:</p>
-
-<pre><code>class Solution {
-public:
-    bool isValidSudoku(vector&lt;vector&lt;char&gt; &gt; &amp;board) 
-    {
-        for(int i=0;i&lt;9;i++)
-        for(int j=0;j&lt;9;j++)
-        {
-            if(board[i][j]=='.')
-                continue;
-            for(int k=j+1;k&lt;9;k++)
-                if(board[i][j]==board[i][k])return false;
-            for(int k=i+1;k&lt;9;k++)
-                if(board[i][j]==board[k][j])return false;
-            if(i%3==0&amp;&amp;j%3==0)
-            {
-                if(board[i+1][j+1]!='.'&amp;&amp;board[i+1][j+1]==board[i][j])return false;
-                if(board[i+2][j+1]!='.'&amp;&amp;board[i+2][j+1]==board[i][j])return false;
-                if(board[i+1][j+2]!='.'&amp;&amp;board[i+1][j+2]==board[i][j])return false;
-                if(board[i+2][j+2]!='.'&amp;&amp;board[i+2][j+2]==board[i][j])return false;
-            }
-            if(i%3==0&amp;&amp;(j-1)%3==0)
-            {
-                if(board[i+1][j-1]!='.'&amp;&amp;board[i+1][j-1]==board[i][j])return false;
-                if(board[i+2][j-1]!='.'&amp;&amp;board[i+2][j-1]==board[i][j])return false;
-                if(board[i+1][j+1]!='.'&amp;&amp;board[i+1][j+1]==board[i][j])return false;
-                if(board[i+2][j+1]!='.'&amp;&amp;board[i+2][j+1]==board[i][j])return false;   
-            }
-            if(i%3==0&amp;&amp;(j+1)%3==0)
-            {
-                if(board[i+1][j-1]!='.'&amp;&amp;board[i+1][j-1]==board[i][j])return false;
-                if(board[i+2][j-1]!='.'&amp;&amp;board[i+2][j-1]==board[i][j])return false;
-                if(board[i+1][j-2]!='.'&amp;&amp;board[i+1][j-2]==board[i][j])return false;
-                if(board[i+2][j-2]!='.'&amp;&amp;board[i+2][j-2]==board[i][j])return false;   
-            }
-            if((i-1)%3==0&amp;&amp;j%3==0)
-            {
-                if(board[i+1][j+1]!='.'&amp;&amp;board[i+1][j+1]==board[i][j])return false;
-                if(board[i+1][j+2]!='.'&amp;&amp;board[i+1][j+2]==board[i][j])return false;
-            }
-            if((i-1)%3==0&amp;&amp;(j-1)%3==0)
-            {
-                if(board[i+1][j-1]!='.'&amp;&amp;board[i+1][j-1]==board[i][j])return false;
-                if(board[i+1][j+1]!='.'&amp;&amp;board[i+1][j+1]==board[i][j])return false;
-            }
-             if((i-1)%3==0&amp;&amp;(j+1)%3==0)
-            {
-                if(board[i+1][j-1]!='.'&amp;&amp;board[i+1][j-1]==board[i][j])return false;
-                if(board[i+1][j-2]!='.'&amp;&amp;board[i+1][j-2]==board[i][j])return false;
-            }
-
-        }
-        return true;
-    }
-};
-</code></pre>
-
-<p>好吧，管用就行，一遍过需要多仔细认真啊</p>
-
-<p>这样代码还是很好看的，就是有点长</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Leetcode-combination Sum]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/22/leetcode-combination-sum/"/>
-    <updated>2014-07-22T17:05:12+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/22/leetcode-combination-sum</id>
-    <content type="html"><![CDATA[<h4>Combination Sum</h4>
-
-<p>Given a set of candidate numbers &copy; and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p>
-
-<p>The same repeated number may be chosen from C unlimited number of times.</p>
-
-<p>Note:</p>
-
-<p>All numbers (including target) will be positive integers.
-Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 ≤ a2 ≤ … ≤ ak).</p>
-
-<p>The solution set must not contain duplicate combinations.
-For example, given candidate set 2,3,6,7 and target 7,
-A solution set is:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[2,3,6,7] 7
-</span><span class='line'>[7] 
-</span><span class='line'>[2, 2, 3] 
-</span></code></pre></td></tr></table></div></figure>
-
-
-<!--more-->
-
-
-<p>这题真是基础，之前一直对此类不知所措，现在略通一二，甚喜</p>
-
-<p>Code:</p>
-
-<pre><code>class Solution {
-public:
-    void Getcom(vector&lt;int&gt;&amp;can, int target, vector&lt;vector&lt;int&gt;&gt;&amp;result, int level, int &amp;sumcurrent, int nsize, vector&lt;int&gt;&amp;tmp)
-    {
-        if(sumcurrent&gt;target)return;
-        if(target==sumcurrent)
-        {
-            result.push_back(tmp);
-            return;
-        }
-        for(int i=level;i&lt;nsize;i++)
-        {
-
-                sumcurrent += can[i];
-                tmp.push_back(can[i]);
-                Getcom(can,target,result,i,sumcurrent,nsize,tmp);
-                tmp.pop_back();
-                sumcurrent -=can[i];
-        }
-
-    }
-    vector&lt;vector&lt;int&gt; &gt; combinationSum(vector&lt;int&gt; &amp;candidates, int target) 
-    {
-       vector&lt;vector&lt;int&gt;&gt; result;
-       vector&lt;int&gt;tmp;
-       int size = candidates.size();
-       sort(candidates.begin(),candidates.end());
-       int sumc = 0;
-       Getcom(candidates,target,result,0,sumc,size,tmp);
-       return result;
-    }
-};
-</code></pre>
-
-<p>DFS方便记录结果，DP方便记数</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHP入门]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/20/phpru-men/"/>
-    <updated>2014-07-20T13:18:28+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/20/phpru-men</id>
-    <content type="html"><![CDATA[<h4>PHP入门</h4>
-
-<p>前端的几门语言，HTML/CSS/JavaScript/XML等，这些语言有很大的关联性，很多都是相通相互使用的．入门后，至少可以阅读源码，这样对理解和布局帮助很大．</p>
-
-<p>至于高级技巧和应用，如果从事前端的开发，那就要精通了，这里只对本人初学入门所用，仅对基本语法和代码阅读无碍即可．</p>
-
-<!--more-->
-
-
-<h5>介绍与特点</h5>
-
-<ul>
-<li>1.PHP脚本是在服务器上执行</li>
-<li>2.PHP Hypertext Preprocessor</li>
-<li>3.开源脚本语言，可免费下载，相对于微软的ASP，其是收费的，</li>
-<li>4.PHP文件能包含文本，HTML, CSS以及PHP代码</li>
-<li>5.PHP在服务器上运行，结果以纯文本返回浏览器</li>
-<li><ol>
-<li>PHP文件后缀.php</li>
-</ol>
-</li>
-</ul>
-
-
-<h5>PHP能够做什么　</h5>
-
-<ul>
-<li>1.PHP 能够生成动态页面内容</li>
-<li>2.PHP 能够创建、打开、读取、写入、删除以及关闭服务器上的文件</li>
-<li>3.PHP 能够接收表单数据</li>
-<li>4.PHP 能够发送并取回 cookies</li>
-<li>5.PHP 能够添加、删除、修改数据库中的数据</li>
-<li>6.PHP 能够限制用户访问网站中的某些页面</li>
-<li>7.PHP 能够对数据进行加密</li>
-<li>8.通过 PHP，您可以不受限于只输出 HTML。您还能够输出图像、PDF 文件、甚至 Flash 影片。您也可以输出任何文本，比如 XHTML 和 XML</li>
-<li>9.LAMP中的P就是PHP</li>
-</ul>
-
-
-<h5>安装PHP</h5>
-
-<ul>
-<li><ol>
-<li>安装Web服务器，LAMP中的Apatch</li>
-</ol>
-</li>
-<li><ol>
-<li>安装数据库，Mysql</li>
-</ol>
-</li>
-<li><ol>
-<li>安装PHP</li>
-</ol>
-</li>
-</ul>
-
-
-<p>如需在 Windows 平台设置并立即运行 PHP，您还可以安装<strong>WebMatrix</strong>.</p>
-
-<p>WebMatrix is a free, lightweight, cloud-connected web development tool</p>
-
-<h5>基本语法</h5>
-
-<ul>
-<li>1.PHP脚本以<code>&lt;?php　//代码　．．　?&gt;</code>包含起来</li>
-<li>2.PHP文件通常包含HTML标签和PHP脚本代码</li>
-<li>3.PHP代码中语句以;结尾</li>
-<li>4,注释// # /**/</li>
-<li>5.大小写敏感</li>
-<li>6.有点像Shell脚本</li>
-</ul>
-
-
-<p>变量规则：
-&ndash;  变量以 $ 符号开头，其后是变量的名称
-&ndash;  变量名称必须以字母或下划线开头
-&ndash;  变量名称不能以数字开头
-&ndash;  变量名称只能包含字母数字字符和下划线（A-z、0-9 以及 _）
-&ndash;  变量名称对大小写敏感（$y 与 $Y 是两个不同的变量）</p>
-
-<p>三种不同作用域变量：
-&ndash; local（局部）
-&ndash; global（全局）
-&ndash; static（静态）</p>
-
-<p>通常，当函数完成/执行后，会删除所有变量。不过，有时我需要不删除某个局部变量。实现这一点需要更进一步的工作。
-要完成这一点，请在您首次声明变量时使用 static</p>
-
-<p>echo 和 print 之间的差异：
-&ndash; echo &ndash; 能够输出一个以上的字符串
-&ndash; print &ndash; 只能输出一个字符串，并始终返回 1
-&ndash; 两者均可包含括号</p>
-
-<p><strong>数据类型:</strong>字符串、整数、浮点数、逻辑、数组、对象、NULL</p>
-
-<p><strong>整数规则：</strong>
-&ndash; 整数必须有至少一个数字（0-9）
-&ndash; 整数不能包含逗号或空格
-&ndash; 整数不能有小数点
-&ndash; 整数正负均可
-&ndash; 可以用三种格式规定整数：十进制、十六进制（前缀是 0x）或八进制（前缀是 0）</p>
-
-<p>浮点数是有小数点或指数形式的数字</p>
-
-<p>逻辑是 true 或 false</p>
-
-<p>对象是存储数据和有关如何处理数据的信息的数据类型。
-在 PHP 中，必须明确地声明对象。
-首先我们必须声明对象的类。对此，我们使用 class 关键词。类是包含属性和方法的结构。
-然后我们在对象类中定义数据类型，然后在该类的实例中使用</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?php
-</span><span class='line'>class Car
-</span><span class='line'>{
-</span><span class='line'>  var $color;
-</span><span class='line'>  function Car($color="green") {
-</span><span class='line'>    $this-&gt;color = $color;
-</span><span class='line'>  }
-</span><span class='line'>  function what_color() {
-</span><span class='line'>    return $this-&gt;color;
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>?&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>字符串函数</strong>
-&ndash; strle()
-&ndash; strpos();查找匹配字符，strpos(&ldquo;Hello&rdquo;,&ldquo;ll&rdquo;);结果为2;找不到返回FALSE</p>
-
-<p><a href="http://www.w3school.com.cn/php/php_ref_string.asp">参考字符串函数</a></p>
-
-<p>define()函数定义常量</p>
-
-<p><strong>运算符</strong>
-. 串接，如$str1=&ldquo;hello&rdquo;;$str2=$str1.&ldquo;world&rdquo;;则str=&ldquo;helloworld&rdquo;;
-.= 串接赋值</p>
-
-<p>还有条件语句，循环，数组等，这一些操作和其它语句有很大的相似，可直接读代码时得到什么意思，但于自己写的话，可能需要常期训练．</p>
 ]]></content>
   </entry>
   

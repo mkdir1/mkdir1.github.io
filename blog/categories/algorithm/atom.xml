@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-08-19T20:35:10+08:00</updated>
+  <updated>2014-08-25T01:16:49+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,94 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[最小绝对值]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/22/zui-xiao-jue-dui-zhi/"/>
+    <updated>2014-08-22T21:31:19+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/22/zui-xiao-jue-dui-zhi</id>
+    <content type="html"><![CDATA[<h4>求一个递增序列中绝对值最小的数</h4>
+
+<p>比如(-3, -1, 2,4,6),返回-1</p>
+
+<p>当然，时间小于O(n)</p>
+
+<!--more-->
+
+
+<p>```</p>
+
+<h1>include&lt;stdio.h></h1>
+
+<h1>define ABS(x,y) ((-x)>=(y)?(y):(x))</h1>
+
+<p>int GetAbsMin(int *a, int n)
+{</p>
+
+<pre><code>if(a[0]&gt;=0)return a[0];
+if(a[n-1]&lt;=0)return a[n-1];
+int begin = 0;
+int end   = n-1;
+
+int left = a[0];
+int right = a[n-1];
+int mid;
+while(begin&lt;=end)
+{
+    mid = (begin+end)/2;
+    if(a[mid]==0)return 0;
+    if(a[mid]&gt;0)
+    {
+        if(a[mid-1]&lt;0)
+        {
+            left = a[mid-1];
+            right = a[mid];
+            break;
+        }
+        else
+        {
+            end = mid-1;
+        }
+    }
+    else
+    {
+        if(a[mid+1]&gt;0)
+        {
+            left=a[mid];
+            right=a[mid+1];
+            break;
+        }
+        else
+            begin = mid + 1;
+    }
+
+}
+return ABS(left,right);
+</code></pre>
+
+<p>}</p>
+
+<p>int main()
+{</p>
+
+<pre><code>int n,i;
+int a[100];
+int result;
+while(~scanf("%d",&amp;n))
+{
+    for(i=0;i&lt;n;i++)
+        scanf("%d",&amp;a[i]);
+   result =  GetAbsMin(a,n); 
+   printf("%d\n",result);
+}
+return 0;
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[进制转化]]></title>
@@ -337,46 +425,6 @@ public:</p>
 
 <p>};
 ```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ACM 重定向]]></title>
-    <link href="http://mkdir1.github.io/blog/2014/07/25/acm-zhong-ding-xiang/"/>
-    <updated>2014-07-25T09:07:06+08:00</updated>
-    <id>http://mkdir1.github.io/blog/2014/07/25/acm-zhong-ding-xiang</id>
-    <content type="html"><![CDATA[<h4>ACM输入输出重定向</h4>
-
-<p>问题描述：<br/>
-在做ACM题时，对于输入输出，总需要键盘来操作，这样显然不方向，对于多数据的测试，显然不合理，现有一个实用的重定向函数，可很好解决.</p>
-
-<!--more-->
-
-
-<h5>解决</h5>
-
-<p>首先，gcc中有一个－D选项，这样表示在文件中添加宏定义</p>
-
-<pre><code>gcc -o example example.c -D TAG
-</code></pre>
-
-<p>在正文中添加</p>
-
-<pre><code>#ifndef TAG
-    freopen("input.txt", "rt", stdin);
-    freopen("output.txt", "wt+", stdout);
-#endif
-</code></pre>
-
-<p>这样，就直接可以重定向到两个文件中．</p>
-
-<p>包含在<code>#include&lt;stdio.h&gt;</code>中</p>
-
-<hr />
-
-<h5>另外</h5>
-
-<p>在windows下找到一个解决方案，有bat文件中<code>example.exe&lt;input.txt&gt;output.txt</code> 不过，一般有IDE中就解决了，不必这么麻烦~</p>
 ]]></content>
   </entry>
   

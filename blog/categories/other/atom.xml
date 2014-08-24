@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Other | Vintion's blog]]></title>
+  <link href="http://mkdir1.github.io/blog/categories/other/atom.xml" rel="self"/>
+  <link href="http://mkdir1.github.io/"/>
+  <updated>2014-08-25T01:16:49+08:00</updated>
+  <id>http://mkdir1.github.io/</id>
+  <author>
+    <name><![CDATA[Vintion]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[开题提纲]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/25/kai-ti-ti-gang/"/>
+    <updated>2014-08-25T00:47:28+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/25/kai-ti-ti-gang</id>
+    <content type="html"><![CDATA[<h3>一种适用于异构视频转码设备的应用层编程框架</h3>
+
+<!--more-->
+
+
+<hr />
+
+<h4>一. 选题的背景及意义</h4>
+
+<ul>
+<li><strong>1</strong> 视频转码解决方案
+
+<ul>
+<li>视频转码介绍</li>
+<li>解决方案简介</li>
+</ul>
+</li>
+<li><strong>2</strong> 当前主流解决方案
+
+<ul>
+<li>软件转码</li>
+<li>GPU+CPU</li>
+<li>异构设备(重点讲解）</li>
+</ul>
+</li>
+<li><strong>3.</strong> 异构视频转码设备
+
+<ul>
+<li>特点</li>
+<li>优势：
+
+<ul>
+<li>可定制，异构视频转码设备主要是针对特定应用场景定制的，一般适用场景不多</li>
+<li>实现的方案多，可选项多。</li>
+</ul>
+</li>
+<li>不足：
+
+<ul>
+<li>可移植性差，依赖特定的硬件设备。</li>
+<li>可编程性差，依赖对应的底层软件接口。整个程序框架规定好了之后，几乎无法更改，除非是硬件提供者，可看到底层代码实现才能改动，用户几无编程的可能，只能在小问题上修改。</li>
+<li>维护升级困难，可扩展性差。这个是基于上面两个带来的问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>二  国内外本学科领域的现状和趋势</h4>
+
+<ul>
+<li><p><strong>1.</strong> 针对于视频，国内外研究重点</p>
+
+<ul>
+<li>硬件实现（开发或改进硬件的体系结构以适用于视频处理）</li>
+<li>算法改进（如何用更高效的算法来处理视频）</li>
+<li>提高转码速度相关研究</li>
+<li>视频质量或其它细节的研究</li>
+</ul>
+</li>
+<li><p><strong>2.</strong> 视频处理异构设备的现状和进展</p>
+
+<ul>
+<li><strong>2.1</strong> CPU+GPU模型是主流</li>
+<li><strong>2.2</strong> 其它解决方案</li>
+<li><strong>2.3</strong> 这些研究(异构解决方案)的缺点（重点）
+
+<ul>
+<li>各异构解决方案太依赖于硬件提供商，底层接口差异性太大，没有一个通用统一的定义接口，导致异构设备编程因难</li>
+<li>逻辑层次上，没有一个统一的解决方案，特别是应用层。</li>
+<li>虽然有众多的异构设备支持OpenCL等类似语言简化编程，但硬件依赖性太大。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>三，研究内容和预期目标</h4>
+
+<ul>
+<li><strong>1.</strong> 研究的主要内容
+
+<ul>
+<li><strong>1.1</strong> 视频转码的一般过程</li>
+<li><strong>1.2</strong> 视频转码分层思想的提出</li>
+<li><strong>1.3</strong> 视频其它处理在分层中的位置和应用
+其它处理是包括大小缩放，转置，编码算法的选择，视频截取，嵌入音频等，这些可在分层的层次中指出，并具体到应用场景</li>
+</ul>
+</li>
+<li><strong>2.</strong> 预期目标
+
+<ul>
+<li><strong>2.1</strong> 归纳总结出视频转码的逻辑结构，提出基于应用层的视频转码框架</li>
+<li><strong>2.2</strong> 涉及的点包含主要细节
+视频处理有太多的要求和细节，可能无法找到通用统一的归纳，但针对主要的细节，需要有很明确清晰的研究。比如如何处理嵌入音频，如何放大缩小视频，</li>
+<li><strong>2.3</strong> 在主要的异构平台上实现</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h5>四. 研究方法，实验方案，技术路线及可行性分析</h5>
+
+<ul>
+<li><strong>1.</strong> 借鉴项目中已有成果
+
+<ul>
+<li>Intel HD Graphics转码方案，调用的是Intel Media SDK接口，可实现多路视频实时转码。在Intel&reg; Core&trade; i3-3110M CPU @ 2.40GHz处理器上(显示核心是Intel HD Graphics 4000基本频率650MHz)，可实现5路1080p实时转码(h264转h264)</li>
+<li>Ffmpeg开源转码框架，其中H.264格式视频编码，改写成调用Intel HD Graphics硬件编码方案，即为此编写硬件编码器</li>
+<li>Godson-dm芯片，使用的是Coda980编程接口</li>
+</ul>
+</li>
+<li><p><strong>2.</strong> 本文主要作用和创新点</p>
+
+<ul>
+<li><strong>2.1</strong> 在应用层面上，提出了一种视频转码的通用框架，而在底层及各异构模型的具体实现则不关注。</li>
+<li><strong>2.2</strong> 针对应用层的编程框架，定义主要的接口和协议，实现视频转码</li>
+</ul>
+</li>
+<li><p><strong>3.</strong> 主要内容：</p>
+
+<ul>
+<li><strong>3.1</strong> 归纳出视频处理的一般流程和要点</li>
+<li><strong>3.2</strong> 总结一套类似协议的编程框架，类比于网络中的应用层</li>
+<li><strong>3.3</strong>  定义主要的接口和实现细节</li>
+<li><strong>3.4</strong> 在几种主流异构设备上实现</li>
+<li><strong>3.5</strong> 对比各设备中视频转码的数据，分析并修正各接口与实现</li>
+</ul>
+</li>
+<li><p><strong>4.</strong> 视频转码的一般逻辑</p>
+
+<ul>
+<li>异构视频设备初始化</li>
+<li>资源的初始化</li>
+<li>视频处理（循环步骤）
+
+<ul>
+<li>1.读取源视频</li>
+<li>2.解封装，分析视频格式，大小，码率等相关信息</li>
+<li>3.调用对应的解码器，将相关信息存入对应的结构体中，保存下来</li>
+<li>4.对视频部分解码
+（这个步骤重点描述）循环部分</li>
+<li>5.读入编码信息，设定编码器参数和格式</li>
+<li>6.调用编码器编码</li>
+<li>7.封装相关数据，包括音频和文字</li>
+<li>8.结束</li>
+</ul>
+</li>
+<li>资源回收</li>
+<li>关闭设备</li>
+</ul>
+</li>
+<li><p><strong>5.</strong> 实验方案</p>
+
+<ul>
+<li><strong>5.1</strong> 归纳实现现在项目中的三种异构设备，得到主要评估数据</li>
+<li><strong>5.2</strong> 通过对三种异构设备提供的底层接口，定义应用层的接口，并实现其中的几种</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>五，已有的科研基础和科研条件</h4>
+
+<ul>
+<li><p><strong>1.</strong>本人已有研究成果</p>
+
+<ul>
+<li>Intel HD Graphics转码方案，</li>
+<li>Godson-dm芯片，使用的是Coda980</li>
+<li>Ffmpeg视频开源解决方案</li>
+</ul>
+</li>
+<li><p><strong>2.</strong>现有成果需要整理
+～以上三种解决方案的相关数据，包括硬件要求，平台，环境，操作系统，转码速度，格式支持，视频质量相关等</p></li>
+<li><p><strong>3.</strong> 总结归纳</p>
+
+<ul>
+<li>针对以上大约四种异构转码解决方案，分别总结出各种解决方案应用层的实现方法</li>
+<li>定义相关条件和接口要素，并在四种方案中找到对应的接口实现</li>
+</ul>
+</li>
+<li><p><strong>4.</strong> 后续研究</p>
+
+<ul>
+<li>GPU转码，使用OpenCL编程框架，调用Nvadia的Cuda接口来实现转码</li>
+<li>其它异构视频解决方案</li>
+<li>比较异同</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>六，工作计划和进度</h4>
+
+<ul>
+<li><p><strong>1.</strong>几个时间点</p>
+
+<ul>
+<li>9月前开题</li>
+<li>12月中期</li>
+<li>第二年5月答辩，6月毕业</li>
+</ul>
+</li>
+<li><p><strong>2.</strong>计划安排</p>
+
+<ul>
+<li>从开题到中期阶段，总结归纳已有成果，并收集得到相关数据。调研最新技术，大体有论文雏形。</li>
+<li>中期之后，可根据已有的结论成果，应用于其它异构平台。主要是GPU+OpenCl编程框架中。并研究细节问题，丰富论文内容。</li>
+<li>撰写论文，参考查阅文献，修改论文</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>七，参考文献</h4>
+
+<hr />
+
+<h4>八，需要制作的图表</h4>
+
+<p><strong>（论文中需要用到的并制作的）</strong></p>
+
+<ul>
+<li>图:
+
+<ul>
+<li>图1： 视频处理层次图（从底层硬件一直到上层应用）</li>
+<li>图2： 应用层视频处理逻辑层（仅针对应用的逻辑结构，重点）</li>
+<li>图3-5: 针对具体的某一个实现，比如coda980,Media SDK,ffmpeg的实现，这三个图，需要根据图2的框架，具体到接口和定义上（重点）</li>
+<li>图6:GPU+OpenCL编程框架，这个图是根据自己的论文来制作</li>
+</ul>
+</li>
+<li><p>表</p>
+
+<ul>
+<li>表1：主流异构视频转码方案和应用场景，平台等</li>
+<li>表2：三种已有实现方案的对比，主要是接口的对比，以图3-5为依据</li>
+<li>表3：三种已有实现方案数据的对比，主要是针对影响视频的关键要素</li>
+</ul>
+</li>
+<li><p>文献中引用的图表</p></li>
+</ul>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>最小绝对值 - Vintion's blog</title>
+  <meta name="author" content="Vintion">
+
+  
+  <meta name="description" content="求一个递增序列中绝对值最小的数 比如(-3, -1, 2,4,6),返回-1 当然，时间小于O(n) 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/08/22/zui-xiao-jue-dui-zhi">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vintion's blog</a></h1>
+  
+    <h2>~夜黑路滑，社会复杂~</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mkdir1.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首页</a></li>
+  <li><a href="/blog/archives">归档</a></li>
+  <li><a href="/artistic">Artistic</a></li>
+  <li><a href="/music">Music</a></li>
+  <li><a href="/picture">Picture</a></li>
+  <li><a href="/download">Download</a></li>
+  <li><a href="/about">ReadMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">最小绝对值</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-22T21:31:19+08:00" pubdate data-updated="true">Aug 22<sup>nd</sup>, 2014</time>
+        
+        
+          | <a href="#comments">Comments</a>
+         
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h4>求一个递增序列中绝对值最小的数</h4>
+
+<p>比如(-3, -1, 2,4,6),返回-1</p>
+
+<p>当然，时间小于O(n)</p>
+
+<!--more-->
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;stdio.h&gt;
+</span><span class='line'>#define ABS(x,y) ((-x)&gt;=(y)?(y):(x))
+</span><span class='line'>int GetAbsMin(int *a, int n)
+</span><span class='line'>{
+</span><span class='line'>    if(a[0]&gt;=0)return a[0];
+</span><span class='line'>    if(a[n-1]&lt;=0)return a[n-1];
+</span><span class='line'>    int begin = 0;
+</span><span class='line'>    int end   = n-1;
+</span><span class='line'>
+</span><span class='line'>    int left = a[0];
+</span><span class='line'>    int right = a[n-1];
+</span><span class='line'>    int mid;
+</span><span class='line'>    while(begin&lt;=end)
+</span><span class='line'>    {
+</span><span class='line'>        mid = (begin+end)/2;
+</span><span class='line'>        if(a[mid]==0)return 0;
+</span><span class='line'>        if(a[mid]&gt;0)
+</span><span class='line'>        {
+</span><span class='line'>            if(a[mid-1]&lt;0)
+</span><span class='line'>            {
+</span><span class='line'>                left = a[mid-1];
+</span><span class='line'>                right = a[mid];
+</span><span class='line'>                break;
+</span><span class='line'>            }
+</span><span class='line'>            else
+</span><span class='line'>            {
+</span><span class='line'>                end = mid-1;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>        else
+</span><span class='line'>        {
+</span><span class='line'>            if(a[mid+1]&gt;0)
+</span><span class='line'>            {
+</span><span class='line'>                left=a[mid];
+</span><span class='line'>                right=a[mid+1];
+</span><span class='line'>                break;
+</span><span class='line'>            }
+</span><span class='line'>            else
+</span><span class='line'>                begin = mid + 1;
+</span><span class='line'>        }
+</span><span class='line'>
+</span><span class='line'>    }
+</span><span class='line'>    return ABS(left,right);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'>    int n,i;
+</span><span class='line'>    int a[100];
+</span><span class='line'>    int result;
+</span><span class='line'>    while(~scanf("%d",&n))
+</span><span class='line'>    {
+</span><span class='line'>        for(i=0;i&lt;n;i++)
+</span><span class='line'>            scanf("%d",&a[i]);
+</span><span class='line'>       result =  GetAbsMin(a,n); 
+</span><span class='line'>       printf("%d\n",result);
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vintion</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-22T21:31:19+08:00" pubdate data-updated="true">Aug 22<sup>nd</sup>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+<!-
+  
+  
+  
+->
+
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1398179991822421" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</div>
+
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/08/20/an-zhuang-arm-linux-gcc/" title="Previous Post: 安装arm-linux-gcc">&laquo; 安装arm-linux-gcc</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/25/kai-ti-ti-gang/" title="Next Post: 开题提纲">开题提纲 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- 多说评论框 start -->
+	<div class="ds-thread"> </div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"vintion"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h2>ReadMe</h2>
+  <a href="http://blog.csdn.net/vintionnee" target="_blank">A Place Nearby </a>
+  <p><a href="mailto:niwenxianq@gmail.com?subject=From Github io%20again">niwenxianq@gmail.com</a></p>
+  <a href="http://wpa.qq.com/msgrd?v=3&uin=984491514&site=http://mkdir1.github.io&menu=yes"></a>
+  <audio controls="controls">
+  <source src="/music/hometown.mp3" type="audio/mpeg">
+  </audio>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/algorithm/'>algorithm (19)</a></li>
+<li class='category'><a href='/blog/categories/android/'>android (1)</a></li>
+<li class='category'><a href='/blog/categories/architecture/'>architecture (1)</a></li>
+<li class='category'><a href='/blog/categories/artistic/'>artistic (2)</a></li>
+<li class='category'><a href='/blog/categories/c/'>c (1)</a></li>
+<li class='category'><a href='/blog/categories/language/'>language (9)</a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (4)</a></li>
+<li class='category'><a href='/blog/categories/materials/'>materials (1)</a></li>
+<li class='category'><a href='/blog/categories/other/'>other (1)</a></li>
+<li class='category'><a href='/blog/categories/others/'>others (2)</a></li>
+<li class='category'><a href='/blog/categories/tools/'>tools (10)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h2>Recent Posts</h2>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/25/kai-ti-ti-gang/">开题提纲</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/22/zui-xiao-jue-dui-zhi/">最小绝对值</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/20/an-zhuang-arm-linux-gcc/">安装arm-linux-gcc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/19/ke-bian-can-shu-han-shu-zen-yao-gao/">可变参数函数怎么搞?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/18/jin-zhi-zhuan-hua/">进制转化</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+<h2>最近评论</h2>
+<ul class="ds-recent-comments" data-num-items="8">
+</ul>
+<!--多说js加载开始，一个页面只需要加载一次 -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"vintion"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';
+ds.async = true;ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!--多说js加载结束，一个页面只需要加载一次 -->
+</section>
+<section>
+<h2>推荐链接</h2>
+<ul>
+        <li>
+        <a href="http://x-wei.github.io/">x-wei</a>
+        <a href="https://www.hackerrank.com/">hackerrank</a>
+        <a href="https://stackedit.io"/>stackedit</a>
+        </li>
+</ul>
+</section>
+<section>
+    <h2>访客地图</h2>
+    <script type="text/javascript" src="http://jd.revolvermaps.com/2/4.js?i=36j0ms4gqgk&amp;m=0&amp;h=128&amp;c=ff0000&amp;r=35" async="async"></script>
+</section>
+<section>
+    <h2>小鱼儿(点击喂食)</h2>
+<object type="application/x-shockwave-flash" style="outline:none;" data="http://cdn.abowman.com/widgets/fish/fish.swf?" width="300" height="200"><param name="movie" value="http://cdn.abowman.com/widgets/fish/fish.swf?"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param><param name="scale" value="noscale"/><param name="salign" value="tl"/></object>
+</section>
+<section>
+    <h2>微博</h2>
+    <ul id="weibo">
+    <li>
+    <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2704830175&verifier=af8051c9&dpc=1"></iframe>
+      </li>
+    </ul>
+</section>
+<!--返回顶部开始-->
+<div id="full" style="width:180px; height:150px; position:fixed; right:180px; bottom:150px; z-index:100; text-align:center; background-color:transparent; cursor:pointer;">
+        <a href="#" onclick="goTop();return false;"><img src="/images/top.png" border=0 alt="返回顶部"></a>
+</div>
+<script src="/javascripts/top.js" type="text/javascript"></script>
+<!--返回顶部结束-->
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - <a href="http://mkdir1.github.io" target="_blank">Vintion</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
