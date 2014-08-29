@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Leetcode-copy List With Random Pointer - Vintion's blog</title>
+  <title>微信公众号开发 - Vintion's blog</title>
   <meta name="author" content="Vintion">
 
   
-  <meta name="description" content="Copy List with random pointer 这题早就看过，解法也知道，但是，想法与代码差距很大，半天都没发现错误．还得多多练习 Problem A linked list is given such that each node contains an additional &hellip;">
+  <meta name="description" content="微信公众号开发 微信现在使用已经非常广了，如果有一个自己的公众号，那将有更多的功能 具体不表，这里涉及主要是搭建服务器，Php的相关知识。具体的搭建服务过程一笔带过 开通公众号 账号注册 [!https://mp.weixin.qq.com/] 验证可能需要一段时间
+基本功能， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/07/28/leetcode-copy-list-with-random-pointer">
+  <link rel="canonical" href="http://mkdir1.github.io/blog/2014/08/26/wei-xin-gong-zhong-hao-kai-fa">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Vintion's blog" type="application/atom+xml">
@@ -73,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Leetcode-copy List With Random Pointer</h1>
+      <h1 class="entry-title">微信公众号开发</h1>
     
     
       <p class="meta">
@@ -89,7 +90,7 @@
   
 
 
-<time datetime="2014-07-28T00:53:19+08:00" pubdate data-updated="true">Jul 28<sup>th</sup>, 2014</time>
+<time datetime="2014-08-26T21:01:25+08:00" pubdate data-updated="true">Aug 26<sup>th</sup>, 2014</time>
         
         
           | <a href="#comments">Comments</a>
@@ -99,22 +100,27 @@
   </header>
 
 
-<div class="entry-content"><h4>Copy List with random pointer</h4>
+<div class="entry-content"><h4>微信公众号开发</h4>
 
-<p>这题早就看过，解法也知道，但是，想法与代码差距很大，半天都没发现错误．还得多多练习</p>
+<p>微信现在使用已经非常广了，如果有一个自己的公众号，那将有更多的功能</p>
+
+<p>具体不表，这里涉及主要是搭建服务器，Php的相关知识。具体的搭建服务过程一笔带过</p>
 
 <!--more-->
 
 
-<h5>Problem</h5>
+<h5>开通公众号</h5>
 
-<p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
+<ul>
+<li>账号注册 [!<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a>] 验证可能需要一段时间</li>
+<li>基本功能，这里面的所有功能都可以参考说明完成，</li>
+<li>开发模式，需要搭建一个服务器，选用新浪sae服务器，下载示例代码wx_sample.php</li>
+</ul>
 
-<p>Return a deep copy of the list.</p>
 
-<h5>code:</h5>
+<h4>示例代码</h4>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -166,62 +172,134 @@
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
 <span class='line-number'>52</span>
-</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * Definition for singly-linked list with a random pointer.</span>
-</span><span class='line'><span class="cm"> * struct RandomListNode {</span>
-</span><span class='line'><span class="cm"> *     int label;</span>
-</span><span class='line'><span class="cm"> *     RandomListNode *next, *random;</span>
-</span><span class='line'><span class="cm"> *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}</span>
-</span><span class='line'><span class="cm"> * };</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-</span><span class='line'><span class="nl">public:</span>
-</span><span class='line'>    <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">copyRandomList</span><span class="p">(</span><span class="n">RandomListNode</span> <span class="o">*</span><span class="n">head</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">Head</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span><span class="o">==</span><span class="n">head</span><span class="p">)</span>
-</span><span class='line'>            <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">RandomListNode</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="o">*</span><span class="n">q</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">p</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RandomListNode</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">label</span><span class="p">);</span>
-</span><span class='line'>            <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">p</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">)</span> <span class="c1">//　这里可能为空</span>
-</span><span class='line'>                <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">random</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">else</span>
-</span><span class='line'>                <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">random</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</span><span class='line'>             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="n">Head</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">p</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">q</span> <span class="o">=</span> <span class="n">Head</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span><span class="o">==</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">Head</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nb">NULL</span><span class="o">!=</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span>  <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>       <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span><span class="c1">// 这里要断开</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">Head</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">};</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?php
+</span><span class='line'>/**
+</span><span class='line'>  * wechat php test
+</span><span class='line'>  */
+</span><span class='line'>
+</span><span class='line'>//define your token
+</span><span class='line'>define("TOKEN", "weixin");
+</span><span class='line'>$wechatObj = new wechatCallbackapiTest();
+</span><span class='line'>$wechatObj-&gt;valid();
+</span><span class='line'>
+</span><span class='line'>class wechatCallbackapiTest
+</span><span class='line'>{
+</span><span class='line'>  public function valid()
+</span><span class='line'>    {
+</span><span class='line'>        $echoStr = $_GET["echostr"];
+</span><span class='line'>
+</span><span class='line'>        //valid signature , option
+</span><span class='line'>        if($this-&gt;checkSignature()){
+</span><span class='line'>          echo $echoStr;
+</span><span class='line'>          exit;
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    public function responseMsg()
+</span><span class='line'>    {
+</span><span class='line'>      //get post data, May be due to the different environments
+</span><span class='line'>      $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+</span><span class='line'>
+</span><span class='line'>          //extract post data
+</span><span class='line'>      if (!empty($postStr)){
+</span><span class='line'>                /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+</span><span class='line'>                   the best way is to check the validity of xml by yourself */
+</span><span class='line'>                libxml_disable_entity_loader(true);
+</span><span class='line'>                  $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+</span><span class='line'>                $fromUsername = $postObj-&gt;FromUserName;
+</span><span class='line'>                $toUsername = $postObj-&gt;ToUserName;
+</span><span class='line'>                $keyword = trim($postObj-&gt;Content);
+</span><span class='line'>                $time = time();
+</span><span class='line'>                $textTpl = "&lt;xml&gt;
+</span><span class='line'>                          &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</span><span class='line'>                          &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</span><span class='line'>                          &lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</span><span class='line'>                          &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+</span><span class='line'>                          &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+</span><span class='line'>                          &lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+</span><span class='line'>                          &lt;/xml&gt;";             
+</span><span class='line'>              if(!empty( $keyword ))
+</span><span class='line'>                {
+</span><span class='line'>                      $msgType = "text";
+</span><span class='line'>                  $contentStr = "Welcome to wechat world!";
+</span><span class='line'>                  $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+</span><span class='line'>                  echo $resultStr;
+</span><span class='line'>                }else{
+</span><span class='line'>                  echo "Input something...";
+</span><span class='line'>                }
+</span><span class='line'>
+</span><span class='line'>        }else {
+</span><span class='line'>          echo "";
+</span><span class='line'>          exit;
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>      
+</span><span class='line'>  private function checkSignature()
+</span><span class='line'>  {
+</span><span class='line'>        // you must define TOKEN by yourself
+</span><span class='line'>        if (!defined("TOKEN")) {
+</span><span class='line'>            throw new Exception('TOKEN is not defined!');
+</span><span class='line'>        }
+</span><span class='line'>        
+</span><span class='line'>        $signature = $_GET["signature"];
+</span><span class='line'>        $timestamp = $_GET["timestamp"];
+</span><span class='line'>        $nonce = $_GET["nonce"];
+</span><span class='line'>              
+</span><span class='line'>      $token = TOKEN;
+</span><span class='line'>      $tmpArr = array($token, $timestamp, $nonce);
+</span><span class='line'>        // use SORT_STRING rule
+</span><span class='line'>      sort($tmpArr, SORT_STRING);
+</span><span class='line'>      $tmpStr = implode( $tmpArr );
+</span><span class='line'>      $tmpStr = sha1( $tmpStr );
+</span><span class='line'>      
+</span><span class='line'>      if( $tmpStr == $signature ){
+</span><span class='line'>          return true;
+</span><span class='line'>      }else{
+</span><span class='line'>          return false;
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>?&gt;
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>两处注释的地方，瞪大眼睛都没看出来．</p>
 </div>
 
 
@@ -244,12 +322,12 @@
   
 
 
-<time datetime="2014-07-28T00:53:19+08:00" pubdate data-updated="true">Jul 28<sup>th</sup>, 2014</time>
+<time datetime="2014-08-26T21:01:25+08:00" pubdate data-updated="true">Aug 26<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
+    <a class='category' href='/blog/categories/other/'>other</a>
   
 </span>
 
@@ -281,10 +359,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/27/leetcode-4sum/" title="Previous Post: leetcode-4Sum">&laquo; leetcode-4Sum</a>
+        <a class="basic-alignment left" href="/blog/2014/08/25/kai-ti-ti-gang/" title="Previous Post: 开题提纲">&laquo; 开题提纲</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/07/30/qian-duan-rssji-he/" title="Next Post: 前端rss集合">前端rss集合 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/08/28/zhou/" title="Next Post: 读周鸿祎的书">读周鸿祎的书 &raquo;</a>
       
     </p>
   </footer>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Other | Vintion's blog]]></title>
   <link href="http://mkdir1.github.io/blog/categories/other/atom.xml" rel="self"/>
   <link href="http://mkdir1.github.io/"/>
-  <updated>2014-08-25T01:35:21+08:00</updated>
+  <updated>2014-08-29T16:17:42+08:00</updated>
   <id>http://mkdir1.github.io/</id>
   <author>
     <name><![CDATA[Vintion]]></name>
@@ -12,6 +12,129 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[微信公众号开发]]></title>
+    <link href="http://mkdir1.github.io/blog/2014/08/26/wei-xin-gong-zhong-hao-kai-fa/"/>
+    <updated>2014-08-26T21:01:25+08:00</updated>
+    <id>http://mkdir1.github.io/blog/2014/08/26/wei-xin-gong-zhong-hao-kai-fa</id>
+    <content type="html"><![CDATA[<h4>微信公众号开发</h4>
+
+<p>微信现在使用已经非常广了，如果有一个自己的公众号，那将有更多的功能</p>
+
+<p>具体不表，这里涉及主要是搭建服务器，Php的相关知识。具体的搭建服务过程一笔带过</p>
+
+<!--more-->
+
+
+<h5>开通公众号</h5>
+
+<ul>
+<li>账号注册 [!<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a>] 验证可能需要一段时间</li>
+<li>基本功能，这里面的所有功能都可以参考说明完成，</li>
+<li>开发模式，需要搭建一个服务器，选用新浪sae服务器，下载示例代码wx_sample.php</li>
+</ul>
+
+
+<h4>示例代码</h4>
+
+<p>```
+&lt;?php
+/<em>*
+  * wechat php test
+  </em>/</p>
+
+<p>//define your token
+define(&ldquo;TOKEN&rdquo;, &ldquo;weixin&rdquo;);
+$wechatObj = new wechatCallbackapiTest();
+$wechatObj->valid();</p>
+
+<p>class wechatCallbackapiTest
+{</p>
+
+<pre><code>public function valid()
+{
+    $echoStr = $_GET["echostr"];
+
+    //valid signature , option
+    if($this-&gt;checkSignature()){
+        echo $echoStr;
+        exit;
+    }
+}
+
+public function responseMsg()
+{
+    //get post data, May be due to the different environments
+    $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+
+    //extract post data
+    if (!empty($postStr)){
+            /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+               the best way is to check the validity of xml by yourself */
+            libxml_disable_entity_loader(true);
+            $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $fromUsername = $postObj-&gt;FromUserName;
+            $toUsername = $postObj-&gt;ToUserName;
+            $keyword = trim($postObj-&gt;Content);
+            $time = time();
+            $textTpl = "&lt;xml&gt;
+                        &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+                        &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+                        &lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+                        &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+                        &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+                        &lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+                        &lt;/xml&gt;";             
+            if(!empty( $keyword ))
+            {
+                $msgType = "text";
+                $contentStr = "Welcome to wechat world!";
+                $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                echo $resultStr;
+            }else{
+                echo "Input something...";
+            }
+
+    }else {
+        echo "";
+        exit;
+    }
+}
+
+private function checkSignature()
+{
+    // you must define TOKEN by yourself
+    if (!defined("TOKEN")) {
+        throw new Exception('TOKEN is not defined!');
+    }
+
+    $signature = $_GET["signature"];
+    $timestamp = $_GET["timestamp"];
+    $nonce = $_GET["nonce"];
+
+    $token = TOKEN;
+    $tmpArr = array($token, $timestamp, $nonce);
+    // use SORT_STRING rule
+    sort($tmpArr, SORT_STRING);
+    $tmpStr = implode( $tmpArr );
+    $tmpStr = sha1( $tmpStr );
+
+    if( $tmpStr == $signature ){
+        return true;
+    }else{
+        return false;
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+<p>?></p>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[开题提纲]]></title>
